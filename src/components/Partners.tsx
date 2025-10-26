@@ -1,57 +1,105 @@
 export const Partners = () => {
-  return (
-    <section id="partners" className="py-20 md:py-32 gradient-subtle">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Our Partners
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-            Hack for RVA is made possible through the generous support of our
-            partners who share our vision for a better Richmond.
-          </p>
-        </div>
+  const primaryPartners = [
+    {
+      name: "City of Richmond / Mayor's Office",
+      subtitle:
+        "Strategic priorities | Implementation pathway | City department champions",
+    },
+    {
+      name: "CoStar Group",
+      subtitle: "Venue & facilities | PropTech expertise | Employee mentors",
+    },
+    {
+      name: "Richmond Technology Council",
+      subtitle: "Community outreach | Tech mentorship | Event operations",
+    },
+  ];
 
-        {/* Venue Partner Highlight */}
-        <div className="max-w-2xl mx-auto mb-16">
-          <div className="bg-card p-8 md:p-12 rounded-2xl shadow-elegant border border-border text-center">
-            <h3 className="text-2xl font-bold text-card-foreground mb-4">
-              Venue Partner
-            </h3>
-            <div className="text-4xl font-bold text-primary mb-2">CoStar</div>
-            <p className="text-muted-foreground">
-              Proud to host Hack for RVA at CoStar Headquarters in Richmond
+  const targetPartners = [
+    "Dominion Energy",
+    "CarMax",
+    "Capital One",
+    "VCU",
+    "Venture Richmond",
+  ];
+
+  return (
+    <section id="partners" className="py-20 md:py-32 bg-secondary/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Powered By Richmond
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              A partnership between city government, industry leaders, and
+              community
             </p>
           </div>
-        </div>
 
-        {/* Partner Logos Grid - Placeholder */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center opacity-60">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div
-                key={i}
-                className="w-40 h-24 bg-muted rounded-lg flex items-center justify-center"
-              >
-                <span className="text-muted-foreground font-medium">
-                  Partner Logo
-                </span>
-              </div>
-            ))}
+          {/* Primary Partners */}
+          <div className="mb-16">
+            <h3 className="text-xl font-bold text-foreground mb-8 text-center">
+              Primary Partners
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {primaryPartners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="bg-card p-8 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border group"
+                >
+                  {/* Logo Placeholder */}
+                  <div className="h-24 bg-muted/40 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-smooth">
+                    <span className="text-muted-foreground/60 group-hover:text-accent font-bold text-lg text-center px-4">
+                      {partner.name}
+                    </span>
+                  </div>
+                  {/* Subtitle */}
+                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                    {partner.subtitle}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {/* Sponsorship CTA */}
-        <div className="text-center mt-16">
-          <p className="text-lg text-muted-foreground mb-4">
-            Interested in partnering with us?
-          </p>
-          <a
-            href="mailto:sponsors@hackforrva.org"
-            className="text-primary hover:text-primary-light font-semibold transition-smooth underline"
-          >
-            sponsors@hackforrva.org
-          </a>
+          {/* Target Partners */}
+          <div className="mb-12">
+            <h3 className="text-xl font-bold text-foreground mb-8 text-center">
+              In Conversation With
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+              {targetPartners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="bg-card p-6 rounded-lg shadow-sm border border-border hover:border-accent/30 transition-smooth group"
+                >
+                  <div className="h-20 bg-muted/30 rounded flex items-center justify-center group-hover:bg-accent/10 transition-smooth">
+                    <span className="text-muted-foreground/50 group-hover:text-accent font-semibold text-sm text-center px-2">
+                      {partner}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-16 space-y-4">
+            <p className="text-lg text-muted-foreground mb-6">
+              Interested in partnering with us?
+            </p>
+            <a
+              href="mailto:sponsors@hackforrva.org"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent hover:bg-accent/90 text-accent-foreground font-semibold rounded-lg shadow-elegant hover:shadow-hover transition-smooth"
+            >
+              Become a Partner
+            </a>
+            <p className="text-sm text-muted-foreground mt-4">
+              Email: sponsors@hackforrva.org
+            </p>
+          </div>
         </div>
       </div>
     </section>
