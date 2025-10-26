@@ -1,17 +1,22 @@
+import costarLogo from "@/assets/costar-logo.png";
+
 export const Partners = () => {
   const primaryPartners = [
     {
       name: "City of Richmond / Mayor's Office",
       subtitle:
         "Strategic priorities | Implementation pathway | City department champions",
+      logo: null,
     },
     {
       name: "CoStar Group",
       subtitle: "Venue & facilities | PropTech expertise | Employee mentors",
+      logo: costarLogo,
     },
     {
       name: "Richmond Technology Council",
       subtitle: "Community outreach | Tech mentorship | Event operations",
+      logo: null,
     },
   ];
 
@@ -49,11 +54,19 @@ export const Partners = () => {
                   key={index}
                   className="bg-card p-8 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border group"
                 >
-                  {/* Logo Placeholder */}
-                  <div className="h-24 bg-muted/40 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-smooth">
-                    <span className="text-muted-foreground/60 group-hover:text-accent font-bold text-lg text-center px-4">
-                      {partner.name}
-                    </span>
+                  {/* Logo */}
+                  <div className="h-24 bg-muted/40 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-smooth px-4">
+                    {partner.logo ? (
+                      <img 
+                        src={partner.logo} 
+                        alt={`${partner.name} logo`}
+                        className="max-h-16 w-auto object-contain"
+                      />
+                    ) : (
+                      <span className="text-muted-foreground/60 group-hover:text-accent font-bold text-lg text-center">
+                        {partner.name}
+                      </span>
+                    )}
                   </div>
                   {/* Subtitle */}
                   <p className="text-sm text-muted-foreground text-center leading-relaxed">
