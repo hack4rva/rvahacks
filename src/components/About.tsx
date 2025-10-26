@@ -1,66 +1,71 @@
-import { Code, Users, Lightbulb, Award } from "lucide-react";
+import { Users, Target, Calendar, DollarSign } from "lucide-react";
 
-const features = [
-  {
-    icon: Code,
-    title: "Build Real Solutions",
-    description:
-      "Work on projects that address actual challenges facing Richmond residents and businesses.",
-  },
+const stats = [
   {
     icon: Users,
-    title: "Collaborate & Network",
-    description:
-      "Connect with fellow innovators, mentors, and civic leaders passionate about our city.",
+    value: "150-200",
+    label: "Participants",
   },
   {
-    icon: Lightbulb,
-    title: "Learn & Grow",
-    description:
-      "Participate in workshops, get mentorship, and expand your technical and civic skills.",
+    icon: Target,
+    value: "8-10",
+    label: "Civic Challenges",
   },
   {
-    icon: Award,
-    title: "Win Prizes",
-    description:
-      "Compete for prizes and recognition while making a meaningful impact on Richmond.",
+    icon: Calendar,
+    value: "3 Days",
+    label: "Flexible Format",
+  },
+  {
+    icon: DollarSign,
+    value: "$5K",
+    label: "Micro-Grants",
   },
 ];
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 md:py-32 gradient-subtle">
+    <section id="about" className="py-20 md:py-32 bg-secondary/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
-            What is Hack for RVA?
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">
+            What We're Building
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Hack for RVA is Richmond's premier civic hackathon, bringing
-            together talented developers, designers, entrepreneurs, and civic
-            leaders for an intensive weekend of innovation. Together, we'll
-            tackle real challenges facing our city and build solutions that
-            matter.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="bg-card p-8 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border"
-            >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-card-foreground mb-3">
-                {feature.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Main Text */}
+            <div className="space-y-6">
+              <p className="text-lg text-foreground/90 leading-relaxed">
+                Hack for RVA brings together Richmond's brightest minds to solve
+                real problems for the City of Richmond. This isn't just another
+                hackathon—it's a weekend where solutions get actually
+                implemented. Where a CoStar engineer teams up with a VCU student
+                and a community organizer to reimagine how our city works.
               </p>
             </div>
-          ))}
+
+            {/* Right Column - Stats */}
+            <div className="grid grid-cols-2 gap-6">
+              {stats.map((stat, index) => (
+                <div
+                  key={index}
+                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border"
+                >
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                      <stat.icon className="w-5 h-5 text-accent" />
+                    </div>
+                  </div>
+                  <div className="text-3xl font-bold text-accent mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-muted-foreground font-medium">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
