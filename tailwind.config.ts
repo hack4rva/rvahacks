@@ -15,6 +15,15 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      spacing: {
+        '1': '0.5rem', // 8px
+        '2': '1rem', // 16px
+        '3': '1.5rem', // 24px
+        '4': '2rem', // 32px
+        '6': '3rem', // 48px
+        '8': '4rem', // 64px
       },
       colors: {
         border: "hsl(var(--border))",
@@ -34,6 +43,10 @@ export default {
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
