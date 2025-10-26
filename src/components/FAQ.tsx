@@ -7,34 +7,44 @@ import {
 
 const faqs = [
   {
-    question: "Who can participate?",
+    question: "Do I need to be a programmer to participate?",
     answer:
-      "Hack for RVA is open to everyone! Whether you're a developer, designer, entrepreneur, student, or civic enthusiast, we welcome all skill levels. You just need to be passionate about making Richmond better.",
+      "No! We need designers, data analysts, policy experts, community organizers, and anyone who cares about Richmond. Technical skills help, but understanding the problem is just as important.",
   },
   {
-    question: "Do I need a team?",
+    question: "How much does it cost?",
     answer:
-      "No! You can come solo and we'll help you find a team during the event, or you can bring your own team. Teams typically range from 2-5 people with diverse skill sets.",
+      "Nothing. Hack for RVA is completely free, including meals and refreshments throughout the weekend.",
   },
   {
-    question: "What should I bring?",
+    question: "Do I need to attend all three days?",
     answer:
-      "Bring your laptop, chargers, and any tools you need to build. We'll provide WiFi, workspace, meals, and plenty of snacks throughout the weekend.",
+      "No. Choose Friday OR Saturday to build (or both if you're dedicated!), then join us Sunday for the public celebration. The flexible format accommodates different schedules.",
   },
   {
-    question: "Is there a registration fee?",
+    question: "Can I bring my family to Sunday's event?",
     answer:
-      "No, Hack for RVA is completely free to attend! This includes all meals, workshops, and access to mentors throughout the weekend.",
+      "Absolutely! Sunday is a public celebration designed to be family-friendly. Bring your kids, parents, friends—everyone's welcome.",
   },
   {
-    question: "What will I build?",
+    question: "What if I don't have a team?",
     answer:
-      "You'll work on projects that address real civic challenges in Richmond. These could be apps, websites, data visualizations, or any technology solution that helps our city.",
+      "Perfect! Team formation happens at the event. Come solo and meet amazing people, or bring friends. Teams are typically 3-5 people with diverse skills.",
   },
   {
-    question: "Are there prizes?",
+    question: "Will my work actually be used by the City?",
     answer:
-      "Yes! We'll have prizes for winning teams in various categories. More details on prizes and awards will be announced closer to the event.",
+      "Yes. Every challenge has a City department champion ready to adopt winning solutions. Winners receive 6-month mentorship and micro-grants ($1K-5K) to help pilot their projects.",
+  },
+  {
+    question: "What are the challenges?",
+    answer:
+      "We're co-designing 8-10 challenges with City departments, aligned with Mayor Avula's Action Plan. Think: 311 improvements, tree equity, small business navigation, flood risk mapping, and more. Full details coming soon.",
+  },
+  {
+    question: "When does registration open?",
+    answer:
+      "January 2026. Sign up for updates to be notified the moment registration opens.",
   },
 ];
 
@@ -47,8 +57,7 @@ export const FAQ = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Got questions? We've got answers. If you don't see your question
-            here, feel free to reach out!
+            Got questions? We've got answers.
           </p>
         </div>
 
@@ -58,12 +67,12 @@ export const FAQ = () => {
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-6 shadow-sm"
+                className="bg-card border border-border rounded-xl px-6 shadow-sm hover:shadow-elegant transition-smooth"
               >
-                <AccordionTrigger className="text-left text-lg font-semibold text-card-foreground hover:text-primary transition-smooth">
+                <AccordionTrigger className="text-left text-lg font-semibold text-card-foreground hover:text-primary transition-smooth py-5">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pt-2">
+                <AccordionContent className="text-muted-foreground leading-relaxed pt-2 pb-5">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
