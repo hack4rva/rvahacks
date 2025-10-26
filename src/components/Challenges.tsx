@@ -6,32 +6,32 @@ const challenges = [
     title: "Urban Development",
     description:
       "Create tools to improve city planning, housing accessibility, and neighborhood development.",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
+    color: "text-primary",
+    bgColor: "bg-primary/10",
   },
   {
     icon: Bike,
     title: "Transportation",
     description:
       "Design solutions for better public transit, bike infrastructure, and traffic management.",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
+    color: "text-accent",
+    bgColor: "bg-accent/10",
   },
   {
     icon: Heart,
     title: "Community Health",
     description:
       "Build platforms that connect residents with health resources and promote wellness.",
-    color: "text-red-600",
-    bgColor: "bg-red-50",
+    color: "text-secondary",
+    bgColor: "bg-secondary/10",
   },
   {
     icon: Sprout,
     title: "Sustainability",
     description:
       "Develop innovations for environmental protection, clean energy, and green spaces.",
-    color: "text-emerald-600",
-    bgColor: "bg-emerald-50",
+    color: "text-accent",
+    bgColor: "bg-accent/10",
   },
 ];
 
