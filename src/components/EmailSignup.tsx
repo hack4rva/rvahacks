@@ -9,7 +9,15 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
+import { Mail, CheckCircle } from "lucide-react";
 
 interface EmailSignupProps {
   open: boolean;
@@ -18,72 +26,132 @@ interface EmailSignupProps {
 
 export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [interest, setInterest] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call
+    // Simulate API call - In production, integrate with newsletter service or Cloud database
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    toast({
-      title: "Success!",
-      description: "You're on the list! We'll keep you updated on Hack for RVA 2026.",
-    });
-
-    setEmail("");
-    setName("");
+    setIsSuccess(true);
     setIsSubmitting(false);
-    onOpenChange(false);
+
+    // Reset after showing success
+    setTimeout(() => {
+      setEmail("");
+      setFirstName("");
+      setInterest("");
+      setIsSuccess(false);
+      onOpenChange(false);
+    }, 3000);
+  };
+
+  const handleClose = () => {
+    if (!isSubmitting) {
+      setIsSuccess(false);
+      onOpenChange(false);
+    }
   };
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold">
-            Stay Updated
-          </DialogTitle>
-          <DialogDescription className="text-base">
-            Be the first to know about registration, challenge details, and
-            event updates for Hack for RVA 2026.
-          </DialogDescription>
-        </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              id="name"
-              placeholder="Your name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-              className="border-input"
-            />
+    <Dialog open={open} onOpenChange={handleClose}>
+      <DialogContent className="sm:max-w-lg bg-accent/5 backdrop-blur-sm border-accent/20">
+        {!isSuccess ? (
+          <>
+            <DialogHeader>
+              <div className="flex items-center justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                  <Mail className="w-8 h-8 text-accent" />
+                </div>
+              </div>
+              <DialogTitle className="text-3xl font-bold text-center">
+                Stay Updated
+              </DialogTitle>
+              <DialogDescription className="text-base text-center">
+                Registration opens January 2026. Be the first to know.
+              </DialogDescription>
+            </DialogHeader>
+            <form onSubmit={handleSubmit} className="space-y-5 mt-6">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-base font-semibold">
+                  Email Address *
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="h-12 text-base border-input bg-background"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="firstName" className="text-base font-semibold">
+                  First Name <span className="text-muted-foreground text-sm">(optional)</span>
+                </Label>
+                <Input
+                  id="firstName"
+                  placeholder="Your first name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  className="h-12 text-base border-input bg-background"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="interest" className="text-base font-semibold">
+                  I'm interested as a: <span className="text-muted-foreground text-sm">(optional)</span>
+                </Label>
+                <Select value={interest} onValueChange={setInterest}>
+                  <SelectTrigger className="h-12 text-base border-input bg-background">
+                    <SelectValue placeholder="Select your interest" />
+                  </SelectTrigger>
+                  <SelectContent className="bg-background border-border z-50">
+                    <SelectItem value="participant">Participant</SelectItem>
+                    <SelectItem value="mentor">Mentor</SelectItem>
+                    <SelectItem value="sponsor">Sponsor</SelectItem>
+                    <SelectItem value="volunteer">Volunteer</SelectItem>
+                    <SelectItem value="curious">Just Curious</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full h-14 bg-accent hover:bg-accent/90 text-accent-foreground font-bold text-lg shadow-elegant hover:shadow-hover transition-smooth"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Count Me In"}
+              </Button>
+
+              <p className="text-xs text-muted-foreground text-center leading-relaxed px-2">
+                We'll send you updates about registration, challenges, and event details. No spam, we promise.
+              </p>
+            </form>
+          </>
+        ) : (
+          <div className="py-12 text-center">
+            <div className="flex items-center justify-center mb-6">
+              <div className="w-20 h-20 rounded-full bg-accent/10 flex items-center justify-center">
+                <CheckCircle className="w-12 h-12 text-accent" />
+              </div>
+            </div>
+            <h3 className="text-2xl font-bold text-foreground mb-4">
+              🎉 You're on the list!
+            </h3>
+            <p className="text-lg text-muted-foreground">
+              We'll be in touch soon with updates about Hack for RVA 2026.
+            </p>
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="border-input"
-            />
-          </div>
-          <Button
-            type="submit"
-            className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Submitting..." : "Sign Me Up"}
-          </Button>
-        </form>
+        )}
       </DialogContent>
     </Dialog>
   );
