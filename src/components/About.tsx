@@ -3,12 +3,12 @@ import { Users, Target, Calendar, DollarSign } from "lucide-react";
 const stats = [
   {
     icon: Users,
-    value: "150-200",
+    value: "500+",
     label: "Participants",
   },
   {
     icon: Target,
-    value: "8-10",
+    value: "5",
     label: "Civic Challenges",
   },
   {
@@ -18,8 +18,8 @@ const stats = [
   },
   {
     icon: DollarSign,
-    value: "$5K",
-    label: "Micro-Grants",
+    value: "$10K",
+    label: "Prize Money",
   },
 ];
 

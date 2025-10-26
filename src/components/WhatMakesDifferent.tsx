@@ -14,7 +14,7 @@ const features = [
   {
     icon: HandHeart,
     headline: "6-Month Support",
-    text: "Winners get mentorship from CoStar and City staff, plus micro-grants ($1K-5K) to help pilot their solutions.",
+    text: "Winners get mentorship from CoStar and City staff, plus $10k in prize money to help pilot their solutions.",
   },
   {
     icon: Users,

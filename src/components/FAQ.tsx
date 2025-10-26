@@ -34,12 +34,12 @@ const faqs = [
   {
     question: "Will my work actually be used by the City?",
     answer:
-      "Yes. Every challenge has a City department champion ready to adopt winning solutions. Winners receive 6-month mentorship and micro-grants ($1K-5K) to help pilot their projects.",
+      "Yes. Every challenge has a City department champion ready to adopt winning solutions. Winners receive 6-month mentorship and $10k in prize money to help pilot their projects.",
   },
   {
     question: "What are the challenges?",
     answer:
-      "We're co-designing 8-10 challenges with City departments, aligned with Mayor Avula's Action Plan. Think: 311 improvements, tree equity, small business navigation, flood risk mapping, and more. Full details coming soon.",
+      "We're co-designing 5 civic challenges with City departments, aligned with Mayor Avula's pillars. Think: 311 improvements, tree equity, small business navigation, flood risk mapping, and more. Full details coming soon.",
   },
   {
     question: "When does registration open?",
