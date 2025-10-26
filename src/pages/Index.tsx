@@ -5,7 +5,6 @@ import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
 import { Opportunity } from "@/components/Opportunity";
 import { EventFormat } from "@/components/EventFormat";
-import { CivicChallenges } from "@/components/CivicChallenges";
 import { WhatMakesDifferent } from "@/components/WhatMakesDifferent";
 import { WhoShouldJoin } from "@/components/WhoShouldJoin";
 import { BuiltForEveryone } from "@/components/BuiltForEveryone";
@@ -32,7 +31,6 @@ const Index = () => {
       <About />
       <Opportunity />
       <EventFormat />
-      <CivicChallenges />
       <WhatMakesDifferent />
       <WhoShouldJoin />
       <BuiltForEveryone />
