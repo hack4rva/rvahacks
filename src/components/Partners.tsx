@@ -1,4 +1,5 @@
 import costarLogo from "@/assets/costar-logo.png";
+import richmondSeal from "@/assets/richmond-seal.png";
 
 export const Partners = () => {
   const primaryPartners = [
@@ -6,7 +7,7 @@ export const Partners = () => {
       name: "City of Richmond / Mayor's Office",
       subtitle:
         "Strategic priorities | Implementation pathway | City department champions",
-      logo: null,
+      logo: richmondSeal,
     },
     {
       name: "CoStar Group",
