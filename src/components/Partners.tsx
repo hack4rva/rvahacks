@@ -1,5 +1,6 @@
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
+import rvatechLogo from "@/assets/rvatech-logo.png";
 
 export const Partners = () => {
   const primaryPartners = [
@@ -17,7 +18,7 @@ export const Partners = () => {
     {
       name: "Richmond Technology Council",
       subtitle: "Community outreach | Tech mentorship | Event operations",
-      logo: null,
+      logo: rvatechLogo,
     },
   ];
 
