@@ -61,7 +61,7 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-lg bg-accent/5 backdrop-blur-sm border-accent/20">
+      <DialogContent className="sm:max-w-lg bg-card border-border shadow-elegant">
         {!isSuccess ? (
           <>
             <DialogHeader>
@@ -70,16 +70,16 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
                   <Mail className="w-8 h-8 text-accent" />
                 </div>
               </div>
-              <DialogTitle className="text-3xl font-bold text-center">
+              <DialogTitle className="text-3xl font-bold text-center text-card-foreground">
                 Stay Updated
               </DialogTitle>
-              <DialogDescription className="text-base text-center">
+              <DialogDescription className="text-base text-center text-muted-foreground">
                 Registration opens January 2026. Be the first to know.
               </DialogDescription>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-5 mt-6">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-base font-semibold">
+                <Label htmlFor="email" className="text-base font-semibold text-card-foreground">
                   Email Address *
                 </Label>
                 <Input
@@ -94,7 +94,7 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="firstName" className="text-base font-semibold">
+                <Label htmlFor="firstName" className="text-base font-semibold text-card-foreground">
                   First Name <span className="text-muted-foreground text-sm">(optional)</span>
                 </Label>
                 <Input
@@ -107,7 +107,7 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="interest" className="text-base font-semibold">
+                <Label htmlFor="interest" className="text-base font-semibold text-card-foreground">
                   I'm interested as a: <span className="text-muted-foreground text-sm">(optional)</span>
                 </Label>
                 <Select value={interest} onValueChange={setInterest}>
