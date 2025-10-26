@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
+import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
 import { Opportunity } from "@/components/Opportunity";
 import { EventFormat } from "@/components/EventFormat";
@@ -27,6 +28,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation onCTAClick={handleCTAClick} />
       <Hero onCTAClick={handleCTAClick} />
+      <Countdown />
       <About />
       <Opportunity />
       <EventFormat />
