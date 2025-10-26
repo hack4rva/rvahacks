@@ -7,6 +7,7 @@ import { EventFormat } from "@/components/EventFormat";
 import { CivicChallenges } from "@/components/CivicChallenges";
 import { WhatMakesDifferent } from "@/components/WhatMakesDifferent";
 import { WhoShouldJoin } from "@/components/WhoShouldJoin";
+import { BuiltForEveryone } from "@/components/BuiltForEveryone";
 import { Challenges } from "@/components/Challenges";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
@@ -30,6 +31,7 @@ const Index = () => {
       <CivicChallenges />
       <WhatMakesDifferent />
       <WhoShouldJoin />
+      <BuiltForEveryone />
       <Challenges />
       <Partners />
       <FAQ />
