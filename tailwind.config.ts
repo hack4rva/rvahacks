@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        heading: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['IBM Plex Mono', 'Courier New', 'monospace'],
+        heading: ['IBM Plex Mono', 'Courier New', 'monospace'],
+        mono: ['IBM Plex Mono', 'Courier New', 'monospace'],
       },
       spacing: {
         '1': '0.5rem', // 8px
