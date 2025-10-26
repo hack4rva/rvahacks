@@ -121,6 +121,21 @@ All colors MUST be HSL.
   html {
     scroll-behavior: smooth;
   }
+  
+  /* Focus visible styles for accessibility */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+  
+  /* Improve button focus states */
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent;
+  }
+  
+  /* Smooth transitions for interactive elements */
+  a, button {
+    @apply transition-smooth;
+  }
 }
 
 @layer utilities {

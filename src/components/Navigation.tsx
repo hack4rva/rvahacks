@@ -49,7 +49,8 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-smooth font-medium"
+                className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent"
+                aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
               </a>
@@ -57,6 +58,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             <Button
               onClick={onCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
+              aria-label="Sign up to stay updated"
             >
               Stay Updated
             </Button>
@@ -66,6 +68,8 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
           <button
             className="md:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -74,14 +78,15 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border">
+        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border" role="navigation" aria-label="Mobile navigation">
           <div className="container mx-auto px-4 py-4 space-y-4">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2"
+                className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 focus:outline-2 focus:outline-accent"
                 onClick={() => setIsMobileMenuOpen(false)}
+                aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
               </a>
@@ -92,6 +97,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 setIsMobileMenuOpen(false);
               }}
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+              aria-label="Sign up to stay updated"
             >
               Stay Updated
             </Button>

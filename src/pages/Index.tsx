@@ -8,11 +8,13 @@ import { CivicChallenges } from "@/components/CivicChallenges";
 import { WhatMakesDifferent } from "@/components/WhatMakesDifferent";
 import { WhoShouldJoin } from "@/components/WhoShouldJoin";
 import { BuiltForEveryone } from "@/components/BuiltForEveryone";
+import { CTABanner } from "@/components/CTABanner";
 import { Challenges } from "@/components/Challenges";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { EmailSignup } from "@/components/EmailSignup";
+import { BackToTop } from "@/components/BackToTop";
 
 const Index = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
@@ -32,10 +34,12 @@ const Index = () => {
       <WhatMakesDifferent />
       <WhoShouldJoin />
       <BuiltForEveryone />
+      <CTABanner onCTAClick={handleCTAClick} />
       <Challenges />
       <Partners />
       <FAQ />
       <Footer />
+      <BackToTop />
       <EmailSignup
         open={isEmailSignupOpen}
         onOpenChange={setIsEmailSignupOpen}
