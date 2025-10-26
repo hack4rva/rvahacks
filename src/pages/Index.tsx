@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { Opportunity } from "@/components/Opportunity";
+import { EventFormat } from "@/components/EventFormat";
 import { Challenges } from "@/components/Challenges";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
@@ -22,6 +23,7 @@ const Index = () => {
       <Hero onCTAClick={handleCTAClick} />
       <About />
       <Opportunity />
+      <EventFormat />
       <Challenges />
       <Partners />
       <FAQ />
