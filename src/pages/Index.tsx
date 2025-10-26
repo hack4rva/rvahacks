@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
+import { Opportunity } from "@/components/Opportunity";
 import { Challenges } from "@/components/Challenges";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
@@ -20,6 +21,7 @@ const Index = () => {
       <Navigation onCTAClick={handleCTAClick} />
       <Hero onCTAClick={handleCTAClick} />
       <About />
+      <Opportunity />
       <Challenges />
       <Partners />
       <FAQ />
