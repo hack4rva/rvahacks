@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
 import { EventFormat } from "@/components/EventFormat";
+import { Prizes } from "@/components/Prizes";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -24,6 +25,7 @@ const Index = () => {
       <Countdown />
       <About />
       <EventFormat />
+      <Prizes />
       <Partners />
       <FAQ />
       <Footer />
