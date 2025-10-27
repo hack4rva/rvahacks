@@ -79,16 +79,6 @@ export const FAQ = () => {
             ))}
           </Accordion>
         </div>
-
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground mb-2">Still have questions?</p>
-          <a
-            href="mailto:info@hackforrva.org"
-            className="text-primary hover:text-primary-light font-semibold transition-smooth underline"
-          >
-            info@hackforrva.org
-          </a>
-        </div>
       </div>
     </section>
   );
