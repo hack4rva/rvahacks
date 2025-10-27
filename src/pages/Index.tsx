@@ -4,7 +4,6 @@ import { Hero } from "@/components/Hero";
 import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
 import { EventFormat } from "@/components/EventFormat";
-import { CTABanner } from "@/components/CTABanner";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -25,7 +24,6 @@ const Index = () => {
       <Countdown />
       <About />
       <EventFormat />
-      <CTABanner onCTAClick={handleCTAClick} />
       <Partners />
       <FAQ />
       <Footer />
