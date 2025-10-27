@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { z } from "zod";
 import {
   Dialog,
   DialogContent,
@@ -20,6 +21,22 @@ import { useToast } from "@/hooks/use-toast";
 import { Mail, CheckCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
+const signupSchema = z.object({
+  email: z.string()
+    .trim()
+    .email({ message: "Invalid email address" })
+    .max(255, { message: "Email must be less than 255 characters" })
+    .toLowerCase(),
+  first_name: z.string()
+    .trim()
+    .max(100, { message: "Name must be less than 100 characters" })
+    .optional()
+    .nullable(),
+  interest: z.enum(['participant', 'mentor', 'sponsor', 'volunteer', 'curious'])
+    .optional()
+    .nullable()
+});
+
 interface EmailSignupProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
@@ -38,12 +55,31 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
     setIsSubmitting(true);
 
     try {
+      // Validate input
+      const validationResult = signupSchema.safeParse({
+        email,
+        first_name: firstName || null,
+        interest: interest || null
+      });
+
+      if (!validationResult.success) {
+        toast({
+          title: "Invalid input",
+          description: validationResult.error.errors[0].message,
+          variant: "destructive"
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const { data: validatedData } = validationResult;
+
       const { error } = await supabase
         .from('email_signups')
         .insert({
-          email: email.trim().toLowerCase(),
-          first_name: firstName.trim() || null,
-          interest: interest || null,
+          email: validatedData.email,
+          first_name: validatedData.first_name,
+          interest: validatedData.interest,
         });
 
       if (error) {
