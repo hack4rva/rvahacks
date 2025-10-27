@@ -1,9 +1,10 @@
-import { Briefcase, Laptop, Award } from "lucide-react";
+import { Briefcase, Laptop, Award, MapPin } from "lucide-react";
 
 const schedule = [
   {
     day: "FRIDAY, MARCH 6",
     time: "10 AM - 10 PM",
+    location: "CoStar",
     title: "Hacking Day 1",
     icon: Briefcase,
     description:
@@ -14,6 +15,7 @@ const schedule = [
   {
     day: "SATURDAY, MARCH 7",
     time: "9 AM - 10 PM",
+    location: "CoStar",
     title: "Hacking Day 2",
     icon: Laptop,
     description:
@@ -24,6 +26,7 @@ const schedule = [
   {
     day: "SUNDAY, MARCH 8",
     time: "12 PM - 3 PM",
+    location: "Hardywood Brewery",
     title: "Community Celebration",
     icon: Award,
     description:
@@ -73,8 +76,14 @@ export const EventFormat = () => {
                     </div>
 
                     {/* Time Badge */}
-                    <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-4 w-fit">
+                    <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-accent/10 text-accent font-semibold text-sm mb-3 w-fit">
                       {event.time}
+                    </div>
+
+                    {/* Location */}
+                    <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-4">
+                      <MapPin className="w-4 h-4" />
+                      <span className="font-medium">{event.location}</span>
                     </div>
 
                     {/* Icon */}
