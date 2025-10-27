@@ -8,8 +8,8 @@ const stats = [
   },
   {
     icon: Target,
-    value: "5",
-    label: "Civic Challenges",
+    value: "7",
+    label: "City Goals",
   },
   {
     icon: Calendar,
