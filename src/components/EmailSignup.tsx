@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, CheckCircle } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface EmailSignupProps {
   open: boolean;
@@ -36,20 +37,50 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call - In production, integrate with newsletter service or Cloud database
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase
+        .from('email_signups')
+        .insert({
+          email: email.trim().toLowerCase(),
+          first_name: firstName.trim() || null,
+          interest: interest || null,
+        });
 
-    setIsSuccess(true);
-    setIsSubmitting(false);
-
-    // Reset after showing success
-    setTimeout(() => {
-      setEmail("");
-      setFirstName("");
-      setInterest("");
-      setIsSuccess(false);
-      onOpenChange(false);
-    }, 3000);
+      if (error) {
+        // Handle duplicate email error
+        if (error.code === '23505') {
+          toast({
+            title: "Already Registered",
+            description: "This email is already on our list. We'll keep you updated!",
+            variant: "default",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        setIsSuccess(true);
+      }
+    } catch (error) {
+      console.error('Error saving email signup:', error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+      
+      // Reset after showing success
+      if (isSuccess) {
+        setTimeout(() => {
+          setEmail("");
+          setFirstName("");
+          setInterest("");
+          setIsSuccess(false);
+          onOpenChange(false);
+        }, 3000);
+      }
+    }
   };
 
   const handleClose = () => {
