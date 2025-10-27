@@ -3,11 +3,11 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Challenges", href: "#challenges" },
-  { label: "Partners", href: "#partners" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Action Plan", href: "/action-plan" },
+  { label: "Partners", href: "/#partners" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 interface NavigationProps {

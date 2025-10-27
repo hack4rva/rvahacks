@@ -3,13 +3,9 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
-import { Opportunity } from "@/components/Opportunity";
 import { EventFormat } from "@/components/EventFormat";
-import { WhatMakesDifferent } from "@/components/WhatMakesDifferent";
 import { WhoShouldJoin } from "@/components/WhoShouldJoin";
-import { BuiltForEveryone } from "@/components/BuiltForEveryone";
 import { CTABanner } from "@/components/CTABanner";
-import { Challenges } from "@/components/Challenges";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -29,13 +25,9 @@ const Index = () => {
       <Hero onCTAClick={handleCTAClick} />
       <Countdown />
       <About />
-      <Opportunity />
       <EventFormat />
-      <WhatMakesDifferent />
       <WhoShouldJoin />
-      <BuiltForEveryone />
       <CTABanner onCTAClick={handleCTAClick} />
-      <Challenges />
       <Partners />
       <FAQ />
       <Footer />
