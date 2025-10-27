@@ -4,20 +4,20 @@ const schedule = [
   {
     day: "FRIDAY, MARCH 6",
     time: "10 AM - 10 PM",
-    title: "Professional Track",
+    title: "Hacking Day 1",
     icon: Briefcase,
     description:
-      "For entrepreneurs and professionals who can dedicate a full day. Kickoff with Mayor Avula, team formation, and deep work.",
+      "Kickoff with Mayor Avula, team formation, and start building. Ideal for professionals who can dedicate Friday—then celebrate with family on Sunday.",
     tag: "12 hours",
     isPublic: false,
   },
   {
     day: "SATURDAY, MARCH 7",
     time: "9 AM - 10 PM",
-    title: "Weekend Warrior Track",
+    title: "Hacking Day 2",
     icon: Laptop,
     description:
-      "For students, parents, and weekend warriors. Build mode with mentor support and solution development.",
+      "Continue building or jump in fresh if Friday didn't work. Perfect for students with Friday classes or anyone joining for the weekend.",
     tag: "13 hours",
     isPublic: false,
   },
@@ -27,7 +27,7 @@ const schedule = [
     title: "Community Celebration",
     icon: Award,
     description:
-      "For everyone—families welcome! Public demos, project presentations, and awards ceremony with the Mayor.",
+      "Public demos, project presentations, and awards ceremony with Mayor Avula. Bring your family—everyone's welcome!",
     tag: "Open to public",
     isPublic: true,
   },
@@ -41,10 +41,10 @@ export const EventFormat = () => {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Choose Your Path
+              Flexible Schedule
             </h2>
             <p className="text-lg text-muted-foreground">
-              A flexible weekend designed for everyone
+              Hack both days or choose what fits your schedule
             </p>
           </div>
 
@@ -111,8 +111,7 @@ export const EventFormat = () => {
           {/* Bottom Message */}
           <div className="text-center mt-12">
             <p className="text-lg font-medium text-foreground/80">
-              Attend Friday <span className="text-primary font-bold">OR</span>{" "}
-              Saturday (or both!), then celebrate together Sunday.
+              Work both days for maximum impact, or hack the day that fits your schedule—everyone celebrates together Sunday.
             </p>
           </div>
         </div>
