@@ -13,6 +13,13 @@ const pillars = [
       "Provide white glove service for all",
       "Boost resident satisfaction and trust",
       "Steward public resources responsibly"
+    ],
+    metrics: [
+      "Lower employee turnover & vacancy rates",
+      "Faster permit processing & business licenses",
+      "More accurate tax bills, better bill payment",
+      "Higher resident satisfaction with 311 & city services",
+      "Better tax collection rates across the board"
     ]
   },
   {
@@ -24,6 +31,13 @@ const pillars = [
       "Strengthen housing stability and fight evictions",
       "Connect neighborhoods to parks, pools & libraries",
       "Keep our neighborhoods safe and prepared"
+    ],
+    metrics: [
+      "More new housing units, especially affordable ones",
+      "Fewer cost-burdened households (paying >30% on housing)",
+      "Reduced number of unhoused residents",
+      "More visits to parks, libraries & rec facilities",
+      "Faster response times to 911 calls"
     ]
   },
   {
@@ -37,6 +51,13 @@ const pillars = [
       "Connect youth to activities beyond the classroom",
       "Open doors after K-12 graduation",
       "Respond to families in crisis"
+    ],
+    metrics: [
+      "More schools designated 'on track' or 'distinguished'",
+      "Higher graduation rates & SOL performance",
+      "More pre-K centers with on-site after-care",
+      "More youth in after-school programs & athletics",
+      "Higher % of grads entering college, service, or living-wage jobs"
     ]
   },
   {
@@ -50,6 +71,13 @@ const pillars = [
       "Champion small & minority-owned businesses",
       "Build a vibrant downtown",
       "Invest in the Southside"
+    ],
+    metrics: [
+      "More jobs added or retained through economic development",
+      "Higher tax revenue from business activity",
+      "Lower poverty levels across all races & ethnicities",
+      "Higher homeownership rates, especially for communities of color",
+      "More city spending with minority-owned businesses"
     ]
   },
   {
@@ -61,6 +89,12 @@ const pillars = [
       "Champion LGBTQ+ rights",
       "Defend reproductive freedom & maternal health",
       "Address racial inequities in health & wealth"
+    ],
+    metrics: [
+      "Increased support services for immigrants & refugees",
+      "Better protections for LGBTQ+ residents",
+      "Improved maternal health outcomes",
+      "Reduced racial disparities in health & economic well-being"
     ]
   },
   {
@@ -73,6 +107,13 @@ const pillars = [
       "Partner with residents on environmental justice",
       "Build & maintain infrastructure for the future",
       "Make it easier to walk, roll, ride, or take the bus"
+    ],
+    metrics: [
+      "Lower annual carbon emissions citywide",
+      "Less flooding & better stormwater management",
+      "Less waste going to landfills",
+      "Better pavement & facility condition scores",
+      "Higher GRTC ridership & more bike lane miles"
     ]
   },
   {
@@ -84,6 +125,12 @@ const pillars = [
       "Champion arts & culture storytelling",
       "Document Richmond's rich cultural history",
       "Help residents understand how City government works"
+    ],
+    metrics: [
+      "Oral histories with veteran public servants",
+      "Historical guides to Black empowerment & Civil Rights in RVA",
+      "Participation in Virginia 250 commemorations",
+      "More residents engaged with Richmond's cultural stories"
     ]
   },
 ];
@@ -148,14 +195,14 @@ export const Challenges = () => {
           <div className="lg:col-span-7">
             <div className="relative h-full rounded-2xl border border-border bg-card shadow-elegant overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent pointer-events-none" />
-              <div className="relative p-6 lg:p-10 transition-smooth">
+              <div className="relative p-6 lg:p-10 transition-smooth overflow-y-auto max-h-[600px]">
                 {(() => {
                   const i = hoveredCard ?? 0;
                   const ActiveIcon = pillars[i].icon;
                   return (
-                    <div className="space-y-5">
+                    <div className="space-y-6">
                       <div className="flex items-center gap-4">
-                        <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center">
+                        <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center flex-shrink-0">
                           <ActiveIcon className="w-8 h-8 text-accent" />
                         </div>
                         <h3 className="text-2xl lg:text-3xl font-bold text-card-foreground">{pillars[i].title}</h3>
@@ -163,13 +210,24 @@ export const Challenges = () => {
                       <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
                         {pillars[i].description}
                       </p>
-                      <div className="pt-4">
+                      <div>
                         <h4 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">Key Goals</h4>
                         <ul className="space-y-2">
                           {pillars[i].goals.map((goal, idx) => (
                             <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
                               <span className="text-accent mt-1">•</span>
                               <span>{goal}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">How We'll Measure Progress</h4>
+                        <ul className="space-y-2">
+                          {pillars[i].metrics.map((metric, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <span className="text-accent mt-1">✓</span>
+                              <span>{metric}</span>
                             </li>
                           ))}
                         </ul>
