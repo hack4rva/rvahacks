@@ -1,11 +1,4 @@
 import { Users, Target, Calendar, DollarSign, Gift } from "lucide-react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const stats = [
   {
@@ -49,35 +42,25 @@ export const About = () => {
             real problems for the City of Richmond.
           </p>
 
-          <div className="max-w-md mx-auto">
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-            >
-              <CarouselContent>
-                {stats.map((stat, index) => (
-                  <CarouselItem key={index}>
-                    <div className="bg-card p-8 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                          <stat.icon className="w-6 h-6 text-accent" />
-                        </div>
-                      </div>
-                      <div className="text-4xl font-bold text-accent mb-2">
-                        {stat.value}
-                      </div>
-                      <div className="text-base text-muted-foreground font-medium">
-                        {stat.label}
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <stat.icon className="w-5 h-5 text-accent" />
+                  </div>
+                </div>
+                <div className="text-3xl font-bold text-accent mb-1">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
