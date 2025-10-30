@@ -28,9 +28,9 @@ const Index = () => {
       <Countdown />
       <About />
       <Prizes />
+      <EventFormat />
       <Us />
       <Partners />
-      <EventFormat />
       <FAQ />
       <Footer />
       <BackToTop />
