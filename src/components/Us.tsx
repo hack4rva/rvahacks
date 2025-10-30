@@ -7,12 +7,12 @@ const coreTeam = [
   { name: "Ford Prior", role: "Hype", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
   { name: "Crystal Harvey", role: "Marketing & Comms", image: undefined, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: undefined, linkedin: undefined },
-  { name: "Alex Otanez", role: "Private Partnerships", image: undefined, linkedin: undefined },
-  { name: "April Palmer", role: "Public Partnerships", image: undefined, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: undefined, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Engagement", image: undefined, linkedin: undefined },
-  { name: "Adam Woodward", role: "University Partnerships", image: undefined, linkedin: undefined },
   { name: "Michael Gafarri", role: "Planning", image: undefined, linkedin: undefined },
+  { name: "Alex Otanez", role: "Private Partnerships", image: undefined, linkedin: undefined },
+  { name: "April Palmer", role: "Public Partnerships", image: undefined, linkedin: undefined },
+  { name: "Adam Woodward", role: "University Partnerships", image: undefined, linkedin: undefined },
 ];
 
 const advisoryTeam = [
