@@ -7,7 +7,6 @@ import { EventFormat } from "@/components/EventFormat";
 import { Prizes } from "@/components/Prizes";
 import { Us } from "@/components/Us";
 import { Partners } from "@/components/Partners";
-import { CTABanner } from "@/components/CTABanner";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { EmailSignup } from "@/components/EmailSignup";
@@ -32,7 +31,6 @@ const Index = () => {
       <Us />
       <Partners />
       <EventFormat />
-      <CTABanner onCTAClick={handleCTAClick} />
       <FAQ />
       <Footer />
       <BackToTop />
