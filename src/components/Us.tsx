@@ -2,12 +2,13 @@ import { Users } from "lucide-react";
 import fordPrior from "@/assets/ford-prior.jpg";
 import michaelKolbe from "@/assets/michael-kolbe.png";
 import dannyAvula from "@/assets/danny-avula.png";
+import crystalHarvey from "@/assets/crystal-harvey.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Hype", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
-  { name: "Crystal Harvey", role: "Marketing & Comms", image: undefined, linkedin: undefined },
+  { name: "Crystal Harvey", role: "Marketing & Comms", image: crystalHarvey, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: undefined, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "TBD", role: "Engagement", image: undefined, linkedin: undefined },
