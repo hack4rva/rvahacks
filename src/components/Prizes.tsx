@@ -79,31 +79,30 @@ export const Prizes = () => {
           </div>
 
           {/* Awards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {awards.map((award, index) => (
               <div
                 key={index}
-                className="bg-card border border-border rounded-lg p-5 shadow-elegant hover:shadow-hover transition-smooth"
+                className="bg-card border border-border rounded-lg p-3 shadow-elegant hover:shadow-hover transition-smooth"
               >
                 {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                  <award.icon className="w-6 h-6 text-primary" />
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+                  <award.icon className="w-4 h-4 text-primary" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg font-bold text-card-foreground mb-1.5">
+                <h3 className="text-sm font-bold text-card-foreground mb-1">
                   {award.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                <p className="text-xs text-muted-foreground leading-snug mb-2">
                   {award.description}
                 </p>
 
                 {/* Sponsor */}
-                <div className="pt-3 border-t border-border">
+                <div className="pt-2 border-t border-border">
                   <p className="text-xs text-muted-foreground">
-                    Sponsored by{" "}
                     <span className="font-semibold text-foreground">
                       {award.sponsor}
                     </span>
