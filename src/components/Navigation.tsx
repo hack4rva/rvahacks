@@ -10,7 +10,7 @@ const navItems = [
   { label: "When", href: "/#format" },
   { label: "Partners", href: "/#partners" },
   { label: "FAQ", href: "/#faq" },
-  { label: "Us", href: "/team" },
+  { label: "Who", href: "/team" },
   { label: "Action Plan", href: "/action-plan" },
 ];
 
