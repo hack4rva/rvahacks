@@ -45,35 +45,36 @@ export const Countdown = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-accent/5 border-y border-border">
+    <section className="py-12 md:py-16 bg-accent/5 border-y border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 mb-4">
-              <Calendar className="w-6 h-6 text-accent" />
-              <Clock className="w-6 h-6 text-accent" />
+          <div className="text-center mb-10 md:mb-12">
+            <div className="inline-flex items-center gap-2 mb-3">
+              <Calendar className="w-5 h-5 md:w-6 md:h-6 text-accent" />
+              <Clock className="w-5 h-5 md:w-6 md:h-6 text-accent" />
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">
               Countdown to Hack for RVA
             </h2>
-            <p className="text-muted-foreground text-lg">
+            <p className="text-muted-foreground text-base md:text-lg">
               March 6-8, 2026 • CoStar Headquarters, Richmond
             </p>
           </div>
 
           {/* Countdown Display */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
             {timeBlocks.map((block, index) => (
               <div
                 key={block.label}
-                className="bg-card rounded-xl p-6 shadow-elegant border border-border hover:border-accent/40 transition-smooth"
+                className="bg-card rounded-xl p-4 md:p-6 shadow-elegant border border-border hover:border-accent/40 transition-smooth hover:scale-105 animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="text-center">
-                  <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-accent mb-2 font-mono">
+                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-accent mb-2 font-mono">
                     {String(block.value).padStart(2, "0")}
                   </div>
-                  <div className="text-sm md:text-base text-muted-foreground font-semibold uppercase tracking-wider">
+                  <div className="text-xs sm:text-sm md:text-base text-muted-foreground font-semibold uppercase tracking-wider">
                     {block.label}
                   </div>
                 </div>

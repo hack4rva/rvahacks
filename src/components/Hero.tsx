@@ -2,6 +2,7 @@ import { Calendar, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   onCTAClick: () => void;
@@ -9,17 +10,28 @@ interface HeroProps {
 
 export const Hero = ({ onCTAClick }: HeroProps) => {
   const { elementRef, isVisible } = useScrollAnimation();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden"
     >
-      {/* Background Pattern with subtle parallax */}
+      {/* Background Pattern with parallax effect */}
       <div 
-        className="absolute inset-0 opacity-10 transition-transform duration-1000"
+        className="absolute inset-0 opacity-10"
         style={{
-          transform: isVisible ? 'translateY(0)' : 'translateY(-20px)',
+          transform: `translateY(${scrollY * 0.5}px)`,
+          transition: 'transform 0.1s ease-out',
         }}
       >
         <div className="absolute inset-0" style={{
@@ -45,6 +57,24 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             Richmond's entrepreneurs, inventors, and technologists unite to
             solve <Link to="/action-plan" className="text-accent hover:text-accent/80 underline transition-colors">real problems</Link> for our city.
           </p>
+
+          {/* Key Stats */}
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8">
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">54hrs</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">Duration</div>
+            </div>
+            <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">$25K+</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">In Prizes</div>
+            </div>
+            <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
+            <div className="text-center">
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">200+</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
+            </div>
+          </div>
 
           {/* Event Details */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-white/95">

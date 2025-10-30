@@ -6,11 +6,13 @@ import { About } from "@/components/About";
 import { HowItWorks } from "@/components/HowItWorks";
 import { EventFormat } from "@/components/EventFormat";
 import { Prizes } from "@/components/Prizes";
+import { CTABanner } from "@/components/CTABanner";
 import { Partners } from "@/components/Partners";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
 import { EmailSignup } from "@/components/EmailSignup";
 import { BackToTop } from "@/components/BackToTop";
+import { ProgressIndicator } from "@/components/ProgressIndicator";
 
 const Index = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
@@ -21,6 +23,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <ProgressIndicator />
       <Navigation onCTAClick={handleCTAClick} />
       <Hero onCTAClick={handleCTAClick} />
       <Countdown />
@@ -28,6 +31,7 @@ const Index = () => {
       <Prizes />
       <HowItWorks />
       <EventFormat />
+      <CTABanner onCTAClick={handleCTAClick} />
       <Partners />
       <FAQ />
       <Footer />

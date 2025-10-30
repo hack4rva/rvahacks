@@ -35,15 +35,15 @@ const awards = [
 
 export const Prizes = () => {
   return (
-    <section id="prizes" className="py-16 md:py-24 bg-background">
+    <section id="prizes" className="py-16 md:py-28 bg-secondary/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Prizes & Recognition
             </h2>
-            <p className="text-base text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Submit your solution by Saturday evening. 10 finalist teams will
               pitch live on Sunday at CoStar. 5 judges, including Mayor
               Avula, will select winners and runners-up across 5 award

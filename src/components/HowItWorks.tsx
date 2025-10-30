@@ -40,10 +40,10 @@ const steps = [
 
 export const HowItWorks = () => {
   return (
-    <section id="how" className="py-20 md:py-32 bg-background">
+    <section id="how" className="py-16 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               How It Works
             </h2>
