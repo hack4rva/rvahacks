@@ -1,4 +1,5 @@
 import { Calendar, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -42,7 +43,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
             Richmond's entrepreneurs, inventors, and technologists unite to
-            solve real problems for our city.
+            solve <Link to="/action-plan" className="text-accent hover:text-accent/80 underline transition-colors">real problems</Link> for our city.
           </p>
 
           {/* Event Details */}
