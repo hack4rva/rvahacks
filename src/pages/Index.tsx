@@ -3,6 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
+import { HowItWorks } from "@/components/HowItWorks";
 import { EventFormat } from "@/components/EventFormat";
 import { Prizes } from "@/components/Prizes";
 import { Partners } from "@/components/Partners";
@@ -24,8 +25,9 @@ const Index = () => {
       <Hero onCTAClick={handleCTAClick} />
       <Countdown />
       <About />
-      <EventFormat />
       <Prizes />
+      <HowItWorks />
+      <EventFormat />
       <Partners />
       <FAQ />
       <Footer />
