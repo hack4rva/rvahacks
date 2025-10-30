@@ -145,10 +145,6 @@ export const Challenges = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
             Danny's Action Plan
           </h2>
-          <p className="text-xl text-foreground font-semibold leading-relaxed mb-4">
-            Mayor Avula didn't just want to talk about ideas—he set a clear vision for the city we can build together. 
-            The Mayoral Action Plan (MAP) is our roadmap: specific goals, measurable progress, and a shared commitment to make Richmond thrive for everyone.
-          </p>
           <p className="text-lg text-muted-foreground leading-relaxed mb-4">
             All civic challenges are aligned with the 7 Pillars of Mayor Avula's Action Plan. 
             We're focusing on what matters most to Richmond's future.
