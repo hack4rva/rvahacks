@@ -13,12 +13,12 @@ const stats = [
   },
   {
     icon: Calendar,
-    value: "2 Days",
+    value: "48 Hours",
     label: "Friday AM - Saturday PM",
   },
   {
     icon: DollarSign,
-    value: "$10K",
+    value: "$25K",
     label: "Prize Money",
   },
   {
