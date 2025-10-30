@@ -20,7 +20,7 @@ const pillars = [
   {
     icon: Briefcase,
     title: "A Thriving Economy",
-    description: "Support small and minority-owned businesses and employers providing quality, living-wage job opportunities. Create pathways for disadvantaged residents to move from poverty to stability to wealth building, and direct investments to historically neglected neighborhoods.",
+    description: "Grow Richmond's economy by adding jobs, increasing tax revenue, and attracting capital investments. Connect people to jobs through transit and City initiatives. Reduce poverty, increase homeownership, and build wealth—especially for communities of color. Support small, minority-owned, and women-owned businesses. Build a vibrant downtown and invest in the Southside with new housing and neighborhood amenities.",
   },
   {
     icon: Heart,
