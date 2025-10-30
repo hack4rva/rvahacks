@@ -1,6 +1,7 @@
 import { Users } from "lucide-react";
 import fordPrior from "@/assets/ford-prior.jpg";
 import michaelKolbe from "@/assets/michael-kolbe.png";
+import dannyAvula from "@/assets/danny-avula.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
@@ -18,7 +19,7 @@ const coreTeam = [
 
 const advisoryTeam = [
   { name: "TBD", role: "Integrations", image: undefined, linkedin: undefined },
-  { name: "Danny Avula", role: "Strategy", image: undefined, linkedin: undefined },
+  { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "TBD", role: "Vision", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Experience", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Vibe", image: undefined, linkedin: undefined },
