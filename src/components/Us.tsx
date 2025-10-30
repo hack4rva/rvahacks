@@ -1,24 +1,25 @@
 import { Users } from "lucide-react";
+import fordPrior from "@/assets/ford-prior.jpg";
 
 const coreTeam = [
-  { name: "Ford Prior", role: "Hype" },
-  { name: "Crystal Harvey", role: "Marketing & Comms" },
-  { name: "Claire Jordan", role: "Onsite Ops" },
-  { name: "Alex Otanez", role: "Private Partnerships" },
-  { name: "Drew Cleveland", role: "Public Partnerships" },
-  { name: "Michael Kolbe", role: "City Liaison" },
-  { name: "Sinclair Jenks", role: "Engagement" },
-  { name: "Adam Woodward", role: "University Partnerships" },
-  { name: "Michael Gafarri", role: "Planning" },
+  { name: "Ford Prior", role: "Hype", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
+  { name: "Crystal Harvey", role: "Marketing & Comms", image: undefined, linkedin: undefined },
+  { name: "Claire Jordan", role: "Onsite Ops", image: undefined, linkedin: undefined },
+  { name: "Alex Otanez", role: "Private Partnerships", image: undefined, linkedin: undefined },
+  { name: "Drew Cleveland", role: "Public Partnerships", image: undefined, linkedin: undefined },
+  { name: "Michael Kolbe", role: "City Liaison", image: undefined, linkedin: undefined },
+  { name: "Sinclair Jenks", role: "Engagement", image: undefined, linkedin: undefined },
+  { name: "Adam Woodward", role: "University Partnerships", image: undefined, linkedin: undefined },
+  { name: "Michael Gafarri", role: "Planning", image: undefined, linkedin: undefined },
 ];
 
 const advisoryTeam = [
-  { name: "Paul Devitt, PhD", role: "Integrations" },
-  { name: "Danny Avula", role: "Strategy" },
-  { name: "Ankit Matur", role: "Vision" },
-  { name: "Christian Markow", role: "Experience" },
-  { name: "April Palmer", role: "Vibe" },
-  { name: "Nick Serfass", role: "Execution" },
+  { name: "Paul Devitt, PhD", role: "Integrations", image: undefined, linkedin: undefined },
+  { name: "Danny Avula", role: "Strategy", image: undefined, linkedin: undefined },
+  { name: "Ankit Matur", role: "Vision", image: undefined, linkedin: undefined },
+  { name: "Christian Markow", role: "Experience", image: undefined, linkedin: undefined },
+  { name: "April Palmer", role: "Vibe", image: undefined, linkedin: undefined },
+  { name: "Nick Serfass", role: "Execution", image: undefined, linkedin: undefined },
 ];
 
 export const Us = () => {
@@ -45,8 +46,26 @@ export const Us = () => {
               {coreTeam.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border"
+                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
                 >
+                  {member.image && member.linkedin ? (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mb-4 hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                      />
+                    </a>
+                  ) : (
+                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center border-2 border-border">
+                      <Users className="w-12 h-12 text-muted-foreground" />
+                    </div>
+                  )}
                   <h4 className="text-lg font-bold text-foreground mb-2">
                     {member.name}
                   </h4>
@@ -68,8 +87,26 @@ export const Us = () => {
               {advisoryTeam.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border"
+                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
                 >
+                  {member.image && member.linkedin ? (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mb-4 hover:opacity-80 transition-opacity"
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                      />
+                    </a>
+                  ) : (
+                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center border-2 border-border">
+                      <Users className="w-12 h-12 text-muted-foreground" />
+                    </div>
+                  )}
                   <h4 className="text-lg font-bold text-foreground mb-2">
                     {member.name}
                   </h4>
