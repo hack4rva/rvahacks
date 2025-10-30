@@ -248,9 +248,12 @@ export const Challenges = () => {
 
         {/* Values Section */}
         <div className="max-w-5xl mx-auto mt-12">
-          <h3 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-6">
+          <h3 className="text-xl sm:text-2xl font-bold text-foreground text-center mb-2">
             Our Values
           </h3>
+          <p className="text-muted-foreground text-center mb-6">
+            These pillars align with the following civic values
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <div className="bg-card border border-border rounded-lg p-3 hover:border-accent/40 transition-smooth">
               <h4 className="text-sm font-bold text-accent mb-1">Integrity</h4>
