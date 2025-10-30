@@ -13,6 +13,9 @@ export default {
       },
     },
     extend: {
+      perspective: {
+        '1000': '1000px',
+      },
       fontFamily: {
         sans: ['IBM Plex Mono', 'Courier New', 'monospace'],
         heading: ['IBM Plex Mono', 'Courier New', 'monospace'],
