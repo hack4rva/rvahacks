@@ -24,7 +24,7 @@ const advisoryTeam = [
 
 export const Us = () => {
   return (
-    <section id="us" className="py-20 md:py-32 bg-background">
+    <section id="us" className="py-20 md:py-32 bg-secondary/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
