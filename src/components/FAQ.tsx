@@ -40,7 +40,7 @@ const faqs = [
 
 export const FAQ = () => {
   return (
-    <section id="faq" className="py-16 md:py-28 bg-secondary/10">
+    <section id="faq" className="py-16 md:py-28 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6">
