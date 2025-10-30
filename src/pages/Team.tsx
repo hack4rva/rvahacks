@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { Us } from "@/components/Us";
+import { Partners } from "@/components/Partners";
 import { EmailSignup } from "@/components/EmailSignup";
 import { useState } from "react";
 
@@ -16,6 +17,7 @@ const Team = () => {
     <div className="min-h-screen">
       <Navigation onCTAClick={handleCTAClick} />
       <div className="pt-20">
+        <Partners />
         <Us />
       </div>
       <Footer />
