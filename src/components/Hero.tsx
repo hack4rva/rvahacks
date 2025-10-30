@@ -71,7 +71,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">1000+</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
               <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
             </div>
           </div>
