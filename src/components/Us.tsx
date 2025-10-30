@@ -1,5 +1,6 @@
 import { Users } from "lucide-react";
 import fordPrior from "@/assets/ford-prior.jpg";
+import michaelKolbe from "@/assets/michael-kolbe.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
@@ -7,7 +8,7 @@ const coreTeam = [
   { name: "Ford Prior", role: "Hype", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
   { name: "Crystal Harvey", role: "Marketing & Comms", image: undefined, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: undefined, linkedin: undefined },
-  { name: "Michael Kolbe", role: "City Liaison", image: undefined, linkedin: undefined },
+  { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "TBD", role: "Engagement", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Planning", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Private Partnerships", image: undefined, linkedin: undefined },
@@ -64,19 +65,27 @@ export const Us = () => {
                   key={index}
                   className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
                 >
-                  {member.image && member.linkedin ? (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mb-4 hover:opacity-80 transition-opacity"
-                    >
+                  {member.image ? (
+                    member.linkedin ? (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mb-4 hover:opacity-80 transition-opacity"
+                      >
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                        />
+                      </a>
+                    ) : (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-border mb-4"
                       />
-                    </a>
+                    )
                   ) : (
                     <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center border-2 border-border">
                       <Users className="w-12 h-12 text-muted-foreground" />
@@ -105,19 +114,27 @@ export const Us = () => {
                   key={index}
                   className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
                 >
-                  {member.image && member.linkedin ? (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mb-4 hover:opacity-80 transition-opacity"
-                    >
+                  {member.image ? (
+                    member.linkedin ? (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mb-4 hover:opacity-80 transition-opacity"
+                      >
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                        />
+                      </a>
+                    ) : (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                        className="w-24 h-24 rounded-full object-cover border-2 border-border mb-4"
                       />
-                    </a>
+                    )
                   ) : (
                     <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center border-2 border-border">
                       <Users className="w-12 h-12 text-muted-foreground" />
