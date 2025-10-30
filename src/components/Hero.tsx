@@ -61,7 +61,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           {/* Key Stats */}
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">54hrs</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">48hrs</div>
               <div className="text-sm text-white/80 uppercase tracking-wider">Duration</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
@@ -71,7 +71,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">200+</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">1000+</div>
               <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
             </div>
           </div>
