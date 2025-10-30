@@ -14,7 +14,6 @@ const navItems = [
   { label: "What", href: "/#what" },
   { label: "Why", href: "/#prizes" },
   { label: "When", href: "/#format" },
-  { label: "How", href: "/#how" },
 ];
 
 const otherItems = [

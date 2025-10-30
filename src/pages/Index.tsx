@@ -3,7 +3,6 @@ import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
-import { HowItWorks } from "@/components/HowItWorks";
 import { EventFormat } from "@/components/EventFormat";
 import { Prizes } from "@/components/Prizes";
 import { CTABanner } from "@/components/CTABanner";
@@ -29,7 +28,6 @@ const Index = () => {
       <Countdown />
       <About />
       <Prizes />
-      <HowItWorks />
       <EventFormat />
       <CTABanner onCTAClick={handleCTAClick} />
       <Partners />

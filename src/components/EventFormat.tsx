@@ -8,7 +8,7 @@ const schedule = [
     title: "Hacking Day 1",
     icon: Briefcase,
     description:
-      "Kickoff with Mayor Avula, team formation, and start building. Ideal for professionals who can dedicate Friday—then celebrate with family on Sunday.",
+      "Kickoff with Mayor Avula and a 101 on his 7 pillars. Team formation happens—lead or join a team. Deep-dive SME presentations & Q&A on each challenge. Then start building. Ideal for professionals who can dedicate Friday—then celebrate with family on Sunday.",
     tag: "12 hours",
     isPublic: false,
   },
@@ -19,7 +19,7 @@ const schedule = [
     title: "Hacking Day 2",
     icon: Laptop,
     description:
-      "Continue building or jump in fresh if Friday didn't work. Perfect for students with Friday classes or anyone joining for the weekend.",
+      "Continue building with your team or jump in fresh if Friday didn't work for you. Perfect for students with Friday classes or anyone joining for the weekend. Submit your solution by evening for finalist selection.",
     tag: "13 hours",
     isPublic: false,
   },
@@ -30,7 +30,7 @@ const schedule = [
     title: "Community Celebration",
     icon: Award,
     description:
-      "Public demos, project presentations, and awards ceremony with Mayor Avula. Bring your family—everyone's welcome!",
+      "Public demos and project presentations. 10 finalist teams pitch live. 5 judges, including Mayor Avula, select winners across 5 award categories. Awards ceremony and celebration. Bring your family—everyone's welcome!",
     tag: "Open to public",
     isPublic: true,
   },
@@ -44,7 +44,7 @@ export const EventFormat = () => {
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Flexible Schedule
+              Event Schedule
             </h2>
             <p className="text-lg text-muted-foreground">
               Hack both days or choose what fits your schedule
