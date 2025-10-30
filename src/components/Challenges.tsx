@@ -5,37 +5,37 @@ const pillars = [
   {
     icon: Building2,
     title: "A Thriving City Hall",
-    description: "A City Hall that gets things done",
+    description: "Transform Richmond's local government into a model public-sector organization that stewards resources effectively, meets community needs, and builds trust with residents and partners.",
   },
   {
     icon: Home,
     title: "Thriving Neighborhoods",
-    description: "Neighborhoods that meet our housing needs",
+    description: "Meet the housing needs of a growing city, so that Richmonders across different income levels can access affordable housing in safe neighborhoods with strong public amenities.",
   },
   {
     icon: Users,
     title: "Thriving Families",
-    description: "Communities where every child succeeds",
+    description: "Support the education, health, and development of children and families — in and out of the classroom — so that students graduate from Richmond Public Schools well-prepared for success and connected to opportunities for further learning and career development.",
   },
   {
     icon: Briefcase,
     title: "A Thriving Economy",
-    description: "An economy that leaves no one behind",
+    description: "Support small and minority-owned businesses and employers providing quality, living-wage job opportunities. Create pathways for disadvantaged residents to move from poverty to stability to wealth building, and direct investments to historically neglected neighborhoods.",
   },
   {
     icon: Heart,
     title: "Thriving and Inclusive Communities",
-    description: "Where everyone's rights are protected",
+    description: "Protect everyone's rights — specifically the rights of immigrants and refugees, LGBTQ+ residents, other politically targeted groups, and the reproductive rights of women. Work to redress long-standing racial inequities in health and well-being.",
   },
   {
     icon: TreePine,
     title: "A Thriving and Sustainable Built Environment",
-    description: "Planned for future generations",
+    description: "Support continued progress on the execution of the RVAgreen 2050 comprehensive plan. Shift toward a net zero greenhouse emission local economy through improved public and multimodal transportation, strong stewardship of our natural resources, greening neglected neighborhoods, and a strong commitment to sustainability across all departments.",
   },
   {
     icon: BookText,
     title: "A City That Tells its Stories",
-    description: "And tells the truth about its past",
+    description: "Make Richmond a national model for telling the truth about its own history — including slavery, racism, and struggles for Black empowerment since the City's founding. Use the arts as a vehicle for telling these stories and for strengthening connections across the different cultures found in our city.",
   },
 ];
 
