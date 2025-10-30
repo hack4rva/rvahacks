@@ -3,14 +3,14 @@ import { Users } from "lucide-react";
 const coreTeam = [
   { name: "Ford Prior", role: "Vision & Hype" },
   { name: "Crystal Harvey", role: "Marketing & Comms" },
-  { name: "Claire Jordan", role: "Ops" },
+  { name: "Claire Jordan", role: "Onsite Ops" },
   { name: "Alex Otanez", role: "Private Partnerships" },
   { name: "Drew Cleveland", role: "Public Partnerships" },
   { name: "Michael Kolbe", role: "City Liaison" },
 ];
 
 const advisoryTeam = [
-  { name: "Paul Devitt, PhD", role: "Tech" },
+  { name: "Paul Devitt, PhD", role: "Integrations" },
   { name: "Danny Avula", role: "Strategy" },
   { name: "Ankit Matur", role: "Ops" },
 ];
