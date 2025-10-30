@@ -248,37 +248,37 @@ export const Challenges = () => {
 
         {/* Values Section */}
         <div className="max-w-5xl mx-auto mt-20">
-          <h3 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-12">
+          <h3 className="text-2xl sm:text-3xl font-bold text-foreground text-center mb-8">
             Our Values
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/40 transition-smooth">
-              <h4 className="text-lg font-bold text-accent mb-3">Integrity</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="bg-card border border-border rounded-xl p-4 hover:border-accent/40 transition-smooth">
+              <h4 className="text-base font-bold text-accent mb-2">Integrity</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 We deal honestly with one another, welcome accountability, and are responsible for what we say and do.
               </p>
             </div>
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/40 transition-smooth">
-              <h4 className="text-lg font-bold text-accent mb-3">Encouragement</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <div className="bg-card border border-border rounded-xl p-4 hover:border-accent/40 transition-smooth">
+              <h4 className="text-base font-bold text-accent mb-2">Encouragement</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 We create a positive, safe environment to work, learn, fail, improve, and serve together.
               </p>
             </div>
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/40 transition-smooth">
-              <h4 className="text-lg font-bold text-accent mb-3">Excellence</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <div className="bg-card border border-border rounded-xl p-4 hover:border-accent/40 transition-smooth">
+              <h4 className="text-base font-bold text-accent mb-2">Excellence</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 We focus on high standards of quality service delivery for our City, residents, businesses, and visitors.
               </p>
             </div>
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/40 transition-smooth">
-              <h4 className="text-lg font-bold text-accent mb-3">Equity</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <div className="bg-card border border-border rounded-xl p-4 hover:border-accent/40 transition-smooth">
+              <h4 className="text-base font-bold text-accent mb-2">Equity</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 We commit to identifying and removing barriers while including all voices to build fair and just systems.
               </p>
             </div>
-            <div className="bg-card border border-border rounded-xl p-6 hover:border-accent/40 transition-smooth">
-              <h4 className="text-lg font-bold text-accent mb-3">Partnership</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+            <div className="bg-card border border-border rounded-xl p-4 hover:border-accent/40 transition-smooth">
+              <h4 className="text-base font-bold text-accent mb-2">Partnership</h4>
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 We collaborate and build up others, assuming positive intent. Better work gets done when we work together.
               </p>
             </div>
