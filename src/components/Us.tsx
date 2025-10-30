@@ -8,20 +8,20 @@ const coreTeam = [
   { name: "Crystal Harvey", role: "Marketing & Comms", image: undefined, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: undefined, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: undefined, linkedin: undefined },
-  { name: "Sinclair Jenks", role: "Engagement", image: undefined, linkedin: undefined },
-  { name: "Michael Gafarri", role: "Planning", image: undefined, linkedin: undefined },
-  { name: "Alex Otanez", role: "Private Partnerships", image: undefined, linkedin: undefined },
-  { name: "April Palmer", role: "Public Partnerships", image: undefined, linkedin: undefined },
-  { name: "Adam Woodward", role: "University Partnerships", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Engagement", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Planning", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Private Partnerships", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Public Partnerships", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "University Partnerships", image: undefined, linkedin: undefined },
 ];
 
 const advisoryTeam = [
-  { name: "Paul Devitt, PhD", role: "Integrations", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Integrations", image: undefined, linkedin: undefined },
   { name: "Danny Avula", role: "Strategy", image: undefined, linkedin: undefined },
-  { name: "Ankit Matur", role: "Vision", image: undefined, linkedin: undefined },
-  { name: "Christian Markow", role: "Experience", image: undefined, linkedin: undefined },
-  { name: "Drew Cleveland", role: "Vibe", image: undefined, linkedin: undefined },
-  { name: "Nick Serfass", role: "Execution", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Vision", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Experience", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Vibe", image: undefined, linkedin: undefined },
+  { name: "TBD", role: "Execution", image: undefined, linkedin: undefined },
 ];
 
 const partners = [
