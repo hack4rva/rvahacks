@@ -1,21 +1,24 @@
 import { Users } from "lucide-react";
 
 const coreTeam = [
-  { name: "Ford Prior", role: "Vision & Hype" },
+  { name: "Ford Prior", role: "Hype" },
   { name: "Crystal Harvey", role: "Marketing & Comms" },
   { name: "Claire Jordan", role: "Onsite Ops" },
   { name: "Alex Otanez", role: "Private Partnerships" },
   { name: "Drew Cleveland", role: "Public Partnerships" },
   { name: "Michael Kolbe", role: "City Liaison" },
   { name: "Sinclair Jenks", role: "Engagement" },
-  { name: "April Palmer", role: "University Partnerships" },
+  { name: "Adam Woodward", role: "University Partnerships" },
+  { name: "Michael Gafarri", role: "Planning" },
 ];
 
 const advisoryTeam = [
   { name: "Paul Devitt, PhD", role: "Integrations" },
   { name: "Danny Avula", role: "Strategy" },
-  { name: "Ankit Matur", role: "Ops" },
+  { name: "Ankit Matur", role: "Vision" },
   { name: "Christian Markow", role: "Experience" },
+  { name: "April Palmer", role: "Vibe" },
+  { name: "Nick Serfass", role: "Execution" },
 ];
 
 export const Us = () => {
