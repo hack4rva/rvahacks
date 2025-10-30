@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/#about" },
-  { label: "Action Plan", href: "/action-plan" },
   { label: "Partners", href: "/#partners" },
   { label: "FAQ", href: "/#faq" },
+  { label: "Action Plan", href: "/action-plan" },
 ];
 
 interface NavigationProps {
