@@ -37,10 +37,7 @@ export const About = () => {
             <div className="space-y-6">
               <p className="text-lg text-foreground/90 leading-relaxed">
                 Hack for RVA brings together Richmond's brightest minds to solve
-                real problems for the City of Richmond. This isn't just another
-                hackathon—it's a weekend where solutions get actually
-                implemented. Where a CoStar engineer teams up with a VCU student
-                and a community organizer to reimagine how our city works.
+                real problems for the City of Richmond.
               </p>
             </div>
 
