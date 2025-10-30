@@ -42,22 +42,22 @@ export const About = () => {
             real problems for the City of Richmond.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-card p-4 md:p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border hover:scale-105 animate-fade-in"
+                className="bg-card p-3 md:p-4 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border hover:scale-105 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <stat.icon className="w-5 h-5 text-accent" />
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <stat.icon className="w-4 h-4 text-accent" />
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-accent mb-1">
+                <div className="text-2xl md:text-3xl font-bold text-accent mb-1">
                   {stat.value}
                 </div>
-                <div className="text-sm text-muted-foreground font-medium">
+                <div className="text-xs md:text-sm text-muted-foreground font-medium">
                   {stat.label}
                 </div>
               </div>
