@@ -31,11 +31,8 @@ export const Us = () => {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Our Team
             </h2>
-            <p className="text-lg text-muted-foreground mb-2">
+            <p className="text-lg text-muted-foreground">
               100% volunteer planning & execution team
-            </p>
-            <p className="text-base text-muted-foreground max-w-3xl mx-auto">
-              We are a vibrant mix of Richmonders passionate about bridging the gap between technology, business, and civic good
             </p>
           </div>
 

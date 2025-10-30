@@ -1,6 +1,12 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -11,7 +17,12 @@ const navItems = [
   { label: "Partners", href: "/#partners" },
   { label: "FAQ", href: "/#faq" },
   { label: "Who", href: "/team" },
+];
+
+const otherItems = [
   { label: "Action Plan", href: "/action-plan" },
+  { label: "Partnerships", href: "/partnerships" },
+  { label: "Logistics", href: "/logistics" },
 ];
 
 interface NavigationProps {
@@ -52,6 +63,23 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 {item.label}
               </a>
             ))}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1">
+                Other <ChevronDown className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="bg-background border-border">
+                {otherItems.map((item) => (
+                  <DropdownMenuItem key={item.label} asChild>
+                    <a
+                      href={item.href}
+                      className="cursor-pointer"
+                    >
+                      {item.label}
+                    </a>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button
               onClick={onCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
@@ -88,6 +116,20 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 {item.label}
               </a>
             ))}
+            <div className="border-t border-border pt-4 space-y-2">
+              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2">Other</div>
+              {otherItems.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 pl-4 focus:outline-2 focus:outline-accent"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label={`Navigate to ${item.label}`}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
             <Button
               onClick={() => {
                 onCTAClick();
