@@ -57,14 +57,18 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent"
+                className={`hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent ${
+                  isScrolled ? "text-foreground/80" : "text-white"
+                }`}
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
               </a>
             ))}
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1">
+              <DropdownMenuTrigger className={`hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1 ${
+                isScrolled ? "text-foreground/80" : "text-white"
+              }`}>
                 Other <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="bg-card border-border z-50">
@@ -91,7 +95,9 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className={`md:hidden p-2 transition-smooth ${
+              isScrolled ? "text-foreground" : "text-white"
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}
