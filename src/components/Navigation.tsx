@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
+  { label: "Home", href: "/" },
   { label: "What", href: "/#what" },
   { label: "Partners", href: "/#partners" },
   { label: "FAQ", href: "/#faq" },
@@ -36,13 +37,6 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-black">
-              Hack<span className="text-accent">RVA</span>
-            </div>
-          </a>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
