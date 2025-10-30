@@ -1,5 +1,7 @@
 import { Users } from "lucide-react";
 import fordPrior from "@/assets/ford-prior.jpg";
+import costarLogo from "@/assets/costar-logo.png";
+import richmondSeal from "@/assets/richmond-seal.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Hype", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
@@ -20,6 +22,20 @@ const advisoryTeam = [
   { name: "Christian Markow", role: "Experience", image: undefined, linkedin: undefined },
   { name: "Drew Cleveland", role: "Vibe", image: undefined, linkedin: undefined },
   { name: "Nick Serfass", role: "Execution", image: undefined, linkedin: undefined },
+];
+
+const partners = [
+  {
+    name: "City of Richmond / Mayor's Office",
+    subtitle:
+      "Strategic priorities | Implementation pathway | City department champions",
+    logo: richmondSeal,
+  },
+  {
+    name: "CoStar Group",
+    subtitle: "Venue & facilities | PropTech expertise | Employee mentors",
+    logo: costarLogo,
+  },
 ];
 
 export const Us = () => {
@@ -111,6 +127,44 @@ export const Us = () => {
                     {member.name}
                   </h4>
                   <p className="text-sm text-muted-foreground">{member.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Partners */}
+          <div className="mt-16">
+            <div className="flex items-center justify-center gap-2 mb-8">
+              <Users className="w-6 h-6 text-accent" />
+              <h3 className="text-2xl font-bold text-foreground">
+                Partners
+              </h3>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
+              {partners.map((partner, index) => (
+                <div
+                  key={index}
+                  className="bg-card p-6 md:p-8 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border group hover:scale-105 animate-fade-in"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  {/* Logo */}
+                  <div className="h-20 md:h-24 bg-muted/40 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-smooth px-4">
+                    {partner.logo ? (
+                      <img 
+                        src={partner.logo} 
+                        alt={`${partner.name} logo`}
+                        className="max-h-16 w-auto object-contain"
+                      />
+                    ) : (
+                      <span className="text-muted-foreground/60 group-hover:text-accent font-bold text-lg text-center">
+                        {partner.name}
+                      </span>
+                    )}
+                  </div>
+                  {/* Subtitle */}
+                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
+                    {partner.subtitle}
+                  </p>
                 </div>
               ))}
             </div>
