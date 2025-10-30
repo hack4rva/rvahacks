@@ -8,6 +8,7 @@ const coreTeam = [
   { name: "Drew Cleveland", role: "Public Partnerships" },
   { name: "Michael Kolbe", role: "City Liaison" },
   { name: "Sinclair Jenks", role: "Engagement" },
+  { name: "April Palmer", role: "University Partnerships" },
 ];
 
 const advisoryTeam = [
