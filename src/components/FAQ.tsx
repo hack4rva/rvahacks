@@ -32,16 +32,6 @@ const faqs = [
       "Perfect! Team formation happens at the event. Come solo and meet amazing people, or bring friends. Teams are typically 3-5 people with diverse skills.",
   },
   {
-    question: "Will my work actually be used by the City?",
-    answer:
-      "Yes. Every challenge has a City department champion ready to adopt winning solutions. Winners receive 6-month mentorship and $10k in prize money to help pilot their projects.",
-  },
-  {
-    question: "What are the challenges?",
-    answer:
-      "We're co-designing 5 civic challenges with City departments, aligned with Mayor Avula's pillars. Think: 311 improvements, tree equity, small business navigation, flood risk mapping, and more. Full details coming soon.",
-  },
-  {
     question: "When does registration open?",
     answer:
       "January 2026. Sign up for updates to be notified the moment registration opens.",
