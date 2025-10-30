@@ -13,8 +13,8 @@ const stats = [
   },
   {
     icon: Calendar,
-    value: "3 Days",
-    label: "Flexible Format",
+    value: "2 Days",
+    label: "Friday AM - Saturday PM",
   },
   {
     icon: DollarSign,
