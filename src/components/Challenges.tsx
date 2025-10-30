@@ -63,52 +63,59 @@ export const Challenges = () => {
           </a>
         </div>
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {pillars.map((pillar, index) => {
-            const isHovered = hoveredCard === index;
-            
-            return (
-              <div
-                key={index}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className={`group relative bg-gradient-to-br from-card to-card/95 rounded-2xl shadow-lg border-2 cursor-pointer overflow-hidden transition-all duration-500 ease-out ${
-                  isHovered 
-                    ? 'md:col-span-2 lg:col-span-2 border-accent shadow-2xl scale-[1.02] z-20' 
-                    : 'border-border hover:border-accent/40 z-10'
-                }`}
-              >
-                {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-500 ${
-                  isHovered ? 'opacity-100' : ''
-                }`} />
-                
-                <div className={`relative p-6 transition-all duration-500 ${
-                  isHovered ? 'md:p-8' : ''
-                }`}>
-                  <div className={`rounded-xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center mb-4 transition-all duration-500 ${
-                    isHovered ? 'w-16 h-16' : 'w-12 h-12'
-                  }`}>
-                    <pillar.icon className={`text-accent transition-all duration-500 ${
-                      isHovered ? 'w-8 h-8' : 'w-6 h-6'
-                    }`} />
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-5 space-y-3">
+            {pillars.map((pillar, index) => {
+              const isActive = hoveredCard === index;
+              return (
+                <button
+                  key={index}
+                  onMouseEnter={() => setHoveredCard(index)}
+                  onFocus={() => setHoveredCard(index)}
+                  onMouseLeave={() => setHoveredCard(null)}
+                  className={`w-full text-left rounded-xl border transition-smooth bg-card/90 backdrop-blur-sm ${
+                    isActive ? 'border-accent shadow-hover' : 'border-border hover:border-accent/40'
+                  }`}
+                >
+                  <div className="flex items-center gap-3 p-4">
+                    <div className={`rounded-lg bg-accent/10 flex items-center justify-center transition-smooth ${
+                      isActive ? 'w-12 h-12' : 'w-10 h-10'
+                    }`}>
+                      <pillar.icon className={`text-accent ${isActive ? 'w-6 h-6' : 'w-5 h-5'}`} />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-card-foreground font-bold">{pillar.title}</h3>
+                      <p className="text-muted-foreground text-sm truncate">{pillar.description}</p>
+                    </div>
                   </div>
-                  
-                  <h3 className={`font-bold text-card-foreground mb-3 leading-tight transition-all duration-500 ${
-                    isHovered ? 'text-xl md:text-2xl' : 'text-lg'
-                  }`}>
-                    {pillar.title}
-                  </h3>
-                  
-                  <p className={`text-muted-foreground leading-relaxed transition-all duration-500 ${
-                    isHovered ? 'text-base md:text-lg' : 'text-sm'
-                  }`}>
-                    {pillar.description}
-                  </p>
-                </div>
+                </button>
+              );
+            })}
+          </div>
+          <div className="lg:col-span-7">
+            <div className="relative h-full rounded-2xl border border-border bg-card shadow-elegant overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent pointer-events-none" />
+              <div className="relative p-6 lg:p-10 transition-smooth">
+                {(() => {
+                  const i = hoveredCard ?? 0;
+                  const ActiveIcon = pillars[i].icon;
+                  return (
+                    <div className="space-y-5">
+                      <div className="flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-xl bg-accent/15 flex items-center justify-center">
+                          <ActiveIcon className="w-8 h-8 text-accent" />
+                        </div>
+                        <h3 className="text-2xl lg:text-3xl font-bold text-card-foreground">{pillars[i].title}</h3>
+                      </div>
+                      <p className="text-muted-foreground text-base lg:text-lg">
+                        {pillars[i].description}
+                      </p>
+                    </div>
+                  );
+                })()}
               </div>
-            );
-          })}
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-12">
