@@ -35,8 +35,8 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Engineer the City We{" "}
-            <span className="text-accent">Want to Live In</span>
+            Hack for a{" "}
+            <span className="text-accent">Better Richmond</span>
           </h1>
 
           {/* Subheadline */}
