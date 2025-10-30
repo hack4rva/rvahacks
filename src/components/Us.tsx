@@ -7,12 +7,14 @@ const coreTeam = [
   { name: "Alex Otanez", role: "Private Partnerships" },
   { name: "Drew Cleveland", role: "Public Partnerships" },
   { name: "Michael Kolbe", role: "City Liaison" },
+  { name: "Sinclair Jenks", role: "Engagement" },
 ];
 
 const advisoryTeam = [
   { name: "Paul Devitt, PhD", role: "Integrations" },
   { name: "Danny Avula", role: "Strategy" },
   { name: "Ankit Matur", role: "Ops" },
+  { name: "Christian Markow", role: "Experience" },
 ];
 
 export const Us = () => {
