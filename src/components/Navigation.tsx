@@ -10,19 +10,19 @@ import {
 
 const navItems = [
   { label: "Home", href: "/" },
+  { label: "Who", href: "/team" },
   { label: "What", href: "/#what" },
   { label: "Why", href: "/#prizes" },
-  { label: "How", href: "/#how" },
   { label: "When", href: "/#format" },
-  { label: "Partners", href: "/#partners" },
-  { label: "FAQ", href: "/#faq" },
-  { label: "Who", href: "/team" },
+  { label: "How", href: "/#how" },
 ];
 
 const otherItems = [
   { label: "Action Plan", href: "/action-plan" },
   { label: "Partnerships", href: "/partnerships" },
   { label: "Logistics", href: "/logistics" },
+  { label: "FAQ", href: "/#faq" },
+  { label: "Partners", href: "/#partners" },
 ];
 
 interface NavigationProps {
@@ -67,7 +67,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
               <DropdownMenuTrigger className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1">
                 Other <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-background border-border">
+              <DropdownMenuContent align="end" className="bg-card border-border z-50">
                 {otherItems.map((item) => (
                   <DropdownMenuItem key={item.label} asChild>
                     <a
