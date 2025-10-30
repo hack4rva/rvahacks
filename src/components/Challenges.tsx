@@ -5,37 +5,86 @@ const pillars = [
   {
     icon: Building2,
     title: "A Thriving City Hall",
-    description: "Transform Richmond's local government into a model public-sector organization that stewards resources effectively, meets community needs, and builds trust with residents and partners.",
+    description: "We're transforming City Hall into a powerhouse that gets things done—delivering services efficiently, stewarding resources wisely, and earning your trust every single day.",
+    goals: [
+      "Do the basics better",
+      "Keep standards high with continuous improvement",
+      "Build pride with a strong shared vision",
+      "Provide white glove service for all",
+      "Boost resident satisfaction and trust",
+      "Steward public resources responsibly"
+    ]
   },
   {
     icon: Home,
     title: "Thriving Neighborhoods",
-    description: "Meet the housing needs of a growing city, so that Richmonders across different income levels can access affordable housing in safe neighborhoods with strong public amenities.",
+    description: "Building more homes for more people—from affordable housing to middle-income options—in safe neighborhoods packed with parks, pools, libraries, and amenities everyone deserves.",
+    goals: [
+      "Build more homes for more people",
+      "Strengthen housing stability and fight evictions",
+      "Connect neighborhoods to parks, pools & libraries",
+      "Keep our neighborhoods safe and prepared"
+    ]
   },
   {
     icon: Users,
     title: "Thriving Families",
-    description: "Support the education, health, and development of children and families — in and out of the classroom — so that students graduate from Richmond Public Schools well-prepared for success and connected to opportunities for further learning and career development.",
+    description: "Every child in Richmond deserves to thrive—in school and out. We're partnering with RPS to ensure kids graduate ready for success, with pathways to college, careers, and bright futures.",
+    goals: [
+      "Support RPS academic success",
+      "Partner with schools for every child's future",
+      "Get kids kindergarten-ready",
+      "Connect youth to activities beyond the classroom",
+      "Open doors after K-12 graduation",
+      "Respond to families in crisis"
+    ]
   },
   {
     icon: Briefcase,
     title: "A Thriving Economy",
-    description: "Grow Richmond's economy by adding jobs, increasing tax revenue, and attracting capital investments. Connect people to jobs through transit and City initiatives. Reduce poverty, increase homeownership, and build wealth—especially for communities of color. Support small, minority-owned, and women-owned businesses. Build a vibrant downtown and invest in the Southside with new housing and neighborhood amenities.",
+    description: "Growing jobs, cutting poverty, building wealth—especially for communities of color. Supporting small businesses, minority-owned enterprises, and creating a downtown where everyone wants to live, work, and play.",
+    goals: [
+      "Grow Richmond's economy with new jobs",
+      "Connect people to jobs via transit & training",
+      "Reduce poverty and build wealth",
+      "Champion small & minority-owned businesses",
+      "Build a vibrant downtown",
+      "Invest in the Southside"
+    ]
   },
   {
     icon: Heart,
     title: "Thriving and Inclusive Communities",
-    description: "Protect everyone's rights — specifically the rights of immigrants and refugees, LGBTQ+ residents, other politically targeted groups, and the reproductive rights of women. Work to redress long-standing racial inequities in health and well-being.",
+    description: "Protecting everyone's rights—immigrants, refugees, LGBTQ+ residents, women's reproductive freedom. Fighting racial inequities in health and wealth. Richmond is for everyone.",
+    goals: [
+      "Support immigrant communities",
+      "Champion LGBTQ+ rights",
+      "Defend reproductive freedom & maternal health",
+      "Address racial inequities in health & wealth"
+    ]
   },
   {
     icon: TreePine,
     title: "A Thriving and Sustainable Built Environment",
-    description: "Support continued progress on the execution of the RVAgreen 2050 comprehensive plan. Shift toward a net zero greenhouse emission local economy through improved public and multimodal transportation, strong stewardship of our natural resources, greening neglected neighborhoods, and a strong commitment to sustainability across all departments.",
+    description: "Racing toward net zero emissions with better transit, bike lanes, greener neighborhoods, and infrastructure built to last generations. RVAgreen 2050 is our roadmap to a sustainable future.",
+    goals: [
+      "Slash carbon emissions, aim for net zero",
+      "Advance RVAgreen 2050 goals",
+      "Partner with residents on environmental justice",
+      "Build & maintain infrastructure for the future",
+      "Make it easier to walk, roll, ride, or take the bus"
+    ]
   },
   {
     icon: BookText,
     title: "A City That Tells its Stories",
-    description: "Make Richmond a national model for telling the truth about its own history — including slavery, racism, and struggles for Black empowerment since the City's founding. Use the arts as a vehicle for telling these stories and for strengthening connections across the different cultures found in our city.",
+    description: "Becoming a national model for truth-telling about our history—slavery, racism, and the courageous fight for justice. Using arts and culture to unite our diverse communities and share our humanity.",
+    goals: [
+      "Share Shockoe as a place for reckoning & repair",
+      "Champion arts & culture storytelling",
+      "Document Richmond's rich cultural history",
+      "Help residents understand how City government works"
+    ]
   },
 ];
 
@@ -111,9 +160,20 @@ export const Challenges = () => {
                         </div>
                         <h3 className="text-2xl lg:text-3xl font-bold text-card-foreground">{pillars[i].title}</h3>
                       </div>
-                      <p className="text-muted-foreground text-base lg:text-lg">
+                      <p className="text-muted-foreground text-base lg:text-lg leading-relaxed">
                         {pillars[i].description}
                       </p>
+                      <div className="pt-4">
+                        <h4 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">Key Goals</h4>
+                        <ul className="space-y-2">
+                          {pillars[i].goals.map((goal, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground text-sm">
+                              <span className="text-accent mt-1">•</span>
+                              <span>{goal}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   );
                 })()}
