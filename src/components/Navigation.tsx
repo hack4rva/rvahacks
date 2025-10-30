@@ -38,7 +38,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-bold text-white">
+            <div className="text-2xl font-bold text-black">
               Hack<span className="text-accent">RVA</span>
             </div>
           </a>
