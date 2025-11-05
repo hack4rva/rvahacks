@@ -9,6 +9,7 @@ import ankitMathur from "@/assets/ankit-mathur.png";
 import drewCleveland from "@/assets/drew-cleveland.png";
 import alexOtanez from "@/assets/alex-otanez.png";
 import aprilPalmer from "@/assets/april-palmer.png";
+import nickSerfass from "@/assets/nick-serfass.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
@@ -30,7 +31,7 @@ const advisoryTeam = [
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
   { name: "TBD", role: "Experience", image: undefined, linkedin: undefined },
   { name: "Drew Cleveland", role: "Vibe", image: drewCleveland, linkedin: undefined },
-  { name: "TBD", role: "Execution", image: undefined, linkedin: undefined },
+  { name: "Nick Serfass", role: "Execution", image: nickSerfass, linkedin: undefined },
 ];
 
 const partners = [
