@@ -5,6 +5,7 @@ import dannyAvula from "@/assets/danny-avula.png";
 import crystalHarvey from "@/assets/crystal-harvey.png";
 import claireJordan from "@/assets/claire-jordan.png";
 import tomBecker from "@/assets/tom-becker.png";
+import ankitMathur from "@/assets/ankit-mathur.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
@@ -23,7 +24,7 @@ const coreTeam = [
 const advisoryTeam = [
   { name: "Tom Becker", role: "Integrations", image: tomBecker, linkedin: undefined },
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
-  { name: "TBD", role: "Vision", image: undefined, linkedin: undefined },
+  { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
   { name: "TBD", role: "Experience", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Vibe", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Execution", image: undefined, linkedin: undefined },
