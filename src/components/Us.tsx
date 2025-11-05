@@ -6,6 +6,7 @@ import crystalHarvey from "@/assets/crystal-harvey.png";
 import claireJordan from "@/assets/claire-jordan.png";
 import tomBecker from "@/assets/tom-becker.png";
 import ankitMathur from "@/assets/ankit-mathur.png";
+import drewCleveland from "@/assets/drew-cleveland.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
@@ -26,7 +27,7 @@ const advisoryTeam = [
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
   { name: "TBD", role: "Experience", image: undefined, linkedin: undefined },
-  { name: "Drew Cleveland", role: "Vibe", image: undefined, linkedin: undefined },
+  { name: "Drew Cleveland", role: "Vibe", image: drewCleveland, linkedin: undefined },
   { name: "TBD", role: "Execution", image: undefined, linkedin: undefined },
 ];
 
