@@ -26,7 +26,7 @@ const advisoryTeam = [
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
   { name: "TBD", role: "Experience", image: undefined, linkedin: undefined },
-  { name: "TBD", role: "Vibe", image: undefined, linkedin: undefined },
+  { name: "Drew Cleveland", role: "Vibe", image: undefined, linkedin: undefined },
   { name: "TBD", role: "Execution", image: undefined, linkedin: undefined },
 ];
 
