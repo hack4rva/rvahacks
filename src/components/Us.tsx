@@ -10,6 +10,7 @@ import drewCleveland from "@/assets/drew-cleveland.png";
 import alexOtanez from "@/assets/alex-otanez.png";
 import aprilPalmer from "@/assets/april-palmer.png";
 import nickSerfass from "@/assets/nick-serfass.png";
+import sinclairJenks from "@/assets/sinclair-jenks.png";
 import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
@@ -18,7 +19,7 @@ const coreTeam = [
   { name: "Crystal Harvey", role: "Marketing & Comms", image: crystalHarvey, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: claireJordan, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
-  { name: "TBD", role: "Engagement", image: undefined, linkedin: undefined },
+  { name: "Sinclair Jenks", role: "Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "TBD", role: "Planning", image: undefined, linkedin: undefined },
   { name: "Alex Otanez", role: "Private Partnerships", image: alexOtanez, linkedin: undefined },
   { name: "TBD", role: "Public Partnerships", image: undefined, linkedin: undefined },
