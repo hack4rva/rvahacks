@@ -21,7 +21,7 @@ const coreTeam = [
   { name: "Crystal Harvey", role: "Marketing & Comms", image: crystalHarvey, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: claireJordan, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
-  { name: "Sinclair Jenks", role: "Engagement", image: sinclairJenks, linkedin: undefined },
+  { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
   { name: "Alex Otanez", role: "Private Partnerships", image: alexOtanez, linkedin: undefined },
   { name: "Adam Woodward", role: "Public Partnerships", image: adamWoodward, linkedin: undefined },
