@@ -3,7 +3,7 @@ import fordPrior from "@/assets/ford-prior.jpg";
 import michaelKolbe from "@/assets/michael-kolbe.png";
 import dannyAvula from "@/assets/danny-avula.png";
 import crystalHarvey from "@/assets/crystal-harvey.png";
-import claireJordan from "@/assets/claire-jordan.png";
+
 import tomBecker from "@/assets/tom-becker.png";
 import ankitMathur from "@/assets/ankit-mathur.png";
 import drewCleveland from "@/assets/drew-cleveland.png";
@@ -18,7 +18,7 @@ import richmondSeal from "@/assets/richmond-seal.png";
 const coreTeam = [
   { name: "Ford Prior", role: "Floater", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
   { name: "Crystal Harvey", role: "All Ops", image: crystalHarvey, linkedin: undefined },
-  { name: "Claire Jordan", role: "Onsite Ops", image: claireJordan, linkedin: undefined },
+  
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
