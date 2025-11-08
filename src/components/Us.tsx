@@ -45,9 +45,9 @@ const partners = [
     logo: richmondSeal,
   },
   {
-    name: "CoStar Group",
-    subtitle: "Venue & facilities | PropTech expertise | Employee mentors",
-    logo: costarLogo,
+    name: "TBD",
+    subtitle: "Partnership details coming soon",
+    logo: undefined,
   },
 ];
 
