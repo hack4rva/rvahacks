@@ -17,7 +17,7 @@ import richmondSeal from "@/assets/richmond-seal.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Floater", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
-  { name: "Crystal Harvey", role: "Marketing & Comms", image: crystalHarvey, linkedin: undefined },
+  { name: "Crystal Harvey", role: "All Ops", image: crystalHarvey, linkedin: undefined },
   { name: "Claire Jordan", role: "Onsite Ops", image: claireJordan, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
