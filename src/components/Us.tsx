@@ -22,9 +22,9 @@ const coreTeam = [
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
-  { name: "Alex Otanez", role: "Private Partnerships", image: alexOtanez, linkedin: undefined },
+  { name: "Alex Otanez", role: "Corporate Partnerships", image: alexOtanez, linkedin: undefined },
   { name: "Adam Woodward", role: "Ecosystem", image: adamWoodward, linkedin: undefined },
-  { name: "April Palmer", role: "University Partnerships", image: aprilPalmer, linkedin: undefined },
+  { name: "April Palmer", role: "K12+ Partnerships", image: aprilPalmer, linkedin: undefined },
 ];
 
 const advisoryTeam = [
