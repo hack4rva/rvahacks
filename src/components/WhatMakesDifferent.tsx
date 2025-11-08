@@ -15,7 +15,7 @@ const features = [
   {
     icon: HandHeart,
     label: "$10K Prize Money",
-    description: "Winners get mentorship from CoStar and City staff, plus $10k in prize money to help pilot their solutions.",
+    description: "Winners get mentorship from City staff, plus $10k in prize money to help pilot their solutions.",
   },
   {
     icon: Users,

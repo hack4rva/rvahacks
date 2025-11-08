@@ -13,7 +13,6 @@ import nickSerfass from "@/assets/nick-serfass.png";
 import sinclairJenks from "@/assets/sinclair-jenks.png";
 import adamWoodward from "@/assets/adam-woodward.png";
 import christianMarkow from "@/assets/christian-markow.png";
-import costarLogo from "@/assets/costar-logo.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
 const coreTeam = [

@@ -4,7 +4,7 @@ const schedule = [
   {
     day: "FRIDAY, MARCH 6",
     time: "10 AM - 10 PM",
-    location: "CoStar",
+    location: "Venue TBD",
     title: "Hacking Day 1",
     icon: Briefcase,
     description:
@@ -15,7 +15,7 @@ const schedule = [
   {
     day: "SATURDAY, MARCH 7",
     time: "9 AM - 10 PM",
-    location: "CoStar",
+    location: "Venue TBD",
     title: "Hacking Day 2",
     icon: Laptop,
     description:

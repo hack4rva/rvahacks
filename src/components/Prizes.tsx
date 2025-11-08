@@ -29,7 +29,7 @@ const awards = [
     title: "Moonshot",
     icon: Target,
     description: "Most ambitious and visionary solution",
-    sponsor: "CoStar",
+    sponsor: "TBD",
   },
 ];
 
@@ -45,7 +45,7 @@ export const Prizes = () => {
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
               Submit your solution by Saturday evening. 10 finalist teams will
-              pitch live on Sunday at CoStar. 5 judges, including Mayor
+              pitch live on Sunday. 5 judges, including Mayor
               Avula, will select winners and runners-up across 5 award
               categories.
             </p>
@@ -64,7 +64,7 @@ export const Prizes = () => {
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
                 <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Sunday at CoStar:</span> 10
+                  <span className="font-bold">Sunday Finals:</span> 10
                   finalists present 5-minute live pitches
                 </p>
               </div>

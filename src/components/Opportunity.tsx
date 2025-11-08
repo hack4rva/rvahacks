@@ -5,7 +5,7 @@ const opportunities = [
   {
     icon: Users,
     label: "The Talent",
-    description: "Thousands of technologists at CoStar, CarMax, Capital One, Dominion, and VCU",
+    description: "Thousands of technologists at CarMax, Capital One, Dominion, and VCU",
   },
   {
     icon: Building2,
