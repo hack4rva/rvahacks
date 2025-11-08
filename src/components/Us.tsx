@@ -23,7 +23,7 @@ const coreTeam = [
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
   { name: "Alex Otanez", role: "Private Partnerships", image: alexOtanez, linkedin: undefined },
-  { name: "Adam Woodward", role: "Public Partnerships", image: adamWoodward, linkedin: undefined },
+  { name: "Adam Woodward", role: "Ecosystem", image: adamWoodward, linkedin: undefined },
   { name: "April Palmer", role: "University Partnerships", image: aprilPalmer, linkedin: undefined },
 ];
 
