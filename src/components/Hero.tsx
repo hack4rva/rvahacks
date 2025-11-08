@@ -86,7 +86,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-accent" aria-hidden="true" />
               <span className="text-lg font-medium">
-                CoStar Headquarters, Richmond VA
+                Downtown Richmond VA
               </span>
             </div>
           </div>

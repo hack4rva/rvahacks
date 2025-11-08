@@ -58,7 +58,7 @@ export const Countdown = () => {
               Countdown to Hack for RVA
             </h2>
             <p className="text-muted-foreground text-base md:text-lg">
-              March 6-8, 2026 • CoStar Headquarters, Richmond
+              March 6-8, 2026 • Downtown Richmond VA
             </p>
           </div>
 
