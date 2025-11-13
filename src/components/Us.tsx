@@ -44,8 +44,8 @@ const partners = [
     logo: richmondSeal,
   },
   {
-    name: "TBD",
-    subtitle: "Partnership details coming soon",
+    name: "AI Ready RVA",
+    subtitle: "AI education | Workforce development | Community training",
     logo: undefined,
   },
 ];
