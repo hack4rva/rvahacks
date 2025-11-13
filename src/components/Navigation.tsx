@@ -24,6 +24,7 @@ const navItems = [
 const otherItems = [
   { label: "Action Plan", href: "/action-plan" },
   { label: "Logistics", href: "/logistics" },
+  { label: "Preparation", href: "/preparation" },
   { label: "FAQ", href: "/#faq" },
 ];
 
