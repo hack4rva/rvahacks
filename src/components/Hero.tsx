@@ -48,8 +48,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Hack for a{" "}
-            <span className="text-accent">Better Richmond</span>
+            Engineer the City We Want to Live In
           </h1>
 
           {/* Subheadline */}
@@ -71,7 +70,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">500+</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">350</div>
               <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
             </div>
           </div>

@@ -14,8 +14,8 @@ const features = [
   },
   {
     icon: HandHeart,
-    label: "$10K Prize Money",
-    description: "Winners get mentorship from City staff, plus $10k in prize money to help pilot their solutions.",
+    label: "6-Month Support",
+    description: "Winners get mentorship from City staff, plus micro-grants ($1K-5K) to help pilot their solutions.",
   },
   {
     icon: Users,
