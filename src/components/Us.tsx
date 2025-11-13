@@ -44,9 +44,8 @@ const partners = [
     logo: richmondSeal,
   },
   {
-    name: "Richmond Technology Council",
-    subtitle:
-      "Community outreach | Tech mentorship | Sponsor network | Event operations",
+    name: "TBD",
+    subtitle: "Partnership details coming soon",
     logo: undefined,
   },
 ];
