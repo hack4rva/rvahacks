@@ -47,7 +47,7 @@ const AdminDashboard = () => {
     title: "",
     content: "",
     category: "budget",
-    assignee: "",
+    assignee: "unassigned",
     due_date: "",
     priority: "medium",
     status: "pending"
@@ -118,7 +118,7 @@ const AdminDashboard = () => {
       .order("due_date", { ascending: true });
 
     if (error) throw error;
-    setDocuments((data || []) as Document[]);
+    setDocuments((data || []) as unknown as Document[]);
   };
 
   const teamMembers = [
@@ -137,7 +137,11 @@ const AdminDashboard = () => {
       filtered = filtered.filter(doc => doc.priority === filterPriority);
     }
     if (filterAssignee !== "all") {
-      filtered = filtered.filter(doc => doc.assignee === filterAssignee);
+      if (filterAssignee === "unassigned") {
+        filtered = filtered.filter(doc => !doc.assignee);
+      } else {
+        filtered = filtered.filter(doc => doc.assignee === filterAssignee);
+      }
     }
 
     const sorted = [...filtered].sort((a, b) => {
@@ -198,7 +202,7 @@ const AdminDashboard = () => {
             title: docForm.title,
             content: docForm.content,
             category: docForm.category,
-            assignee: docForm.assignee || null,
+            assignee: docForm.assignee === "unassigned" ? null : docForm.assignee,
             due_date: docForm.due_date || null,
             priority: docForm.priority,
             status: docForm.status,
@@ -214,7 +218,7 @@ const AdminDashboard = () => {
             title: docForm.title,
             content: docForm.content,
             category: docForm.category,
-            assignee: docForm.assignee || null,
+            assignee: docForm.assignee === "unassigned" ? null : docForm.assignee,
             due_date: docForm.due_date || null,
             priority: docForm.priority,
             status: docForm.status,
@@ -231,7 +235,7 @@ const AdminDashboard = () => {
         title: "", 
         content: "", 
         category: "budget",
-        assignee: "",
+        assignee: "unassigned",
         due_date: "",
         priority: "medium",
         status: "pending"
@@ -252,7 +256,7 @@ const AdminDashboard = () => {
       title: doc.title,
       content: doc.content || "",
       category: doc.category,
-      assignee: doc.assignee || "",
+      assignee: doc.assignee || "unassigned",
       due_date: doc.due_date || "",
       priority: doc.priority,
       status: doc.status,
@@ -333,7 +337,7 @@ const AdminDashboard = () => {
                           title: "", 
                           content: "", 
                           category: "budget",
-                          assignee: "",
+                          assignee: "unassigned",
                           due_date: "",
                           priority: "medium",
                           status: "pending"
@@ -396,13 +400,13 @@ const AdminDashboard = () => {
                             <Label htmlFor="assignee">Assignee</Label>
                             <Select
                               value={docForm.assignee}
-                              onValueChange={(value) => setDocForm({ ...docForm, assignee: value })}
+                              onValueChange={(value) => setDocForm({ ...docForm, assignee: value === "unassigned" ? "" : value })}
                             >
                               <SelectTrigger>
                                 <SelectValue placeholder="Select assignee" />
                               </SelectTrigger>
                               <SelectContent>
-                                <SelectItem value="">Unassigned</SelectItem>
+                                <SelectItem value="unassigned">Unassigned</SelectItem>
                                 {teamMembers.map((member) => (
                                   <SelectItem key={member} value={member}>{member}</SelectItem>
                                 ))}
@@ -516,7 +520,7 @@ const AdminDashboard = () => {
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">All Assignees</SelectItem>
-                          <SelectItem value="">Unassigned</SelectItem>
+                          <SelectItem value="unassigned">Unassigned</SelectItem>
                           {teamMembers.map((member) => (
                             <SelectItem key={member} value={member}>{member}</SelectItem>
                           ))}
