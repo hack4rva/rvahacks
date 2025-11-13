@@ -20,6 +20,10 @@ interface Document {
   category: string;
   created_at: string;
   updated_at: string;
+  assignee: string | null;
+  due_date: string | null;
+  priority: 'low' | 'medium' | 'high' | 'critical';
+  status: 'pending' | 'in-progress' | 'completed' | 'blocked';
 }
 
 const AdminDashboard = () => {
@@ -31,11 +35,27 @@ const AdminDashboard = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [isDocDialogOpen, setIsDocDialogOpen] = useState(false);
   const [editingDoc, setEditingDoc] = useState<Document | null>(null);
-  const [docForm, setDocForm] = useState({
+  const [docForm, setDocForm] = useState<{
+    title: string;
+    content: string;
+    category: string;
+    assignee: string;
+    due_date: string;
+    priority: 'low' | 'medium' | 'high' | 'critical';
+    status: 'pending' | 'in-progress' | 'completed' | 'blocked';
+  }>({
     title: "",
     content: "",
-    category: "budget"
+    category: "budget",
+    assignee: "",
+    due_date: "",
+    priority: "medium",
+    status: "pending"
   });
+  const [filterStatus, setFilterStatus] = useState<string>("all");
+  const [filterPriority, setFilterPriority] = useState<string>("all");
+  const [filterAssignee, setFilterAssignee] = useState<string>("all");
+  const [sortBy, setSortBy] = useState<string>("due_date");
 
   useEffect(() => {
     checkAdminAndFetchData();
@@ -94,11 +114,49 @@ const AdminDashboard = () => {
     const { data, error } = await supabase
       .from("admin_documents")
       .select("*")
-      .order("category", { ascending: true })
-      .order("updated_at", { ascending: false });
+      .order("priority", { ascending: false })
+      .order("due_date", { ascending: true });
 
     if (error) throw error;
-    setDocuments(data || []);
+    setDocuments((data || []) as Document[]);
+  };
+
+  const teamMembers = [
+    "Ford Prior", "Crystal Harvey", "Michael Kolbe", "Sinclair Jenks",
+    "Christian Markow", "Alex Otanez", "Adam Woodward", "April Palmer",
+    "Tom Becker", "Danny Avula", "Ankit Mathur", "Drew Cleveland", "Nick Serfass"
+  ];
+
+  const getFilteredAndSortedDocuments = () => {
+    let filtered = documents;
+
+    if (filterStatus !== "all") {
+      filtered = filtered.filter(doc => doc.status === filterStatus);
+    }
+    if (filterPriority !== "all") {
+      filtered = filtered.filter(doc => doc.priority === filterPriority);
+    }
+    if (filterAssignee !== "all") {
+      filtered = filtered.filter(doc => doc.assignee === filterAssignee);
+    }
+
+    const sorted = [...filtered].sort((a, b) => {
+      if (sortBy === "due_date") {
+        if (!a.due_date) return 1;
+        if (!b.due_date) return -1;
+        return new Date(a.due_date).getTime() - new Date(b.due_date).getTime();
+      }
+      if (sortBy === "priority") {
+        const priorityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
+        return priorityOrder[a.priority] - priorityOrder[b.priority];
+      }
+      if (sortBy === "status") {
+        return a.status.localeCompare(b.status);
+      }
+      return 0;
+    });
+
+    return sorted;
   };
 
   const handleLogout = async () => {
@@ -140,6 +198,10 @@ const AdminDashboard = () => {
             title: docForm.title,
             content: docForm.content,
             category: docForm.category,
+            assignee: docForm.assignee || null,
+            due_date: docForm.due_date || null,
+            priority: docForm.priority,
+            status: docForm.status,
           })
           .eq("id", editingDoc.id);
 
@@ -152,6 +214,10 @@ const AdminDashboard = () => {
             title: docForm.title,
             content: docForm.content,
             category: docForm.category,
+            assignee: docForm.assignee || null,
+            due_date: docForm.due_date || null,
+            priority: docForm.priority,
+            status: docForm.status,
             created_by: user.id,
           });
 
@@ -161,7 +227,15 @@ const AdminDashboard = () => {
 
       setIsDocDialogOpen(false);
       setEditingDoc(null);
-      setDocForm({ title: "", content: "", category: "budget" });
+      setDocForm({ 
+        title: "", 
+        content: "", 
+        category: "budget",
+        assignee: "",
+        due_date: "",
+        priority: "medium",
+        status: "pending"
+      });
       fetchDocuments();
     } catch (error: any) {
       toast({
@@ -178,6 +252,10 @@ const AdminDashboard = () => {
       title: doc.title,
       content: doc.content || "",
       category: doc.category,
+      assignee: doc.assignee || "",
+      due_date: doc.due_date || "",
+      priority: doc.priority,
+      status: doc.status,
     });
     setIsDocDialogOpen(true);
   };
@@ -251,7 +329,15 @@ const AdminDashboard = () => {
                     <DialogTrigger asChild>
                       <Button onClick={() => {
                         setEditingDoc(null);
-                        setDocForm({ title: "", content: "", category: "budget" });
+                        setDocForm({ 
+                          title: "", 
+                          content: "", 
+                          category: "budget",
+                          assignee: "",
+                          due_date: "",
+                          priority: "medium",
+                          status: "pending"
+                        });
                       }}>
                         <Plus className="w-4 h-4 mr-2" />
                         New Document
@@ -304,6 +390,75 @@ const AdminDashboard = () => {
                             rows={10}
                           />
                         </div>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="assignee">Assignee</Label>
+                            <Select
+                              value={docForm.assignee}
+                              onValueChange={(value) => setDocForm({ ...docForm, assignee: value })}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select assignee" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="">Unassigned</SelectItem>
+                                {teamMembers.map((member) => (
+                                  <SelectItem key={member} value={member}>{member}</SelectItem>
+                                ))}
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="due_date">Due Date</Label>
+                            <Input
+                              id="due_date"
+                              type="date"
+                              value={docForm.due_date}
+                              onChange={(e) => setDocForm({ ...docForm, due_date: e.target.value })}
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-2 gap-4">
+                          <div>
+                            <Label htmlFor="priority">Priority</Label>
+                            <Select
+                              value={docForm.priority}
+                              onValueChange={(value: any) => setDocForm({ ...docForm, priority: value })}
+                            >
+                              <SelectTrigger>
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="low">Low</SelectItem>
+                                <SelectItem value="medium">Medium</SelectItem>
+                                <SelectItem value="high">High</SelectItem>
+                                <SelectItem value="critical">Critical</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          
+                          <div>
+                            <Label htmlFor="status">Status</Label>
+                            <Select
+                              value={docForm.status}
+                              onValueChange={(value: any) => setDocForm({ ...docForm, status: value })}
+                            >
+                              <SelectTrigger>
+                                <SelectValue />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="pending">Pending</SelectItem>
+                                <SelectItem value="in-progress">In Progress</SelectItem>
+                                <SelectItem value="completed">Completed</SelectItem>
+                                <SelectItem value="blocked">Blocked</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
+                        
                         <div className="flex justify-end space-x-2">
                           <Button variant="outline" onClick={() => setIsDocDialogOpen(false)}>
                             Cancel
@@ -318,6 +473,73 @@ const AdminDashboard = () => {
                 </div>
               </CardHeader>
               <CardContent>
+                {/* Filters and Sorting */}
+                <div className="mb-6 p-4 bg-muted/50 rounded-lg space-y-4">
+                  <div className="flex flex-wrap gap-4">
+                    <div className="flex-1 min-w-[200px]">
+                      <Label className="text-sm">Filter by Status</Label>
+                      <Select value={filterStatus} onValueChange={setFilterStatus}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All Statuses</SelectItem>
+                          <SelectItem value="pending">Pending</SelectItem>
+                          <SelectItem value="in-progress">In Progress</SelectItem>
+                          <SelectItem value="completed">Completed</SelectItem>
+                          <SelectItem value="blocked">Blocked</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="flex-1 min-w-[200px]">
+                      <Label className="text-sm">Filter by Priority</Label>
+                      <Select value={filterPriority} onValueChange={setFilterPriority}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All Priorities</SelectItem>
+                          <SelectItem value="critical">Critical</SelectItem>
+                          <SelectItem value="high">High</SelectItem>
+                          <SelectItem value="medium">Medium</SelectItem>
+                          <SelectItem value="low">Low</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="flex-1 min-w-[200px]">
+                      <Label className="text-sm">Filter by Assignee</Label>
+                      <Select value={filterAssignee} onValueChange={setFilterAssignee}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="all">All Assignees</SelectItem>
+                          <SelectItem value="">Unassigned</SelectItem>
+                          {teamMembers.map((member) => (
+                            <SelectItem key={member} value={member}>{member}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    
+                    <div className="flex-1 min-w-[200px]">
+                      <Label className="text-sm">Sort By</Label>
+                      <Select value={sortBy} onValueChange={setSortBy}>
+                        <SelectTrigger>
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="due_date">Due Date</SelectItem>
+                          <SelectItem value="priority">Priority</SelectItem>
+                          <SelectItem value="status">Status</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </div>
+                
                 <div className="mb-4 flex gap-4">
                   {Object.entries(categoryCounts).map(([category, count]) => (
                     <div key={category} className="text-sm">
@@ -328,19 +550,53 @@ const AdminDashboard = () => {
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Category</TableHead>
+                      <TableHead>Priority</TableHead>
+                      <TableHead>Status</TableHead>
                       <TableHead>Title</TableHead>
-                      <TableHead>Last Updated</TableHead>
+                      <TableHead>Category</TableHead>
+                      <TableHead>Assignee</TableHead>
+                      <TableHead>Due Date</TableHead>
                       <TableHead className="text-right">Actions</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
-                    {documents.map((doc) => (
+                    {getFilteredAndSortedDocuments().map((doc) => (
                       <TableRow key={doc.id}>
-                        <TableCell className="capitalize">{doc.category.replace('-', ' ')}</TableCell>
-                        <TableCell className="font-medium">{doc.title}</TableCell>
                         <TableCell>
-                          {new Date(doc.updated_at).toLocaleString()}
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                            doc.priority === 'critical' ? 'bg-red-100 text-red-800' :
+                            doc.priority === 'high' ? 'bg-orange-100 text-orange-800' :
+                            doc.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                            'bg-green-100 text-green-800'
+                          }`}>
+                            {doc.priority}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                            doc.status === 'completed' ? 'bg-green-100 text-green-800' :
+                            doc.status === 'in-progress' ? 'bg-blue-100 text-blue-800' :
+                            doc.status === 'blocked' ? 'bg-red-100 text-red-800' :
+                            'bg-gray-100 text-gray-800'
+                          }`}>
+                            {doc.status.replace('-', ' ')}
+                          </span>
+                        </TableCell>
+                        <TableCell className="font-medium">{doc.title}</TableCell>
+                        <TableCell className="capitalize">{doc.category.replace('-', ' ')}</TableCell>
+                        <TableCell>{doc.assignee || <span className="text-muted-foreground">Unassigned</span>}</TableCell>
+                        <TableCell>
+                          {doc.due_date ? (
+                            <span className={
+                              new Date(doc.due_date) < new Date() && doc.status !== 'completed'
+                                ? 'text-red-600 font-medium'
+                                : ''
+                            }>
+                              {new Date(doc.due_date).toLocaleDateString()}
+                            </span>
+                          ) : (
+                            <span className="text-muted-foreground">No date</span>
+                          )}
                         </TableCell>
                         <TableCell className="text-right">
                           <Button
