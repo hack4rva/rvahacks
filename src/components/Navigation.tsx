@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Shield } from "lucide-react";
+import { Menu, X, ChevronDown, Shield, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
+import { supabase } from "@/integrations/supabase/client";
+import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -30,7 +34,23 @@ interface NavigationProps {
 export const Navigation = ({ onCTAClick }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState<any>(null);
   const { isAdmin } = useIsAdmin();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Get initial user
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      setUser(user);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -79,16 +99,6 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-            {isAdmin && (
-              <a
-                href="/admin"
-                className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1"
-                aria-label="Navigate to Admin Dashboard"
-              >
-                <Shield className="w-4 h-4" />
-                Admin
-              </a>
-            )}
             <Button
               onClick={onCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
@@ -96,6 +106,51 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             >
               Stay Updated
             </Button>
+            
+            {user ? (
+              <DropdownMenu>
+                <DropdownMenuTrigger className="focus:outline-2 focus:outline-accent">
+                  <Avatar className="h-9 w-9 cursor-pointer hover:opacity-80 transition-opacity">
+                    <AvatarFallback className="bg-accent text-accent-foreground">
+                      {user.email?.[0]?.toUpperCase() || 'U'}
+                    </AvatarFallback>
+                  </Avatar>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56 bg-card border-border z-50">
+                  <div className="px-2 py-1.5 text-sm text-muted-foreground">
+                    {user.email}
+                  </div>
+                  <DropdownMenuSeparator />
+                  {isAdmin && (
+                    <>
+                      <DropdownMenuItem onClick={() => navigate("/admin")} className="cursor-pointer">
+                        <Shield className="w-4 h-4 mr-2" />
+                        Admin Dashboard
+                      </DropdownMenuItem>
+                      <DropdownMenuSeparator />
+                    </>
+                  )}
+                  <DropdownMenuItem 
+                    onClick={async () => {
+                      await supabase.auth.signOut();
+                      navigate("/");
+                    }}
+                    className="cursor-pointer text-destructive focus:text-destructive"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Button
+                onClick={() => navigate("/login")}
+                variant="outline"
+                aria-label="Login"
+              >
+                Login
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -139,17 +194,6 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 </a>
               ))}
             </div>
-            {isAdmin && (
-              <a
-                href="/admin"
-                className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 pl-4 focus:outline-2 focus:outline-accent flex items-center gap-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-                aria-label="Navigate to Admin Dashboard"
-              >
-                <Shield className="w-4 h-4" />
-                Admin
-              </a>
-            )}
             <Button
               onClick={() => {
                 onCTAClick();
@@ -160,6 +204,46 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             >
               Stay Updated
             </Button>
+
+            {user ? (
+              <div className="border-t border-border pt-4 space-y-2">
+                <div className="text-sm text-muted-foreground px-2 mb-2">
+                  {user.email}
+                </div>
+                {isAdmin && (
+                  <a
+                    href="/admin"
+                    className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 pl-4 focus:outline-2 focus:outline-accent flex items-center gap-2"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <Shield className="w-4 h-4" />
+                    Admin Dashboard
+                  </a>
+                )}
+                <button
+                  onClick={async () => {
+                    await supabase.auth.signOut();
+                    navigate("/");
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full text-left text-destructive hover:text-destructive/80 transition-smooth font-medium py-2 pl-4 flex items-center gap-2"
+                >
+                  <LogOut className="w-4 h-4" />
+                  Logout
+                </button>
+              </div>
+            ) : (
+              <Button
+                onClick={() => {
+                  navigate("/login");
+                  setIsMobileMenuOpen(false);
+                }}
+                variant="outline"
+                className="w-full"
+              >
+                Login
+              </Button>
+            )}
           </div>
         </div>
       )}
