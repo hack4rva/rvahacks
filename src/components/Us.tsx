@@ -1,5 +1,5 @@
 import { Users } from "lucide-react";
-import fordPrior from "@/assets/ford-prior.jpg";
+import fordPrior from "@/assets/ford-prior.png";
 import michaelKolbe from "@/assets/michael-kolbe.png";
 import dannyAvula from "@/assets/danny-avula.png";
 import crystalHarvey from "@/assets/crystal-harvey.png";
