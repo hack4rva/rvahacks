@@ -8,8 +8,8 @@ const stats = [
   },
   {
     icon: Target,
-    value: "7",
-    label: "City Goals",
+    value: "1",
+    label: "City Goal",
   },
   {
     icon: Calendar,
@@ -38,8 +38,8 @@ export const About = () => {
           </h2>
 
           <p className="text-lg text-foreground/90 leading-relaxed text-center mb-12 max-w-3xl mx-auto animate-fade-in">
-            Hack for RVA brings together Richmond's brightest minds to solve
-            real problems for the City of Richmond.
+            Hack for RVA brings together Richmond's brightest minds to build
+            a thriving economy for the City of Richmond.
           </p>
 
           <div className="max-w-4xl mx-auto mb-16 animate-fade-in">
@@ -68,8 +68,8 @@ export const About = () => {
                 <div className="flex items-start gap-3">
                   <span className="text-accent font-bold text-xl">✅</span>
                   <div>
-                    <strong className="text-foreground">The Challenges</strong>
-                    <p className="text-sm text-muted-foreground">Real civic problems that need solving, from climate resilience to small business support</p>
+                    <strong className="text-foreground">The Challenge</strong>
+                    <p className="text-sm text-muted-foreground">Build solutions that grow jobs, cut poverty, support small businesses, and create wealth for all Richmonders</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

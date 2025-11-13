@@ -53,8 +53,8 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Richmond's entrepreneurs, inventors, and technologists unite to
-            solve <Link to="/action-plan" className="text-accent hover:text-accent/80 underline transition-colors">real problems</Link> for our city.
+            Richmond's entrepreneurs, inventors, and technologists unite to build
+            <Link to="/action-plan" className="text-accent hover:text-accent/80 underline transition-colors"> a thriving economy</Link> for our city.
           </p>
 
           {/* Key Stats */}
