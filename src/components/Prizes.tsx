@@ -1,4 +1,4 @@
-import { Award, Users, Lightbulb, Rocket, Target } from "lucide-react";
+import { Award, Users, Lightbulb, Rocket, Target, Code, Zap, Shield, Globe, Heart } from "lucide-react";
 
 const awards = [
   {
@@ -29,6 +29,36 @@ const awards = [
     title: "Moonshot",
     icon: Target,
     description: "Most ambitious and visionary solution",
+    sponsor: "TBD",
+  },
+  {
+    title: "Best Technical Implementation",
+    icon: Code,
+    description: "Most impressive technical execution",
+    sponsor: "TBD",
+  },
+  {
+    title: "Fastest Build",
+    icon: Zap,
+    description: "Most efficient and rapid development",
+    sponsor: "TBD",
+  },
+  {
+    title: "Most Secure Solution",
+    icon: Shield,
+    description: "Best security and privacy implementation",
+    sponsor: "TBD",
+  },
+  {
+    title: "Best Social Impact",
+    icon: Heart,
+    description: "Greatest potential for community benefit",
+    sponsor: "TBD",
+  },
+  {
+    title: "Most Scalable",
+    icon: Globe,
+    description: "Best potential for widespread adoption",
     sponsor: "TBD",
   },
 ];
