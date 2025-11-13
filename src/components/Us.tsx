@@ -14,6 +14,7 @@ import sinclairJenks from "@/assets/sinclair-jenks.png";
 import adamWoodward from "@/assets/adam-woodward.png";
 import christianMarkow from "@/assets/christian-markow.png";
 import richmondSeal from "@/assets/richmond-seal.png";
+import aiReadyRvaLogo from "@/assets/ai-ready-rva-logo.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Floater", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
@@ -46,7 +47,7 @@ const partners = [
   {
     name: "AI Ready RVA",
     subtitle: "AI education | Workforce development | Community training",
-    logo: undefined,
+    logo: aiReadyRvaLogo,
   },
 ];
 
