@@ -28,6 +28,7 @@ const otherItems = [
   { label: "Action Plan", href: "/action-plan" },
   { label: "Logistics", href: "/logistics" },
   { label: "Preparation", href: "/preparation" },
+  { label: "Code of Conduct", href: "/code-of-conduct" },
   { label: "FAQ", href: "/#faq" },
 ];
 
