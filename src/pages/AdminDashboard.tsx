@@ -12,6 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Edit, Plus, Trash2, Eye } from "lucide-react";
+import ReactMarkdown from "react-markdown";
 
 interface Document {
   id: string;
@@ -685,10 +686,30 @@ const AdminDashboard = () => {
                 </DialogDescription>
               </DialogHeader>
               <div className="mt-4">
-                <div className="prose prose-sm max-w-none">
-                  <pre className="whitespace-pre-wrap font-sans text-sm text-foreground bg-muted p-4 rounded-lg">
-                    {viewingDoc?.content || 'No content'}
-                  </pre>
+                <div className="prose prose-sm max-w-none dark:prose-invert">
+                  <ReactMarkdown
+                    components={{
+                      h1: ({node, ...props}) => <h1 className="text-2xl font-bold mb-4 mt-6" {...props} />,
+                      h2: ({node, ...props}) => <h2 className="text-xl font-bold mb-3 mt-5" {...props} />,
+                      h3: ({node, ...props}) => <h3 className="text-lg font-semibold mb-2 mt-4" {...props} />,
+                      h4: ({node, ...props}) => <h4 className="text-base font-semibold mb-2 mt-3" {...props} />,
+                      p: ({node, ...props}) => <p className="mb-3 leading-relaxed" {...props} />,
+                      ul: ({node, ...props}) => <ul className="list-disc list-inside mb-3 space-y-1" {...props} />,
+                      ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-3 space-y-1" {...props} />,
+                      li: ({node, ...props}) => <li className="ml-4" {...props} />,
+                      strong: ({node, ...props}) => <strong className="font-bold text-foreground" {...props} />,
+                      em: ({node, ...props}) => <em className="italic" {...props} />,
+                      a: ({node, ...props}) => <a className="text-primary hover:underline" {...props} />,
+                      blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-border pl-4 italic my-3" {...props} />,
+                      code: ({node, inline, ...props}: any) => 
+                        inline ? 
+                          <code className="bg-muted px-1.5 py-0.5 rounded text-sm" {...props} /> :
+                          <code className="block bg-muted p-3 rounded text-sm overflow-x-auto" {...props} />,
+                      hr: ({node, ...props}) => <hr className="my-4 border-border" {...props} />,
+                    }}
+                  >
+                    {viewingDoc?.content || "No content"}
+                  </ReactMarkdown>
                 </div>
               </div>
               <div className="flex justify-end gap-2 mt-4">
