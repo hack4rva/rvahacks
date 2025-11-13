@@ -13,6 +13,7 @@ import nickSerfass from "@/assets/nick-serfass.png";
 import sinclairJenks from "@/assets/sinclair-jenks.png";
 import adamWoodward from "@/assets/adam-woodward.png";
 import christianMarkow from "@/assets/christian-markow.png";
+import heatherLyne from "@/assets/heather-lyne.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 import aiReadyRvaLogo from "@/assets/ai-ready-rva-logo.png";
 
@@ -32,7 +33,7 @@ const advisoryTeam = [
   { name: "Tom Becker", role: "Integrations", image: tomBecker, linkedin: undefined },
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
-  { name: "Experience TBD", role: "Entrepreneurial Ecosystems", image: undefined, linkedin: undefined },
+  { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined },
   { name: "Drew Cleveland", role: "Vibe", image: drewCleveland, linkedin: undefined },
   { name: "Nick Serfass", role: "Execution", image: nickSerfass, linkedin: undefined },
 ];
