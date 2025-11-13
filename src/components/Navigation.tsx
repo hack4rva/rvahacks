@@ -22,6 +22,7 @@ const navItems = [
 ];
 
 const otherItems = [
+  { label: "Register", href: "/registration" },
   { label: "Action Plan", href: "/action-plan" },
   { label: "Logistics", href: "/logistics" },
   { label: "Preparation", href: "/preparation" },
