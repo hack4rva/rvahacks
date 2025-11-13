@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Edit, Plus, Trash2 } from "lucide-react";
+import { Edit, Plus, Trash2, Eye } from "lucide-react";
 
 interface Document {
   id: string;
@@ -34,7 +34,9 @@ const AdminDashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isDocDialogOpen, setIsDocDialogOpen] = useState(false);
+  const [isViewDialogOpen, setIsViewDialogOpen] = useState(false);
   const [editingDoc, setEditingDoc] = useState<Document | null>(null);
+  const [viewingDoc, setViewingDoc] = useState<Document | null>(null);
   const [docForm, setDocForm] = useState<{
     title: string;
     content: string;
@@ -586,7 +588,17 @@ const AdminDashboard = () => {
                             {doc.status.replace('-', ' ')}
                           </span>
                         </TableCell>
-                        <TableCell className="font-medium">{doc.title}</TableCell>
+                        <TableCell className="font-medium">
+                          <button 
+                            onClick={() => {
+                              setViewingDoc(doc);
+                              setIsViewDialogOpen(true);
+                            }}
+                            className="text-left hover:underline hover:text-primary"
+                          >
+                            {doc.title}
+                          </button>
+                        </TableCell>
                         <TableCell className="capitalize">{doc.category.replace('-', ' ')}</TableCell>
                         <TableCell>{doc.assignee || <span className="text-muted-foreground">Unassigned</span>}</TableCell>
                         <TableCell>
@@ -606,7 +618,19 @@ const AdminDashboard = () => {
                           <Button
                             variant="ghost"
                             size="icon"
+                            onClick={() => {
+                              setViewingDoc(doc);
+                              setIsViewDialogOpen(true);
+                            }}
+                            title="View details"
+                          >
+                            <Eye className="w-4 h-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
                             onClick={() => handleEditDocument(doc)}
+                            title="Edit"
                           >
                             <Edit className="w-4 h-4" />
                           </Button>
@@ -614,6 +638,7 @@ const AdminDashboard = () => {
                             variant="ghost"
                             size="icon"
                             onClick={() => handleDeleteDocument(doc.id)}
+                            title="Delete"
                           >
                             <Trash2 className="w-4 h-4" />
                           </Button>
@@ -625,6 +650,62 @@ const AdminDashboard = () => {
               </CardContent>
             </Card>
           </TabsContent>
+
+          {/* View Document Dialog */}
+          <Dialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen}>
+            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle>{viewingDoc?.title}</DialogTitle>
+                <DialogDescription>
+                  <div className="flex items-center gap-4 mt-2">
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      viewingDoc?.priority === 'critical' ? 'bg-red-100 text-red-800' :
+                      viewingDoc?.priority === 'high' ? 'bg-orange-100 text-orange-800' :
+                      viewingDoc?.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                      'bg-green-100 text-green-800'
+                    }`}>
+                      {viewingDoc?.priority}
+                    </span>
+                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      viewingDoc?.status === 'completed' ? 'bg-green-100 text-green-800' :
+                      viewingDoc?.status === 'in-progress' ? 'bg-blue-100 text-blue-800' :
+                      viewingDoc?.status === 'blocked' ? 'bg-red-100 text-red-800' :
+                      'bg-gray-100 text-gray-800'
+                    }`}>
+                      {viewingDoc?.status?.replace('-', ' ')}
+                    </span>
+                    <span className="text-sm text-muted-foreground capitalize">
+                      {viewingDoc?.category.replace('-', ' ')}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 mt-2 text-sm">
+                    <span><strong>Assignee:</strong> {viewingDoc?.assignee || 'Unassigned'}</span>
+                    <span><strong>Due:</strong> {viewingDoc?.due_date ? new Date(viewingDoc.due_date).toLocaleDateString() : 'No date'}</span>
+                  </div>
+                </DialogDescription>
+              </DialogHeader>
+              <div className="mt-4">
+                <div className="prose prose-sm max-w-none">
+                  <pre className="whitespace-pre-wrap font-sans text-sm text-foreground bg-muted p-4 rounded-lg">
+                    {viewingDoc?.content || 'No content'}
+                  </pre>
+                </div>
+              </div>
+              <div className="flex justify-end gap-2 mt-4">
+                <Button variant="outline" onClick={() => setIsViewDialogOpen(false)}>
+                  Close
+                </Button>
+                <Button onClick={() => {
+                  if (viewingDoc) {
+                    setIsViewDialogOpen(false);
+                    handleEditDocument(viewingDoc);
+                  }
+                }}>
+                  Edit
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
 
           <TabsContent value="signups">
             <Card>
