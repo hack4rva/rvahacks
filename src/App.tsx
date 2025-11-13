@@ -11,6 +11,7 @@ import Logistics from "./pages/Logistics";
 import Preparation from "./pages/Preparation";
 import Registration from "./pages/Registration";
 import GetInvolved from "./pages/GetInvolved";
+import Resources from "./pages/Resources";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import AdminDashboard from "./pages/AdminDashboard";
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/preparation" element={<Preparation />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/admin" element={<AdminDashboard />} />

@@ -24,6 +24,7 @@ const navItems = [
 const otherItems = [
   { label: "Register", href: "/registration" },
   { label: "Get Involved", href: "/get-involved" },
+  { label: "Resources", href: "/resources" },
   { label: "Action Plan", href: "/action-plan" },
   { label: "Logistics", href: "/logistics" },
   { label: "Preparation", href: "/preparation" },
