@@ -1,0 +1,233 @@
+# RVA Hacks - Cursor IDE Rules
+# Manages the relationship between knowledge-base and application code
+
+## Project Architecture
+
+### Two-Tier System
+This project follows a **knowledge-base → application** workflow:
+- **Knowledge Base** (`./knowledge-base/`): Staging area for all information, research, strategy, and decision-making
+- **Application** (`./src/`): Production code that implements decisions from the knowledge base
+
+These are separate entities with a one-way dependency: the app depends on the knowledge base for authoritative information, but not vice versa.
+
+---
+
+## Knowledge Base Rules
+
+### Purpose
+The knowledge-base directory contains:
+- Event planning and strategy (`01-planning-strategy/`, `05-event-operations/`)
+- Team and governance documentation (`02-team-governance/`, `03-meeting-notes/`)
+- Content staging (`07-marketing-comms/`, `08-participant-experience/`)
+- Partnership and sponsorship details (`04-partnerships/`)
+- Legal, finance, and compliance (`09-legal-compliance/`, `10-budget-finance/`)
+- Post-event analysis (`11-post-event/`, `12-impact-measurement/`)
+- Research and resources (`13-resources/`, `archive/`)
+
+### Workflow for Knowledge Base
+1. **Experimentation**: Use `.md` files to work out details, iterate on content, brainstorm
+2. **Decision Making**: Document decisions, tradeoffs, and reasons in clear markdown
+3. **Staging**: Once finalized, knowledge base becomes the source of truth
+4. **Migration**: Human developer decides which information should move into the app
+5. **No Reversal**: Changes to app code do NOT update the knowledge base
+
+### Cursor Rules for Knowledge Base
+- Treat as an independent documentation system
+- Encourage long-form exploration and ideation
+- Do not force structure; let information emerge naturally
+- Focus on clarity, completeness, and reasoning
+- When editing knowledge base: prioritize narrative flow and decision documentation
+- No strict formatting requirements; clarity over perfection
+
+---
+
+## Application Rules
+
+### Purpose
+The `./src/` directory contains:
+- React components (`./src/components/`)
+- Pages and routing (`./src/pages/`)
+- Hooks and utilities (`./src/hooks/`, `./src/lib/`)
+- Integrations (`./src/integrations/`)
+- Assets and styling (`./src/assets/`, `*.css`)
+
+### Code Standards
+- **Language**: TypeScript (all new code must be `.tsx` or `.ts`)
+- **Framework**: React + Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui (in `./src/components/ui/`)
+- **State**: Use React hooks; server state via Supabase integration
+- **Module System**: ES modules (import/export)
+
+### Developer Workflow
+1. **Check Knowledge Base First**: Before coding features, review `/knowledge-base/` for context
+   - Look for relevant `.md` files in corresponding numbered directories
+   - Check `07-marketing-comms/` for content you're implementing
+   - Check `08-participant-experience/` for UX requirements
+   - Check `05-event-operations/` for operational context
+
+2. **Reference Decisions**: Cite knowledge base documents in code comments when decisions are non-obvious
+   - Example: `// See knowledge-base/07-marketing-comms/lovable-website-prompts.md for content`
+
+3. **Implement from KB**: Code should be an implementation of what's documented in the knowledge base
+   - If knowledge base doesn't specify, work it out locally first (don't add to KB without approval)
+   - If conflict between KB and app, trust KB as source of truth
+
+4. **Do NOT Update KB**: Application changes do NOT update knowledge base files
+   - If you discover KB is outdated, flag it in code comments or PRs
+   - Let the human developer decide if KB should be updated
+
+### Cursor Rules for Application
+- Enforce TypeScript strict mode
+- Require JSDoc for public APIs and non-obvious functions
+- Prefer functional components with hooks over class components
+- Use Tailwind utilities; avoid inline CSS when possible
+- Keep components focused and composable
+- Check knowledge base before implementing ambiguous features
+- When refactoring, preserve all component interfaces (breaking changes need KB discussion)
+
+---
+
+## Synchronization Rules
+
+### Knowledge Base → Application (One-Way)
+- Application code reads from knowledge base files for content, context, and strategy
+- When KB information changes, the human developer is responsible for updating app code
+- Cursor should suggest KB references when relevant
+- No automatic sync; all changes are intentional and manual
+
+### Application → Knowledge Base (Prohibited)
+- Code changes NEVER update knowledge base files
+- If you discover implementation insights, document in code comments
+- If you find KB needs updating, flag it clearly and let human decide
+
+### What Gets Synced
+✓ **Content**: Copy marketing copy, descriptions, team information from KB to app
+✓ **Configuration**: Event dates, pricing, challenge details from KB to app constants
+✓ **Strategy**: UI/UX decisions documented in KB inform component design
+✗ **NOT Synced**: Code patterns, technical decisions, implementation details
+
+---
+
+## File Organization Reference
+
+### Knowledge Base Structure
+```
+knowledge-base/
+├── 01-planning-strategy/     # Event goals, target audience, timeline
+├── 02-team-governance/       # Organizational structure, decision-making
+├── 03-meeting-notes/         # Team discussions and decisions
+├── 04-partnerships/          # Sponsor/partner information
+├── 05-event-operations/      # Logistics, schedules, procedures
+├── 06-challenge-design/      # Challenge specs and requirements
+├── 07-marketing-comms/       # Website content, messaging, prompts
+├── 08-participant-experience/ # What participants see, expect, bring
+├── 09-legal-compliance/      # Legal docs, terms, policies
+├── 10-budget-finance/        # Budget, sponsorships, finances
+├── 11-post-event/            # Retrospectives, learnings
+├── 12-impact-measurement/    # Metrics, results, impact
+├── 13-resources/             # General resources, guides, links
+└── archive/                  # Deprecated content
+```
+
+### Application Structure
+```
+src/
+├── components/    # React components
+│   ├── ui/       # shadcn/ui components
+│   └── *.tsx     # Feature components
+├── pages/        # Page components (routed)
+├── hooks/        # Custom React hooks
+├── lib/          # Utilities and helpers
+├── integrations/ # Third-party integrations (Supabase)
+├── assets/       # Images, fonts, static files
+└── index.css     # Global styles
+```
+
+---
+
+## Content Integration Examples
+
+### Example 1: Adding Team Member Info
+1. **KB Location**: `knowledge-base/02-team-governance/` and `knowledge-base/03-meeting-notes/`
+2. **App Location**: `src/components/Us.tsx` or `src/pages/Team.tsx`
+3. **Sync**: Human updates KB with team member details → Developer updates component with same data
+4. **Comment**: Add reference to KB file in component
+
+### Example 2: Updating Event Description
+1. **KB Location**: `knowledge-base/01-planning-strategy/` and `knowledge-base/07-marketing-comms/`
+2. **App Location**: `src/components/Hero.tsx` or `src/pages/Index.tsx`
+3. **Sync**: Human finalizes description in KB → Developer updates component copy
+4. **Comment**: Reference the KB file and the date it was finalized
+
+### Example 3: Participant Experience Details
+1. **KB Location**: `knowledge-base/08-participant-experience/`
+2. **App Location**: `src/components/EventFormat.tsx`, `src/components/WhatMakesDifferent.tsx`
+3. **Sync**: Human documents what participants should expect in KB → Developer implements in UI
+4. **Comment**: Cite the KB document explaining the rationale
+
+---
+
+## Cursor Behavior Guidelines
+
+### When Editing Knowledge Base
+- Encourage long-form, exploratory writing
+- Support narrative and decision documentation
+- Focus on clarity of thinking over code-like structure
+- Suggest refinement, not enforcement
+- Help organize thoughts into coherent sections
+
+### When Editing Application Code
+- Enforce TypeScript and code quality standards
+- Suggest KB references when implementing features
+- Warn against hardcoding content (prefer constants/KB sourcing)
+- Check for type safety and component contracts
+- Recommend JSDoc for complex logic
+
+### Context Switching
+- When switching between KB and app code, remind of the one-way dependency
+- Suggest checking KB when implementing new features
+- Suggest flagging unclear requirements back to KB
+- Never suggest updating KB from code changes
+
+---
+
+## Content Migration Checklist
+
+Use this when migrating content from KB to app:
+
+- [ ] Found the authoritative source in knowledge-base/
+- [ ] Confirmed this is the latest version
+- [ ] Understood the context and rationale
+- [ ] Updated app code with the information
+- [ ] Added a JSDoc comment or inline reference to KB file
+- [ ] Tested changes locally
+- [ ] Did NOT modify the KB file
+
+---
+
+## No-Go Zones
+
+### Do NOT:
+- Modify knowledge base from code (no auto-sync scripts)
+- Hardcode content without referencing KB source
+- Treat KB and app as synchronized databases
+- Override KB decisions in code comments
+- Create temporary content for testing without flagging it
+
+### Do:
+- Reference KB files in code comments
+- Use KB as source of truth for content and strategy
+- Document why KB might be outdated if you find issues
+- Keep KB and app separate but linked
+- Make migrations explicit and intentional
+
+---
+
+## Questions?
+
+When unsure:
+1. Check if this involves content/strategy → look in KB first
+2. Check if this involves code → implement from KB specifications
+3. Check if KB is missing info → flag it and code defensively (with TODOs)
+4. When done → verify you didn't modify KB files

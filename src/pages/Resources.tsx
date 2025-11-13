@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Cloud, Code, Zap, Link as LinkIcon, BookOpen, ExternalLink } from "lucide-react";
+import { Cloud, Code, Zap, BookOpen, ExternalLink } from "lucide-react";
 
 const Resources = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
@@ -28,7 +28,10 @@ const Resources = () => {
               Resources for Participants
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Everything you need to build amazing civic tech solutions. From cloud credits to no-code tools, we've got you covered.
+              Everything you need to build amazing civic tech solutions. From cloud credits to developer tools, we've got you covered.
+            </p>
+            <p className="text-sm text-muted-foreground mt-4 animate-fade-in" style={{ animationDelay: "200ms" }}>
+              All participants receive access to professional development tools and hosting platforms, eliminating cost barriers.
             </p>
           </div>
         </div>
@@ -46,7 +49,7 @@ const Resources = () => {
               Free cloud credits available for participants to build and deploy their projects.
             </p>
             
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
               <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
                 <CardHeader>
                   <Badge className="w-fit mb-2">Cloud Platform</Badge>
@@ -54,46 +57,31 @@ const Resources = () => {
                   <CardDescription>Amazon Web Services</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Access to compute, storage, databases, and more. Perfect for building scalable applications.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">What You Get:</p>
+                      <p className="text-muted-foreground">$100 in AWS credits per participant</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Good For:</p>
+                      <p className="text-muted-foreground">Full cloud infrastructure (compute, storage, databases)</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">How to Access:</p>
+                      <p className="text-muted-foreground">Pre-event signup link, 7-10 day approval process</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Special Feature:</p>
+                      <p className="text-muted-foreground">AWS Cloud9 collaborative coding environment</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Duration:</p>
+                      <p className="text-muted-foreground">12 months from issuance</p>
+                    </div>
+                  </div>
+                  <Button variant="outline" className="w-full mt-4" disabled>
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Cloud Platform</Badge>
-                  <CardTitle>Azure</CardTitle>
-                  <CardDescription>Microsoft Azure</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Cloud computing services for building, testing, and deploying applications.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Cloud Platform</Badge>
-                  <CardTitle>Google Cloud</CardTitle>
-                  <CardDescription>Google Cloud Platform</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Powerful infrastructure and machine learning tools for your civic solutions.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
+                    Access Details Coming Soon
                   </Button>
                 </CardContent>
               </Card>
@@ -114,37 +102,35 @@ const Resources = () => {
               Essential tools for version control, collaboration, and deployment.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
               <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
                 <CardHeader>
                   <Badge className="w-fit mb-2">Version Control</Badge>
-                  <CardTitle>GitHub</CardTitle>
-                  <CardDescription>Code hosting and collaboration</CardDescription>
+                  <CardTitle>GitHub + Copilot</CardTitle>
+                  <CardDescription>Code hosting, collaboration, and AI assistance</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Host your code, collaborate with your team, and manage your project with industry-standard version control.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">What You Get:</p>
+                      <p className="text-muted-foreground">GitHub Pro + Copilot AI assistance</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Good For:</p>
+                      <p className="text-muted-foreground">Version control (essential!) + AI coding help</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Why Use:</p>
+                      <p className="text-muted-foreground">Industry standard, team collaboration</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Required:</p>
+                      <p className="text-muted-foreground">Yes - all teams should use version control</p>
+                    </div>
+                  </div>
+                  <Button variant="outline" className="w-full mt-4" disabled>
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Hosting</Badge>
-                  <CardTitle>Deployment Platforms</CardTitle>
-                  <CardDescription>Vercel, Netlify, Railway</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Deploy your applications quickly and easily with modern hosting platforms optimized for web apps.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
+                    Access Details Coming Soon
                   </Button>
                 </CardContent>
               </Card>
@@ -165,105 +151,40 @@ const Resources = () => {
               Build powerful applications without writing code. Perfect for rapid prototyping and MVPs.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
               <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
                 <CardHeader>
                   <Badge className="w-fit mb-2">AI Development</Badge>
-                  <CardTitle>Lovable</CardTitle>
+                  <CardTitle>Lovable.dev</CardTitle>
                   <CardDescription>Build full-stack apps with AI</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Create production-ready web applications using natural language. From idea to deployment in minutes.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
+                  <div className="space-y-4">
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">What You Get:</p>
+                      <p className="text-muted-foreground">Premium access during event + 6 months for winners</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Good For:</p>
+                      <p className="text-muted-foreground">Building professional web apps without coding</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Why Use:</p>
+                      <p className="text-muted-foreground">AI-powered, dramatically faster prototyping</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground mb-2">Perfect For:</p>
+                      <p className="text-muted-foreground">Non-technical team members, rapid UI development, civic interfaces</p>
+                    </div>
+                    <div className="bg-accent/5 border border-accent/20 rounded-lg p-3">
+                      <p className="text-sm text-muted-foreground">
+                        <strong className="text-foreground">Accessibility:</strong> No coding experience required!
+                      </p>
+                    </div>
+                  </div>
+                  <Button variant="outline" className="w-full mt-4" disabled>
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">App Builder</Badge>
-                  <CardTitle>Glide</CardTitle>
-                  <CardDescription>Build mobile apps from spreadsheets</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Transform your data into beautiful mobile and web apps without coding.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* APIs & Services Section */}
-      <section className="py-16 md:py-24 bg-secondary/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <LinkIcon className="w-8 h-8 text-accent" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">APIs & Services</h2>
-            </div>
-            <p className="text-muted-foreground mb-8">
-              Integrate powerful third-party services into your civic solutions.
-            </p>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Communications</Badge>
-                  <CardTitle>Twilio</CardTitle>
-                  <CardDescription>SMS, voice, and video APIs</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Add messaging, voice calls, and video capabilities to your application.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Payments</Badge>
-                  <CardTitle>Stripe</CardTitle>
-                  <CardDescription>Payment processing</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Accept payments, manage subscriptions, and handle financial transactions securely.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader>
-                  <Badge className="w-fit mb-2">Data</Badge>
-                  <CardTitle>More APIs</CardTitle>
-                  <CardDescription>Maps, weather, data sources</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">
-                    Access to various APIs for maps, weather data, government data, and more.
-                  </p>
-                  <Button variant="outline" className="w-full" disabled>
-                    <ExternalLink className="w-4 h-4 mr-2" />
-                    Details Coming Soon
+                    Access Details Coming Soon
                   </Button>
                 </CardContent>
               </Card>
@@ -375,6 +296,9 @@ const Resources = () => {
             <p className="text-lg text-muted-foreground mb-8">
               We're working on providing you with the best possible resources for the hackathon. 
               Sign up to be notified when new resources and guides are available.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              Technical onboarding details will be sent 3 weeks before the event with links to all resources and setup instructions.
             </p>
             <Button 
               onClick={handleCTAClick}
