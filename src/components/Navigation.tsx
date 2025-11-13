@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useIsAdmin } from "@/hooks/useIsAdmin";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -29,6 +30,7 @@ interface NavigationProps {
 export const Navigation = ({ onCTAClick }: NavigationProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isAdmin } = useIsAdmin();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,6 +79,16 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+            {isAdmin && (
+              <a
+                href="/admin"
+                className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1"
+                aria-label="Navigate to Admin Dashboard"
+              >
+                <Shield className="w-4 h-4" />
+                Admin
+              </a>
+            )}
             <Button
               onClick={onCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
@@ -127,6 +139,17 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 </a>
               ))}
             </div>
+            {isAdmin && (
+              <a
+                href="/admin"
+                className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 pl-4 focus:outline-2 focus:outline-accent flex items-center gap-2"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Navigate to Admin Dashboard"
+              >
+                <Shield className="w-4 h-4" />
+                Admin
+              </a>
+            )}
             <Button
               onClick={() => {
                 onCTAClick();
