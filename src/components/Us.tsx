@@ -25,7 +25,7 @@ const coreTeam = [
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
   { name: "Alex Otanez", role: "Corporate Partnerships", image: alexOtanez, linkedin: undefined },
-  { name: "Adam Woodward", role: "Ecosystem", image: adamWoodward, linkedin: undefined },
+  { name: "Heather Lyne", role: "Ecosystem", image: heatherLyne, linkedin: undefined },
   { name: "April Palmer", role: "K12+ Partnerships", image: aprilPalmer, linkedin: undefined },
 ];
 
@@ -33,7 +33,7 @@ const advisoryTeam = [
   { name: "Tom Becker", role: "Integrations", image: tomBecker, linkedin: undefined },
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
-  { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined },
+  { name: "Adam Woodward", role: "Entrepreneurial Ecosystems", image: adamWoodward, linkedin: undefined },
   { name: "Drew Cleveland", role: "Vibe", image: drewCleveland, linkedin: undefined },
   { name: "Nick Serfass", role: "Execution", image: nickSerfass, linkedin: undefined },
 ];

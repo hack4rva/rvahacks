@@ -16,29 +16,41 @@ export type Database = {
     Tables: {
       admin_documents: {
         Row: {
+          assignee: string | null
           category: string
           content: string | null
           created_at: string
           created_by: string | null
+          due_date: string | null
           id: string
+          priority: string | null
+          status: string | null
           title: string
           updated_at: string
         }
         Insert: {
+          assignee?: string | null
           category: string
           content?: string | null
           created_at?: string
           created_by?: string | null
+          due_date?: string | null
           id?: string
+          priority?: string | null
+          status?: string | null
           title: string
           updated_at?: string
         }
         Update: {
+          assignee?: string | null
           category?: string
           content?: string | null
           created_at?: string
           created_by?: string | null
+          due_date?: string | null
           id?: string
+          priority?: string | null
+          status?: string | null
           title?: string
           updated_at?: string
         }
