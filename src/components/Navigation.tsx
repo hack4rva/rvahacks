@@ -15,10 +15,10 @@ import { useNavigate } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Who", href: "/team" },
-  { label: "What", href: "/#what" },
-  { label: "Why", href: "/#prizes" },
-  { label: "Format", href: "/#format" },
+  { label: "Team", href: "/team" },
+  { label: "Mission", href: "/#what" },
+  { label: "Prizes", href: "/#prizes" },
+  { label: "Schedule", href: "/#format" },
 ];
 
 const otherItems = [
