@@ -18,7 +18,7 @@ const navItems = [
   { label: "Who", href: "/team" },
   { label: "What", href: "/#what" },
   { label: "Why", href: "/#prizes" },
-  { label: "When", href: "/#format" },
+  { label: "Format", href: "/#format" },
 ];
 
 const otherItems = [
