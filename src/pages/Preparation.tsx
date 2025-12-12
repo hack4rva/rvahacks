@@ -227,8 +227,8 @@ const Preparation = () => {
 
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Check-in Time</h3>
-                  <p className="text-muted-foreground">Friday, March 6, 2026 (optional)</p>
-                  <p className="text-muted-foreground">Saturday, March 7, 2026 - Main event starts</p>
+                  <p className="text-muted-foreground">Friday, March 27, 2026 (optional)</p>
+                  <p className="text-muted-foreground">Saturday, March 28, 2026 - Main event starts</p>
                   <p className="text-sm text-muted-foreground mt-1">Arrive early to get settled and meet your team</p>
                 </div>
 

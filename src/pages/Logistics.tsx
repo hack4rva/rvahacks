@@ -41,24 +41,24 @@ const Logistics = () => {
                 <div className="flex justify-center mb-4">
                   <Calendar className="w-12 h-12 text-accent" />
                 </div>
-                <CardTitle className="text-3xl">March 6-8, 2026</CardTitle>
+                <CardTitle className="text-3xl">March 27-29, 2026</CardTitle>
                 <CardDescription className="text-lg">Friday - Sunday</CardDescription>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <div className="grid md:grid-cols-3 gap-4">
                   <div className="bg-background rounded-lg p-4">
                     <Badge className="mb-2">Optional</Badge>
-                    <p className="font-semibold text-foreground">Friday, March 6</p>
+                    <p className="font-semibold text-foreground">Friday, March 27</p>
                     <p className="text-sm text-muted-foreground">Full-day kickoff</p>
                   </div>
                   <div className="bg-background rounded-lg p-4 border-2 border-accent">
                     <Badge className="mb-2 bg-accent">Main Event</Badge>
-                    <p className="font-semibold text-foreground">Saturday, March 7</p>
+                    <p className="font-semibold text-foreground">Saturday, March 28</p>
                     <p className="text-sm text-muted-foreground">All-day hacking</p>
                   </div>
                   <div className="bg-background rounded-lg p-4">
                     <Badge variant="secondary" className="mb-2">Family</Badge>
-                    <p className="font-semibold text-foreground">Sunday, March 8</p>
+                    <p className="font-semibold text-foreground">Sunday, March 29</p>
                     <p className="text-sm text-muted-foreground">Awards ceremony</p>
                   </div>
                 </div>
