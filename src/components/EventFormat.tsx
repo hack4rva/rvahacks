@@ -2,7 +2,7 @@ import { Briefcase, Laptop, Award, MapPin } from "lucide-react";
 
 const schedule = [
   {
-    day: "FRIDAY, MARCH 6",
+    day: "FRIDAY, MARCH 27",
     time: "10 AM - 10 PM",
     location: "Science Museum of Virginia",
     title: "Hacking Day 1",
@@ -13,7 +13,7 @@ const schedule = [
     isPublic: false,
   },
   {
-    day: "SATURDAY, MARCH 7",
+    day: "SATURDAY, MARCH 28",
     time: "9 AM - 10 PM",
     location: "Science Museum of Virginia",
     title: "Hacking Day 2",
@@ -24,7 +24,7 @@ const schedule = [
     isPublic: false,
   },
   {
-    day: "SUNDAY, MARCH 8",
+    day: "SUNDAY, MARCH 29",
     time: "12 PM - 3 PM",
     location: "Hardywood Brewery",
     title: "Community Celebration",

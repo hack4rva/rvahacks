@@ -79,7 +79,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-white/95">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-accent" aria-hidden="true" />
-              <span className="text-lg font-medium">March 6-8, 2026</span>
+              <span className="text-lg font-medium">March 27-29, 2026</span>
             </div>
             <div className="hidden sm:block w-1 h-1 rounded-full bg-white/50" aria-hidden="true" />
             <div className="flex items-center gap-2">

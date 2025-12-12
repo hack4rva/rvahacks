@@ -27,7 +27,7 @@ const Registration = () => {
               Register for Hack for RVA
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Secure your spot for Richmond's premier civic hackathon. Join us March 6-8, 2026.
+              Secure your spot for Richmond's premier civic hackathon. Join us March 27-29, 2026.
             </p>
             
             {/* Registration Opens Banner */}
@@ -80,7 +80,7 @@ const Registration = () => {
                     <Badge variant="secondary">Optional</Badge>
                   </CardTitle>
                   <CardTitle className="text-2xl">Friday Only</CardTitle>
-                  <CardDescription>March 6, 2026</CardDescription>
+                  <CardDescription>March 27, 2026</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
@@ -95,7 +95,7 @@ const Registration = () => {
                     <Badge variant="default" className="bg-accent">Main Event</Badge>
                   </CardTitle>
                   <CardTitle className="text-2xl">Saturday Only</CardTitle>
-                  <CardDescription>March 7, 2026</CardDescription>
+                  <CardDescription>March 28, 2026</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
@@ -110,7 +110,7 @@ const Registration = () => {
                     <Badge variant="default" className="bg-accent">Recommended</Badge>
                   </CardTitle>
                   <CardTitle className="text-2xl">Full Weekend</CardTitle>
-                  <CardDescription>March 6-8, 2026</CardDescription>
+                  <CardDescription>March 27-29, 2026</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
@@ -125,7 +125,7 @@ const Registration = () => {
                     <Badge variant="secondary">Family</Badge>
                   </CardTitle>
                   <CardTitle className="text-2xl">Sunday Only</CardTitle>
-                  <CardDescription>March 8, 2026</CardDescription>
+                  <CardDescription>March 29, 2026</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
