@@ -79,8 +79,8 @@ const Logistics = () => {
             
             <Card className="border-border shadow-elegant">
               <CardHeader>
-                <CardTitle className="text-2xl">Downtown Richmond VA</CardTitle>
-                <CardDescription>Event location details</CardDescription>
+                <CardTitle className="text-2xl">Science Museum of Virginia</CardTitle>
+                <CardDescription>2500 W Broad St, Richmond, VA 23220</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div>
