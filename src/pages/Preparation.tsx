@@ -221,8 +221,8 @@ const Preparation = () => {
               <CardContent className="space-y-4">
                 <div>
                   <h3 className="font-semibold text-lg mb-2">Location</h3>
-                  <p className="text-muted-foreground">Downtown Richmond VA</p>
-                  <p className="text-sm text-muted-foreground mt-1">Specific address and directions will be sent to registered participants</p>
+                  <p className="text-muted-foreground">Science Museum of Virginia</p>
+                  <p className="text-sm text-muted-foreground mt-1">2500 W Broad St, Richmond, VA 23220</p>
                 </div>
 
                 <div>
