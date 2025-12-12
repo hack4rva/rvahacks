@@ -7,7 +7,7 @@ import crystalHarvey from "@/assets/crystal-harvey.png";
 import tomBecker from "@/assets/tom-becker.png";
 import ankitMathur from "@/assets/ankit-mathur.png";
 import drewCleveland from "@/assets/drew-cleveland.png";
-import alexOtanez from "@/assets/alex-otanez.png";
+import willMelton from "@/assets/will-melton.png";
 import aprilPalmer from "@/assets/april-palmer.png";
 import nickSerfass from "@/assets/nick-serfass.png";
 import sinclairJenks from "@/assets/sinclair-jenks.png";
@@ -25,7 +25,7 @@ const coreTeam = [
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
-  { name: "Alex Otanez", role: "Corporate Partnerships", image: alexOtanez, linkedin: undefined },
+  { name: "Will Melton", role: "Corporate Partnerships", image: willMelton, linkedin: undefined },
   { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined },
   { name: "April Palmer", role: "K12+ Partnerships", image: aprilPalmer, linkedin: undefined },
 ];
