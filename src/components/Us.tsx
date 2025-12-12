@@ -18,8 +18,8 @@ import richmondSeal from "@/assets/richmond-seal.png";
 import aiReadyRvaLogo from "@/assets/ai-ready-rva-logo.png";
 
 const coreTeam = [
-  { name: "Ford Prior", role: "Floater", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
-  { name: "Crystal Harvey", role: "All Ops", image: crystalHarvey, linkedin: undefined },
+  { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
+  { name: "Crystal Harvey", role: "Co-Organizer", image: crystalHarvey, linkedin: undefined },
   { name: "TBD", role: "Onsite Ops", image: undefined, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
