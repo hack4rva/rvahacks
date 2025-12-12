@@ -90,14 +90,14 @@ export const Us = () => {
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                          className="w-24 h-24 rounded-full object-cover object-top border-2 border-border"
                         />
                       </a>
                     ) : (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover border-2 border-border mb-4"
+                        className="w-24 h-24 rounded-full object-cover object-top border-2 border-border mb-4"
                       />
                     )
                   ) : (
@@ -139,14 +139,14 @@ export const Us = () => {
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-24 h-24 rounded-full object-cover border-2 border-border"
+                          className="w-24 h-24 rounded-full object-cover object-top border-2 border-border"
                         />
                       </a>
                     ) : (
                       <img
                         src={member.image}
                         alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover border-2 border-border mb-4"
+                        className="w-24 h-24 rounded-full object-cover object-top border-2 border-border mb-4"
                       />
                     )
                   ) : (
