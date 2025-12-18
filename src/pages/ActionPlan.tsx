@@ -141,20 +141,20 @@ const ActionPlan = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground mb-4">
-                    High-potential solutions can pursue independent development with ecosystem support.
+                    High-potential solutions can pursue independent development with ecosystem support. All projects are <a href="/code-of-conduct#open-source" className="text-accent underline hover:text-accent/80">fully open sourced</a>.
                   </p>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Introductions to local accelerators</span>
+                      <span className="text-muted-foreground">All code uses OSI-approved licenses (MIT, Apache 2.0)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Investor and mentor connections</span>
+                      <span className="text-muted-foreground">City receives perpetual, royalty-free license</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">Richmond tech community support</span>
+                      <span className="text-muted-foreground">Introductions to local accelerators & investors</span>
                     </li>
                   </ul>
                 </CardContent>
