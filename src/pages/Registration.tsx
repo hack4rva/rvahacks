@@ -6,7 +6,7 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, DollarSign, FileText, Clock, CheckCircle2 } from "lucide-react";
+import { Calendar, DollarSign, FileText, Clock, CheckCircle2, MapPin, Wifi, AlertCircle } from "lucide-react";
 
 const Registration = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
@@ -27,7 +27,7 @@ const Registration = () => {
               Register for Hack for RVA
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Secure your spot for Richmond's premier civic hackathon. Join us March 27-29, 2026.
+              Secure your spot for Richmond's citywide civic hackathon. Join us March 27-29, 2026.
             </p>
             
             {/* Registration Opens Banner */}
@@ -39,8 +39,66 @@ const Registration = () => {
         </div>
       </section>
 
+      {/* Registration Requirements Section */}
+      <section className="py-12 md:py-16 bg-secondary/10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 text-center">How Registration Works</h2>
+            
+            <div className="grid sm:grid-cols-2 gap-4 mb-8">
+              <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Registration Required</h3>
+                    <p className="text-sm text-muted-foreground">All participants must register in advance to attend any part of the hackathon.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Choose Your Location</h3>
+                    <p className="text-sm text-muted-foreground">Select your preferred satellite hacking location during sign-up.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+                <div className="flex items-start gap-3">
+                  <Wifi className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Remote Option Available</h3>
+                    <p className="text-sm text-muted-foreground">Can't make it in person? Remote participation is allowed for Saturday hacking.</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+                <div className="flex items-start gap-3">
+                  <AlertCircle className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Capacity Limits Apply</h3>
+                    <p className="text-sm text-muted-foreground">Each location has limited capacity. Register early to secure your preferred spot.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Note */}
+            <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 text-center">
+              <p className="text-sm text-card-foreground italic">
+                Final location assignments and instructions will be sent closer to the event.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Cost Section */}
-      <section className="py-16 md:py-24 bg-accent/5">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <div className="flex items-center justify-center gap-4 mb-6">
@@ -182,6 +240,14 @@ const Registration = () => {
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
                       <span>Attendance days (Fri/Sat/Sun)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                      <span>Preferred hacking location</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                      <span>Remote or in-person preference</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
