@@ -19,9 +19,11 @@ const tabs = [
 ];
 
 const awardTiers = [
-  { tier: "Flagship Award", amount: "$5,000", quantity: "1 available", color: "border-yellow-500 bg-yellow-500/10" },
-  { tier: "Major Award", amount: "$2,500", quantity: "3 available", color: "border-accent bg-accent/10" },
-  { tier: "Track Award", amount: "$1,000", quantity: "Many available", color: "border-primary bg-primary/5" },
+  { tier: "Flagship Award", amount: "$5,000", quantity: "1 available", desc: "Best Overall Solution", color: "border-yellow-500 bg-yellow-500/10" },
+  { tier: "Housing Award", amount: "$2,500", quantity: "Focus Area", desc: "Eviction prevention, tenant rights, affordable housing", color: "border-accent bg-accent/10" },
+  { tier: "Jobs Award", amount: "$2,500", quantity: "Focus Area", desc: "Workforce development, small business, economic mobility", color: "border-accent bg-accent/10" },
+  { tier: "Transit Award", amount: "$2,500", quantity: "Focus Area", desc: "Transportation access, mobility equity, GRTC integration", color: "border-accent bg-accent/10" },
+  { tier: "Track Awards", amount: "$1,000", quantity: "Many available", desc: "Sponsor-defined criteria", color: "border-primary bg-primary/5" },
 ];
 
 const Partners = () => {
@@ -133,13 +135,13 @@ const Partners = () => {
                   </Card>
                   
                   {/* Award Tiers */}
-                  <div className="grid sm:grid-cols-3 gap-4">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
                     {awardTiers.map((tier, idx) => (
                       <Card key={idx} className={`border-2 ${tier.color}`}>
-                        <CardContent className="pt-6 text-center">
-                          <p className="text-3xl font-bold text-foreground mb-1">{tier.amount}</p>
-                          <p className="text-base font-medium text-foreground">{tier.tier}</p>
-                          <p className="text-sm text-muted-foreground">{tier.quantity}</p>
+                        <CardContent className="pt-4 pb-4 text-center">
+                          <p className="text-2xl font-bold text-foreground mb-0.5">{tier.amount}</p>
+                          <p className="text-sm font-medium text-foreground">{tier.tier}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{tier.desc}</p>
                         </CardContent>
                       </Card>
                     ))}
@@ -148,7 +150,7 @@ const Partners = () => {
                   {/* Summary + CTA */}
                   <div className="bg-muted/30 rounded-lg p-4 text-sm">
                     <p className="text-muted-foreground mb-4">
-                      <strong className="text-foreground">Award Structure:</strong> 1× $5,000 flagship • 3× $2,500 major • Multiple $1,000 track awards (as many as we can fund)
+                      <strong className="text-foreground">Award Structure:</strong> 1× $5,000 flagship • 3× $2,500 focus area awards (Housing, Jobs, Transit) • Multiple $1,000 track awards
                     </p>
                     <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                       Sponsor an Award
