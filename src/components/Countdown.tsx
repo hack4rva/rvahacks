@@ -81,6 +81,11 @@ export const Countdown = () => {
               </div>
             ))}
           </div>
+          
+          {/* Caption */}
+          <p className="text-center text-muted-foreground text-sm md:text-base mt-8">
+            Kickoff and citywide launch from the Science Museum of Virginia.
+          </p>
         </div>
       </div>
     </section>
