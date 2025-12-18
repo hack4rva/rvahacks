@@ -82,16 +82,6 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             ))}
             
             {/* Primary CTA */}
-            <Link to="/participate#register">
-              <Button
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
-                aria-label="Register for the hackathon"
-              >
-                Register
-              </Button>
-            </Link>
-
-            {/* Secondary CTA */}
             <Button
               onClick={onCTAClick}
               variant="outline"
@@ -177,18 +167,6 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             ))}
             
             <div className="pt-4 border-t border-border space-y-3">
-              <Link 
-                to="/participate#register"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                <Button
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-                  aria-label="Register for the hackathon"
-                >
-                  Register
-                </Button>
-              </Link>
-              
               <Button
                 onClick={() => {
                   onCTAClick();
