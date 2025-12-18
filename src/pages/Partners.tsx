@@ -92,6 +92,11 @@ const Partners = () => {
               {/* Sponsors Tab */}
               <TabsContent value="sponsors" className="mt-0 focus-visible:outline-none">
                 <div className="space-y-5">
+                  {/* Page Intro */}
+                  <p className="text-muted-foreground">
+                    Sponsor an award and become an active participant in shaping Richmond's civic tech future—set your own criteria, judge submissions, and put your name on solutions that matter.
+                  </p>
+
                   {/* How Sponsorship Works */}
                   <Card className="border-accent border-2">
                     <CardHeader className="pb-2">
@@ -155,6 +160,11 @@ const Partners = () => {
               {/* Mentors Tab */}
               <TabsContent value="mentors" className="mt-0 focus-visible:outline-none">
                 <div className="space-y-5">
+                  {/* Page Intro */}
+                  <p className="text-muted-foreground">
+                    Share your expertise with teams building civic solutions. Mentors guide participants through technical, design, business, and civic challenges—on your own schedule.
+                  </p>
+
                   {/* Mentor Types */}
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     {[
@@ -238,6 +248,11 @@ const Partners = () => {
               {/* Volunteers Tab */}
               <TabsContent value="volunteers" className="mt-0 focus-visible:outline-none">
                 <div className="space-y-5">
+                  {/* Page Intro */}
+                  <p className="text-muted-foreground">
+                    Contribute your time, domain knowledge, or organizational resources to help make the hackathon a success for all participants.
+                  </p>
+
                   {/* Volunteer Roles */}
                   <div className="grid sm:grid-cols-3 gap-4">
                     <Card className="border-border">
