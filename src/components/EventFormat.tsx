@@ -1,36 +1,54 @@
-import { Briefcase, Laptop, Award, MapPin } from "lucide-react";
+import { Briefcase, Laptop, Award, MapPin, Users, Video } from "lucide-react";
 
 const schedule = [
   {
     day: "FRIDAY, MARCH 27",
-    time: "10 AM - 10 PM",
+    time: "10 AM - 6 PM",
     location: "Science Museum of Virginia",
-    title: "Hacking Day 1",
+    title: "Kickoff & Launch",
     icon: Briefcase,
+    highlights: [
+      "Morning kickoff at Science Museum",
+      "Plenary session + domain breakouts",
+      "Team formation and challenge deep-dives",
+      "Teams disperse to satellite hack locations",
+    ],
     description:
-      "Kickoff with Mayor Avula and a 101 on his 7 pillars. Team formation happens—lead or join a team. Deep-dive SME presentations & Q&A on each challenge. Then start building. Ideal for professionals who can dedicate Friday—then celebrate with family on Sunday.",
-    tag: "12 hours",
+      "Join us at the Science Museum for opening remarks, challenge briefings, and team formation. After lunch, teams head to their chosen hack location across the city to begin building.",
+    tag: "Centralized start",
     isPublic: false,
   },
   {
     day: "SATURDAY, MARCH 28",
     time: "9 AM - 10 PM",
-    location: "Science Museum of Virginia",
-    title: "Hacking Day 2",
+    location: "Multiple locations citywide",
+    title: "Citywide Hacking",
     icon: Laptop,
+    highlights: [
+      "Hacking at satellite locations across Richmond",
+      "Optional morning check-in (virtual)",
+      "Virtual mentor support throughout the day",
+      "Submit solutions by evening",
+    ],
     description:
-      "Continue building with your team or jump in fresh if Friday didn't work for you. Perfect for students with Friday classes or anyone joining for the weekend. Submit your solution by evening for finalist selection.",
-    tag: "13 hours",
+      "Teams work from their chosen locations—co-working spaces, libraries, corporate hosts, or home. Mentors available via video throughout the day. All solutions due by evening for finalist selection.",
+    tag: "Distributed",
     isPublic: false,
   },
   {
     day: "SUNDAY, MARCH 29",
-    time: "12 PM - 3 PM",
-    location: "Hardywood Brewery",
-    title: "Community Celebration",
+    time: "10 AM - 3 PM",
+    location: "Science Museum of Virginia",
+    title: "Finals & Awards",
     icon: Award,
+    highlights: [
+      "Morning virtual judging round",
+      "Finalist teams pitch live",
+      "Awards ceremony with Mayor Avula",
+      "Community celebration—families welcome",
+    ],
     description:
-      "Public demos and project presentations. 10 finalist teams pitch live. 5 judges, including Mayor Avula, select winners across 5 award categories. Awards ceremony and celebration. Bring your family—everyone's welcome!",
+      "Finalists return to the Science Museum for live pitches. Judges including Mayor Avula select winners. Celebrate with the community at the awards ceremony.",
     tag: "Open to public",
     isPublic: true,
   },
@@ -42,12 +60,23 @@ export const EventFormat = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
               Event Schedule
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground mb-2">
+              A citywide hackathon with centralized kickoff and distributed hacking
+            </p>
+            <p className="text-sm text-muted-foreground">
               Hack both days or choose what fits your schedule
+            </p>
+          </div>
+
+          {/* Distributed Model Callout */}
+          <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 mb-12 max-w-2xl mx-auto flex items-center gap-3">
+            <Users className="w-5 h-5 text-accent flex-shrink-0" />
+            <p className="text-sm text-card-foreground">
+              <strong>Hybrid model:</strong> Kickoff and awards at the Science Museum. Hacking happens at satellite locations across Richmond—co-working spaces, libraries, and corporate hosts.
             </p>
           </div>
 
@@ -96,8 +125,18 @@ export const EventFormat = () => {
                       {event.title}
                     </h3>
 
+                    {/* Highlights */}
+                    <ul className="space-y-1.5 mb-4">
+                      {event.highlights.map((highlight, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <span className="text-accent mt-1">•</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+
                     {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed mb-4 flex-grow">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">
                       {event.description}
                     </p>
 
