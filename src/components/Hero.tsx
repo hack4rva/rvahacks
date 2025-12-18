@@ -96,15 +96,14 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/participate#register">
-              <Button
-                size="lg"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 font-bold shadow-hover transition-smooth hover:scale-105"
-                aria-label="Register for Hack for RVA"
-              >
-                Register Now
-              </Button>
-            </Link>
+            <Button
+              size="lg"
+              disabled
+              className="bg-accent/50 text-accent-foreground text-lg px-8 py-6 font-bold cursor-not-allowed"
+              aria-label="Registration opens January 1"
+            >
+              Registration Opens January 1
+            </Button>
             <Link to="/about">
               <Button
                 size="lg"
