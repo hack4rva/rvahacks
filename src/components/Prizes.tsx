@@ -1,81 +1,7 @@
-import { Award, Users, Lightbulb, Rocket, Target, Code, Heart, Home, GraduationCap, Car } from "lucide-react";
-
-const majorAwards = [
-  {
-    title: "Mayor's Choice",
-    icon: Award,
-    description: "Most impactful civic solution—includes commitment to real-world implementation with City partners",
-    sponsor: "The Office of Mayor Danny Avula",
-  },
-  {
-    title: "People's Choice",
-    icon: Users,
-    description: "Most popular via live community vote at the event",
-    sponsor: "the Community",
-  },
-  {
-    title: "Most Innovative",
-    icon: Lightbulb,
-    description: "Most creative and groundbreaking approach to civic challenges",
-    sponsor: "Higher Education Partners",
-  },
-  {
-    title: "Startup Material",
-    icon: Rocket,
-    description: "Greatest potential for sustained real-world impact",
-    sponsor: "Startup Ecosystem",
-  },
-];
-
-const sponsorAwards = [
-  {
-    title: "Housing & Land Use",
-    icon: Home,
-    description: "Best solution addressing affordability, zoning, or equitable development",
-    sponsor: "Category Partner",
-  },
-  {
-    title: "Workforce & Education",
-    icon: GraduationCap,
-    description: "Best solution connecting residents to skills, jobs, or economic mobility",
-    sponsor: "Category Partner",
-  },
-  {
-    title: "Transportation & Mobility",
-    icon: Car,
-    description: "Best solution improving transit access and citywide connectivity",
-    sponsor: "Category Partner",
-  },
-];
-
-const civicAwards = [
-  {
-    title: "Best Technical Implementation",
-    icon: Code,
-    description: "Most impressive technical execution and architecture",
-    sponsor: "Judges' Selection",
-  },
-  {
-    title: "Moonshot",
-    icon: Target,
-    description: "Most ambitious and visionary long-term solution",
-    sponsor: "Judges' Selection",
-  },
-  {
-    title: "Best Social Impact",
-    icon: Heart,
-    description: "Greatest potential for lasting community benefit",
-    sponsor: "Judges' Selection",
-  },
-];
+import { majorAwards, sponsorAwards, civicAwards, prizeTimeline, type PrizeAward } from "@/data";
 
 interface AwardCardProps {
-  award: {
-    title: string;
-    icon: React.ComponentType<{ className?: string }>;
-    description: string;
-    sponsor: string;
-  };
+  award: PrizeAward;
 }
 
 const AwardCard = ({ award }: AwardCardProps) => (
@@ -113,24 +39,14 @@ export const Prizes = () => {
           {/* Timeline */}
           <div className="bg-accent/10 border border-accent/20 rounded-lg p-5 mb-12 max-w-3xl mx-auto">
             <div className="space-y-2.5">
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
-                <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Saturday Evening:</span> All solutions due
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
-                <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Sunday Finals:</span> Finalists present live pitches
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
-                <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Winners Announced:</span> Awards ceremony with Mayor Avula
-                </p>
-              </div>
+              {prizeTimeline.map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                  <p className="text-sm text-card-foreground">
+                    <span className="font-bold">{item.label}:</span> {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
 
