@@ -8,14 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
-  Code, Palette, Search, Briefcase, Landmark, DollarSign, 
-  Heart, Lightbulb, HandHeart, Award, Clock
+  Code, Palette, Briefcase, Landmark, 
+  Heart, Lightbulb, HandHeart, Award, Clock, Search
 } from "lucide-react";
 
 const tabs = [
-  { id: "sponsors", label: "Sponsors", icon: DollarSign },
-  { id: "mentors", label: "Mentors", icon: Lightbulb },
-  { id: "volunteers", label: "Volunteers", icon: HandHeart },
+  { id: "sponsors", label: "Sponsors" },
+  { id: "mentors", label: "Mentors" },
+  { id: "volunteers", label: "Volunteers" },
 ];
 
 const awardTiers = [
@@ -75,9 +75,8 @@ const Partners = () => {
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex items-center gap-2 py-2.5 px-3 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm"
+                    className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
                   >
-                    <tab.icon className="w-4 h-4" />
                     {tab.label}
                   </TabsTrigger>
                 ))}
