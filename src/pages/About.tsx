@@ -52,9 +52,13 @@ const About = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 120;
+      // Account for main nav (~64-80px) + sticky sub-nav (~56px)
+      const navHeight = window.innerWidth >= 768 ? 80 : 64;
+      const subNavHeight = 56;
+      const totalOffset = navHeight + subNavHeight;
+      
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
       window.scrollTo({
         top: offsetPosition,
         behavior: "instant"
