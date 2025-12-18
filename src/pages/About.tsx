@@ -104,7 +104,7 @@ const About = () => {
 
 
       {/* Section 1: Mission & Vision */}
-      <section id="mission" className="py-16 md:py-24">
+      <section id="mission" className="min-h-[calc(100vh-136px)] py-16 md:py-24 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">
@@ -138,7 +138,7 @@ const About = () => {
       </section>
 
       {/* Section 2: How It Works / Schedule */}
-      <section id="schedule" className="py-16 md:py-24 bg-secondary/10">
+      <section id="schedule" className="min-h-[calc(100vh-136px)] py-16 md:py-24 bg-secondary/10 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -159,7 +159,7 @@ const About = () => {
       </section>
 
       {/* Section 3: Prizes & Recognition */}
-      <section id="prizes" className="py-16 md:py-24">
+      <section id="prizes" className="min-h-[calc(100vh-136px)] py-16 md:py-24 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -178,7 +178,7 @@ const About = () => {
       </section>
 
       {/* Section 4: Who Participates */}
-      <section id="participants" className="py-16 md:py-24 bg-secondary/10">
+      <section id="participants" className="min-h-[calc(100vh-136px)] py-16 md:py-24 bg-secondary/10 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -219,7 +219,7 @@ const About = () => {
       </section>
 
       {/* Section 5: Who Makes This Happen */}
-      <section id="team" className="py-16 md:py-24">
+      <section id="team" className="min-h-[calc(100vh-136px)] py-16 md:py-24 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-10">
@@ -245,7 +245,7 @@ const About = () => {
       </section>
 
       {/* Section 6: What Happens After (Implementation) */}
-      <section id="impact" className="py-16 md:py-24 bg-secondary/10">
+      <section id="impact" className="min-h-[calc(100vh-136px)] py-16 md:py-24 bg-secondary/10 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -392,7 +392,7 @@ const About = () => {
       </section>
 
       {/* Section 7: FAQ */}
-      <section id="faq" className="py-16 md:py-24">
+      <section id="faq" className="min-h-[calc(100vh-136px)] py-16 md:py-24 flex items-start">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <div className="text-center mb-12">
