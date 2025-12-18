@@ -1,67 +1,97 @@
-import { Award, Users, Lightbulb, Rocket, Target, Code, Zap, Shield, Globe, Heart } from "lucide-react";
+import { Award, Users, Lightbulb, Rocket, Target, Code, Heart, Home, GraduationCap, Car } from "lucide-react";
 
-const awards = [
+const majorAwards = [
   {
     title: "Mayor's Choice",
     icon: Award,
-    description: "Most useful solution for the city",
+    description: "Most impactful civic solution—includes commitment to real-world implementation with City partners",
     sponsor: "The Office of Mayor Danny Avula",
   },
   {
     title: "People's Choice",
     icon: Users,
-    description: "Most popular via live Doodle poll at the event",
+    description: "Most popular via live community vote at the event",
     sponsor: "the Community",
   },
   {
     title: "Most Innovative",
     icon: Lightbulb,
-    description: "Most creative and groundbreaking approach",
+    description: "Most creative and groundbreaking approach to civic challenges",
     sponsor: "Higher Education Partners",
   },
   {
     title: "Startup Material",
     icon: Rocket,
-    description: "Greatest potential for real-world startup",
+    description: "Greatest potential for sustained real-world impact",
     sponsor: "Startup Ecosystem",
+  },
+];
+
+const sponsorAwards = [
+  {
+    title: "Housing & Land Use",
+    icon: Home,
+    description: "Best solution addressing affordability, zoning, or equitable development",
+    sponsor: "Sponsor TBD",
+  },
+  {
+    title: "Workforce & Education",
+    icon: GraduationCap,
+    description: "Best solution connecting residents to skills, jobs, or economic mobility",
+    sponsor: "Sponsor TBD",
+  },
+  {
+    title: "Transportation & Mobility",
+    icon: Car,
+    description: "Best solution improving transit access and citywide connectivity",
+    sponsor: "Sponsor TBD",
+  },
+];
+
+const civicAwards = [
+  {
+    title: "Best Technical Implementation",
+    icon: Code,
+    description: "Most impressive technical execution and architecture",
+    sponsor: "TBD",
   },
   {
     title: "Moonshot",
     icon: Target,
-    description: "Most ambitious and visionary solution",
-    sponsor: "TBD",
-  },
-  {
-    title: "Best Technical Implementation",
-    icon: Code,
-    description: "Most impressive technical execution",
-    sponsor: "TBD",
-  },
-  {
-    title: "Fastest Build",
-    icon: Zap,
-    description: "Most efficient and rapid development",
-    sponsor: "TBD",
-  },
-  {
-    title: "Most Secure Solution",
-    icon: Shield,
-    description: "Best security and privacy implementation",
+    description: "Most ambitious and visionary long-term solution",
     sponsor: "TBD",
   },
   {
     title: "Best Social Impact",
     icon: Heart,
-    description: "Greatest potential for community benefit",
-    sponsor: "TBD",
-  },
-  {
-    title: "Most Scalable",
-    icon: Globe,
-    description: "Best potential for widespread adoption",
+    description: "Greatest potential for lasting community benefit",
     sponsor: "TBD",
   },
 ];
+
+interface AwardCardProps {
+  award: {
+    title: string;
+    icon: React.ComponentType<{ className?: string }>;
+    description: string;
+    sponsor: string;
+  };
+}
+
+const AwardCard = ({ award }: AwardCardProps) => (
+  <div className="bg-card border border-border rounded-lg p-3 shadow-elegant hover:shadow-hover transition-smooth">
+    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
+      <award.icon className="w-4 h-4 text-primary" />
+    </div>
+    <h3 className="text-sm font-bold text-card-foreground mb-1">{award.title}</h3>
+    <p className="text-xs text-muted-foreground leading-snug mb-2">{award.description}</p>
+    <div className="pt-2 border-t border-border">
+      <p className="text-xs text-muted-foreground">
+        <span className="font-semibold text-foreground">{award.sponsor}</span>
+      </p>
+    </div>
+  </div>
+);
 
 export const Prizes = () => {
   return (
@@ -74,79 +104,74 @@ export const Prizes = () => {
               Prizes & Recognition
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-              Submit your solution by Saturday evening. 10 finalist teams will
-              pitch live on Sunday. 5 judges, including Mayor
-              Avula, will select winners and runners-up across 5 award
-              categories.
+              Submit your solution by Saturday evening. Finalist teams will
+              pitch live on Sunday. Judges, including Mayor
+              Avula, will select winners across multiple award categories.
             </p>
           </div>
 
           {/* Timeline */}
-          <div className="bg-accent/10 border border-accent/20 rounded-lg p-5 mb-10 max-w-3xl mx-auto">
+          <div className="bg-accent/10 border border-accent/20 rounded-lg p-5 mb-12 max-w-3xl mx-auto">
             <div className="space-y-2.5">
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
                 <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Saturday Evening:</span> All
-                  solutions due
+                  <span className="font-bold">Saturday Evening:</span> All solutions due
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
                 <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Sunday Finals:</span> 10
-                  finalists present 5-minute live pitches
+                  <span className="font-bold">Sunday Finals:</span> Finalists present live pitches
                 </p>
               </div>
               <div className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
                 <p className="text-sm text-card-foreground">
-                  <span className="font-bold">Winners Announced:</span> Winner
-                  and runner-up for each category
+                  <span className="font-bold">Winners Announced:</span> Awards ceremony with Mayor Avula
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Awards Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
-            {awards.map((award, index) => (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-lg p-3 shadow-elegant hover:shadow-hover transition-smooth"
-              >
-                {/* Icon */}
-                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
-                  <award.icon className="w-4 h-4 text-primary" />
-                </div>
+          {/* Major Awards */}
+          <div className="mb-10">
+            <h3 className="text-xl font-bold text-foreground mb-4 text-center">Major Awards</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {majorAwards.map((award, index) => (
+                <AwardCard key={index} award={award} />
+              ))}
+            </div>
+          </div>
 
-                {/* Title */}
-                <h3 className="text-sm font-bold text-card-foreground mb-1">
-                  {award.title}
-                </h3>
+          {/* Sponsor Awards */}
+          <div className="mb-10">
+            <h3 className="text-xl font-bold text-foreground mb-4 text-center">Sponsor Awards</h3>
+            <p className="text-sm text-muted-foreground text-center mb-4">Tied to specific civic domains</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
+              {sponsorAwards.map((award, index) => (
+                <AwardCard key={index} award={award} />
+              ))}
+            </div>
+          </div>
 
-                {/* Description */}
-                <p className="text-xs text-muted-foreground leading-snug mb-2">
-                  {award.description}
-                </p>
-
-                {/* Sponsor */}
-                <div className="pt-2 border-t border-border">
-                  <p className="text-xs text-muted-foreground">
-                    <span className="font-semibold text-foreground">
-                      {award.sponsor}
-                    </span>
-                  </p>
-                </div>
-              </div>
-            ))}
+          {/* Special Civic Awards */}
+          <div className="mb-10">
+            <h3 className="text-xl font-bold text-foreground mb-4 text-center">Special Civic Awards</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
+              {civicAwards.map((award, index) => (
+                <AwardCard key={index} award={award} />
+              ))}
+            </div>
           </div>
 
           {/* Note */}
-          <div className="text-center mt-8">
+          <div className="text-center mt-8 space-y-2">
             <p className="text-sm text-muted-foreground">
-              Each category will have a winner and runner-up recognized at the
-              awards ceremony.
+              Each category will have a winner and runner-up recognized at the awards ceremony.
+            </p>
+            <p className="text-sm text-muted-foreground italic">
+              Some awards include post-event collaboration expectations.
             </p>
           </div>
         </div>
