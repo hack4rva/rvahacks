@@ -1,23 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Code, TrendingUp, Palette } from "lucide-react";
-
-const participantTypes = [
-  {
-    title: "Builders",
-    description: "Developers, engineers, data scientists—build the tech that powers solutions",
-    icon: Code,
-  },
-  {
-    title: "Strategists",
-    description: "Domain experts, project managers, policymakers—shape the vision and pitch",
-    icon: TrendingUp,
-  },
-  {
-    title: "Creatives",
-    description: "Designers, storytellers, researchers—make solutions beautiful and usable",
-    icon: Palette,
-  },
-];
+import { ArrowRight } from "lucide-react";
+import { participantTypes } from "@/data";
 
 export const WhoParticipates = () => {
   return (
@@ -29,7 +12,7 @@ export const WhoParticipates = () => {
               Who Participates
             </h2>
             <p className="text-lg text-muted-foreground animate-fade-in">
-              Every great team needs Builders, Strategists, and Creatives. Find your role.
+              Every great team needs {participantTypes.map(p => p.altTitle).join(", ").replace(/, ([^,]*)$/, ", and $1")}. Find your role.
             </p>
           </div>
 
@@ -43,7 +26,7 @@ export const WhoParticipates = () => {
                 <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 text-accent">
                   <type.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{type.title}</h3>
+                <h3 className="text-lg font-bold text-foreground mb-2">{type.altTitle}</h3>
                 <p className="text-sm text-muted-foreground">{type.description}</p>
               </div>
             ))}

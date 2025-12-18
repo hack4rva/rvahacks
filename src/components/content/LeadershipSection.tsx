@@ -1,32 +1,4 @@
-import { Users, Lightbulb, Heart, Briefcase, Landmark, GraduationCap } from "lucide-react";
-
-const sectors = [
-  { icon: Briefcase, label: "Tech Industry" },
-  { icon: Landmark, label: "City Government" },
-  { icon: Heart, label: "Nonprofits" },
-  { icon: GraduationCap, label: "Higher Education" },
-];
-
-const teams = [
-  {
-    title: "Organizers",
-    icon: Users,
-    description: "Cross-sector leaders coordinating strategy, logistics, and partnerships to make the hackathon happen.",
-    count: "Core Team",
-  },
-  {
-    title: "Advisors",
-    icon: Lightbulb,
-    description: "Domain experts and civic leaders providing guidance on challenges, judging criteria, and implementation pathways.",
-    count: "Advisory Board",
-  },
-  {
-    title: "Volunteers",
-    icon: Heart,
-    description: "Community members supporting operations, mentorship, and participant experience throughout the weekend.",
-    count: "Join Us",
-  },
-];
+import { sectors, teamRoles } from "@/data";
 
 interface LeadershipSectionProps {
   className?: string;
@@ -52,7 +24,7 @@ export const LeadershipSection = ({ className = "", showGetInvolvedLink = true }
 
       {/* Team Cards */}
       <div className="grid md:grid-cols-3 gap-6">
-        {teams.map((team, index) => (
+        {teamRoles.map((team, index) => (
           <div
             key={index}
             className="bg-card p-6 rounded-xl border border-border shadow-elegant hover:border-accent/40 transition-smooth text-center"
@@ -81,5 +53,5 @@ export const LeadershipSection = ({ className = "", showGetInvolvedLink = true }
   );
 };
 
-export { sectors, teams };
-
+// Re-export for backwards compatibility
+export { sectors, teamRoles as teams };

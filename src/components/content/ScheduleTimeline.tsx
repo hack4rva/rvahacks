@@ -1,58 +1,5 @@
-import { Briefcase, Laptop, Award, MapPin, Users } from "lucide-react";
-
-const schedule = [
-  {
-    day: "FRIDAY, MARCH 27",
-    time: "10 AM - 6 PM",
-    location: "Science Museum of Virginia",
-    title: "Kickoff & Launch",
-    icon: Briefcase,
-    highlights: [
-      "Morning kickoff at Science Museum",
-      "Plenary session + domain breakouts",
-      "Team formation and challenge deep-dives",
-      "Teams disperse to satellite hack locations",
-    ],
-    description:
-      "Join us at the Science Museum for opening remarks, challenge briefings, and team formation. After lunch, teams head to their chosen hack location across the city to begin building.",
-    tag: "Centralized start",
-    isPublic: false,
-  },
-  {
-    day: "SATURDAY, MARCH 28",
-    time: "9 AM - 10 PM",
-    location: "Multiple locations citywide",
-    title: "Citywide Hacking",
-    icon: Laptop,
-    highlights: [
-      "Hacking at satellite locations across Richmond",
-      "Optional morning check-in (virtual)",
-      "Virtual mentor support throughout the day",
-      "Submit solutions by evening",
-    ],
-    description:
-      "Teams work from their chosen locations—co-working spaces, libraries, corporate hosts, or home. Mentors available via video throughout the day. All solutions due by evening for finalist selection.",
-    tag: "Distributed",
-    isPublic: false,
-  },
-  {
-    day: "SUNDAY, MARCH 29",
-    time: "10 AM - 3 PM",
-    location: "Science Museum of Virginia",
-    title: "Finals & Awards",
-    icon: Award,
-    highlights: [
-      "Morning virtual judging round",
-      "Finalist teams pitch live",
-      "Awards ceremony with Mayor Avula",
-      "Community celebration—families welcome",
-    ],
-    description:
-      "Finalists return to the Science Museum for live pitches. Judges including Mayor Avula select winners. Celebrate with the community at the awards ceremony.",
-    tag: "Open to public",
-    isPublic: true,
-  },
-];
+import { MapPin, Users } from "lucide-react";
+import { schedule, hybridModelDescription, scheduleFlexibilityMessage } from "@/data";
 
 interface ScheduleTimelineProps {
   className?: string;
@@ -68,7 +15,7 @@ export const ScheduleTimeline = ({ className = "", showCallout = true }: Schedul
         <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 mb-12 max-w-2xl mx-auto flex items-center gap-3">
           <Users className="w-5 h-5 text-accent flex-shrink-0" />
           <p className="text-sm text-card-foreground">
-            <strong>Hybrid model:</strong> Kickoff and awards at the Science Museum. Hacking happens at satellite locations across Richmond—co-working spaces, libraries, and corporate hosts.
+            <strong>Hybrid model:</strong> {hybridModelDescription}
           </p>
         </div>
       )}
@@ -152,12 +99,12 @@ export const ScheduleTimeline = ({ className = "", showCallout = true }: Schedul
       {/* Bottom Message */}
       <div className="text-center mt-12">
         <p className="text-lg font-medium text-foreground/80">
-          Work both days for maximum impact, or hack the day that fits your schedule—everyone celebrates together Sunday.
+          {scheduleFlexibilityMessage}
         </p>
       </div>
     </div>
   );
 };
 
+// Re-export schedule for backwards compatibility
 export { schedule };
-

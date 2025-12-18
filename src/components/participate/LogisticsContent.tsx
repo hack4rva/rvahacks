@@ -1,10 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { 
-  MapPin, Car, Bus, UtensilsCrossed, Accessibility, 
-  Calendar, Building2, Wifi, Plug, Shield, Moon, 
-  Backpack, Laptop, Coffee, Clock, AlertTriangle
+  MapPin, Bus, UtensilsCrossed, Accessibility, 
+  Calendar, Building2, Wifi, Moon, 
+  Laptop, Coffee, AlertTriangle, Shield
 } from "lucide-react";
+import { eventDates, venues } from "@/data";
 
 export const LogisticsContent = () => {
   return (
@@ -13,20 +14,20 @@ export const LogisticsContent = () => {
       <div className="bg-accent/5 border-2 border-accent rounded-xl p-4">
         <div className="flex items-center gap-3 mb-3">
           <Calendar className="w-6 h-6 text-accent" />
-          <h2 className="text-2xl font-bold text-foreground">March 27–29, 2026</h2>
+          <h2 className="text-2xl font-bold text-foreground">{eventDates.fullRange}</h2>
           <Badge className="bg-accent">Fri–Sun</Badge>
         </div>
         <div className="grid grid-cols-3 gap-3 text-sm">
           <div className="bg-background rounded-lg p-3 text-center">
-            <p className="font-semibold text-foreground">Friday 27th</p>
+            <p className="font-semibold text-foreground">{eventDates.friday.shortLabel}</p>
             <p className="text-xs text-muted-foreground">Kickoff @ Science Museum</p>
           </div>
           <div className="bg-background rounded-lg p-3 text-center border-2 border-accent">
-            <p className="font-semibold text-foreground">Saturday 28th</p>
+            <p className="font-semibold text-foreground">{eventDates.saturday.shortLabel}</p>
             <p className="text-xs text-muted-foreground">Hacking @ Satellite Sites</p>
           </div>
           <div className="bg-background rounded-lg p-3 text-center">
-            <p className="font-semibold text-foreground">Sunday 29th</p>
+            <p className="font-semibold text-foreground">{eventDates.sunday.shortLabel}</p>
             <p className="text-xs text-muted-foreground">Finals @ Science Museum</p>
           </div>
         </div>
@@ -40,11 +41,11 @@ export const LogisticsContent = () => {
             <div className="flex items-center justify-between">
               <CardTitle className="text-lg flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-accent" />
-                Science Museum of Virginia
+                {venues.primary.name}
               </CardTitle>
               <Badge className="bg-accent text-xs">Main Hub</Badge>
             </div>
-            <p className="text-xs text-muted-foreground">2500 W Broad St, Richmond, VA 23220</p>
+            <p className="text-xs text-muted-foreground">{venues.primary.address}</p>
           </CardHeader>
           <CardContent className="text-sm space-y-2">
             <div className="grid grid-cols-2 gap-2">
@@ -79,15 +80,10 @@ export const LogisticsContent = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 gap-2 text-xs">
-              {[
-                { label: "Co-Working", desc: "Downtown & Scott's Addition" },
-                { label: "Corporate", desc: "Tech company offices" },
-                { label: "Libraries", desc: "Public & university" },
-                { label: "Remote", desc: "Virtual participation" },
-              ].map((loc) => (
-                <div key={loc.label} className="bg-muted/50 rounded p-2">
-                  <p className="font-medium text-foreground">{loc.label}</p>
-                  <p className="text-muted-foreground">{loc.desc}</p>
+              {venues.satellite.map((loc) => (
+                <div key={loc.type} className="bg-muted/50 rounded p-2">
+                  <p className="font-medium text-foreground">{loc.type}</p>
+                  <p className="text-muted-foreground">{loc.description}</p>
                 </div>
               ))}
             </div>
