@@ -32,19 +32,19 @@ const sponsorAwards = [
     title: "Housing & Land Use",
     icon: Home,
     description: "Best solution addressing affordability, zoning, or equitable development",
-    sponsor: "Sponsor TBD",
+    sponsor: "Category Partner",
   },
   {
     title: "Workforce & Education",
     icon: GraduationCap,
     description: "Best solution connecting residents to skills, jobs, or economic mobility",
-    sponsor: "Sponsor TBD",
+    sponsor: "Category Partner",
   },
   {
     title: "Transportation & Mobility",
     icon: Car,
     description: "Best solution improving transit access and citywide connectivity",
-    sponsor: "Sponsor TBD",
+    sponsor: "Category Partner",
   },
 ];
 
@@ -53,19 +53,19 @@ const civicAwards = [
     title: "Best Technical Implementation",
     icon: Code,
     description: "Most impressive technical execution and architecture",
-    sponsor: "TBD",
+    sponsor: "Judges' Selection",
   },
   {
     title: "Moonshot",
     icon: Target,
     description: "Most ambitious and visionary long-term solution",
-    sponsor: "TBD",
+    sponsor: "Judges' Selection",
   },
   {
     title: "Best Social Impact",
     icon: Heart,
     description: "Greatest potential for lasting community benefit",
-    sponsor: "TBD",
+    sponsor: "Judges' Selection",
   },
 ];
 

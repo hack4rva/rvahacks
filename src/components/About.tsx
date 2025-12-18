@@ -7,24 +7,19 @@ const stats = [
     label: "Participants",
   },
   {
-    icon: Target,
-    value: "1",
-    label: "City Goal",
-  },
-  {
     icon: Calendar,
     value: "48 Hours",
     label: "Friday AM - Saturday PM",
   },
   {
     icon: DollarSign,
-    value: "$25K",
-    label: "Prize Money",
+    value: "$25K+",
+    label: "Prize Pool",
   },
   {
     icon: Gift,
     value: "Free",
-    label: "Registration, lunch, swag",
+    label: "Registration & Food",
   },
 ];
 

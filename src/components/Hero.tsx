@@ -53,12 +53,12 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           {/* Byline */}
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-accent mb-6 tracking-wide">
-            Hackers, Hustlers, and Artists competing for Gold, Glory, and the Good of RVA
+            Technologists, Strategists, and Creatives building real solutions for the Good of RVA
           </p>
 
           {/* Subheadline */}
           <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            A citywide civic tech hackathon. One weekend. Multiple locations across Richmond. Real civic impact.
+            A civic tech hackathon. One weekend. Impact that lasts beyond Sunday.
           </p>
 
           {/* Key Stats - Simplified */}
@@ -70,7 +70,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">$25K+</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">In Prizes</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">Awards Pool</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
@@ -89,7 +89,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-accent" aria-hidden="true" />
               <span className="text-lg font-medium">
-                Science Museum of Virginia
+                Science Museum of VA & Citywide
               </span>
             </div>
           </div>

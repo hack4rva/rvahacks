@@ -4,17 +4,17 @@ import { Code, TrendingUp, Palette, Heart } from "lucide-react";
 const personas = [
   {
     icon: Code,
-    label: "Hackers",
+    label: "Builders",
     description: "Software developers, data scientists, engineers, no-code builders. You turn ideas into working prototypes. Whether you're writing Python, building in Bubble, or wrangling APIs—we need your skills to make solutions real.",
   },
   {
     icon: TrendingUp,
-    label: "Hustlers",
+    label: "Strategists",
     description: "Business strategists, project managers, policy experts, domain specialists. You shape the vision, understand the problem deeply, manage the team, and pitch to judges. Great ideas need people who can make them viable.",
   },
   {
     icon: Palette,
-    label: "Artists",
+    label: "Creatives",
     description: "UX/UI designers, graphic designers, storytellers, content creators. You make solutions beautiful, accessible, and human. From wireframes to pitch decks to demo videos—your creativity brings ideas to life.",
   },
   {
@@ -37,7 +37,7 @@ export const WhoShouldJoin = () => {
               Who Should Join
             </h2>
             <p className="text-base text-muted-foreground">
-              Every winning team needs Hackers, Hustlers, and Artists. Click to learn more.
+              Every winning team needs Builders, Strategists, and Creatives. Click to learn more.
             </p>
           </div>
 

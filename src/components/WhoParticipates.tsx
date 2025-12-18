@@ -3,18 +3,18 @@ import { ArrowRight, Code, TrendingUp, Palette } from "lucide-react";
 
 const participantTypes = [
   {
-    title: "Hackers",
+    title: "Builders",
     description: "Developers, engineers, data scientists—build the tech that powers solutions",
     icon: Code,
   },
   {
-    title: "Hustlers",
-    description: "Strategists, domain experts, project managers—shape the vision and pitch",
+    title: "Strategists",
+    description: "Domain experts, project managers, policymakers—shape the vision and pitch",
     icon: TrendingUp,
   },
   {
-    title: "Artists",
-    description: "Designers, storytellers, creatives—make solutions beautiful and usable",
+    title: "Creatives",
+    description: "Designers, storytellers, researchers—make solutions beautiful and usable",
     icon: Palette,
   },
 ];
@@ -29,7 +29,7 @@ export const WhoParticipates = () => {
               Who Participates
             </h2>
             <p className="text-lg text-muted-foreground animate-fade-in">
-              Every great team needs Hackers, Hustlers, and Artists. Find your role.
+              Every great team needs Builders, Strategists, and Creatives. Find your role.
             </p>
           </div>
 
