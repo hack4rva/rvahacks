@@ -60,5 +60,8 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
   );
 };
 
-// Re-export for backwards compatibility
+// Legacy named exports (kept for backwards compatibility with older imports)
 export { awardTiers };
+export const majorAwards: PrizeAward[] = awardTiers;
+export const sponsorAwards: PrizeAward[] = [];
+export const civicAwards: PrizeAward[] = [];
