@@ -10,6 +10,13 @@ import { eventDates, venues } from "@/data";
 export const LogisticsContent = () => {
   return (
     <div className="space-y-6">
+      {/* Page Intro */}
+      <div className="mb-2">
+        <p className="text-muted-foreground">
+          Everything you need to know about getting to the event, what to bring, and where to find food, parking, and accessibility accommodations.
+        </p>
+      </div>
+
       {/* Event Dates - Compact Hero */}
       <div className="bg-accent/5 border-2 border-accent rounded-xl p-4">
         <div className="flex items-center gap-3 mb-3">

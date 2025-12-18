@@ -40,6 +40,13 @@ const datasetInventory = [
 export const ResourcesContent = () => {
   return (
     <div className="space-y-6">
+      {/* Page Intro */}
+      <div className="mb-2">
+        <p className="text-muted-foreground">
+          Datasets, tools, and documentation to help you build your project—including open data sources, cloud credits, and getting-started guides.
+        </p>
+      </div>
+
       {/* Dataset Inventory - Compact Table */}
       <Card className="border-border">
         <CardHeader className="pb-2">
