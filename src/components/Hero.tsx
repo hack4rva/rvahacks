@@ -122,7 +122,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
               onClick={onCTAClick}
               className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-smooth"
             >
-              Or sign up for email updates →
+              Stay Updated
             </button>
           </div>
         </div>
