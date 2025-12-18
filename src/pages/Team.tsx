@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { Us } from "@/components/Us";
+import { OrganizationalRoles } from "@/components/OrganizationalRoles";
 import { EmailSignup } from "@/components/EmailSignup";
 import { useState } from "react";
 
@@ -17,6 +18,7 @@ const Team = () => {
       <Navigation onCTAClick={handleCTAClick} />
       <div className="pt-20">
         <Us />
+        <OrganizationalRoles />
       </div>
       <Footer />
       <BackToTop />
