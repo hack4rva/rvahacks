@@ -17,19 +17,44 @@ const faqs = [
       "Nothing. Hack for RVA is completely free, including meals and refreshments throughout the weekend.",
   },
   {
+    question: "Where do I hack?",
+    answer:
+      "Friday kickoff and Sunday awards are at the Science Museum of Virginia. Saturday hacking happens at satellite locations across Richmond—co-working spaces, libraries, corporate hosts, and university sites. You'll select your preferred location during registration.",
+  },
+  {
+    question: "Can I work remotely?",
+    answer:
+      "Yes. Remote participation is allowed for Saturday hacking. You'll have access to virtual mentor support and can submit your project like any other team. Friday kickoff and Sunday finals are in-person only.",
+  },
+  {
     question: "Do I need to attend all three days?",
     answer:
-      "No. Choose Friday OR Saturday to build (or both if you're dedicated!), then join us Sunday for the public celebration. The flexible format accommodates different schedules.",
+      "No. Friday is optional kickoff. Saturday is the main hacking day. Sunday is finals and awards. You can participate in any combination, though attending Friday helps with team formation and challenge understanding.",
+  },
+  {
+    question: "What if I don't have a team?",
+    answer:
+      "Perfect! Team formation happens Friday morning at kickoff. Come solo and meet people, or bring friends. Teams are typically 3-5 people with diverse skills.",
+  },
+  {
+    question: "How does judging work?",
+    answer:
+      "All teams submit via Devpost by Saturday evening. Judges review submissions overnight. Finalists are announced Sunday morning and pitch live to a panel including Mayor Avula. Winners are announced at the awards ceremony.",
+  },
+  {
+    question: "Who owns the code?",
+    answer:
+      "You do. All code created during the hackathon belongs to the team that built it. We encourage open-source licensing (MIT recommended) to maximize civic impact, but the choice is yours.",
+  },
+  {
+    question: "What happens after the event?",
+    answer:
+      "Winning projects have implementation pathways. The Mayor's Choice winner gets a 90-day scoping engagement with the City. Other winners may connect with nonprofit adopters or startup accelerators. See our Action Plan page for details.",
   },
   {
     question: "Can I bring my family to Sunday's event?",
     answer:
       "Absolutely! Sunday is a public celebration designed to be family-friendly. Bring your kids, parents, friends—everyone's welcome.",
-  },
-  {
-    question: "What if I don't have a team?",
-    answer:
-      "Perfect! Team formation happens at the event. Come solo and meet amazing people, or bring friends. Teams are typically 3-5 people with diverse skills.",
   },
   {
     question: "When does registration open?",

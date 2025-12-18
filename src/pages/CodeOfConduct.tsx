@@ -35,6 +35,27 @@ const CodeOfConduct = () => {
         </div>
       </section>
 
+      {/* Context Section */}
+      <section className="py-12 md:py-16 bg-accent/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <Card className="border-accent/30 shadow-elegant">
+              <CardContent className="pt-6 space-y-4">
+                <p className="text-muted-foreground leading-relaxed">
+                  <strong className="text-foreground">Hack for RVA is a civic, inclusive, and professional environment.</strong> Participants come from diverse backgrounds—tech, government, nonprofits, academia, and the community—to work on solutions that serve the public interest.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  During this event, you may engage with <strong className="text-foreground">sensitive public-interest topics</strong> including housing instability, workforce barriers, health disparities, and systemic inequities. These conversations require respect, good faith, and a commitment to constructive dialogue.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  By participating, you agree to maintain a professional atmosphere where everyone can contribute safely and effectively.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Our Commitment Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
