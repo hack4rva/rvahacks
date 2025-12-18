@@ -1,36 +1,26 @@
 import { useState } from "react";
-import { Lightbulb, Wrench, Code, Pencil, Megaphone, Heart } from "lucide-react";
+import { Code, TrendingUp, Palette, Heart } from "lucide-react";
 
 const personas = [
   {
-    icon: Lightbulb,
-    label: "Entrepreneurs",
-    description: "Build something that matters. Use your business skills to help Richmond's small businesses thrive, create economic opportunity, or reimagine City services.",
-  },
-  {
-    icon: Wrench,
-    label: "Inventors & Makers",
-    description: "Apply your creative problem-solving to civic challenges. From hardware hacks to policy innovations to service design.",
-  },
-  {
     icon: Code,
-    label: "Technologists",
-    description: "Code for your community. Whether you're a data scientist, full-stack developer, GIS specialist, or UX designer—we need your skills.",
+    label: "Hackers",
+    description: "Software developers, data scientists, engineers, no-code builders. You turn ideas into working prototypes. Whether you're writing Python, building in Bubble, or wrangling APIs—we need your skills to make solutions real.",
   },
   {
-    icon: Pencil,
-    label: "Designers & Researchers",
-    description: "Create solutions that real Richmonders will actually use. User research, service design, and accessibility matter as much as code.",
+    icon: TrendingUp,
+    label: "Hustlers",
+    description: "Business strategists, project managers, policy experts, domain specialists. You shape the vision, understand the problem deeply, manage the team, and pitch to judges. Great ideas need people who can make them viable.",
   },
   {
-    icon: Megaphone,
-    label: "Community Leaders",
-    description: "You know the problems. Help teams understand the real needs and ensure solutions serve everyone.",
+    icon: Palette,
+    label: "Artists",
+    description: "UX/UI designers, graphic designers, storytellers, content creators. You make solutions beautiful, accessible, and human. From wireframes to pitch decks to demo videos—your creativity brings ideas to life.",
   },
   {
     icon: Heart,
-    label: "Families & Supporters",
-    description: "Join us Sunday for the celebration! See what's possible when Richmond works together.",
+    label: "Community",
+    description: "Join us Sunday for the public celebration! See what's possible when Richmond works together. Bring your family, friends, and neighbors to the awards ceremony at the Science Museum.",
   },
 ];
 
@@ -47,7 +37,7 @@ export const WhoShouldJoin = () => {
               Who Should Join
             </h2>
             <p className="text-base text-muted-foreground">
-              If you care about Richmond, there's a place for you. Click to learn more.
+              Every winning team needs Hackers, Hustlers, and Artists. Click to learn more.
             </p>
           </div>
 

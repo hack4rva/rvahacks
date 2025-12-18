@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
@@ -21,6 +21,15 @@ import {
   Cloud,
   Clock
 } from "lucide-react";
+
+const sectionIds = ["sponsors", "mentors", "vto", "other"];
+
+const tocItems = [
+  { id: "sponsors", label: "Sponsors", icon: DollarSign },
+  { id: "mentors", label: "Mentors & Judges", icon: Lightbulb },
+  { id: "vto", label: "Corporate VTO", icon: Clock },
+  { id: "other", label: "Other Ways", icon: HandHeart },
+];
 
 const sponsorTiers = [
   {
@@ -78,9 +87,44 @@ const sponsorTiers = [
 
 const Partners = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("sponsors");
 
   const handleCTAClick = () => {
     setIsEmailSignupOpen(true);
+  };
+
+  // Track active section for sticky nav
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 150;
+      
+      for (const sectionId of sectionIds) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = 120;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
   };
 
   return (
@@ -101,8 +145,30 @@ const Partners = () => {
         </div>
       </section>
 
+      {/* Sticky Section Navigation */}
+      <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex overflow-x-auto py-3 gap-1 scrollbar-hide">
+            {tocItems.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-smooth ${
+                  activeSection === section.id
+                    ? "bg-accent text-accent-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                }`}
+              >
+                <section.icon className="w-4 h-4" />
+                {section.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </nav>
+
       {/* Pathway 1: Sponsors */}
-      <section className="py-16 md:py-24">
+      <section id="sponsors" className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -147,7 +213,7 @@ const Partners = () => {
       </section>
 
       {/* Pathway 2: Mentors & Judges */}
-      <section className="py-16 md:py-24 bg-secondary/10">
+      <section id="mentors" className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -246,7 +312,7 @@ const Partners = () => {
       </section>
 
       {/* Corporate VTO Section */}
-      <section className="py-16 md:py-24 bg-accent/5">
+      <section id="vto" className="py-16 md:py-24 bg-accent/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
@@ -290,7 +356,7 @@ const Partners = () => {
       </section>
 
       {/* Special Callouts */}
-      <section className="py-16 md:py-24">
+      <section id="other" className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">We're Also Looking For</h2>

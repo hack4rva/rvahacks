@@ -1,33 +1,21 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Code, TrendingUp, Palette } from "lucide-react";
 
 const participantTypes = [
   {
-    title: "Builders & Engineers",
-    description: "Software developers, data engineers, no-code builders",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
+    title: "Hackers",
+    description: "Developers, engineers, data scientists—build the tech that powers solutions",
+    icon: Code,
   },
   {
-    title: "Designers",
-    description: "UX/UI designers, product designers, visual thinkers",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-      </svg>
-    ),
+    title: "Hustlers",
+    description: "Strategists, domain experts, project managers—shape the vision and pitch",
+    icon: TrendingUp,
   },
   {
-    title: "Domain Experts",
-    description: "Policy experts, researchers, community advocates",
-    icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-      </svg>
-    ),
+    title: "Artists",
+    description: "Designers, storytellers, creatives—make solutions beautiful and usable",
+    icon: Palette,
   },
 ];
 
@@ -41,7 +29,7 @@ export const WhoParticipates = () => {
               Who Participates
             </h2>
             <p className="text-lg text-muted-foreground animate-fade-in">
-              You don't need to be a programmer. Diverse skills build better solutions.
+              Every great team needs Hackers, Hustlers, and Artists. Find your role.
             </p>
           </div>
 
@@ -53,7 +41,7 @@ export const WhoParticipates = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4 text-accent">
-                  {type.icon}
+                  <type.icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-lg font-bold text-foreground mb-2">{type.title}</h3>
                 <p className="text-sm text-muted-foreground">{type.description}</p>
@@ -66,7 +54,7 @@ export const WhoParticipates = () => {
               to="/about#participants"
               className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold transition-smooth"
             >
-              See all participant types <ArrowRight className="w-4 h-4" />
+              Learn more about participating <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -74,4 +62,3 @@ export const WhoParticipates = () => {
     </section>
   );
 };
-

@@ -69,9 +69,12 @@ const About = () => {
       <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 animate-fade-in">
               About Hack for RVA
             </h1>
+            <p className="text-base sm:text-lg font-medium text-accent mb-6 animate-fade-in" style={{ animationDelay: "50ms" }}>
+              Hackers, Hustlers, and Artists competing for Gold, Glory, and the Good of RVA
+            </p>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
               Everything you need to know about Richmond's citywide civic hackathon. March 27-29, 2026.
             </p>
@@ -203,7 +206,7 @@ const About = () => {
                 Who Participates
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                You don't need to be a programmer. We need diverse skills to build solutions that work.
+                Every winning team needs Hackers, Hustlers, and Artists. Find your role.
               </p>
             </div>
 
@@ -215,11 +218,27 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                     </svg>
                   </div>
-                  <CardTitle>Builders & Engineers</CardTitle>
+                  <CardTitle>Hackers</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-sm text-muted-foreground">
-                    Software developers, data engineers, no-code builders. Turn ideas into working prototypes.
+                    Developers, engineers, data scientists—build the tech that powers solutions.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
+                <CardHeader className="text-center">
+                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <CardTitle>Hustlers</CardTitle>
+                </CardHeader>
+                <CardContent className="text-center">
+                  <p className="text-sm text-muted-foreground">
+                    Strategists, domain experts, project managers—shape the vision and pitch.
                   </p>
                 </CardContent>
               </Card>
@@ -231,27 +250,11 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                     </svg>
                   </div>
-                  <CardTitle>Designers</CardTitle>
+                  <CardTitle>Artists</CardTitle>
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-sm text-muted-foreground">
-                    UX/UI designers, product designers, visual thinkers. Make solutions intuitive and accessible.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </div>
-                  <CardTitle>Researchers & Strategists</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-sm text-muted-foreground">
-                    Policy experts, researchers, business strategists. Ground solutions in real community needs.
+                    Designers, storytellers, creatives—make solutions beautiful and usable.
                   </p>
                 </CardContent>
               </Card>

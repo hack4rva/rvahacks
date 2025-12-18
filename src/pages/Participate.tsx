@@ -63,12 +63,39 @@ const Participate = () => {
       <section className="pt-32 pb-8 md:pt-40 md:pb-12 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 animate-fade-in">
               Participant Hub
             </h1>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Everything you need to participate in Hack for RVA. From logistics to resources, we've got you covered.
+            <p className="text-base sm:text-lg font-medium text-accent mb-4 animate-fade-in" style={{ animationDelay: "50ms" }}>
+              Hackers, Hustlers, and Artists competing for Gold, Glory, and the Good of RVA
             </p>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-in" style={{ animationDelay: "100ms" }}>
+              Everything you need to participate. From logistics to resources, we've got you covered.
+            </p>
+            
+            {/* Quick Overview Cards */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 animate-fade-in" style={{ animationDelay: "200ms" }}>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabChange(tab.id)}
+                  className={`p-4 rounded-xl border transition-smooth text-left ${
+                    activeTab === tab.id 
+                      ? "bg-accent/10 border-accent" 
+                      : "bg-card border-border hover:border-accent/50"
+                  }`}
+                >
+                  <tab.icon className={`w-5 h-5 mb-2 ${activeTab === tab.id ? "text-accent" : "text-muted-foreground"}`} />
+                  <h3 className="font-semibold text-sm text-foreground">{tab.label}</h3>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    {tab.id === "logistics" && "Where, when, what to expect"}
+                    {tab.id === "preparation" && "How to prepare for the event"}
+                    {tab.id === "resources" && "Tools, APIs, and datasets"}
+                    {tab.id === "register" && "Sign up & join a team"}
+                  </p>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </section>

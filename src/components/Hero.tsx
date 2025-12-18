@@ -47,18 +47,18 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
       >
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
             Engineer the City We Want to Live In
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto">
-            A citywide civic tech hackathon uniting Richmond's entrepreneurs, inventors, and technologists to build a thriving economy for our city.
+          {/* Byline */}
+          <p className="text-lg sm:text-xl md:text-2xl font-medium text-accent mb-6 tracking-wide">
+            Hackers, Hustlers, and Artists competing for Gold, Glory, and the Good of RVA
           </p>
-          
-          {/* Distributed model callout */}
-          <p className="text-sm sm:text-base text-white/70 mb-8 max-w-2xl mx-auto">
-            One weekend. Multiple locations across Richmond. Real civic impact.
+
+          {/* Subheadline */}
+          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
+            A citywide civic tech hackathon. One weekend. Multiple locations across Richmond. Real civic impact.
           </p>
 
           {/* Key Stats - Simplified */}
