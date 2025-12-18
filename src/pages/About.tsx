@@ -15,7 +15,7 @@ import {
   LeadershipSection,
   FAQAccordion 
 } from "@/components/content";
-import { Award, Heart, Rocket, CheckCircle2, ArrowRight } from "lucide-react";
+import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 import { eventDates, participantTypes, participantTagline } from "@/data";
 
 const sectionIds = ["mission", "schedule", "prizes", "participants", "team", "impact", "faq"];
