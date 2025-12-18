@@ -5,6 +5,7 @@ import { Countdown } from "@/components/Countdown";
 import { About } from "@/components/About";
 import { EventFormat } from "@/components/EventFormat";
 import { Prizes } from "@/components/Prizes";
+import { Leadership } from "@/components/Leadership";
 import { Us } from "@/components/Us";
 import { FAQ } from "@/components/FAQ";
 import { Footer } from "@/components/Footer";
@@ -28,7 +29,7 @@ const Index = () => {
       <About />
       <Prizes />
       <EventFormat />
-      <Us />
+      <Leadership />
       <FAQ />
       <Footer />
       <BackToTop />
