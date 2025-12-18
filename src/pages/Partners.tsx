@@ -19,7 +19,7 @@ const tabs = [
 ];
 
 const awardTiers = [
-  { tier: "Flagship Award", amount: "$5,000", quantity: "1 available", desc: "Best Overall Solution", color: "border-yellow-500 bg-yellow-500/10" },
+  { tier: "Mayor's Choice", amount: "$5,000", quantity: "1 available", desc: "Best Overall Solution", color: "border-yellow-500 bg-yellow-500/10" },
   { tier: "Housing Award", amount: "$2,500", quantity: "Focus Area", desc: "Eviction prevention, tenant rights, affordable housing", color: "border-accent bg-accent/10" },
   { tier: "Jobs Award", amount: "$2,500", quantity: "Focus Area", desc: "Workforce development, small business, economic mobility", color: "border-accent bg-accent/10" },
   { tier: "Transit Award", amount: "$2,500", quantity: "Focus Area", desc: "Transportation access, mobility equity, GRTC integration", color: "border-accent bg-accent/10" },
