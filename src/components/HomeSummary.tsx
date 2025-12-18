@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import { Home, GraduationCap, Car, ArrowRight } from "lucide-react";
+import { Home, GraduationCap, Car } from "lucide-react";
 
 const focusAreasSummary = [
   {
@@ -49,15 +48,6 @@ export const HomeSummary = () => {
             ))}
           </div>
 
-          {/* CTA */}
-          <div className="text-center animate-fade-in">
-            <Link 
-              to="/about"
-              className="inline-flex items-center gap-2 text-accent hover:text-accent/80 font-semibold transition-smooth"
-            >
-              Learn more about the event <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </div>
     </section>
