@@ -40,9 +40,12 @@ const datasetInventory = [
 export const ResourcesContent = () => {
   return (
     <div className="space-y-6">
-      {/* Page Intro */}
-      <div className="mb-2">
-        <p className="text-muted-foreground">
+      {/* Page Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          Resources
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Datasets, tools, and documentation to help you build your project—including open data sources, cloud credits, and getting-started guides.
         </p>
       </div>

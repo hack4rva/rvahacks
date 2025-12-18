@@ -10,9 +10,12 @@ interface RegistrationContentProps {
 export const RegistrationContent = ({ onCTAClick }: RegistrationContentProps) => {
   return (
     <div className="space-y-5">
-      {/* Page Intro */}
-      <div className="mb-2">
-        <p className="text-muted-foreground">
+      {/* Page Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          Register
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Learn about the event, who should register, and how to sign up for notifications when registration opens in January 2026.
         </p>
       </div>
