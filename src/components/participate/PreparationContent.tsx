@@ -8,9 +8,12 @@ import {
 export const PreparationContent = () => {
   return (
     <div className="space-y-6">
-      {/* Page Intro */}
-      <div className="mb-2">
-        <p className="text-muted-foreground">
+      {/* Page Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+          Preparation
+        </h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Get ready for hack weekend with tips on team formation, project scoping, technical setup, and what to do (and not do) before the event.
         </p>
       </div>
