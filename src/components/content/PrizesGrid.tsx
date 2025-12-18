@@ -1,22 +1,18 @@
-import { majorAwards, sponsorAwards, civicAwards, prizeTimeline, type PrizeAward } from "@/data";
+import { awardTiers, prizeTimeline, type PrizeAward } from "@/data";
+import { Card, CardContent } from "@/components/ui/card";
 
 interface AwardCardProps {
   award: PrizeAward;
 }
 
 const AwardCard = ({ award }: AwardCardProps) => (
-  <div className="bg-card border border-border rounded-lg p-3 shadow-elegant hover:shadow-hover transition-smooth">
-    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center mb-2">
-      <award.icon className="w-4 h-4 text-primary" />
-    </div>
-    <h3 className="text-sm font-bold text-card-foreground mb-1">{award.title}</h3>
-    <p className="text-xs text-muted-foreground leading-snug mb-2">{award.description}</p>
-    <div className="pt-2 border-t border-border">
-      <p className="text-xs text-muted-foreground">
-        <span className="font-semibold text-foreground">{award.sponsor}</span>
-      </p>
-    </div>
-  </div>
+  <Card className={`border-2 ${award.color || "border-border"}`}>
+    <CardContent className="pt-4 pb-4 text-center">
+      <p className="text-2xl font-bold text-foreground mb-0.5">{award.amount}</p>
+      <p className="text-sm font-medium text-foreground">{award.title}</p>
+      <p className="text-xs text-muted-foreground mt-1">{award.description}</p>
+    </CardContent>
+  </Card>
 );
 
 interface PrizesGridProps {
@@ -44,35 +40,11 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         </div>
       )}
 
-      {/* Major Awards */}
-      <div className="mb-10">
-        <h3 className="text-xl font-bold text-foreground mb-4 text-center">Major Awards</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {majorAwards.map((award, index) => (
-            <AwardCard key={index} award={award} />
-          ))}
-        </div>
-      </div>
-
-      {/* Sponsor Awards */}
-      <div className="mb-10">
-        <h3 className="text-xl font-bold text-foreground mb-4 text-center">Sponsor Awards</h3>
-        <p className="text-sm text-muted-foreground text-center mb-4">Tied to specific civic domains</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
-          {sponsorAwards.map((award, index) => (
-            <AwardCard key={index} award={award} />
-          ))}
-        </div>
-      </div>
-
-      {/* Special Civic Awards */}
-      <div className="mb-10">
-        <h3 className="text-xl font-bold text-foreground mb-4 text-center">Special Civic Awards</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto">
-          {civicAwards.map((award, index) => (
-            <AwardCard key={index} award={award} />
-          ))}
-        </div>
+      {/* Award Tiers */}
+      <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        {awardTiers.map((award, index) => (
+          <AwardCard key={index} award={award} />
+        ))}
       </div>
 
       {/* Note */}
@@ -89,4 +61,4 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
 };
 
 // Re-export for backwards compatibility
-export { majorAwards, sponsorAwards, civicAwards };
+export { awardTiers };
