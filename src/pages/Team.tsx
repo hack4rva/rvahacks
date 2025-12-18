@@ -7,11 +7,10 @@ import { Us } from "@/components/Us";
 import { OrganizationalRoles } from "@/components/OrganizationalRoles";
 import { EmailSignup } from "@/components/EmailSignup";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Users, Building2 } from "lucide-react";
 
 const tabs = [
-  { id: "team", label: "People", icon: Users },
-  { id: "roles", label: "Roles", icon: Building2 },
+  { id: "team", label: "People" },
+  { id: "roles", label: "Roles" },
 ];
 
 const Team = () => {
@@ -62,9 +61,8 @@ const Team = () => {
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex items-center gap-2 py-2.5 px-3 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm"
+                    className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
                   >
-                    <tab.icon className="w-4 h-4" />
                     {tab.label}
                   </TabsTrigger>
                 ))}

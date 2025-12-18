@@ -16,20 +16,17 @@ import {
   LeadershipSection,
   FAQAccordion 
 } from "@/components/content";
-import { 
-  Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight,
-  Target, Calendar, Trophy, Users, UserCircle, Zap, HelpCircle
-} from "lucide-react";
+import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 import { participantTypes } from "@/data";
 
 const tabs = [
-  { id: "mission", label: "Mission", icon: Target },
-  { id: "schedule", label: "Schedule", icon: Calendar },
-  { id: "prizes", label: "Prizes", icon: Trophy },
-  { id: "participants", label: "Who Joins", icon: Users },
-  { id: "team", label: "Team", icon: UserCircle },
-  { id: "impact", label: "Impact", icon: Zap },
-  { id: "faq", label: "FAQ", icon: HelpCircle },
+  { id: "mission", label: "Mission" },
+  { id: "schedule", label: "Schedule" },
+  { id: "prizes", label: "Prizes" },
+  { id: "participants", label: "Who Joins" },
+  { id: "team", label: "Team" },
+  { id: "impact", label: "Impact" },
+  { id: "faq", label: "FAQ" },
 ];
 
 const About = () => {
@@ -80,10 +77,9 @@ const About = () => {
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex items-center gap-2 py-2.5 px-3 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm"
+                    className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
                   >
-                    <tab.icon className="w-4 h-4" />
-                    <span className="hidden md:inline">{tab.label}</span>
+                    {tab.label}
                   </TabsTrigger>
                 ))}
               </TabsList>

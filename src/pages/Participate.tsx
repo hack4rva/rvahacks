@@ -5,7 +5,6 @@ import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { EmailSignup } from "@/components/EmailSignup";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { MapPin, BookOpen, Wrench, UserPlus } from "lucide-react";
 import { 
   LogisticsContent, 
   PreparationContent, 
@@ -15,10 +14,10 @@ import {
 import { eventDates } from "@/data";
 
 const tabs = [
-  { id: "logistics", label: "Logistics", icon: MapPin },
-  { id: "preparation", label: "Preparation", icon: BookOpen },
-  { id: "resources", label: "Resources", icon: Wrench },
-  { id: "register", label: "Register", icon: UserPlus },
+  { id: "logistics", label: "Logistics" },
+  { id: "preparation", label: "Preparation" },
+  { id: "resources", label: "Resources" },
+  { id: "register", label: "Register" },
 ];
 
 const Participate = () => {
@@ -73,9 +72,8 @@ const Participate = () => {
                   <TabsTrigger
                     key={tab.id}
                     value={tab.id}
-                    className="flex items-center gap-2 py-2.5 px-3 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm"
+                    className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
                   >
-                    <tab.icon className="w-4 h-4" />
                     {tab.label}
                   </TabsTrigger>
                 ))}
