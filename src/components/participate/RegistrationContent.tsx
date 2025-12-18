@@ -10,6 +10,13 @@ interface RegistrationContentProps {
 export const RegistrationContent = ({ onCTAClick }: RegistrationContentProps) => {
   return (
     <div className="space-y-5">
+      {/* Page Intro */}
+      <div className="mb-2">
+        <p className="text-muted-foreground">
+          Learn about the event, who should register, and how to sign up for notifications when registration opens in January 2026.
+        </p>
+      </div>
+
       {/* Event Overview - Dense Hero */}
       <div className="bg-accent/5 border-2 border-accent rounded-xl p-4">
         <div className="flex flex-wrap items-center gap-3 mb-3">

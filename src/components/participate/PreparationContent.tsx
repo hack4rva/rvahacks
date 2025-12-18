@@ -8,6 +8,13 @@ import {
 export const PreparationContent = () => {
   return (
     <div className="space-y-6">
+      {/* Page Intro */}
+      <div className="mb-2">
+        <p className="text-muted-foreground">
+          Get ready for hack weekend with tips on team formation, project scoping, technical setup, and what to do (and not do) before the event.
+        </p>
+      </div>
+
       {/* Pre-Event Ideation - Compact */}
       <div className="grid md:grid-cols-2 gap-4">
         <Card className="border-success/30 bg-success/5">
