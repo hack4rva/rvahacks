@@ -31,58 +31,25 @@ const tocItems = [
   { id: "other", label: "Other Ways", icon: HandHeart },
 ];
 
-const sponsorTiers = [
+const awardTiers = [
   {
-    name: "Title Sponsor",
-    amount: "$15,000",
-    icon: Star,
-    color: "border-yellow-500 bg-yellow-50 dark:bg-yellow-950/20",
-    benefits: [
-      "Logo on all materials and website",
-      "Speaking slot at kickoff ceremony",
-      "Judge seat on final panel",
-      "Resume access for recruiting",
-      "Named award in your focus area",
-      "VIP reception invitation"
-    ]
-  },
-  {
-    name: "Track Sponsor",
+    tier: "Flagship Award",
     amount: "$5,000",
-    icon: Award,
-    color: "border-accent bg-accent/5",
-    benefits: [
-      "Logo on specific challenge track",
-      "Branding on track datasets",
-      "Mentorship opportunities",
-      "Recruiting table at event",
-      "Social media recognition"
-    ]
+    quantity: "1 available",
+    color: "border-yellow-500 bg-yellow-500/10",
   },
   {
-    name: "Meal Sponsor",
+    tier: "Major Award",
     amount: "$2,500",
-    icon: Utensils,
-    color: "border-primary bg-primary/5",
-    benefits: [
-      "Branding on food stations",
-      "Logo on event signage",
-      "Social media shoutouts",
-      "Recruiting table at event"
-    ]
+    quantity: "3 available",
+    color: "border-accent bg-accent/10",
   },
   {
-    name: "In-Kind Sponsor",
-    amount: "Value varies",
-    icon: Cloud,
-    color: "border-border bg-muted/50",
-    benefits: [
-      "Cloud credits (AWS, Google Cloud)",
-      "Software licenses",
-      "API access",
-      "Swag and prizes"
-    ]
-  }
+    tier: "Track Award",
+    amount: "$1,000",
+    quantity: "Many available",
+    color: "border-primary bg-primary/5",
+  },
 ];
 
 const Partners = () => {
@@ -175,38 +142,69 @@ const Partners = () => {
               <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
                 <DollarSign className="w-6 h-6 text-accent" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Sponsorship Tiers</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Award Sponsorships</h2>
             </div>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-              Fund prizes, support operations, and connect with Richmond's civic tech community. Multiple tiers available.
+            <p className="text-lg text-muted-foreground mb-6 max-w-3xl">
+              Sponsors fund specific awards and become active participants—not passive funders. This is our primary event expense and requires dedicated attention.
             </p>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              {sponsorTiers.map((tier, idx) => (
-                <Card key={idx} className={`border-2 shadow-elegant ${tier.color}`}>
-                  <CardHeader className="pb-3">
-                    <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center mb-2">
-                      <tier.icon className="w-5 h-5 text-foreground" />
-                    </div>
-                    <CardTitle className="text-lg">{tier.name}</CardTitle>
-                    <CardDescription className="text-xl font-bold text-foreground">{tier.amount}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      {tier.benefits.map((benefit, i) => (
-                        <li key={i}>• {benefit}</li>
-                      ))}
+            {/* How It Works */}
+            <Card className="border-accent border-2 mb-6">
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Award className="w-5 h-5 text-accent" />
+                  How Award Sponsorship Works
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="text-sm space-y-3">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="font-medium text-foreground mb-2">What Sponsors Do:</p>
+                    <ul className="text-muted-foreground space-y-1">
+                      <li>• Fund a specific award at your chosen tier</li>
+                      <li>• Set your own award rubric (e.g., CoStar sponsors housing-focused award)</li>
+                      <li>• Sit on the judging panel</li>
+                      <li>• Vote on ALL awards, not just your own</li>
                     </ul>
+                  </div>
+                  <div>
+                    <p className="font-medium text-foreground mb-2">Why It Matters:</p>
+                    <ul className="text-muted-foreground space-y-1">
+                      <li>• Direct influence on which solutions get recognized</li>
+                      <li>• Shape civic tech in your area of expertise</li>
+                      <li>• Connect with Richmond's builder community</li>
+                      <li>• Your name on an award aligned with your mission</li>
+                    </ul>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+            
+            {/* Award Tiers */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-6">
+              {awardTiers.map((tier, idx) => (
+                <Card key={idx} className={`border-2 shadow-elegant ${tier.color}`}>
+                  <CardContent className="pt-6 text-center">
+                    <p className="text-3xl font-bold text-foreground mb-1">{tier.amount}</p>
+                    <p className="text-lg font-medium text-foreground">{tier.tier}</p>
+                    <p className="text-sm text-muted-foreground">{tier.quantity}</p>
                   </CardContent>
                 </Card>
               ))}
+            </div>
+            
+            {/* Summary */}
+            <div className="bg-muted/30 rounded-lg p-4 mb-6 text-sm">
+              <p className="text-muted-foreground">
+                <strong className="text-foreground">Award Structure:</strong> 1× $5,000 flagship award • 3× $2,500 major awards • Multiple $1,000 track awards (as many as we can fund)
+              </p>
             </div>
             
             <Button 
               onClick={handleCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
             >
-              Become a Sponsor
+              Sponsor an Award
             </Button>
           </div>
         </div>
