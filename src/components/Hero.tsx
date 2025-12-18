@@ -104,16 +104,6 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             >
               Registration Opens January 1
             </Button>
-            <Link to="/about">
-              <Button
-                size="lg"
-                variant="outline"
-                className="bg-white/10 hover:bg-white/20 text-white border-white/30 text-lg px-8 py-6 font-semibold transition-smooth"
-                aria-label="Learn more about the event"
-              >
-                Learn More
-              </Button>
-            </Link>
           </div>
           
           {/* Secondary CTA */}
