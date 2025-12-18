@@ -164,6 +164,83 @@ const ActionPlan = () => {
         </div>
       </section>
 
+      {/* Civic Accelerator Section */}
+      <section className="py-16 md:py-24 bg-accent/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 mb-8">
+              <Rocket className="w-8 h-8 text-accent" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Civic Accelerator Model</h2>
+            </div>
+            <p className="text-lg text-muted-foreground mb-8">
+              Avoiding "hackathon fatigue"—where great projects win prizes but never get used.
+            </p>
+            
+            <Card className="border-border shadow-elegant mb-6">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Target className="w-5 h-5 text-accent" />
+                  3-Month Civic Accelerator
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">
+                  Top teams from each track can opt into a structured 3-month program to move their prototype toward real deployment.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-muted/50 rounded-lg p-4">
+                    <h4 className="font-semibold text-foreground mb-2">Partnership</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Lighthouse Labs and City's Office of Strategic Initiatives provide mentorship and resources.
+                    </p>
+                  </div>
+                  <div className="bg-muted/50 rounded-lg p-4">
+                    <h4 className="font-semibold text-foreground mb-2">Government Champion</h4>
+                    <p className="text-sm text-muted-foreground">
+                      A city staff member shepherds each project through procurement, IT security, and deployment.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border shadow-elegant">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="w-5 h-5 text-accent" />
+                  Adoption Pathways
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-start gap-3">
+                    <Building2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-foreground">City Adoption</h4>
+                      <p className="text-sm text-muted-foreground">Solutions aligned with city priorities get fast-tracked through IT review and procurement.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Heart className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-foreground">Nonprofit Deployment</h4>
+                      <p className="text-sm text-muted-foreground">Partner nonprofits commit to deploying and maintaining solutions that meet their needs.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Rocket className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <h4 className="font-semibold text-foreground">Startup Formation</h4>
+                      <p className="text-sm text-muted-foreground">Teams can incorporate and pursue the solution independently with ecosystem support.</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Timeline Section */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

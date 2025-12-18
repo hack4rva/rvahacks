@@ -5,7 +5,7 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Shield, CheckCircle2, XCircle, AlertTriangle, Mail } from "lucide-react";
+import { Shield, CheckCircle2, XCircle, AlertTriangle, Mail, Scale, Github, FileCode } from "lucide-react";
 
 const CodeOfConduct = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
@@ -355,6 +355,81 @@ const CodeOfConduct = () => {
         </div>
       </section>
 
+      {/* Open Source IP Policy Section */}
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center gap-3 mb-8">
+              <Scale className="w-8 h-8 text-accent" />
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Open Source IP Policy</h2>
+            </div>
+            <p className="text-muted-foreground mb-8">
+              All code created during Hack for RVA must be open source. This ensures solutions can be adopted by the city, nonprofits, and community organizations.
+            </p>
+            
+            <Card className="border-border shadow-elegant mb-6">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Github className="w-5 h-5" />
+                  License Requirements
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <strong className="text-foreground">OSI-Approved License Required</strong>
+                      <p className="text-sm text-muted-foreground">
+                        All projects must use an OSI-approved open source license such as MIT, Apache 2.0, or GPL.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <strong className="text-foreground">Participant Ownership</strong>
+                      <p className="text-sm text-muted-foreground">
+                        Teams retain ownership of their code. You created it—you own it.
+                      </p>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <div>
+                      <strong className="text-foreground">City License Grant</strong>
+                      <p className="text-sm text-muted-foreground">
+                        By participating, you grant the City of Richmond a non-exclusive, royalty-free, perpetual license to use, modify, and deploy your solution.
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-accent/30 shadow-elegant bg-accent/5">
+              <CardContent className="pt-6">
+                <div className="flex items-start gap-4">
+                  <FileCode className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-bold text-foreground mb-2">Why Open Source?</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Open source prevents "abandonware"—projects that win prizes but never get used. The City can adopt and maintain solutions even if the original team moves on. This also allows other cities to benefit from Richmond's civic innovation.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <div className="mt-6 bg-muted/50 rounded-lg p-4">
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Recommended:</strong> We suggest MIT License for maximum flexibility. Include a LICENSE file in your GitHub repository.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Final Note Section */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -363,7 +438,7 @@ const CodeOfConduct = () => {
               Thank You
             </h2>
             <p className="text-lg text-muted-foreground mb-4">
-              By participating in Hack for RVA, you agree to abide by this Code of Conduct. 
+              By participating in Hack for RVA, you agree to abide by this Code of Conduct and IP Policy. 
               Thank you for helping make this a welcoming, friendly event for everyone.
             </p>
             <p className="text-muted-foreground">
