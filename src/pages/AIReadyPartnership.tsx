@@ -61,7 +61,7 @@ const AIReadyPartnership = () => {
                   This document outlines a proposed partnership between <strong className="text-foreground">Hack for RVA</strong> and <strong className="text-foreground">AI Ready RVA</strong> to deliver a large-scale civic technology hackathon focused on real-world impact for the City of Richmond and local nonprofits.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  The partnership is designed to leverage AI Ready RVA's operational strength while preserving Hack for RVA's independent vision, leadership, and execution model.
+                  The partnership is designed to leverage AI Ready RVA's operational strength while enabling Ford Prior and Crystal Harvey to continue leading event execution. We're open to making this an AI Ready RVA event—we have no brand to protect, just a shared goal of seeing this succeed.
                 </p>
               </CardContent>
             </Card>
@@ -93,9 +93,9 @@ const AIReadyPartnership = () => {
                   <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
                     <Users className="w-6 h-6 text-accent" />
                   </div>
-                  <h3 className="font-bold text-foreground mb-2">Hack for RVA</h3>
+                  <h3 className="font-bold text-foreground mb-2">Ford & Crystal (Hack for RVA)</h3>
                   <p className="text-muted-foreground">
-                    Retains <strong className="text-foreground">creative, programmatic, and executional ownership</strong>.
+                    Continue to lead <strong className="text-foreground">event execution and day-to-day decisions</strong>.
                   </p>
                 </CardContent>
               </Card>
@@ -103,7 +103,7 @@ const AIReadyPartnership = () => {
 
             <div className="bg-card border border-border rounded-xl p-6 text-center">
               <p className="text-lg font-semibold text-foreground">
-                This is a <span className="text-accent">shared-governance, non-funding</span> partnership.
+                This is a <span className="text-accent">collaborative, non-funding</span> partnership focused on shared goals and clear decision-making.
               </p>
             </div>
           </div>
@@ -193,33 +193,24 @@ const AIReadyPartnership = () => {
                       </ul>
                     </div>
                     <div>
-                      <p className="font-semibold text-foreground mb-3">Hack for RVA remains responsible for:</p>
+                      <p className="font-semibold text-foreground mb-3">Ford & Crystal continue leading:</p>
                       <ul className="space-y-2">
                         <li className="flex items-start gap-2">
                           <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">Event design</span>
+                          <span className="text-sm text-muted-foreground">Day-to-day execution</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">Timeline</span>
+                          <span className="text-sm text-muted-foreground">Timeline management</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">Programming</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">Speaker selection</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">Judging structure</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <ArrowRight className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
-                          <span className="text-sm text-muted-foreground">Day-to-day execution leadership</span>
+                          <span className="text-sm text-muted-foreground">On-the-ground decisions</span>
                         </li>
                       </ul>
+                      <p className="text-xs text-muted-foreground mt-3 italic">
+                        We're flexible on creative and programmatic details—happy to collaborate or defer to AI Ready RVA where it makes sense.
+                      </p>
                     </div>
                   </div>
                 </CardContent>
@@ -255,7 +246,7 @@ const AIReadyPartnership = () => {
                   </ul>
                   <div className="bg-accent/5 border border-accent/20 rounded-lg p-4 mt-4">
                     <p className="text-sm text-muted-foreground">
-                      <strong className="text-foreground">Note:</strong> This is not a creative approval or veto role, but a <strong className="text-foreground">collaborative shaping role</strong>.
+                      <strong className="text-foreground">Note:</strong> We welcome AI Ready RVA's input on creative and programmatic decisions. The key is <strong className="text-foreground">shared agreement on goals and clear decision-making mechanisms</strong>.
                     </p>
                   </div>
                 </CardContent>
@@ -265,35 +256,35 @@ const AIReadyPartnership = () => {
         </div>
       </section>
 
-      {/* What We're NOT Requesting */}
+      {/* What We Care About */}
       <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">What Hack for RVA Is NOT Requesting</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">What We Care About</h2>
             
-            <Card className="border-destructive/30 shadow-elegant bg-destructive/5">
+            <Card className="border-accent/30 shadow-elegant bg-accent/5">
               <CardContent className="pt-6">
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">No financial sponsorship or prize funding</span>
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground"><strong className="text-foreground">Shared agreement on goals</strong> — we want to make sure we're aligned on what success looks like</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">No creative ownership or brand control</span>
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground"><strong className="text-foreground">Clear decision-making mechanisms</strong> — who decides what, and how do we resolve disagreements</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">No programmatic micromanagement</span>
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground"><strong className="text-foreground">Ford & Crystal as event leads</strong> — continuing to drive day-to-day execution</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <XCircle className="w-5 h-5 text-destructive flex-shrink-0 mt-0.5" />
-                    <span className="text-muted-foreground">No changes to Hack for RVA leadership or decision-making authority</span>
+                    <CheckCircle2 className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <span className="text-muted-foreground"><strong className="text-foreground">A successful event</strong> — we have no brand to grow or protect; we just want this to work</span>
                   </li>
                 </ul>
-                <div className="mt-6 pt-4 border-t border-destructive/20">
+                <div className="mt-6 pt-4 border-t border-accent/20">
                   <p className="text-foreground font-medium">
-                    Hack for RVA remains the primary organizer and public-facing owner of the event.
+                    We're totally happy making this an AI Ready RVA event. The brand and creative details are flexible—what matters is the outcome.
                   </p>
                 </div>
               </CardContent>
