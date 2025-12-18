@@ -60,14 +60,15 @@ const Participate = () => {
       <Navigation onCTAClick={handleCTAClick} />
       
       {/* Hero Section */}
-      <section className="pt-28 pb-4 md:pt-32 md:pb-6 bg-gradient-to-b from-primary/5 to-background">
+      <section className="pt-28 pb-6 md:pt-32 md:pb-8 bg-gradient-to-b from-primary/5 to-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-2">
+            <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-3">
               Participant Hub
             </h1>
-            <p className="text-muted-foreground">
-              Everything you need to know before the hackathon.
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Hack for RVA is a 3-day civic hackathon on <strong className="text-foreground">March 27-29, 2026</strong> where teams build real solutions for Richmond nonprofits and city agencies. 
+              Below you'll find everything you need to prepare, from venue logistics to technical resources.
             </p>
           </div>
         </div>
