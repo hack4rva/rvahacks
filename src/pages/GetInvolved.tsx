@@ -17,8 +17,67 @@ import {
   Heart, 
   Users, 
   Lightbulb,
-  HandHeart
+  HandHeart,
+  Star,
+  Award,
+  Utensils,
+  Cloud,
+  Clock
 } from "lucide-react";
+
+const sponsorTiers = [
+  {
+    name: "Title Sponsor",
+    amount: "$15,000",
+    icon: Star,
+    color: "border-yellow-500 bg-yellow-50",
+    benefits: [
+      "Logo on all materials and website",
+      "Speaking slot at kickoff ceremony",
+      "Judge seat on final panel",
+      "Resume access for recruiting",
+      "Named award in your focus area",
+      "VIP reception invitation"
+    ]
+  },
+  {
+    name: "Track Sponsor",
+    amount: "$5,000",
+    icon: Award,
+    color: "border-accent bg-accent/5",
+    benefits: [
+      "Logo on specific challenge track",
+      "Branding on track datasets",
+      "Mentorship opportunities",
+      "Recruiting table at event",
+      "Social media recognition"
+    ]
+  },
+  {
+    name: "Meal Sponsor",
+    amount: "$2,500",
+    icon: Utensils,
+    color: "border-primary bg-primary/5",
+    benefits: [
+      "Branding on food stations",
+      "Logo on event signage",
+      "Social media shoutouts",
+      "Recruiting table at event"
+    ]
+  },
+  {
+    name: "In-Kind Sponsor",
+    amount: "Value varies",
+    icon: Cloud,
+    color: "border-border bg-muted/50",
+    benefits: [
+      "Cloud credits (AWS, Google Cloud)",
+      "Software licenses",
+      "API access",
+      "Swag and prizes"
+    ]
+  }
+];
 
 const GetInvolved = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
@@ -184,6 +243,14 @@ const GetInvolved = () => {
                 </CardContent>
               </Card>
             </div>
+
+            {/* Mentor Queue System Callout */}
+            <div className="bg-card border border-border rounded-xl p-6 mb-8">
+              <h3 className="font-bold text-foreground mb-2">Mentor Queue System</h3>
+              <p className="text-sm text-muted-foreground">
+                We use a Discord bot to manage mentor requests by specialty. Teams can request help, mentors get notified by their expertise area, and everyone's time is used efficiently. No more wandering around looking for the right person.
+              </p>
+            </div>
             
             <div className="flex flex-wrap gap-4">
               <Button 
@@ -204,72 +271,97 @@ const GetInvolved = () => {
         </div>
       </section>
 
-      {/* Pathway 3: Sponsors & Partners */}
+      {/* Pathway 3: Sponsors */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <Building2 className="w-6 h-6 text-accent" />
+                <DollarSign className="w-6 h-6 text-accent" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Sponsors & Partners</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Sponsorship Tiers</h2>
             </div>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-              Fund prizes, host hack locations, or present real civic problems for teams to solve. Multiple ways to support Richmond's civic tech movement.
+              Fund prizes, support operations, and connect with Richmond's civic tech community. Multiple tiers available.
             </p>
             
-            <div className="grid sm:grid-cols-2 gap-4 mb-8">
-              <Card className="border-border shadow-elegant">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <DollarSign className="w-5 h-5 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Fund Prizes & Operations</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Support prize pools, food, swag, and event operations. Multiple sponsorship tiers available with visibility and engagement opportunities.
-                  </p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Brand visibility to 350+ participants</li>
-                    <li>• Named awards in your focus area</li>
-                    <li>• Access to talent and solutions</li>
-                  </ul>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-border shadow-elegant">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Scale className="w-5 h-5 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Present Real Problems</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Bring your organization's civic challenges to the hackathon. Get fresh perspectives and prototype solutions from diverse teams.
-                  </p>
-                  <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>• Define a challenge for teams</li>
-                    <li>• Provide subject matter expertise</li>
-                    <li>• Pathway to pilot winning solutions</li>
-                  </ul>
-                </CardContent>
-              </Card>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              {sponsorTiers.map((tier, idx) => (
+                <Card key={idx} className={`border-2 shadow-elegant ${tier.color}`}>
+                  <CardHeader className="pb-3">
+                    <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center mb-2">
+                      <tier.icon className="w-5 h-5 text-foreground" />
+                    </div>
+                    <CardTitle className="text-lg">{tier.name}</CardTitle>
+                    <CardDescription className="text-xl font-bold text-foreground">{tier.amount}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {tier.benefits.map((benefit, i) => (
+                        <li key={i}>• {benefit}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
             
             <Button 
               onClick={handleCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
             >
-              Become a Sponsor or Partner
+              Become a Sponsor
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Special Callouts */}
+      {/* Corporate VTO Section */}
       <section className="py-16 md:py-24 bg-accent/5">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                <Clock className="w-6 h-6 text-accent" />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Corporate Volunteer Time Off</h2>
+            </div>
+            <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
+              Many Richmond employers offer Volunteer Time Off (VTO) for civic engagement. Mentoring at Hack for RVA qualifies.
+            </p>
+            
+            <div className="grid sm:grid-cols-3 gap-6 mb-8">
+              <Card className="border-border shadow-elegant">
+                <CardContent className="pt-6">
+                  <h3 className="font-bold text-foreground mb-2">CarMax</h3>
+                  <p className="text-sm text-muted-foreground">16 hours paid volunteer time per year</p>
+                </CardContent>
+              </Card>
+              <Card className="border-border shadow-elegant">
+                <CardContent className="pt-6">
+                  <h3 className="font-bold text-foreground mb-2">Capital One</h3>
+                  <p className="text-sm text-muted-foreground">8+ hours for community service</p>
+                </CardContent>
+              </Card>
+              <Card className="border-border shadow-elegant">
+                <CardContent className="pt-6">
+                  <h3 className="font-bold text-foreground mb-2">Dominion Energy</h3>
+                  <p className="text-sm text-muted-foreground">Matching volunteer hours program</p>
+                </CardContent>
+              </Card>
+            </div>
+            
+            <div className="bg-card border border-border rounded-xl p-6">
+              <p className="text-sm text-muted-foreground">
+                <strong className="text-foreground">Check with your employer:</strong> If your company offers VTO or CSR volunteer programs, mentoring at Hack for RVA is a perfect use. We can provide documentation for your employer's records.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Special Callouts */}
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">We're Also Looking For</h2>
@@ -346,7 +438,7 @@ const GetInvolved = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
