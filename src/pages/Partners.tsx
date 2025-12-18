@@ -1,21 +1,18 @@
+import { useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { EmailSignup } from "@/components/EmailSignup";
-import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
   Code, 
   Palette, 
   Search, 
-  Scale, 
   Briefcase, 
   Landmark, 
   DollarSign, 
-  Building2, 
   Heart, 
-  Users, 
   Lightbulb,
   HandHeart,
   Star,
@@ -30,7 +27,7 @@ const sponsorTiers = [
     name: "Title Sponsor",
     amount: "$15,000",
     icon: Star,
-    color: "border-yellow-500 bg-yellow-50",
+    color: "border-yellow-500 bg-yellow-50 dark:bg-yellow-950/20",
     benefits: [
       "Logo on all materials and website",
       "Speaking slot at kickoff ceremony",
@@ -79,7 +76,7 @@ const sponsorTiers = [
   }
 ];
 
-const GetInvolved = () => {
+const Partners = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
 
   const handleCTAClick = () => {
@@ -95,78 +92,55 @@ const GetInvolved = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-6 animate-fade-in">
-              Get Involved
+              Partner with Us
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Richmond's citywide civic hackathon needs builders, mentors, sponsors, and partners. Find your role.
+              Richmond's citywide civic hackathon needs sponsors, mentors, and volunteers. Find your role.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Pathway 1: Participants */}
+      {/* Pathway 1: Sponsors */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <Code className="w-6 h-6 text-accent" />
+                <DollarSign className="w-6 h-6 text-accent" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Participants</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Sponsorship Tiers</h2>
             </div>
             <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-              Build solutions that matter. Whether you code, design, research, or strategize—there's a team that needs you.
+              Fund prizes, support operations, and connect with Richmond's civic tech community. Multiple tiers available.
             </p>
             
-            <div className="grid sm:grid-cols-3 gap-4 mb-8">
-              <Card className="border-border shadow-elegant">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Code className="w-5 h-5 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Builders & Engineers</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Software developers, data engineers, no-code builders. Turn ideas into working prototypes.
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-border shadow-elegant">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Palette className="w-5 h-5 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Designers</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    UX/UI designers, product designers, visual thinkers. Make solutions intuitive and accessible.
-                  </p>
-                </CardContent>
-              </Card>
-              
-              <Card className="border-border shadow-elegant">
-                <CardHeader className="pb-3">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-2">
-                    <Search className="w-5 h-5 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Researchers & Strategists</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Policy experts, researchers, business strategists. Ground solutions in real community needs.
-                  </p>
-                </CardContent>
-              </Card>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              {sponsorTiers.map((tier, idx) => (
+                <Card key={idx} className={`border-2 shadow-elegant ${tier.color}`}>
+                  <CardHeader className="pb-3">
+                    <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center mb-2">
+                      <tier.icon className="w-5 h-5 text-foreground" />
+                    </div>
+                    <CardTitle className="text-lg">{tier.name}</CardTitle>
+                    <CardDescription className="text-xl font-bold text-foreground">{tier.amount}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      {tier.benefits.map((benefit, i) => (
+                        <li key={i}>• {benefit}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
             
             <Button 
               onClick={handleCTAClick}
               className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
             >
-              Register as a Participant
+              Become a Sponsor
             </Button>
           </div>
         </div>
@@ -271,51 +245,6 @@ const GetInvolved = () => {
         </div>
       </section>
 
-      {/* Pathway 3: Sponsors */}
-      <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
-                <DollarSign className="w-6 h-6 text-accent" />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Sponsorship Tiers</h2>
-            </div>
-            <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
-              Fund prizes, support operations, and connect with Richmond's civic tech community. Multiple tiers available.
-            </p>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-              {sponsorTiers.map((tier, idx) => (
-                <Card key={idx} className={`border-2 shadow-elegant ${tier.color}`}>
-                  <CardHeader className="pb-3">
-                    <div className="w-10 h-10 bg-background rounded-lg flex items-center justify-center mb-2">
-                      <tier.icon className="w-5 h-5 text-foreground" />
-                    </div>
-                    <CardTitle className="text-lg">{tier.name}</CardTitle>
-                    <CardDescription className="text-xl font-bold text-foreground">{tier.amount}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="text-sm text-muted-foreground space-y-1">
-                      {tier.benefits.map((benefit, i) => (
-                        <li key={i}>• {benefit}</li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            <Button 
-              onClick={handleCTAClick}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-            >
-              Become a Sponsor
-            </Button>
-          </div>
-        </div>
-      </section>
-
       {/* Corporate VTO Section */}
       <section className="py-16 md:py-24 bg-accent/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -370,7 +299,7 @@ const GetInvolved = () => {
               <Card className="border-accent/30 shadow-elegant bg-card">
                 <CardHeader className="text-center pb-3">
                   <div className="w-14 h-14 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Lightbulb className="w-7 h-7 text-accent" />
+                    <Search className="w-7 h-7 text-accent" />
                   </div>
                   <CardTitle className="text-xl">Domain Experts</CardTitle>
                 </CardHeader>
@@ -468,4 +397,5 @@ const GetInvolved = () => {
   );
 };
 
-export default GetInvolved;
+export default Partners;
+

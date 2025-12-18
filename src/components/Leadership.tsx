@@ -79,7 +79,7 @@ export const Leadership = () => {
 
           {/* Bottom note */}
           <p className="text-center text-sm text-muted-foreground mt-10">
-            Interested in joining the team? <a href="/get-involved" className="text-accent hover:underline">Get involved →</a>
+            Interested in joining the team? <a href="/partners" className="text-accent hover:underline">Get involved →</a>
           </p>
         </div>
       </div>

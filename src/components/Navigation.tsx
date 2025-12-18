@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ChevronDown, Shield, User, LogOut } from "lucide-react";
+import { Menu, X, Shield, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,25 +11,13 @@ import {
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useIsAdmin } from "@/hooks/useIsAdmin";
 import { supabase } from "@/integrations/supabase/client";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Team", href: "/team" },
-  { label: "Mission", href: "/#what" },
-  { label: "Prizes", href: "/#prizes" },
-  { label: "Schedule", href: "/#format" },
-];
-
-const otherItems = [
-  { label: "Register", href: "/registration" },
-  { label: "Get Involved", href: "/get-involved" },
-  { label: "Resources", href: "/resources" },
-  { label: "Action Plan", href: "/action-plan" },
-  { label: "Logistics", href: "/logistics" },
-  { label: "Preparation", href: "/preparation" },
-  { label: "Code of Conduct", href: "/code-of-conduct" },
-  { label: "FAQ", href: "/#faq" },
+  { label: "About", href: "/about" },
+  { label: "Participate", href: "/participate" },
+  { label: "Partners", href: "/partners" },
 ];
 
 interface NavigationProps {
@@ -75,38 +63,39 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
+          {/* Logo/Brand */}
+          <Link to="/" className="font-bold text-lg text-foreground hover:text-primary transition-smooth">
+            Hack for RVA
+          </Link>
+
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent"
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent flex items-center gap-1">
-                Other <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-card border-border z-50">
-                {otherItems.map((item) => (
-                  <DropdownMenuItem key={item.label} asChild>
-                    <a
-                      href={item.href}
-                      className="cursor-pointer"
-                    >
-                      {item.label}
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            
+            {/* Primary CTA */}
+            <Link to="/participate#register">
+              <Button
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
+                aria-label="Register for the hackathon"
+              >
+                Register
+              </Button>
+            </Link>
+
+            {/* Secondary CTA */}
             <Button
               onClick={onCTAClick}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
+              variant="outline"
+              className="border-foreground/20"
               aria-label="Sign up to stay updated"
             >
               Stay Updated
@@ -150,7 +139,8 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             ) : (
               <Button
                 onClick={() => navigate("/login")}
-                variant="outline"
+                variant="ghost"
+                size="sm"
                 aria-label="Login"
               >
                 Login
@@ -175,40 +165,42 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
         <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border" role="navigation" aria-label="Mobile navigation">
           <div className="container mx-auto px-4 py-4 space-y-4">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
+                to={item.href}
                 className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 focus:outline-2 focus:outline-accent"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <div className="border-t border-border pt-4 space-y-2">
-              <div className="text-sm font-semibold text-muted-foreground px-2 mb-2">Other</div>
-              {otherItems.map((item) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 pl-4 focus:outline-2 focus:outline-accent"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  aria-label={`Navigate to ${item.label}`}
+            
+            <div className="pt-4 border-t border-border space-y-3">
+              <Link 
+                to="/participate#register"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Button
+                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+                  aria-label="Register for the hackathon"
                 >
-                  {item.label}
-                </a>
-              ))}
+                  Register
+                </Button>
+              </Link>
+              
+              <Button
+                onClick={() => {
+                  onCTAClick();
+                  setIsMobileMenuOpen(false);
+                }}
+                variant="outline"
+                className="w-full"
+                aria-label="Sign up to stay updated"
+              >
+                Stay Updated
+              </Button>
             </div>
-            <Button
-              onClick={() => {
-                onCTAClick();
-                setIsMobileMenuOpen(false);
-              }}
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-              aria-label="Sign up to stay updated"
-            >
-              Stay Updated
-            </Button>
 
             {user ? (
               <div className="border-t border-border pt-4 space-y-2">
@@ -216,14 +208,14 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                   {user.email}
                 </div>
                 {isAdmin && (
-                  <a
-                    href="/admin"
+                  <Link
+                    to="/admin"
                     className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 pl-4 focus:outline-2 focus:outline-accent flex items-center gap-2"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Shield className="w-4 h-4" />
                     Admin Dashboard
-                  </a>
+                  </Link>
                 )}
                 <button
                   onClick={async () => {

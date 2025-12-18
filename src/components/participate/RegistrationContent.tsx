@@ -1,0 +1,322 @@
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Calendar, DollarSign, FileText, Clock, CheckCircle2, MapPin, Wifi, AlertCircle } from "lucide-react";
+
+interface RegistrationContentProps {
+  onCTAClick: () => void;
+}
+
+export const RegistrationContent = ({ onCTAClick }: RegistrationContentProps) => {
+  return (
+    <div className="space-y-16">
+      {/* Registration Opens Banner */}
+      <section className="text-center">
+        <div className="inline-flex items-center gap-3 bg-accent/10 border-2 border-accent px-6 py-4 rounded-lg">
+          <Calendar className="w-6 h-6 text-accent" />
+          <span className="text-lg font-bold text-accent">Registration Opens January 2026</span>
+        </div>
+      </section>
+
+      {/* Registration Requirements Section */}
+      <section>
+        <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 text-center">How Registration Works</h2>
+        
+        <div className="grid sm:grid-cols-2 gap-4 mb-8">
+          <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+            <div className="flex items-start gap-3">
+              <CheckCircle2 className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Registration Required</h3>
+                <p className="text-sm text-muted-foreground">All participants must register in advance to attend any part of the hackathon.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+            <div className="flex items-start gap-3">
+              <MapPin className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Choose Your Location</h3>
+                <p className="text-sm text-muted-foreground">Select your preferred satellite hacking location during sign-up.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+            <div className="flex items-start gap-3">
+              <Wifi className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Remote Option Available</h3>
+                <p className="text-sm text-muted-foreground">Can't make it in person? Remote participation is allowed for Saturday hacking.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-card p-5 rounded-xl border border-border shadow-elegant">
+            <div className="flex items-start gap-3">
+              <AlertCircle className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-foreground mb-1">Capacity Limits Apply</h3>
+                <p className="text-sm text-muted-foreground">Each location has limited capacity. Register early to secure your preferred spot.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 text-center">
+          <p className="text-sm text-card-foreground italic">
+            Final location assignments and instructions will be sent closer to the event.
+          </p>
+        </div>
+      </section>
+
+      {/* Cost Section */}
+      <section className="text-center">
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <DollarSign className="w-12 h-12 text-accent" />
+          <h2 className="text-5xl sm:text-6xl font-bold text-foreground">FREE</h2>
+        </div>
+        <p className="text-xl text-muted-foreground mb-8">
+          No registration fee. No hidden costs. Just bring your passion for civic innovation.
+        </p>
+        <Button 
+          onClick={onCTAClick}
+          size="lg"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant text-lg px-8 py-6"
+        >
+          Get Notified When Registration Opens
+        </Button>
+      </section>
+
+      {/* Attendance Options Section */}
+      <section>
+        <div className="flex items-center gap-3 mb-8">
+          <Clock className="w-8 h-8 text-accent" />
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">Attendance Options</h2>
+        </div>
+        <p className="text-muted-foreground mb-8 text-lg">
+          Choose the days that work best for your schedule. You can attend any combination that fits your availability.
+        </p>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Badge variant="secondary">Optional</Badge>
+              </CardTitle>
+              <CardTitle className="text-2xl">Friday Only</CardTitle>
+              <CardDescription>March 27, 2026</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Full-day optional kickoff. Great for getting a head start and meeting your team.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Badge variant="default" className="bg-accent">Main Event</Badge>
+              </CardTitle>
+              <CardTitle className="text-2xl">Saturday Only</CardTitle>
+              <CardDescription>March 28, 2026</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                All-day hacking session. The core event day where most development happens.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-accent border-2 shadow-elegant hover:shadow-hover transition-smooth">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Badge variant="default" className="bg-accent">Recommended</Badge>
+              </CardTitle>
+              <CardTitle className="text-2xl">Full Weekend</CardTitle>
+              <CardDescription>March 27-29, 2026</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                The complete experience. Maximum time to develop, iterate, and present your solution.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Badge variant="secondary">Family</Badge>
+              </CardTitle>
+              <CardTitle className="text-2xl">Sunday Only</CardTitle>
+              <CardDescription>March 29, 2026</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Family-friendly awards ceremony. See the final presentations and celebrate winners.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* What We Collect Section */}
+      <section>
+        <div className="flex items-center gap-3 mb-8">
+          <FileText className="w-8 h-8 text-accent" />
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground">What We Collect</h2>
+        </div>
+        <p className="text-muted-foreground mb-8 text-lg">
+          We only collect essential information to ensure a great experience for all participants.
+        </p>
+        
+        <div className="grid md:grid-cols-2 gap-6">
+          <Card className="border-border shadow-elegant">
+            <CardHeader>
+              <CardTitle>Basic Information</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Full name</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Email address</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Phone number (emergency contact)</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border shadow-elegant">
+            <CardHeader>
+              <CardTitle>Event Preferences</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Attendance days (Fri/Sat/Sun)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Preferred hacking location</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Remote or in-person preference</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Dietary restrictions</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>T-shirt size</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border shadow-elegant">
+            <CardHeader>
+              <CardTitle>Professional Background</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Skills and expertise</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Organization/company (optional)</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>GitHub/LinkedIn profile (optional)</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+
+          <Card className="border-border shadow-elegant">
+            <CardHeader>
+              <CardTitle>Challenge Interests</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Preferred challenge areas</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Team formation preference</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                  <span>Experience level</span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Registration Platform Section */}
+      <section>
+        <Card className="border-border shadow-elegant bg-muted/30">
+          <CardHeader className="text-center">
+            <CardTitle className="text-3xl">Registration Platform</CardTitle>
+            <CardDescription className="text-lg">
+              We're finalizing the registration system to ensure the best experience
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="text-center space-y-6">
+            <div className="inline-flex items-center gap-3 bg-background px-6 py-4 rounded-lg border border-border">
+              <span className="text-2xl font-bold text-muted-foreground">Platform TBD - Coming Soon</span>
+            </div>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Details about the registration platform and process will be announced when registration opens in January 2026. 
+              Sign up for notifications to be the first to know!
+            </p>
+            <Button 
+              onClick={onCTAClick}
+              size="lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant"
+            >
+              Stay Updated on Registration
+            </Button>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Final CTA Section */}
+      <section className="text-center">
+        <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          Don't Miss Your Chance
+        </h2>
+        <p className="text-lg text-muted-foreground mb-8">
+          Be among the first to register when spots open in January 2026. 
+          Get notified immediately and secure your place at Hack for RVA.
+        </p>
+        <Button 
+          onClick={onCTAClick}
+          size="lg"
+          className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-elegant text-lg px-8 py-6"
+        >
+          Get Early Registration Notification
+        </Button>
+      </section>
+    </div>
+  );
+};
+

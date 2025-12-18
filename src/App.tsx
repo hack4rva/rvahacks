@@ -5,13 +5,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import About from "./pages/About";
+import Participate from "./pages/Participate";
+import Partners from "./pages/Partners";
 import ActionPlan from "./pages/ActionPlan";
 import Team from "./pages/Team";
-import Logistics from "./pages/Logistics";
-import Preparation from "./pages/Preparation";
-import Registration from "./pages/Registration";
-import GetInvolved from "./pages/GetInvolved";
-import Resources from "./pages/Resources";
 import CodeOfConduct from "./pages/CodeOfConduct";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -29,13 +27,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/participate" element={<Participate />} />
+          <Route path="/partners" element={<Partners />} />
           <Route path="/action-plan" element={<ActionPlan />} />
           <Route path="/team" element={<Team />} />
-          <Route path="/logistics" element={<Logistics />} />
-          <Route path="/preparation" element={<Preparation />} />
-          <Route path="/registration" element={<Registration />} />
-          <Route path="/get-involved" element={<GetInvolved />} />
-          <Route path="/resources" element={<Resources />} />
           <Route path="/code-of-conduct" element={<CodeOfConduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

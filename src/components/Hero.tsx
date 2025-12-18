@@ -53,8 +53,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           {/* Subheadline */}
           <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto">
-            A citywide civic tech hackathon uniting Richmond's entrepreneurs, inventors, and technologists to build
-            <Link to="/action-plan" className="text-accent hover:text-accent/80 underline transition-colors"> a thriving economy</Link> for our city.
+            A citywide civic tech hackathon uniting Richmond's entrepreneurs, inventors, and technologists to build a thriving economy for our city.
           </p>
           
           {/* Distributed model callout */}
@@ -62,7 +61,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             One weekend. Multiple locations across Richmond. Real civic impact.
           </p>
 
-          {/* Key Stats */}
+          {/* Key Stats - Simplified */}
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8">
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">48hrs</div>
@@ -76,7 +75,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-white mb-1">350+</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">Across Richmond</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
             </div>
           </div>
 
@@ -92,20 +91,40 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
               <span className="text-lg font-medium">
                 Science Museum of Virginia
               </span>
-              <span className="text-sm text-white/70">(Kickoff & Awards Hub)</span>
             </div>
           </div>
 
-          {/* CTA Button */}
-          <div>
-            <Button
-              size="lg"
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/participate#register">
+              <Button
+                size="lg"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 font-bold shadow-hover transition-smooth hover:scale-105"
+                aria-label="Register for Hack for RVA"
+              >
+                Register Now
+              </Button>
+            </Link>
+            <Link to="/about">
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-white/10 hover:bg-white/20 text-white border-white/30 text-lg px-8 py-6 font-semibold transition-smooth"
+                aria-label="Learn more about the event"
+              >
+                Learn More
+              </Button>
+            </Link>
+          </div>
+          
+          {/* Secondary CTA */}
+          <div className="mt-4">
+            <button
               onClick={onCTAClick}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-6 font-bold shadow-hover transition-smooth hover:scale-105"
-              aria-label="Sign up to stay updated about Hack for RVA"
+              className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-smooth"
             >
-              Stay Updated
-            </Button>
+              Or sign up for email updates →
+            </button>
           </div>
         </div>
       </div>
