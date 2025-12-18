@@ -1,32 +1,4 @@
-import { Users, Target, Calendar, DollarSign, Gift } from "lucide-react";
-
-const stats = [
-  {
-    icon: Users,
-    value: "350+",
-    label: "Participants",
-  },
-  {
-    icon: Target,
-    value: "1",
-    label: "City Goal",
-  },
-  {
-    icon: Calendar,
-    value: "48 Hours",
-    label: "Friday AM - Saturday PM",
-  },
-  {
-    icon: DollarSign,
-    value: "$25K",
-    label: "Prize Money",
-  },
-  {
-    icon: Gift,
-    value: "Free",
-    label: "Registration, lunch, swag",
-  },
-];
+import { eventStatsDetailed } from "@/data";
 
 interface StatsBarProps {
   className?: string;
@@ -35,7 +7,7 @@ interface StatsBarProps {
 export const StatsBar = ({ className = "" }: StatsBarProps) => {
   return (
     <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 ${className}`}>
-      {stats.map((stat, index) => (
+      {eventStatsDetailed.map((stat, index) => (
         <div
           key={index}
           className="bg-card p-3 md:p-4 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border hover:scale-105 animate-fade-in"
@@ -58,5 +30,5 @@ export const StatsBar = ({ className = "" }: StatsBarProps) => {
   );
 };
 
-export { stats };
-
+// Re-export for backwards compatibility
+export { eventStatsDetailed as stats };

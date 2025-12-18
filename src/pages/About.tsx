@@ -15,7 +15,8 @@ import {
   LeadershipSection,
   FAQAccordion 
 } from "@/components/content";
-import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
+import { Award, Heart, Rocket, CheckCircle2, ArrowRight } from "lucide-react";
+import { eventDates, participantTypes, participantTagline } from "@/data";
 
 const sectionIds = ["mission", "schedule", "prizes", "participants", "team", "impact", "faq"];
 
@@ -73,10 +74,10 @@ const About = () => {
               About Hack for RVA
             </h1>
             <p className="text-base sm:text-lg font-medium text-accent mb-6 animate-fade-in" style={{ animationDelay: "50ms" }}>
-              Hackers, Hustlers, and Artists competing for Gold, Glory, and the Good of RVA
+              {participantTagline}
             </p>
             <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Everything you need to know about Richmond's citywide civic hackathon. March 27-29, 2026.
+              Everything you need to know about Richmond's citywide civic hackathon. {eventDates.fullRange}.
             </p>
             <div className="flex flex-wrap justify-center gap-4 animate-fade-in" style={{ animationDelay: "200ms" }}>
               <Link to="/partners">
@@ -201,58 +202,32 @@ const About = () => {
                 Who Participates
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Every winning team needs Hackers, Hustlers, and Artists. Find your role.
+                Every winning team needs {participantTypes.map(p => p.title).join(", ").replace(/, ([^,]*)$/, ", and $1")}. Find your role.
               </p>
             </div>
 
             <div className="grid sm:grid-cols-3 gap-6 mb-12">
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                    </svg>
-                  </div>
-                  <CardTitle>Hackers</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-sm text-muted-foreground">
-                    Developers, engineers, data scientists—build the tech that powers solutions.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                    </svg>
-                  </div>
-                  <CardTitle>Hustlers</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-sm text-muted-foreground">
-                    Strategists, domain experts, project managers—shape the vision and pitch.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                <CardHeader className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                  </div>
-                  <CardTitle>Artists</CardTitle>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-sm text-muted-foreground">
-                    Designers, storytellers, creatives—make solutions beautiful and usable.
-                  </p>
-                </CardContent>
-              </Card>
+              {participantTypes.map((type, index) => (
+                <Card key={index} className="border-border shadow-elegant hover:shadow-hover transition-smooth">
+                  <CardHeader className="text-center">
+                    <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
+                      {type.svgPath ? (
+                        <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={type.svgPath} />
+                        </svg>
+                      ) : (
+                        <type.icon className="w-8 h-8 text-accent" />
+                      )}
+                    </div>
+                    <CardTitle>{type.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-center">
+                    <p className="text-sm text-muted-foreground">
+                      {type.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
           </div>

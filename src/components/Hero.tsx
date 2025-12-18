@@ -1,8 +1,8 @@
 import { Calendar, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useEffect, useState } from "react";
+import { eventDates, venues, eventStatsHero, participantTaglineAlt } from "@/data";
 
 interface HeroProps {
   onCTAClick: () => void;
@@ -53,7 +53,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
 
           {/* Byline */}
           <p className="text-lg sm:text-xl md:text-2xl font-medium text-accent mb-6 tracking-wide">
-            Technologists, Strategists, and Creatives building real solutions for the Good of RVA
+            {participantTaglineAlt}
           </p>
 
           {/* Subheadline */}
@@ -61,35 +61,35 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             A civic tech hackathon. One weekend. Impact that lasts beyond Sunday.
           </p>
 
-          {/* Key Stats - Simplified */}
+          {/* Key Stats - From centralized data */}
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">48hrs</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">Duration</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{eventStatsHero.duration.value}</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">{eventStatsHero.duration.label}</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">$25K+</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">Awards Pool</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{eventStatsHero.prizePool.value}</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">{eventStatsHero.prizePool.label}</div>
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">350+</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{eventStatsHero.participants.value}</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">{eventStatsHero.participants.label}</div>
             </div>
           </div>
 
-          {/* Event Details */}
+          {/* Event Details - From centralized data */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-white/95">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-accent" aria-hidden="true" />
-              <span className="text-lg font-medium">March 27–29, 2026</span>
+              <span className="text-lg font-medium">{eventDates.fullRange}</span>
             </div>
             <div className="hidden sm:block w-1 h-1 rounded-full bg-white/50" aria-hidden="true" />
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-accent" aria-hidden="true" />
               <span className="text-lg font-medium">
-                Science Museum of VA & Citywide
+                {venues.primary.shortName} & Citywide
               </span>
             </div>
           </div>

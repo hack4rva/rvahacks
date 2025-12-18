@@ -1,22 +1,4 @@
-import { Home, GraduationCap, Car } from "lucide-react";
-
-const focusAreas = [
-  {
-    icon: Home,
-    title: "Housing & Land Use",
-    description: "Tackle affordability, zoning transparency, and equitable development across Richmond's neighborhoods.",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education & Workforce Development",
-    description: "Connect residents to skills training, job pathways, and economic opportunity.",
-  },
-  {
-    icon: Car,
-    title: "Transportation & Mobility",
-    description: "Improve access to transit, reduce commute barriers, and enable citywide connectivity.",
-  },
-];
+import { focusAreas } from "@/data";
 
 interface FocusAreasGridProps {
   /** Show full descriptions or just titles */
@@ -46,5 +28,5 @@ export const FocusAreasGrid = ({ compact = false, className = "" }: FocusAreasGr
   );
 };
 
+// Re-export focusAreas for backwards compatibility
 export { focusAreas };
-

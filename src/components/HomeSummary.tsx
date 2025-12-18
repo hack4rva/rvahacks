@@ -1,19 +1,4 @@
-import { Home, GraduationCap, Car } from "lucide-react";
-
-const focusAreasSummary = [
-  {
-    icon: Home,
-    title: "Housing & Land Use",
-  },
-  {
-    icon: GraduationCap,
-    title: "Education & Workforce",
-  },
-  {
-    icon: Car,
-    title: "Transportation & Mobility",
-  },
-];
+import { focusAreas } from "@/data";
 
 export const HomeSummary = () => {
   return (
@@ -35,7 +20,7 @@ export const HomeSummary = () => {
 
           {/* Focus Areas - Compact */}
           <div className="grid md:grid-cols-3 gap-4 mb-10 animate-fade-in">
-            {focusAreasSummary.map((area, index) => (
+            {focusAreas.map((area, index) => (
               <div
                 key={index}
                 className="bg-card p-5 rounded-xl border border-border shadow-sm hover:border-accent/40 transition-smooth text-center"
@@ -53,4 +38,3 @@ export const HomeSummary = () => {
     </section>
   );
 };
-
