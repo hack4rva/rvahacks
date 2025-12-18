@@ -1,9 +1,9 @@
-import { Users, Target, Calendar, DollarSign, Gift } from "lucide-react";
+import { Users, Target, Calendar, DollarSign, Gift, Home, GraduationCap, Car } from "lucide-react";
 
 const stats = [
   {
     icon: Users,
-    value: "350",
+    value: "350+",
     label: "Participants",
   },
   {
@@ -28,6 +28,24 @@ const stats = [
   },
 ];
 
+const focusAreas = [
+  {
+    icon: Home,
+    title: "Housing & Land Use",
+    description: "Tackle affordability, zoning transparency, and equitable development across Richmond's neighborhoods.",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education & Workforce Development",
+    description: "Connect residents to skills training, job pathways, and economic opportunity.",
+  },
+  {
+    icon: Car,
+    title: "Transportation & Mobility",
+    description: "Improve access to transit, reduce commute barriers, and enable citywide connectivity.",
+  },
+];
+
 export const About = () => {
   return (
     <section id="what" className="py-16 md:py-28 bg-background">
@@ -37,10 +55,30 @@ export const About = () => {
             What We're Building
           </h2>
 
-          <p className="text-lg text-foreground/90 leading-relaxed text-center mb-12 max-w-3xl mx-auto animate-fade-in">
+          <p className="text-lg text-foreground/90 leading-relaxed text-center mb-6 max-w-3xl mx-auto animate-fade-in">
             Hack for RVA brings together Richmond's brightest minds to build
             a thriving economy for the City of Richmond.
           </p>
+          
+          <p className="text-base text-muted-foreground leading-relaxed text-center mb-12 max-w-3xl mx-auto animate-fade-in">
+            This isn't just about building apps—it's about designing civic systems that work. In partnership with the <strong className="text-foreground">City of Richmond</strong> and local nonprofits, winning solutions will have real pathways to implementation, pilot programs, and lasting community impact.
+          </p>
+
+          {/* Focus Areas */}
+          <div className="grid md:grid-cols-3 gap-4 mb-16 animate-fade-in">
+            {focusAreas.map((area, index) => (
+              <div
+                key={index}
+                className="bg-card p-6 rounded-xl border border-border shadow-elegant hover:border-accent/40 transition-smooth"
+              >
+                <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+                  <area.icon className="w-6 h-6 text-accent" />
+                </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">{area.title}</h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">{area.description}</p>
+              </div>
+            ))}
+          </div>
 
           <div className="max-w-4xl mx-auto mb-16 animate-fade-in">
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 text-center">
