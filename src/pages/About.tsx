@@ -98,29 +98,6 @@ const About = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Now below sub-nav */}
-      <section className="py-12 md:py-16 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mb-4 animate-fade-in">
-              About Hack for RVA
-            </h1>
-            <p className="text-base sm:text-lg font-medium text-accent mb-6 animate-fade-in" style={{ animationDelay: "50ms" }}>
-              {participantTagline}
-            </p>
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in" style={{ animationDelay: "100ms" }}>
-              Everything you need to know about Richmond's citywide civic hackathon. {eventDates.fullRange}.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 animate-fade-in" style={{ animationDelay: "200ms" }}>
-              <Link to="/partners">
-                <Button size="lg" variant="outline">
-                  Become a Partner
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Section 1: Mission & Vision */}
       <section id="mission" className="py-16 md:py-24">
