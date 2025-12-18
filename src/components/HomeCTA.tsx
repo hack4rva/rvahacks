@@ -17,15 +17,7 @@ export const HomeCTA = ({ onCTAClick }: HomeCTAProps) => {
             Join us March 27-29, 2026. Build solutions with a pathway to real civic impact.
           </p>
           <div className="flex flex-wrap justify-center gap-4 animate-fade-in">
-            <Link to="/participate#register">
-              <Button 
-                size="lg" 
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg px-8 py-6"
-              >
-                Register Now
-              </Button>
-            </Link>
-            <Button 
+            <Button
               onClick={onCTAClick}
               size="lg" 
               variant="outline"

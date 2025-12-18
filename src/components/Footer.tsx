@@ -8,7 +8,6 @@ const footerLinks = {
     { label: "FAQ", href: "/about#faq" },
   ],
   participate: [
-    { label: "Register", href: "/participate#register" },
     { label: "Logistics", href: "/participate#logistics" },
     { label: "Preparation", href: "/participate#preparation" },
     { label: "Resources", href: "/participate#resources" },

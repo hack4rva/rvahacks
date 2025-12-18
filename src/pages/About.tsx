@@ -79,11 +79,6 @@ const About = () => {
               Everything you need to know about Richmond's citywide civic hackathon. March 27-29, 2026.
             </p>
             <div className="flex flex-wrap justify-center gap-4 animate-fade-in" style={{ animationDelay: "200ms" }}>
-              <Link to="/participate">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                  Register to Participate
-                </Button>
-              </Link>
               <Link to="/partners">
                 <Button size="lg" variant="outline">
                   Become a Partner
@@ -260,13 +255,6 @@ const About = () => {
               </Card>
             </div>
 
-            <div className="text-center">
-              <Link to="/participate">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                  Register as a Participant <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
           </div>
         </div>
       </section>
@@ -473,12 +461,7 @@ const About = () => {
               Join us March 27-29, 2026. Build solutions with a pathway to impact.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/participate">
-                <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold text-lg px-8 py-6">
-                  Register Now
-                </Button>
-              </Link>
-              <Button 
+              <Button
                 onClick={handleCTAClick}
                 size="lg" 
                 variant="outline"
