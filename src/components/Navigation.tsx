@@ -53,6 +53,10 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
@@ -74,6 +78,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
               <Link
                 key={item.label}
                 to={item.href}
+                onClick={scrollToTop}
                 className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent"
                 aria-label={`Navigate to ${item.label}`}
               >
@@ -159,7 +164,10 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 key={item.label}
                 to={item.href}
                 className="block text-foreground/80 hover:text-primary transition-smooth font-medium py-2 focus:outline-2 focus:outline-accent"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  scrollToTop();
+                  setIsMobileMenuOpen(false);
+                }}
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
