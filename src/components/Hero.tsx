@@ -52,9 +52,14 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
-            Richmond's entrepreneurs, inventors, and technologists unite to build
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto">
+            A citywide civic tech hackathon uniting Richmond's entrepreneurs, inventors, and technologists to build
             <Link to="/action-plan" className="text-accent hover:text-accent/80 underline transition-colors"> a thriving economy</Link> for our city.
+          </p>
+          
+          {/* Distributed model callout */}
+          <p className="text-sm sm:text-base text-white/70 mb-8 max-w-2xl mx-auto">
+            One weekend. Multiple locations across Richmond. Real civic impact.
           </p>
 
           {/* Key Stats */}
@@ -70,8 +75,8 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
             </div>
             <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">350</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">Participants</div>
+              <div className="text-3xl md:text-4xl font-bold text-white mb-1">350+</div>
+              <div className="text-sm text-white/80 uppercase tracking-wider">Across Richmond</div>
             </div>
           </div>
 
@@ -79,7 +84,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-white/95">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-accent" aria-hidden="true" />
-              <span className="text-lg font-medium">March 27-29, 2026</span>
+              <span className="text-lg font-medium">March 27–29, 2026</span>
             </div>
             <div className="hidden sm:block w-1 h-1 rounded-full bg-white/50" aria-hidden="true" />
             <div className="flex items-center gap-2">
@@ -87,6 +92,7 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
               <span className="text-lg font-medium">
                 Science Museum of Virginia
               </span>
+              <span className="text-sm text-white/70">(Kickoff & Awards Hub)</span>
             </div>
           </div>
 
