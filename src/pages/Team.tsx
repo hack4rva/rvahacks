@@ -1,58 +1,49 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { BackToTop } from "@/components/BackToTop";
 import { Us } from "@/components/Us";
 import { OrganizationalRoles } from "@/components/OrganizationalRoles";
 import { EmailSignup } from "@/components/EmailSignup";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Users, Building2 } from "lucide-react";
 
-const sectionIds = ["team", "roles"];
+const tabs = [
+  { id: "team", label: "People", icon: Users },
+  { id: "roles", label: "Roles", icon: Building2 },
+];
 
 const Team = () => {
   const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("team");
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const getInitialTab = () => {
+    const hash = location.hash.replace("#", "");
+    return tabs.some(t => t.id === hash) ? hash : "team";
+  };
+  
+  const [activeTab, setActiveTab] = useState(getInitialTab);
 
   const handleCTAClick = () => {
     setIsEmailSignupOpen(true);
   };
 
-  // Track active section for sticky nav
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    navigate(`/team#${value}`, { replace: true });
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + 150;
-      
-      for (const sectionId of sectionIds) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
-            break;
-          }
-        }
+    const handleHashChange = () => {
+      const hash = location.hash.replace("#", "");
+      if (tabs.some(t => t.id === hash)) {
+        setActiveTab(hash);
       }
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const navHeight = window.innerWidth >= 768 ? 80 : 64;
-      const subNavHeight = 56;
-      const totalOffset = navHeight + subNavHeight;
-      
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - totalOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "instant"
-      });
-    }
-  };
+    handleHashChange();
+  }, [location.hash]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -61,40 +52,42 @@ const Team = () => {
       {/* Spacer for fixed nav */}
       <div className="pt-20 md:pt-24" />
 
-      {/* Sticky Section Navigation */}
-      <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex overflow-x-auto py-3 gap-2 scrollbar-hide justify-center">
-            {[
-              { id: "team", label: "People", icon: Users },
-              { id: "roles", label: "Roles", icon: Building2 },
-            ].map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-smooth ${
-                  activeSection === section.id
-                    ? "bg-accent text-accent-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
-                <section.icon className="w-4 h-4" />
-                {section.label}
-              </button>
-            ))}
+      <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+        {/* Sticky Tab Navigation */}
+        <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto py-3">
+              <TabsList className="grid w-full grid-cols-2 h-auto gap-2 bg-transparent p-0">
+                {tabs.map((tab) => (
+                  <TabsTrigger
+                    key={tab.id}
+                    value={tab.id}
+                    className="flex items-center gap-2 py-2.5 px-3 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm"
+                  >
+                    <tab.icon className="w-4 h-4" />
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      {/* Team Section */}
-      <section id="team" className="min-h-[calc(100vh-136px)]">
-        <Us />
-      </section>
+        {/* Tab Content */}
+        <section className="py-6 md:py-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto">
+              <TabsContent value="team" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                <Us />
+              </TabsContent>
 
-      {/* Roles Section */}
-      <section id="roles" className="min-h-[calc(100vh-136px)]">
-        <OrganizationalRoles />
-      </section>
+              <TabsContent value="roles" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                <OrganizationalRoles />
+              </TabsContent>
+            </div>
+          </div>
+        </section>
+      </Tabs>
 
       <Footer />
       <BackToTop />
