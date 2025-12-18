@@ -142,12 +142,12 @@ const About = () => {
                     Prizes & Recognition
                   </h2>
                   <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-                    Over $25K in prizes across 10 categories. Submit your solution by Saturday evening. Finalist teams will
-                    pitch live on Sunday. Judges, including Mayor Avula, will select winners.
+                    Submit your solution by Saturday evening. Finalist teams will
+                    pitch live on Sunday. Judges, including Mayor Avula, will select winners across multiple award categories.
                   </p>
                 </div>
 
-                <PrizesGrid />
+                <PrizesGrid showTimeline={true} />
               </TabsContent>
 
               {/* Participants Tab */}
