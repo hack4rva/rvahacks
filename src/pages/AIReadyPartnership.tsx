@@ -67,7 +67,7 @@ const AIReadyPartnership = () => {
       </section>
 
       {/* Core Partnership Model */}
-      <section className="py-12 md:py-16 bg-secondary/10">
+      <section className="py-8 md:py-10 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">Core Partnership Model</h2>
@@ -108,7 +108,7 @@ const AIReadyPartnership = () => {
       </section>
 
       {/* What We're Requesting */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">What Hack for RVA Is Requesting</h2>
@@ -254,7 +254,7 @@ const AIReadyPartnership = () => {
       </section>
 
       {/* What We Care About */}
-      <section className="py-16 md:py-24 bg-secondary/10">
+      <section className="py-10 md:py-14 bg-secondary/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">What We Care About</h2>
@@ -291,7 +291,7 @@ const AIReadyPartnership = () => {
       </section>
 
       {/* Mutual Benefits */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">Mutual Benefits</h2>
@@ -354,7 +354,7 @@ const AIReadyPartnership = () => {
       </section>
 
       {/* Guiding Principles */}
-      <section className="py-16 md:py-24 bg-accent/5">
+      <section className="py-10 md:py-14 bg-accent/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">Guiding Principles</h2>
@@ -378,7 +378,7 @@ const AIReadyPartnership = () => {
       </section>
 
       {/* Next Steps */}
-      <section className="py-16 md:py-24">
+      <section className="py-10 md:py-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-8 text-center">Next Steps (Proposed)</h2>
