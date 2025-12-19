@@ -24,7 +24,7 @@ const Pitch = () => {
           Build solutions. Shape your city.
         </p>
 
-        {/* Date, Location & Stats */}
+        {/* Date & Location */}
         <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-6 mb-12 text-lg sm:text-2xl text-white/80">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -35,10 +35,6 @@ const Pitch = () => {
             <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
             <span className="font-semibold whitespace-nowrap">Richmond, VA</span>
           </div>
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white/60" />
-          <span className="font-semibold whitespace-nowrap">30+ Teams</span>
-          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white/60" />
-          <span className="font-semibold whitespace-nowrap">$15K+ Prizes</span>
         </div>
 
         {/* Richmond Seal */}
