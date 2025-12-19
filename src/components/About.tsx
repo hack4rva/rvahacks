@@ -3,8 +3,8 @@ import { Users, Target, Calendar, DollarSign, Gift, Home, GraduationCap, Car } f
 const stats = [
   {
     icon: Users,
-    value: "350+",
-    label: "Participants",
+    value: "30+",
+    label: "Teams",
   },
   {
     icon: Calendar,
