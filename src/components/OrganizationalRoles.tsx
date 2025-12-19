@@ -353,15 +353,6 @@ export const OrganizationalRoles = () => {
             ))}
           </Accordion>
 
-          {/* CTA */}
-          <div className="mt-12 text-center">
-            <p className="text-muted-foreground mb-4">
-              Interested in taking on a role? We're looking for passionate volunteers.
-            </p>
-            <Badge className="bg-accent text-accent-foreground text-sm py-2 px-4">
-              Contact us at hello@hackforrva.org
-            </Badge>
-          </div>
         </div>
       </div>
     </section>
