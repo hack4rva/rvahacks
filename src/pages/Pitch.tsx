@@ -1,10 +1,7 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { EmailSignup } from "@/components/EmailSignup";
 import { Calendar, MapPin } from "lucide-react";
+import richmondSeal from "@/assets/richmond-seal.png";
 
 const Pitch = () => {
-  const [isEmailSignupOpen, setIsEmailSignupOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary via-primary/90 to-accent flex flex-col items-center justify-center text-center p-8 relative overflow-hidden">
@@ -26,35 +23,35 @@ const Pitch = () => {
           Build solutions. Shape your city.
         </p>
 
-        {/* Date & Location */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12 text-xl sm:text-2xl text-white/80">
+        {/* Date, Location & Stats */}
+        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12 text-xl sm:text-2xl text-white/80">
           <div className="flex items-center gap-3">
             <Calendar className="w-6 h-6" />
-            <span className="font-semibold">March 6–8, 2026</span>
+            <span className="font-semibold">March 27–29, 2026</span>
           </div>
           <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
           <div className="flex items-center gap-3">
             <MapPin className="w-6 h-6" />
             <span className="font-semibold">Richmond, VA</span>
           </div>
+          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
+          <span className="font-semibold">30+ Teams</span>
+          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
+          <span className="font-semibold">$15K+ Prizes</span>
         </div>
 
-        {/* CTA */}
-        <Button
-          onClick={() => setIsEmailSignupOpen(true)}
-          size="lg"
-          className="bg-white text-primary hover:bg-white/90 text-xl px-10 py-7 font-bold shadow-2xl hover:scale-105 transition-transform"
-        >
-          Join Us
-        </Button>
+        {/* Richmond Seal */}
+        <img 
+          src={richmondSeal} 
+          alt="City of Richmond" 
+          className="w-24 h-24 sm:w-32 sm:h-32 opacity-90"
+        />
 
         {/* URL hint */}
         <p className="mt-12 text-lg text-white/60 font-mono">
           hackforrva.org
         </p>
       </div>
-
-      <EmailSignup open={isEmailSignupOpen} onOpenChange={setIsEmailSignupOpen} />
     </div>
   );
 };
