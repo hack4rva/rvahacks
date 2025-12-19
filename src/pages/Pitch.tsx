@@ -1,5 +1,6 @@
 import { Calendar, MapPin } from "lucide-react";
 import richmondSeal from "@/assets/richmond-seal.png";
+import qrCode from "@/assets/qr-code.png";
 
 const Pitch = () => {
 
@@ -52,9 +53,9 @@ const Pitch = () => {
         {/* QR Code & URL */}
         <div className="mt-10 flex flex-col items-center gap-2">
           <img 
-            src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://hackforrva.org&bgcolor=ffffff&color=1e3a5f"
+            src={qrCode}
             alt="Scan to visit hackforrva.org"
-            className="w-20 h-20 sm:w-24 sm:h-24 rounded-lg opacity-80"
+            className="w-20 h-20 sm:w-24 sm:h-24"
           />
           <p className="text-sm text-white/50 font-mono">
             hackforrva.org
