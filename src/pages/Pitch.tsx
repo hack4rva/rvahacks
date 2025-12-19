@@ -1,6 +1,6 @@
 import { Calendar, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 import richmondSeal from "@/assets/richmond-seal.png";
-import qrCode from "@/assets/qr-hackforrva-transparent.png";
 
 const Pitch = () => {
 
@@ -50,17 +50,13 @@ const Pitch = () => {
           />
         </div>
 
-        {/* QR Code & URL */}
-        <div className="mt-10 flex flex-col items-center gap-2">
-          <img 
-            src={qrCode}
-            alt="Scan to visit hackforrva.org"
-            className="w-20 h-20 sm:w-24 sm:h-24"
-          />
-          <p className="text-sm text-white/50 font-mono">
-            hackforrva.org
-          </p>
-        </div>
+        {/* Barely visible next button */}
+        <Link 
+          to="/pitch/next"
+          className="mt-12 px-8 py-3 text-white/10 hover:text-white/40 transition-colors text-sm"
+        >
+          →
+        </Link>
       </div>
     </div>
   );
