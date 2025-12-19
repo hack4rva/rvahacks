@@ -66,10 +66,12 @@ const Mission = () => {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  const handleTabChange = (value: string) => {
+  const handleTabChange = (value: string, scrollToTop: boolean = true) => {
     setActiveTab(value);
     navigate(`#${value}`, { replace: true });
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    if (scrollToTop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const currentTabIndex = tabs.findIndex(t => t.id === activeTab);
@@ -86,7 +88,11 @@ const Mission = () => {
         {/* Tab Navigation */}
         <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
           <div className="container mx-auto px-4">
-            <Tabs value={activeTab} onValueChange={handleTabChange}>
+            <Tabs value={activeTab} onValueChange={(value) => {
+              // Don't scroll to top for pillar tabs, only for overview and data-infrastructure
+              const shouldScroll = value === "overview" || value === "data-infrastructure";
+              handleTabChange(value, shouldScroll);
+            }}>
               <TabsList className="h-auto w-full justify-start overflow-x-auto bg-transparent p-0 gap-0">
                 {tabs.map((tab) => (
                   <TabsTrigger
@@ -108,9 +114,12 @@ const Mission = () => {
 
         {/* Tab Content */}
         <div className="container mx-auto px-4 py-8 md:py-12">
-          <Tabs value={activeTab} onValueChange={handleTabChange}>
+          <Tabs value={activeTab} onValueChange={(value) => {
+            const shouldScroll = value === "overview" || value === "data-infrastructure";
+            handleTabChange(value, shouldScroll);
+          }}>
             <TabsContent value="overview" className="mt-0">
-              <OverviewTab onNavigateToPillar={(pillarId) => handleTabChange(pillarId)} />
+              <OverviewTab onNavigateToPillar={(pillarId) => handleTabChange(pillarId, false)} />
             </TabsContent>
             
             {[1, 2, 3, 4, 5, 6, 7].map((num) => (
@@ -118,7 +127,7 @@ const Mission = () => {
                 <PillarTab 
                   pillarNumber={num} 
                   data={pillarData[num - 1]}
-                  onNavigateToPillar={(pillarId) => handleTabChange(pillarId)}
+                  onNavigateToPillar={(pillarId) => handleTabChange(pillarId, false)}
                 />
               </TabsContent>
             ))}
