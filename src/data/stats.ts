@@ -14,8 +14,8 @@ export interface EventStat {
 export const eventStatsDetailed: EventStat[] = [
   {
     icon: Users,
-    value: "350+",
-    label: "Participants",
+    value: "30+",
+    label: "Teams",
   },
   {
     icon: Target,
@@ -43,5 +43,5 @@ export const eventStatsDetailed: EventStat[] = [
 export const eventStatsHero = {
   duration: { value: "48hrs", label: "Duration" },
   prizePool: { value: "$15K+", label: "Awards Pool" },
-  participants: { value: "350+", label: "Participants" },
+  participants: { value: "30+", label: "Teams" },
 };

@@ -48,6 +48,6 @@ export const eventStats = {
   durationLabel: "Duration",
   prizePool: "$15K+",
   prizePoolLabel: "Awards Pool",
-  participants: "350+",
-  participantsLabel: "Participants",
+  participants: "30+",
+  participantsLabel: "Teams",
 };
