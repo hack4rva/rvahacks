@@ -174,41 +174,6 @@ export const ResourcesContent = () => {
         </Card>
       </div>
 
-      {/* Getting Started Guides - Compact */}
-      <Card className="border-border">
-        <CardHeader className="pb-2">
-          <CardTitle className="text-lg flex items-center gap-2">
-            <BookOpen className="w-5 h-5 text-accent" />
-            Getting Started Guides
-          </CardTitle>
-          <p className="text-xs text-muted-foreground">Step-by-step guides to get you up and running quickly</p>
-        </CardHeader>
-        <CardContent>
-          <div className="grid md:grid-cols-3 gap-3">
-            <div className="bg-muted/30 rounded-lg p-3">
-              <div className="flex items-center gap-2 mb-2">
-                <Badge className="bg-accent text-xs">Essential</Badge>
-                <span className="font-medium text-foreground text-sm">START-HERE.md</span>
-              </div>
-              <p className="text-xs text-muted-foreground">Event overview, schedule, team formation, challenge selection</p>
-            </div>
-            <div className="bg-muted/30 rounded-lg p-3">
-              <div className="flex items-center gap-2 mb-2">
-                <Badge variant="secondary" className="text-xs">Technical</Badge>
-                <span className="font-medium text-foreground text-sm">GETTING-STARTED.md</span>
-              </div>
-              <p className="text-xs text-muted-foreground">Dev environment, Git/GitHub, using available tools, deployment</p>
-            </div>
-            <div className="bg-muted/30 rounded-lg p-3">
-              <div className="flex items-center gap-2 mb-2">
-                <Badge variant="secondary" className="text-xs">Data</Badge>
-                <span className="font-medium text-foreground text-sm">Richmond Civic Data</span>
-              </div>
-              <p className="text-xs text-muted-foreground">City open data, transportation, demographics, public services</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 };
