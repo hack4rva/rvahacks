@@ -16,6 +16,7 @@ import Signup from "./pages/Signup";
 import AdminDashboard from "./pages/AdminDashboard";
 import Pitch from "./pages/Pitch";
 import PitchNext from "./pages/PitchNext";
+import PillarAnalysis from "./pages/PillarAnalysis";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/pitch" element={<Pitch />} />
           <Route path="/pitch/next" element={<PitchNext />} />
+          <Route path="/pillar-analysis" element={<PillarAnalysis />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
