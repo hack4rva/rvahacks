@@ -37,46 +37,82 @@ import {
 } from "@/components/ui/accordion";
 import { InsightCallout } from "../InsightCallout";
 
+// Sources and references
+const sources = {
+  mapPdf: "https://rva.gov/sites/default/files/2025-10/2025-MAP-Oct15_F.pdf",
+  mapLaunch: "https://rva.gov/press-releases-and-announcements/news/mayor-danny-avula-launches-mayoral-action-plan-map",
+  mapPillars: "https://www.rva.gov/mayors-office/pillars",
+  cityThatServes: "https://rva.gov/mayors-office/city-serves",
+  richmond300: "https://www.rva.gov/economic-development/richmond-300",
+  richmond300Guide: "https://rva.gov/sites/default/files/2025-03/R300_Amended_RRHA_lowres_20250321.pdf",
+  masterPlan: "https://www.rva.gov/planning-development-review/master-plan",
+  homeEviction: "https://homeofva.org/wp-content/uploads/2020/04/EvictionCrisis_RVA_Booklet_1_24_20.pdf",
+  rpsGraduation: "https://citizenportal.ai/articles/6498150/Virginia/Richmond-Public-Schools-graduation-rate-rises-to-801-district-outlines-targeted-strategies-as-SOL-scores-climb",
+  nextUpRva: "https://nextuprva.org/impact-and-reports/",
+  cisRichmond: "https://cisrva.org/wp-content/uploads/2024/11/Annual-Report-2024.pdf",
+  procurementMeta: "https://data.richmondgov.com/api/views/xqn7-jvv2/files/440cac8d-6393-4b64-8749-0cf00a512bd9?download=true&filename=Procurement_Metadata.pdf",
+  communityWealth: "https://www.rva.gov/community-wealth-building/focus-areas",
+  marchOfDimes: "https://www.marchofdimes.org/peristats/reports/virginia/report-card",
+  climateVuln: "https://www.rva.gov/sites/default/files/2023-01/RVAClimateVulnerabilityRiskAssessmentSummary.pdf",
+  rvaGreen2050: "https://www.epa.gov/system/files/documents/2023-12/rva-green-2050-climate-equity-action-plan-2030.pdf",
+  shockoeRenderings: "https://www.richmonder.org/as-richmonds-265-million-shockoe-project-continues-to-take-shape-see-renderings-of-a-future-memorial/",
+  burialGround: "https://www.rva.gov/press-releases-and-announcements/news/city-richmond-advances-plans-african-burial-ground-memorial",
+  shockoeProject: "https://theshockoeproject.com/",
+  openDataInfo: "https://www.rva.gov/information-technology/open-data-portal",
+  openDataPortal: "https://data.richmondgov.com/",
+  budgetRecap: "https://data.richmondgov.com/Well-Managed-Government/Recap/j44b-5mi4",
+  gisMapping: "https://www.rva.gov/assessor-real-estate/gismapping",
+  fy2025Budget: "https://rva.gov/sites/default/files/2024-06/FY25%20Proposed%20Annual%20Fiscal%20Plan%20-%20Web%20Version%20V2.pdf",
+  betterHousing: "http://www.ecosproject.com/wp/wp-content/uploads/2023/05/Data2020_BuildingHomesTogether_Final_20221012.pdf",
+  planRvaCeds: "https://planrva.org/wp-content/uploads/CEDS_ReportAppendices.pdf",
+  planRvaMetrics: "https://planrva.org/planrvas-data-team-calculates-regions-key-metrics/",
+  vdoeDashboards: "https://www.doe.virginia.gov/state-board-data-funding/data-reports/statistics-reports/interactive-data-dashboards",
+  vdhMaternal: "https://www.vdh.virginia.gov/data/maternal-child-health/pregnancy-associated-deaths/",
+  rchdChildbirth: "https://www.vdh.virginia.gov/richmond-city/healthy-childbirth-and-infancy/",
+  jlarcChildCare: "https://jlarc.virginia.gov/pdfs/reports/Rpt579.pdf",
+  rvaGov: "https://www.rva.gov/"
+};
+
 // Open Data Portal inventory data
 const odpInventory = [
   {
     pillar: "Pillar 1: City Hall",
     datasets: [
-      { name: "City Budget - General Fund", quality: "high", notes: "10+ years of history. Essential for tracking fiscal inputs. Updated annually." },
-      { name: "City Contracts", quality: "medium", notes: "Lists active contracts but lacks compliance/performance data. Updated monthly." },
-      { name: "Payment Register", quality: "high", notes: "Granular transparency on vendor payments. Essential for tracking 'timely payments' (Goal A)." }
+      { name: "City Budget - General Fund", quality: "high", notes: "10+ years of history. Essential for tracking fiscal inputs. Updated annually.", sourceKey: "budgetRecap" },
+      { name: "City Contracts", quality: "medium", notes: "Lists active contracts but lacks compliance/performance data. Updated monthly.", sourceKey: "procurementMeta" },
+      { name: "Payment Register", quality: "high", notes: "Granular transparency on vendor payments. Essential for tracking 'timely payments' (Goal A).", sourceKey: "openDataPortal" }
     ]
   },
   {
     pillar: "Pillar 2: Neighborhoods",
     datasets: [
-      { name: "Real Estate Sales / Assessments", quality: "high", notes: "Parcel-level granularity. Excellent for tracking gentrification trends and property value shifts." },
-      { name: "Building Permits (Implied)", quality: "medium", notes: "Usually available via Socrata/GIS. Leading indicator for 'New Housing Units' (Goal A)." },
-      { name: "Eviction Data", quality: "gap", notes: "Critical Gap: The City does not publish eviction filings. This data exists in court records only." }
+      { name: "Real Estate Sales / Assessments", quality: "high", notes: "Parcel-level granularity. Excellent for tracking gentrification trends and property value shifts.", sourceKey: "gisMapping" },
+      { name: "Building Permits (Implied)", quality: "medium", notes: "Usually available via Socrata/GIS. Leading indicator for 'New Housing Units' (Goal A).", sourceKey: "openDataPortal" },
+      { name: "Eviction Data", quality: "gap", notes: "Critical Gap: The City does not publish eviction filings. This data exists in court records only.", sourceKey: null }
     ]
   },
   {
     pillar: "Pillar 3: Families",
     datasets: [
-      { name: "RPS Academic Data", quality: "gap", notes: "No direct RPS academic data is hosted on the City ODP." }
+      { name: "RPS Academic Data", quality: "gap", notes: "No direct RPS academic data is hosted on the City ODP.", sourceKey: null }
     ]
   },
   {
     pillar: "Pillar 4: Economy",
     datasets: [
-      { name: "Business Licenses (Limited)", quality: "low", notes: "Often aggregated. Lacks 'minority-owned' (SWaM) flags publicly, making Goal D difficult to track." }
+      { name: "Business Licenses (Limited)", quality: "low", notes: "Often aggregated. Lacks 'minority-owned' (SWaM) flags publicly, making Goal D difficult to track.", sourceKey: "openDataPortal" }
     ]
   },
   {
     pillar: "Pillar 6: Environment",
     datasets: [
-      { name: "GIS Layers (Floods, Parcels)", quality: "high", notes: "Strong GIS integration for land use and flood zones (Shockoe)." }
+      { name: "GIS Layers (Floods, Parcels)", quality: "high", notes: "Strong GIS integration for land use and flood zones (Shockoe).", sourceKey: "gisMapping" }
     ]
   },
   {
     pillar: "Pillar 7: Stories",
     datasets: [
-      { name: "Oral Histories / Qualitative", quality: "gap", notes: "Qualitative data (oral histories) is not suitable for Socrata formats." }
+      { name: "Oral Histories / Qualitative", quality: "gap", notes: "Qualitative data (oral histories) is not suitable for Socrata formats.", sourceKey: null }
     ]
   }
 ];
@@ -89,7 +125,8 @@ const priorityDatasets = [
     statusType: "gap",
     description: "While budget documents list authorized FTEs, the real-time vacancy rate is not published as an open dataset.",
     importance: "This is the 'lead domino' for Pillar 1. Without it, the public cannot hold the administration accountable for 'getting things done.'",
-    proxy: "Overtime expenditures in the City Budget (high overtime often signals understaffing)."
+    proxy: "Overtime expenditures in the City Budget (high overtime often signals understaffing).",
+    sourceKey: "fy2025Budget"
   },
   {
     name: "Housing Unit Production & Affordability",
@@ -97,7 +134,8 @@ const priorityDatasets = [
     status: "Fragmented",
     statusType: "warning",
     description: "The City tracks permits, but 'affordability' (AMI levels) is often tracked separately by nonprofits like Better Housing Coalition or PlanRVA.",
-    importance: "A consolidated 'Housing Pipeline Dashboard' that merges permit data with AMI restrictions from subsidy contracts."
+    importance: "A consolidated 'Housing Pipeline Dashboard' that merges permit data with AMI restrictions from subsidy contracts.",
+    sourceKey: "betterHousing"
   },
   {
     name: "Eviction Filings",
@@ -105,7 +143,8 @@ const priorityDatasets = [
     status: "External",
     statusType: "warning",
     description: "This data resides with the courts. It is scraped and analyzed by third parties like Housing Opportunities Made Equal (HOME) and the RVA Eviction Lab.",
-    importance: "The City needs to formalize a feed of this data to track 'housing stability' in real-time, rather than relying on annual reports."
+    importance: "The City needs to formalize a feed of this data to track 'housing stability' in real-time, rather than relying on annual reports.",
+    sourceKey: "homeEviction"
   },
   {
     name: "RPS School Performance",
@@ -113,7 +152,8 @@ const priorityDatasets = [
     status: "State-Held",
     statusType: "warning",
     description: "The Virginia Department of Education (VDOE) publishes SOL scores, graduation rates, and chronic absenteeism data.",
-    importance: "Integrate VDOE API feeds directly into the MAP dashboard to create a 'single pane of glass' for residents."
+    importance: "Integrate VDOE API feeds directly into the MAP dashboard to create a 'single pane of glass' for residents.",
+    sourceKey: "vdoeDashboards"
   },
   {
     name: "Community Health Metrics",
@@ -121,7 +161,8 @@ const priorityDatasets = [
     status: "VDH Dashboards",
     statusType: "warning",
     description: "Data on maternal health, opioid overdoses, and life expectancy is held by the Virginia Department of Health.",
-    importance: "State data is often aggregated to the 'Health District' level (Richmond City + Henrico County). Must be disaggregated to census tract or neighborhood level for MAP equity goals."
+    importance: "State data is often aggregated to the 'Health District' level (Richmond City + Henrico County). Must be disaggregated to census tract or neighborhood level for MAP equity goals.",
+    sourceKey: "vdhMaternal"
   }
 ];
 
@@ -218,17 +259,20 @@ const partnershipEcosystems = [
       {
         name: "Partnership for Housing Affordability (PHA) & PlanRVA",
         role: "Manage the Market Value Analysis (MVA)—a sophisticated tool that classifies neighborhoods by market strength (distressed, middle, strong). Superior to simple tax assessments for targeting affordable housing investments.",
-        dataAsset: "Regional housing supply data, cost-burden analysis, neighborhood market classification"
+        dataAsset: "Regional housing supply data, cost-burden analysis, neighborhood market classification",
+        sourceKey: "planRvaCeds"
       },
       {
         name: "Housing Opportunities Made Equal (HOME)",
         role: "Primary watchdog for fair housing. Holds data on fair housing complaints and eviction defense cases.",
-        dataAsset: "Qualitative and quantitative data on discrimination patterns that City systems (311) will never capture"
+        dataAsset: "Qualitative and quantitative data on discrimination patterns that City systems (311) will never capture",
+        sourceKey: "homeEviction"
       },
       {
         name: "Better Housing Coalition (BHC)",
         role: "Nonprofit developer with visibility into affordable housing pipeline.",
-        dataAsset: "Pipeline data—knows what affordable units are in financing/development before they hit the City's permitting system"
+        dataAsset: "Pipeline data—knows what affordable units are in financing/development before they hit the City's permitting system",
+        sourceKey: "betterHousing"
       }
     ]
   },
@@ -240,12 +284,14 @@ const partnershipEcosystems = [
       {
         name: "Communities in Schools (CIS) & NextUp RVA",
         role: "Intermediaries managing the network of out-of-school time (OST) providers.",
-        dataAsset: "Out-of-School Time Participation & Quality—tracks 'Tier 2 & 3' supports with granular data on attendance, behavior, and coursework (ABC) for specific at-risk cohorts"
+        dataAsset: "Out-of-School Time Participation & Quality—tracks 'Tier 2 & 3' supports with granular data on attendance, behavior, and coursework (ABC) for specific at-risk cohorts",
+        sourceKey: "cisRichmond"
       },
       {
         name: "Richmond Public Schools (RPS)",
         role: "Primary educator. A robust MOU is needed to link academic data with City human services data.",
-        dataAsset: "Student-level academic and attendance data"
+        dataAsset: "Student-level academic and attendance data",
+        sourceKey: "rpsGraduation"
       }
     ]
   },
@@ -257,12 +303,14 @@ const partnershipEcosystems = [
       {
         name: "Greater Richmond Partnership (GRP)",
         role: "Regional economic development organization.",
-        dataAsset: "Business attraction pipeline and regional labor market analysis"
+        dataAsset: "Business attraction pipeline and regional labor market analysis",
+        sourceKey: null
       },
       {
         name: "ChamberRVA",
         role: "Business advocacy organization providing external validation for Pillar 4.",
-        dataAsset: "'Upward Mobility' Dashboard—tracks workforce readiness, skills gaps, and regional alignment"
+        dataAsset: "'Upward Mobility' Dashboard—tracks workforce readiness, skills gaps, and regional alignment",
+        sourceKey: "planRvaMetrics"
       }
     ]
   },
@@ -274,12 +322,14 @@ const partnershipEcosystems = [
       {
         name: "Richmond City Health District (RCHD)",
         role: "Public health authority (state agency embedded in the city).",
-        dataAsset: "Health Equity Metrics—Maternity Navigation program data (clients served, outcomes) for Pillar 5"
+        dataAsset: "Health Equity Metrics—Maternity Navigation program data (clients served, outcomes) for Pillar 5",
+        sourceKey: "rchdChildbirth"
       },
       {
         name: "RVA Clean City Commission & Science Museum of Virginia",
         role: "Environmental advocacy and research.",
-        dataAsset: "Urban Heat Island Maps—hyperlocal temperature data used to target tree plantings for Pillar 6"
+        dataAsset: "Urban Heat Island Maps—hyperlocal temperature data used to target tree plantings for Pillar 6",
+        sourceKey: "rvaGreen2050"
       }
     ]
   },
@@ -291,10 +341,45 @@ const partnershipEcosystems = [
       {
         name: "Shockoe Institute & National Slavery Museum Foundation",
         role: "Stewards of the 'Stories' pillar.",
-        dataAsset: "Qualitative & Historical Data—oral histories, archaeological findings, and descendant community registries that constitute the 'truth' in Pillar 7"
+        dataAsset: "Qualitative & Historical Data—oral histories, archaeological findings, and descendant community registries that constitute the 'truth' in Pillar 7",
+        sourceKey: "shockoeProject"
       }
     ]
   }
+];
+
+// All sources for the Works Cited section
+const worksCited = [
+  { id: 1, title: "Mayoral Action Plan 2025 (PDF)", url: sources.mapPdf },
+  { id: 2, title: "Mayor Danny Avula Launches the Mayoral Action Plan (MAP)", url: sources.mapLaunch },
+  { id: 3, title: "MAP Pillars | Richmond", url: sources.mapPillars },
+  { id: 4, title: "A City that Serves | Richmond", url: sources.cityThatServes },
+  { id: 5, title: "Richmond 300: A Guide for Growth", url: sources.richmond300 },
+  { id: 6, title: "Richmond 300 Master Plan", url: sources.masterPlan },
+  { id: 7, title: "Richmond's Eviction Crisis - Housing Opportunities Made Equal", url: sources.homeEviction },
+  { id: 8, title: "RPS Graduation Rate Analysis", url: sources.rpsGraduation },
+  { id: 9, title: "NextUp RVA Impact and Reports", url: sources.nextUpRva },
+  { id: 10, title: "Communities In Schools Richmond Annual Report", url: sources.cisRichmond },
+  { id: 11, title: "Community Wealth Building Focus Areas", url: sources.communityWealth },
+  { id: 12, title: "March of Dimes Report Card for Virginia", url: sources.marchOfDimes },
+  { id: 13, title: "RVAgreen 2050 Climate Vulnerability Assessment", url: sources.climateVuln },
+  { id: 14, title: "RVA Green 2050 Climate Equity Action Plan", url: sources.rvaGreen2050 },
+  { id: 15, title: "Shockoe Project Renderings", url: sources.shockoeRenderings },
+  { id: 16, title: "African Burial Ground Memorial and Reconciliation Plaza", url: sources.burialGround },
+  { id: 17, title: "The Shockoe Project", url: sources.shockoeProject },
+  { id: 18, title: "Open Data Portal | Richmond", url: sources.openDataInfo },
+  { id: 19, title: "Richmond Open Data Portal", url: sources.openDataPortal },
+  { id: 20, title: "City Budget Recap - Open Data Portal", url: sources.budgetRecap },
+  { id: 21, title: "GIS/Mapping | Richmond", url: sources.gisMapping },
+  { id: 22, title: "FY 2025 Proposed Annual Fiscal Plan", url: sources.fy2025Budget },
+  { id: 23, title: "Building Homes Together - Better Housing Coalition", url: sources.betterHousing },
+  { id: 24, title: "Plan RVA CEDS Report", url: sources.planRvaCeds },
+  { id: 25, title: "Plan RVA Key Metrics", url: sources.planRvaMetrics },
+  { id: 26, title: "VDOE Interactive Data Dashboards", url: sources.vdoeDashboards },
+  { id: 27, title: "VDH Pregnancy-Associated Deaths Data", url: sources.vdhMaternal },
+  { id: 28, title: "RCHD Healthy Childbirth and Infancy", url: sources.rchdChildbirth },
+  { id: 29, title: "JLARC Child Care Report", url: sources.jlarcChildCare },
+  { id: 30, title: "Procurement Metadata", url: sources.procurementMeta }
 ];
 
 export const DataInfrastructureTab = () => {
@@ -415,7 +500,20 @@ export const DataInfrastructureTab = () => {
                               ) : (
                                 <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
                               )}
-                              <span className="font-medium text-foreground text-sm">{dataset.name}</span>
+                              <span className="font-medium text-foreground text-sm">
+                                {dataset.sourceKey ? (
+                                  <a 
+                                    href={sources[dataset.sourceKey as keyof typeof sources]} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="hover:text-primary hover:underline"
+                                  >
+                                    {dataset.name}
+                                  </a>
+                                ) : (
+                                  dataset.name
+                                )}
+                              </span>
                             </div>
                             <div className="flex-1 flex flex-col sm:flex-row sm:items-start gap-2">
                               {getQualityBadge(dataset.quality)}
@@ -465,6 +563,19 @@ export const DataInfrastructureTab = () => {
                         <p className="text-xs text-muted-foreground mt-2">
                           <strong>Proxy Available:</strong> {dataset.proxy}
                         </p>
+                      )}
+                      {dataset.sourceKey && (
+                        <div className="flex items-center gap-1 mt-2">
+                          <ExternalLink className="w-3 h-3 text-primary" />
+                          <a 
+                            href={sources[dataset.sourceKey as keyof typeof sources]} 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="text-xs text-primary hover:underline"
+                          >
+                            View Source
+                          </a>
+                        </div>
                       )}
                     </CardContent>
                   </Card>
@@ -551,9 +662,20 @@ export const DataInfrastructureTab = () => {
                             <p className="text-sm mb-3">{partner.role}</p>
                             <div className="flex items-start gap-2 p-2 bg-primary/5 rounded border-l-2 border-primary">
                               <Database className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                              <div>
+                              <div className="flex-1">
                                 <span className="text-xs font-semibold text-primary uppercase">Data Asset</span>
                                 <p className="text-sm text-foreground">{partner.dataAsset}</p>
+                                {partner.sourceKey && (
+                                  <a 
+                                    href={sources[partner.sourceKey as keyof typeof sources]} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
+                                  >
+                                    <ExternalLink className="w-3 h-3" />
+                                    View Source
+                                  </a>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -1025,6 +1147,54 @@ export const DataInfrastructureTab = () => {
               <InsightCallout type="insight" title="The Path Forward">
                 By treating data not as a byproduct of government but as a <strong>strategic asset</strong>, the MAP can evolve from a static PDF into a dynamic operating system, driving Richmond toward a future where "thriving" is not just a slogan, but a <em>measurable reality for every resident</em>.
               </InsightCallout>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Works Cited / Sources */}
+        <AccordionItem value="works-cited" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <FileSpreadsheet className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Sources & References</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-4 text-muted-foreground">
+              <p className="text-sm">
+                All sources accessed December 19, 2025. This analysis draws from official City of Richmond documents, state agency data, nonprofit reports, and regional planning resources.
+              </p>
+
+              <div className="grid gap-2">
+                {worksCited.map((source) => (
+                  <div key={source.id} className="flex items-start gap-3 p-3 bg-muted/20 rounded-lg border border-border hover:bg-muted/30 transition-colors">
+                    <Badge variant="outline" className="text-xs min-w-[28px] justify-center">{source.id}</Badge>
+                    <a 
+                      href={source.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-sm text-foreground hover:text-primary hover:underline flex-1"
+                    >
+                      {source.title}
+                      <ExternalLink className="w-3 h-3 inline-block ml-1 opacity-50" />
+                    </a>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                <h4 className="font-semibold text-foreground mb-2 text-sm">Primary Source</h4>
+                <a 
+                  href={sources.mapPdf}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-primary hover:underline"
+                >
+                  <FileSpreadsheet className="w-4 h-4" />
+                  <span>Mayoral Action Plan 2025 (Official PDF)</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
             </div>
           </AccordionContent>
         </AccordionItem>
