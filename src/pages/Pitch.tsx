@@ -24,28 +24,30 @@ const Pitch = () => {
         </p>
 
         {/* Date, Location & Stats */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-12 text-xl sm:text-2xl text-white/80">
-          <div className="flex items-center gap-3">
-            <Calendar className="w-6 h-6" />
-            <span className="font-semibold">March 27–29, 2026</span>
+        <div className="flex flex-nowrap items-center justify-center gap-3 sm:gap-6 mb-12 text-lg sm:text-2xl text-white/80">
+          <div className="flex items-center gap-2">
+            <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="font-semibold whitespace-nowrap">March 27–29, 2026</span>
           </div>
-          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
-          <div className="flex items-center gap-3">
-            <MapPin className="w-6 h-6" />
-            <span className="font-semibold">Richmond, VA</span>
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white/60" />
+          <div className="flex items-center gap-2">
+            <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
+            <span className="font-semibold whitespace-nowrap">Richmond, VA</span>
           </div>
-          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
-          <span className="font-semibold">30+ Teams</span>
-          <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-white/60" />
-          <span className="font-semibold">$15K+ Prizes</span>
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white/60" />
+          <span className="font-semibold whitespace-nowrap">30+ Teams</span>
+          <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-white/60" />
+          <span className="font-semibold whitespace-nowrap">$15K+ Prizes</span>
         </div>
 
         {/* Richmond Seal */}
-        <img 
-          src={richmondSeal} 
-          alt="City of Richmond" 
-          className="w-24 h-24 sm:w-32 sm:h-32 opacity-90"
-        />
+        <div className="flex justify-center">
+          <img 
+            src={richmondSeal} 
+            alt="City of Richmond" 
+            className="w-24 h-24 sm:w-32 sm:h-32 opacity-90"
+          />
+        </div>
 
         {/* URL hint */}
         <p className="mt-12 text-lg text-white/60 font-mono">
