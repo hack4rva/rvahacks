@@ -20,7 +20,7 @@ const schedule = [
   },
   {
     day: "SATURDAY, MARCH 28",
-    time: "9 AM - 10 PM",
+    time: "9 AM - 12 PM",
     location: "Multiple locations citywide",
     title: "Citywide Hacking",
     icon: Laptop,

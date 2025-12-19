@@ -37,7 +37,7 @@ export const schedule: ScheduleEvent[] = [
   },
   {
     day: eventDates.saturday.label,
-    time: "9 AM - 10 PM",
+    time: "9 AM - 12 PM",
     location: "Multiple locations citywide",
     title: "Citywide Hacking",
     icon: Laptop,
