@@ -36,7 +36,7 @@ export const PillarAnalysisHero = () => {
           </Badge>
           
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 font-serif tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 font-mono tracking-tight">
             Pillar Analysis
           </h1>
           
