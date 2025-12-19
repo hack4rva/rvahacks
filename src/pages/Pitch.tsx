@@ -45,6 +45,7 @@ const Pitch = () => {
             className="w-24 h-24 sm:w-32 sm:h-32 opacity-90"
           />
         </div>
+      </div>
 
       {/* Next button - bottom right corner */}
       <Link 
@@ -53,7 +54,6 @@ const Pitch = () => {
       >
         <ChevronRight className="w-8 h-8" />
       </Link>
-      </div>
     </div>
   );
 };
