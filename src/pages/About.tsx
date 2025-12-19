@@ -184,6 +184,15 @@ const About = () => {
                     </Card>
                   ))}
                 </div>
+
+                <div className="text-center">
+                  <Button 
+                    onClick={handleCTAClick}
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                  >
+                    Stay Updated
+                  </Button>
+                </div>
               </TabsContent>
 
               {/* Team Tab */}
