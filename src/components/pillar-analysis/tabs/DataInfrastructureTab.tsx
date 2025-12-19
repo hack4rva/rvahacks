@@ -11,7 +11,11 @@ import {
   DollarSign,
   Clock,
   CheckCircle2,
-  ArrowRight
+  ArrowRight,
+  FileSpreadsheet,
+  AlertCircle,
+  ExternalLink,
+  MapPin
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,6 +26,94 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { InsightCallout } from "../InsightCallout";
+
+// Open Data Portal inventory data
+const odpInventory = [
+  {
+    pillar: "Pillar 1: City Hall",
+    datasets: [
+      { name: "City Budget - General Fund", quality: "high", notes: "10+ years of history. Essential for tracking fiscal inputs. Updated annually." },
+      { name: "City Contracts", quality: "medium", notes: "Lists active contracts but lacks compliance/performance data. Updated monthly." },
+      { name: "Payment Register", quality: "high", notes: "Granular transparency on vendor payments. Essential for tracking 'timely payments' (Goal A)." }
+    ]
+  },
+  {
+    pillar: "Pillar 2: Neighborhoods",
+    datasets: [
+      { name: "Real Estate Sales / Assessments", quality: "high", notes: "Parcel-level granularity. Excellent for tracking gentrification trends and property value shifts." },
+      { name: "Building Permits (Implied)", quality: "medium", notes: "Usually available via Socrata/GIS. Leading indicator for 'New Housing Units' (Goal A)." },
+      { name: "Eviction Data", quality: "gap", notes: "Critical Gap: The City does not publish eviction filings. This data exists in court records only." }
+    ]
+  },
+  {
+    pillar: "Pillar 3: Families",
+    datasets: [
+      { name: "RPS Academic Data", quality: "gap", notes: "No direct RPS academic data is hosted on the City ODP." }
+    ]
+  },
+  {
+    pillar: "Pillar 4: Economy",
+    datasets: [
+      { name: "Business Licenses (Limited)", quality: "low", notes: "Often aggregated. Lacks 'minority-owned' (SWaM) flags publicly, making Goal D difficult to track." }
+    ]
+  },
+  {
+    pillar: "Pillar 6: Environment",
+    datasets: [
+      { name: "GIS Layers (Floods, Parcels)", quality: "high", notes: "Strong GIS integration for land use and flood zones (Shockoe)." }
+    ]
+  },
+  {
+    pillar: "Pillar 7: Stories",
+    datasets: [
+      { name: "Oral Histories / Qualitative", quality: "gap", notes: "Qualitative data (oral histories) is not suitable for Socrata formats." }
+    ]
+  }
+];
+
+const priorityDatasets = [
+  {
+    name: "Employee Vacancy & Turnover Rates",
+    goals: "Goal A-A, A-B",
+    status: "Unavailable Publicly",
+    statusType: "gap",
+    description: "While budget documents list authorized FTEs, the real-time vacancy rate is not published as an open dataset.",
+    importance: "This is the 'lead domino' for Pillar 1. Without it, the public cannot hold the administration accountable for 'getting things done.'",
+    proxy: "Overtime expenditures in the City Budget (high overtime often signals understaffing)."
+  },
+  {
+    name: "Housing Unit Production & Affordability",
+    goals: "Goal B-A, B-B",
+    status: "Fragmented",
+    statusType: "warning",
+    description: "The City tracks permits, but 'affordability' (AMI levels) is often tracked separately by nonprofits like Better Housing Coalition or PlanRVA.",
+    importance: "A consolidated 'Housing Pipeline Dashboard' that merges permit data with AMI restrictions from subsidy contracts."
+  },
+  {
+    name: "Eviction Filings",
+    goals: "Goal B-B",
+    status: "External",
+    statusType: "warning",
+    description: "This data resides with the courts. It is scraped and analyzed by third parties like Housing Opportunities Made Equal (HOME) and the RVA Eviction Lab.",
+    importance: "The City needs to formalize a feed of this data to track 'housing stability' in real-time, rather than relying on annual reports."
+  },
+  {
+    name: "RPS School Performance",
+    goals: "Goal C-A",
+    status: "State-Held",
+    statusType: "warning",
+    description: "The Virginia Department of Education (VDOE) publishes SOL scores, graduation rates, and chronic absenteeism data.",
+    importance: "Integrate VDOE API feeds directly into the MAP dashboard to create a 'single pane of glass' for residents."
+  },
+  {
+    name: "Community Health Metrics",
+    goals: "Pillar 5",
+    status: "VDH Dashboards",
+    statusType: "warning",
+    description: "Data on maternal health, opioid overdoses, and life expectancy is held by the Virginia Department of Health.",
+    importance: "State data is often aggregated to the 'Health District' level (Richmond City + Henrico County). Must be disaggregated to census tract or neighborhood level for MAP equity goals."
+  }
+];
 
 export const DataInfrastructureTab = () => {
   const roadmapPhases = [
@@ -60,6 +152,32 @@ export const DataInfrastructureTab = () => {
     }
   ];
 
+  const getQualityBadge = (quality: string) => {
+    switch (quality) {
+      case "high":
+        return <Badge className="bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">High Quality</Badge>;
+      case "medium":
+        return <Badge className="bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">Medium</Badge>;
+      case "low":
+        return <Badge className="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">Low</Badge>;
+      case "gap":
+        return <Badge className="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">Critical Gap</Badge>;
+      default:
+        return null;
+    }
+  };
+
+  const getStatusBadge = (statusType: string, status: string) => {
+    switch (statusType) {
+      case "gap":
+        return <Badge className="bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">{status}</Badge>;
+      case "warning":
+        return <Badge className="bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300">{status}</Badge>;
+      default:
+        return <Badge variant="secondary">{status}</Badge>;
+    }
+  };
+
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Section Header */}
@@ -70,7 +188,155 @@ export const DataInfrastructureTab = () => {
         </p>
       </div>
 
-      <Accordion type="multiple" defaultValue={["current-state", "federated-model", "roadmap"]} className="space-y-4">
+      <Accordion type="multiple" defaultValue={["odp-inventory", "priority-datasets", "current-state"]} className="space-y-4">
+        
+        {/* Open Data Portal Inventory - NEW SECTION */}
+        <AccordionItem value="odp-inventory" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <FileSpreadsheet className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Open Data Portal Inventory</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                A comprehensive audit of Richmond's data landscape reveals a dichotomy: the city possesses a robust technical infrastructure for "open data" (Socrata-based), yet the specific <strong className="text-foreground">"human-centric" datasets</strong> required to track the MAP's equity and outcome goals are often siloed, fragmented, or non-existent in the public domain.
+              </p>
+
+              <div className="flex items-center gap-2 text-sm">
+                <ExternalLink className="w-4 h-4" />
+                <a 
+                  href="https://data.richmondgov.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  City of Richmond Open Data Portal
+                </a>
+              </div>
+
+              {/* ODP Inventory by Pillar */}
+              <div className="space-y-4 mt-4">
+                {odpInventory.map((pillar, idx) => (
+                  <Card key={idx} className="bg-muted/20">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-base font-semibold">{pillar.pillar}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        {pillar.datasets.map((dataset, dIdx) => (
+                          <div key={dIdx} className="flex flex-col sm:flex-row sm:items-start gap-2 p-3 bg-background rounded-lg border border-border">
+                            <div className="flex items-center gap-2 min-w-[200px]">
+                              {dataset.quality === "gap" ? (
+                                <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
+                              ) : (
+                                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+                              )}
+                              <span className="font-medium text-foreground text-sm">{dataset.name}</span>
+                            </div>
+                            <div className="flex-1 flex flex-col sm:flex-row sm:items-start gap-2">
+                              {getQualityBadge(dataset.quality)}
+                              <span className="text-sm text-muted-foreground">{dataset.notes}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Priority Datasets to Locate - NEW SECTION */}
+        <AccordionItem value="priority-datasets" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <AlertCircle className="w-5 h-5 text-amber-500" />
+              <span className="text-xl font-semibold text-foreground">Priority Datasets to Locate</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                To fully operationalize the MAP, the following datasets must be located, validated, or constructed:
+              </p>
+
+              <div className="space-y-4">
+                {priorityDatasets.map((dataset, idx) => (
+                  <Card key={idx} className={dataset.statusType === "gap" ? "border-red-200 dark:border-red-800" : "border-amber-200 dark:border-amber-800"}>
+                    <CardHeader className="pb-2">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <CardTitle className="text-base">{dataset.name}</CardTitle>
+                        <Badge variant="outline" className="text-xs">{dataset.goals}</Badge>
+                        {getStatusBadge(dataset.statusType, dataset.status)}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      <p className="text-sm">{dataset.description}</p>
+                      <InsightCallout type={dataset.statusType === "gap" ? "warning" : "insight"} title="Why It Matters">
+                        {dataset.importance}
+                      </InsightCallout>
+                      {dataset.proxy && (
+                        <p className="text-xs text-muted-foreground mt-2">
+                          <strong>Proxy Available:</strong> {dataset.proxy}
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Cross-Reference Requirements - NEW SECTION */}
+        <AccordionItem value="cross-reference" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <MapPin className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Cross-Reference Requirements</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-4 text-muted-foreground">
+              <div className="grid gap-4 md:grid-cols-2">
+                <Card className="bg-muted/20">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Map className="w-4 h-4 text-primary" />
+                      Geocoding Strategy
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-sm">
+                    <p>State and federal datasets often use <strong className="text-foreground">zip codes or census tracts</strong>. City operations use <strong className="text-foreground">Council Districts</strong>.</p>
+                    <p className="mt-2">A robust <em>spatial crosswalk table</em> is required to map health and education outcomes to Council Districts, enabling political accountability for specific representatives.</p>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-muted/20">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      <Clock className="w-4 h-4 text-primary" />
+                      Temporal Alignment
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-sm">
+                    <p>The City operates on a <strong className="text-foreground">Fiscal Year (July 1 - June 30)</strong>. Federal data (Census) and some state data use <strong className="text-foreground">Calendar Years</strong>.</p>
+                    <p className="mt-2">Trend analysis must explicitly account for these offsets to avoid misleading correlations.</p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <InsightCallout type="recommendation" title="Implementation Priority">
+                Before any cross-pillar analysis can be conducted, the City must invest in building and maintaining geographic and temporal crosswalk tables as foundational data infrastructure.
+              </InsightCallout>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
         {/* Current State Assessment */}
         <AccordionItem value="current-state" className="border border-border rounded-lg px-6 bg-card">
           <AccordionTrigger className="hover:no-underline py-6">
@@ -231,7 +497,7 @@ export const DataInfrastructureTab = () => {
               </p>
 
               <InsightCallout type="insight" title="What This Enables">
-                Imagine a city leader asking: "If we accelerate permit processing by 20%, what's the projected impact on affordable housing starts, construction employment, and property tax revenue over 24 months?" A contextual intelligence framework provides evidence-based answers.
+                Imagine a city leader asking: "If we accelerate permit processing by 20%, what is the projected impact on affordable housing starts, construction employment, and property tax revenue over 24 months?" A contextual intelligence framework provides evidence-based answers.
               </InsightCallout>
 
               <div className="mt-4">
