@@ -6,8 +6,8 @@ import crystalHarvey from "@/assets/crystal-harvey.png";
 import ankitMathur from "@/assets/ankit-mathur.png";
 import sinclairJenks from "@/assets/sinclair-jenks.png";
 import christianMarkow from "@/assets/christian-markow.png";
-import heatherLyne from "@/assets/heather-lyne.png";
-import ashHarris from "@/assets/ash-harris.png";
+import heatherLyne from "@/assets/heather-lyne-blue.png";
+import ashHarris from "@/assets/ash-harris-blue.png";
 import richmondSeal from "@/assets/richmond-seal.png";
 
 const coreTeam = [
