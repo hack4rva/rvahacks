@@ -3,20 +3,12 @@ import fordPrior from "@/assets/ford-prior.png";
 import michaelKolbe from "@/assets/michael-kolbe.png";
 import dannyAvula from "@/assets/danny-avula.png";
 import crystalHarvey from "@/assets/crystal-harvey.png";
-
-import tomBecker from "@/assets/tom-becker.png";
 import ankitMathur from "@/assets/ankit-mathur.png";
-import drewCleveland from "@/assets/drew-cleveland.png";
-import willMelton from "@/assets/will-melton.png";
-import aprilPalmer from "@/assets/april-palmer.png";
-import nickSerfass from "@/assets/nick-serfass.png";
 import sinclairJenks from "@/assets/sinclair-jenks.png";
-import adamWoodward from "@/assets/adam-woodward.png";
 import christianMarkow from "@/assets/christian-markow.png";
 import heatherLyne from "@/assets/heather-lyne.png";
 import ashHarris from "@/assets/ash-harris.png";
 import richmondSeal from "@/assets/richmond-seal.png";
-import aiReadyRvaLogo from "@/assets/ai-ready-rva-logo.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
@@ -24,19 +16,13 @@ const coreTeam = [
   { name: "Ash Harris", role: "Onsite Ops", image: ashHarris, linkedin: undefined },
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
-  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
-  { name: "Will Melton", role: "Corporate Partnerships", image: willMelton, linkedin: undefined },
   { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined },
-  { name: "April Palmer", role: "K12+ Partnerships", image: aprilPalmer, linkedin: undefined },
+  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
 ];
 
 const advisoryTeam = [
-  { name: "Tom Becker", role: "Integrations", image: tomBecker, linkedin: undefined },
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
-  { name: "Adam Woodward", role: "Ecosystem", image: adamWoodward, linkedin: undefined },
-  { name: "Drew Cleveland", role: "Vibe", image: drewCleveland, linkedin: undefined },
-  { name: "Nick Serfass", role: "Execution", image: nickSerfass, linkedin: undefined },
 ];
 
 const partners = [
@@ -47,9 +33,9 @@ const partners = [
     logo: richmondSeal,
   },
   {
-    name: "AI Ready RVA",
-    subtitle: "AI education | Workforce development | Community training",
-    logo: aiReadyRvaLogo,
+    name: "Fiscal Sponsor",
+    subtitle: "Financial oversight | Legal structure | Grant administration",
+    logo: undefined,
   },
 ];
 

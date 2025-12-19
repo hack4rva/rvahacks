@@ -225,14 +225,14 @@ const roleCategories: RoleCategory[] = [
         responsibilities: [
           "Manages event promotion",
           "Creates content calendar",
-          "Coordinates with AI Ready RVA on marketing",
+          "Coordinates with Fiscal Sponsor on marketing",
           "Live coverage during event"
         ]
       },
       {
         title: "Registration Manager",
         responsibilities: [
-          "Coordinates with AI Ready RVA on registration capacity",
+          "Coordinates with Fiscal Sponsor on registration capacity",
           "Manages satellite location sign-up sheet",
           "Tracks capacity limits"
         ]
