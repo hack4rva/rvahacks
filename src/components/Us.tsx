@@ -17,12 +17,12 @@ const coreTeam = [
   { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
   { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
   { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined },
-  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
 ];
 
 const advisoryTeam = [
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
+  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
 ];
 
 const partners = [
