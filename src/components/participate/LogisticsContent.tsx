@@ -134,7 +134,7 @@ export const LogisticsContent = () => {
               <Badge variant="secondary" className="text-xs shrink-0">Recommended</Badge>
               <div>
                 <p className="font-medium text-foreground">GRTC Pulse BRT</p>
-                <p className="text-muted-foreground">Direct to Science Museum • $1.50 fare • Every 10-15 min</p>
+                <p className="text-muted-foreground">Direct to Science Museum • FREE • Every 10-15 min</p>
               </div>
             </div>
             <div className="grid grid-cols-3 gap-2 text-muted-foreground">
