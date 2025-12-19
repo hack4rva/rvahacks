@@ -1,5 +1,5 @@
 /**
- * Pillar Analysis Page
+ * Mission Page - Pillar Analysis
  * A comprehensive research presentation interface for Richmond's Mayoral Action Plan
  * @source knowledge-base/01-planning-strategy/mayoral-action-plan.md
  */
@@ -43,7 +43,7 @@ const tabs = [
   { id: "data-infrastructure", label: "Data & Recommendations", icon: Database },
 ];
 
-const PillarAnalysis = () => {
+const Mission = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
@@ -171,4 +171,4 @@ const PillarAnalysis = () => {
   );
 };
 
-export default PillarAnalysis;
+export default Mission;
