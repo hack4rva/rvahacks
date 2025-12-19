@@ -73,26 +73,22 @@ export const Us = () => {
                         rel="noopener noreferrer"
                         className="mb-4 hover:opacity-80 transition-opacity"
                       >
-                        <div className="w-28 h-28 rounded-full bg-primary p-1.5">
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full rounded-full object-cover object-top"
-                          />
-                        </div>
-                      </a>
-                    ) : (
-                      <div className="w-28 h-28 rounded-full bg-primary p-1.5 mb-4">
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full rounded-full object-cover object-top"
+                          className="w-24 h-24 rounded-full object-cover object-top"
                         />
-                      </div>
+                      </a>
+                    ) : (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-24 h-24 rounded-full object-cover object-top mb-4"
+                      />
                     )
                   ) : (
-                    <div className="w-28 h-28 rounded-full bg-primary mb-4 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-primary/60" />
+                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
+                      <Users className="w-12 h-12 text-muted-foreground" />
                     </div>
                   )}
                   <h4 className="text-lg font-bold text-foreground mb-2">
@@ -126,26 +122,22 @@ export const Us = () => {
                         rel="noopener noreferrer"
                         className="mb-4 hover:opacity-80 transition-opacity"
                       >
-                        <div className="w-28 h-28 rounded-full bg-primary p-1.5">
-                          <img
-                            src={member.image}
-                            alt={member.name}
-                            className="w-full h-full rounded-full object-cover object-top"
-                          />
-                        </div>
-                      </a>
-                    ) : (
-                      <div className="w-28 h-28 rounded-full bg-primary p-1.5 mb-4">
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full rounded-full object-cover object-top"
+                          className="w-24 h-24 rounded-full object-cover object-top"
                         />
-                      </div>
+                      </a>
+                    ) : (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-24 h-24 rounded-full object-cover object-top mb-4"
+                      />
                     )
                   ) : (
-                    <div className="w-28 h-28 rounded-full bg-primary mb-4 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-primary/60" />
+                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
+                      <Users className="w-12 h-12 text-muted-foreground" />
                     </div>
                   )}
                   <h4 className="text-lg font-bold text-foreground mb-2">
