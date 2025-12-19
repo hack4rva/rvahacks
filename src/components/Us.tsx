@@ -73,7 +73,7 @@ export const Us = () => {
                         rel="noopener noreferrer"
                         className="mb-4 hover:opacity-80 transition-opacity"
                       >
-                        <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5">
+                        <div className="w-28 h-28 rounded-full bg-primary p-1.5">
                           <img
                             src={member.image}
                             alt={member.name}
@@ -82,7 +82,7 @@ export const Us = () => {
                         </div>
                       </a>
                     ) : (
-                      <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5 mb-4">
+                      <div className="w-28 h-28 rounded-full bg-primary p-1.5 mb-4">
                         <img
                           src={member.image}
                           alt={member.name}
@@ -91,7 +91,7 @@ export const Us = () => {
                       </div>
                     )
                   ) : (
-                    <div className="w-24 h-24 rounded-full bg-primary/20 mb-4 flex items-center justify-center">
+                    <div className="w-28 h-28 rounded-full bg-primary mb-4 flex items-center justify-center">
                       <Users className="w-12 h-12 text-primary/60" />
                     </div>
                   )}
@@ -126,7 +126,7 @@ export const Us = () => {
                         rel="noopener noreferrer"
                         className="mb-4 hover:opacity-80 transition-opacity"
                       >
-                        <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5">
+                        <div className="w-28 h-28 rounded-full bg-primary p-1.5">
                           <img
                             src={member.image}
                             alt={member.name}
@@ -135,7 +135,7 @@ export const Us = () => {
                         </div>
                       </a>
                     ) : (
-                      <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5 mb-4">
+                      <div className="w-28 h-28 rounded-full bg-primary p-1.5 mb-4">
                         <img
                           src={member.image}
                           alt={member.name}
@@ -144,7 +144,7 @@ export const Us = () => {
                       </div>
                     )
                   ) : (
-                    <div className="w-24 h-24 rounded-full bg-primary/20 mb-4 flex items-center justify-center">
+                    <div className="w-28 h-28 rounded-full bg-primary mb-4 flex items-center justify-center">
                       <Users className="w-12 h-12 text-primary/60" />
                     </div>
                   )}
