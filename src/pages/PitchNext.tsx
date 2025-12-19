@@ -1,4 +1,4 @@
-import { Calendar, MapPin } from "lucide-react";
+import { Calendar, MapPin, ChevronLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import richmondSeal from "@/assets/richmond-seal.png";
 import qrCode from "@/assets/qr-hackforrva-transparent.png";
@@ -9,9 +9,9 @@ const PitchNext = () => {
       {/* Back button - bottom left corner */}
       <Link 
         to="/pitch"
-        className="absolute bottom-6 left-6 px-4 py-2 text-white/30 hover:text-white/70 transition-colors text-2xl z-20"
+        className="absolute bottom-6 left-6 p-3 text-white/40 hover:text-white/80 hover:bg-white/10 rounded-full transition-all z-20"
       >
-        ←
+        <ChevronLeft className="w-8 h-8" />
       </Link>
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
