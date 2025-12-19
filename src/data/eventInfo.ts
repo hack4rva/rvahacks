@@ -46,7 +46,7 @@ export const venues = {
 export const eventStats = {
   duration: "48hrs",
   durationLabel: "Duration",
-  prizePool: "$25K+",
+  prizePool: "$15K+",
   prizePoolLabel: "Awards Pool",
   participants: "350+",
   participantsLabel: "Participants",

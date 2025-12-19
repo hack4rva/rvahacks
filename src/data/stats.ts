@@ -29,7 +29,7 @@ export const eventStatsDetailed: EventStat[] = [
   },
   {
     icon: DollarSign,
-    value: "$25K",
+    value: "$15K",
     label: "Prize Money",
   },
   {
@@ -42,6 +42,6 @@ export const eventStatsDetailed: EventStat[] = [
 /** Compact stats for Hero and quick views */
 export const eventStatsHero = {
   duration: { value: "48hrs", label: "Duration" },
-  prizePool: { value: "$25K+", label: "Awards Pool" },
+  prizePool: { value: "$15K+", label: "Awards Pool" },
   participants: { value: "350+", label: "Participants" },
 };

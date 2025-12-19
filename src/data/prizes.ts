@@ -44,7 +44,7 @@ export const awardTiers: PrizeAward[] = [
 ];
 
 /** Prize pool total */
-export const prizePoolTotal = "$25K+";
+export const prizePoolTotal = "$15K+";
 
 /** Submission timeline */
 export const prizeTimeline = [
