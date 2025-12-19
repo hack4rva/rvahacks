@@ -1,6 +1,6 @@
 import { Calendar, MapPin } from "lucide-react";
 import richmondSeal from "@/assets/richmond-seal.png";
-import qrCode from "@/assets/qr-code.png";
+import qrCode from "@/assets/qr-hackforrva-transparent.png";
 
 const Pitch = () => {
 
