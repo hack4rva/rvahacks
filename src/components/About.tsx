@@ -13,7 +13,7 @@ const stats = [
   },
   {
     icon: DollarSign,
-    value: "$25K+",
+    value: "$15K+",
     label: "Prize Pool",
   },
   {
