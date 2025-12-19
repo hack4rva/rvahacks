@@ -73,22 +73,26 @@ export const Us = () => {
                         rel="noopener noreferrer"
                         className="mb-4 hover:opacity-80 transition-opacity"
                       >
+                        <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5">
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full rounded-full object-cover object-top"
+                          />
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5 mb-4">
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-24 h-24 rounded-full object-cover object-top border-2 border-border"
+                          className="w-full h-full rounded-full object-cover object-top"
                         />
-                      </a>
-                    ) : (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover object-top border-2 border-border mb-4"
-                      />
+                      </div>
                     )
                   ) : (
-                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center border-2 border-border">
-                      <Users className="w-12 h-12 text-muted-foreground" />
+                    <div className="w-24 h-24 rounded-full bg-primary/20 mb-4 flex items-center justify-center">
+                      <Users className="w-12 h-12 text-primary/60" />
                     </div>
                   )}
                   <h4 className="text-lg font-bold text-foreground mb-2">
@@ -122,22 +126,26 @@ export const Us = () => {
                         rel="noopener noreferrer"
                         className="mb-4 hover:opacity-80 transition-opacity"
                       >
+                        <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5">
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            className="w-full h-full rounded-full object-cover object-top"
+                          />
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="w-24 h-24 rounded-full bg-primary/20 p-0.5 mb-4">
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-24 h-24 rounded-full object-cover object-top border-2 border-border"
+                          className="w-full h-full rounded-full object-cover object-top"
                         />
-                      </a>
-                    ) : (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover object-top border-2 border-border mb-4"
-                      />
+                      </div>
                     )
                   ) : (
-                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center border-2 border-border">
-                      <Users className="w-12 h-12 text-muted-foreground" />
+                    <div className="w-24 h-24 rounded-full bg-primary/20 mb-4 flex items-center justify-center">
+                      <Users className="w-12 h-12 text-primary/60" />
                     </div>
                   )}
                   <h4 className="text-lg font-bold text-foreground mb-2">
