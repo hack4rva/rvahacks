@@ -32,7 +32,7 @@ const signupSchema = z.object({
     .max(100, { message: "Name must be less than 100 characters" })
     .optional()
     .nullable(),
-  interest: z.enum(['participant', 'mentor', 'sponsor', 'volunteer', 'curious'])
+  interest: z.enum(['participant', 'team_lead', 'mentor', 'sponsor', 'volunteer', 'curious'])
     .optional()
     .nullable()
 });
@@ -183,6 +183,7 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
                   </SelectTrigger>
                   <SelectContent className="bg-background border-border z-50">
                     <SelectItem value="participant">Participant</SelectItem>
+                    <SelectItem value="team_lead">Team Lead</SelectItem>
                     <SelectItem value="mentor">Mentor</SelectItem>
                     <SelectItem value="sponsor">Sponsor</SelectItem>
                     <SelectItem value="volunteer">Volunteer</SelectItem>
