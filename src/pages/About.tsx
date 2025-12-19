@@ -68,17 +68,27 @@ const About = () => {
         <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto py-3">
-              <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto gap-2 bg-transparent p-0">
-                {tabs.map((tab) => (
-                  <TabsTrigger
-                    key={tab.id}
-                    value={tab.id}
-                    className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
-                  >
-                    {tab.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
+              <div className="grid w-full grid-cols-4 md:grid-cols-7 h-auto gap-2">
+                {/* Mission Link */}
+                <Link
+                  to="/mission"
+                  className="py-2.5 px-4 border border-accent/50 bg-accent/10 text-accent rounded-lg transition-smooth text-sm font-medium text-center hover:bg-accent/20"
+                >
+                  Mission
+                </Link>
+                {/* Regular Tabs */}
+                <TabsList className="contents bg-transparent p-0">
+                  {tabs.map((tab) => (
+                    <TabsTrigger
+                      key={tab.id}
+                      value={tab.id}
+                      className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
+                    >
+                      {tab.label}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
+              </div>
             </div>
           </div>
         </nav>
