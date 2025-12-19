@@ -50,13 +50,13 @@ const Pitch = () => {
           />
         </div>
 
-        {/* Barely visible next button */}
-        <Link 
-          to="/pitch/next"
-          className="mt-12 px-8 py-3 text-white/10 hover:text-white/40 transition-colors text-sm"
-        >
-          →
-        </Link>
+      {/* Next button - bottom right corner */}
+      <Link 
+        to="/pitch/next"
+        className="absolute bottom-6 right-6 px-4 py-2 text-white/30 hover:text-white/70 transition-colors text-2xl z-20"
+      >
+        →
+      </Link>
       </div>
     </div>
   );
