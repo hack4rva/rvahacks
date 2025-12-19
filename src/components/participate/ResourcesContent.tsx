@@ -112,7 +112,7 @@ export const ResourcesContent = () => {
             </div>
           </div>
           <div className="bg-accent/5 border border-accent/20 rounded p-2 mt-3 text-xs">
-            <strong className="text-foreground">GitHub Organization:</strong> <code className="bg-muted px-1 rounded">github.com/RVA-Civic-Tech</code>
+            <strong className="text-foreground">GitHub Organization:</strong> <code className="bg-muted px-1 rounded">github.com/hack4rva</code>
           </div>
         </CardContent>
       </Card>

@@ -196,7 +196,7 @@ const roleCategories: RoleCategory[] = [
         title: "Platform Administrator",
         responsibilities: [
           "Manages Devpost setup and configuration",
-          "Manages GitHub organization (github.com/RVA-Civic-Tech)",
+          "Manages GitHub organization (github.com/hack4rva)",
           "Sets up Discord/Slack workspace",
           "Implements mentor queue bot",
           "Conducts WiFi stress test 30 days prior",
