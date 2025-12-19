@@ -187,7 +187,7 @@ export const PreparationContent = () => {
             </div>
             <div className="bg-accent/10 border border-accent/20 rounded p-2">
               <p className="text-muted-foreground">
-                <strong className="text-foreground">Deadline:</strong> Saturday 10 PM • Finalists announced Sunday AM
+                <strong className="text-foreground">Deadline:</strong> Saturday 12 PM • Finalists announced Sunday AM
               </p>
             </div>
           </CardContent>
