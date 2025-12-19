@@ -296,7 +296,7 @@ const About = () => {
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground mb-4">
-                        High-potential solutions can pursue independent development with ecosystem support.
+                        High-potential solutions can pursue independent development with ecosystem support. All hackathon projects are open source licensed, so teams are free to build upon their work.
                       </p>
                       <ul className="space-y-2 text-sm">
                         <li className="flex items-start gap-2">
