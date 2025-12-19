@@ -8,9 +8,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
-  FocusAreasGrid, 
-  OpportunityBox, 
-  StatsBar, 
   PrizesGrid, 
   ScheduleTimeline, 
   LeadershipSection,
@@ -20,7 +17,6 @@ import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "l
 import { participantTypes } from "@/data";
 
 const tabs = [
-  { id: "mission", label: "Mission" },
   { id: "schedule", label: "Schedule" },
   { id: "prizes", label: "Prizes" },
   { id: "participants", label: "Who Joins" },
@@ -36,7 +32,7 @@ const About = () => {
   
   const getInitialTab = () => {
     const hash = location.hash.replace("#", "");
-    return tabs.some(t => t.id === hash) ? hash : "mission";
+    return tabs.some(t => t.id === hash) ? hash : "schedule";
   };
   
   const [activeTab, setActiveTab] = useState(getInitialTab);
@@ -72,7 +68,7 @@ const About = () => {
         <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto py-3">
-              <TabsList className="grid w-full grid-cols-4 md:grid-cols-7 h-auto gap-2 bg-transparent p-0">
+              <TabsList className="grid w-full grid-cols-3 md:grid-cols-6 h-auto gap-2 bg-transparent p-0">
                 {tabs.map((tab) => (
                   <TabsTrigger
                     key={tab.id}
@@ -91,33 +87,6 @@ const About = () => {
         <section className="py-6 md:py-8">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-6xl mx-auto">
-              {/* Mission Tab */}
-              <TabsContent value="mission" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-8 text-center">
-                  What We're Building
-                </h2>
-
-                <p className="text-lg text-foreground/90 leading-relaxed text-center mb-6 max-w-3xl mx-auto">
-                  Hack for RVA brings together Richmond's brightest minds to build
-                  a thriving economy for the City of Richmond.
-                </p>
-                
-                <p className="text-base text-muted-foreground leading-relaxed text-center mb-12 max-w-3xl mx-auto">
-                  This isn't just about building apps—it's about designing civic systems that work. In partnership with the <strong className="text-foreground">City of Richmond</strong> and local nonprofits, winning solutions will have real pathways to implementation, pilot programs, and lasting community impact.
-                </p>
-
-                <FocusAreasGrid className="mb-16" />
-
-                <div className="max-w-4xl mx-auto mb-12">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 text-center">
-                    The Opportunity
-                  </h3>
-                  <OpportunityBox />
-                </div>
-
-                <StatsBar />
-              </TabsContent>
-
               {/* Schedule Tab */}
               <TabsContent value="schedule" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
                 <div className="text-center mb-12">
