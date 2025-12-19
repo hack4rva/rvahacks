@@ -21,7 +21,11 @@ import {
   GraduationCap,
   Building,
   HeartPulse,
-  Landmark
+  Landmark,
+  GitBranch,
+  Milestone,
+  HelpCircle,
+  BookOpen
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -118,6 +122,89 @@ const priorityDatasets = [
     statusType: "warning",
     description: "Data on maternal health, opioid overdoses, and life expectancy is held by the Virginia Department of Health.",
     importance: "State data is often aggregated to the 'Health District' level (Richmond City + Henrico County). Must be disaggregated to census tract or neighborhood level for MAP equity goals."
+  }
+];
+
+// Cross-Pillar Analysis Hypotheses
+const crossPillarAnalyses = [
+  {
+    from: "Housing (Pillar 2)",
+    to: "Education (Pillar 3)",
+    hypothesis: "Neighborhoods with high eviction filing rates have lower SOL pass rates and higher chronic absenteeism.",
+    method: "Spatial correlation of HOME eviction data (geocoded) with VDOE school performance data. This analysis can target 'stabilization services' (rental assistance) to the catchment zones of struggling schools."
+  },
+  {
+    from: "City Hall (Pillar 1)",
+    to: "Economy (Pillar 4)",
+    hypothesis: "Reducing the average time for permit processing (Goal A) correlates with an increase in small business formation rates.",
+    method: "Time-series analysis of Permit Duration vs. Business License Issuance lag."
+  }
+];
+
+// Implementation Roadmap Phases (Detailed)
+const implementationPhases = [
+  {
+    phase: "Phase 1: Foundation",
+    timeline: "Months 1-3",
+    subtitle: "Getting the Basics Right",
+    color: "border-blue-500 bg-blue-50/50 dark:bg-blue-950/20",
+    deliverables: [
+      { name: "Internal Vacancy Dashboard", description: "Immediate visibility for the Mayor and CAO into the workforce crisis (Pillar 1)." },
+      { name: "MAP Data Inventory", description: "A complete catalog of all relevant ODP datasets and external partner data assets." }
+    ],
+    action: "Establish a Data Governance Council involving IT, the CAO's office, and key agency heads to enforce data quality standards and unblock silos."
+  },
+  {
+    phase: "Phase 2: Infrastructure",
+    timeline: "Months 4-6",
+    subtitle: "Building the Pipes",
+    color: "border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20",
+    deliverables: [
+      { name: "RVA 311 SLA Protocol", description: "Define 'on-time' for every single request type (e.g., 'Missed Trash: 24 hours,' 'Pothole: 48 hours')." },
+      { name: "Partner MOUs", description: "Sign formal data-sharing agreements with RPS, RRHA, and VDH to secure flows of Tier 2 data (education, housing, health)." }
+    ],
+    action: "Launch the Procurement Dashboard to track spending transparency and SWaM participation in real-time."
+  },
+  {
+    phase: "Phase 3: Analysis & Storytelling",
+    timeline: "Months 7-9",
+    subtitle: "Connecting the Dots",
+    color: "border-purple-500 bg-purple-50/50 dark:bg-purple-950/20",
+    deliverables: [
+      { name: "Cross-Pillar Equity Report", description: "The first analytical product showing how housing, health, and jobs intersect spatially in Richmond." },
+      { name: "Shockoe Project Milestones Update", description: "A public report on the fundraising and design progress of the memorialization campus." }
+    ],
+    action: "Conduct Community Data Walks to present initial findings to residents and validate the narrative."
+  },
+  {
+    phase: "Phase 4: Public Launch",
+    timeline: "Months 10-12",
+    subtitle: "Accountability",
+    color: "border-amber-500 bg-amber-50/50 dark:bg-amber-950/20",
+    deliverables: [
+      { name: "Public MAP Dashboard", description: "A user-friendly, open-data powered website tracking the 7 Pillars with simple 'Red/Yellow/Green' status indicators for the public." },
+      { name: "Annual 'State of the Thriving City' Report", description: "A narrative report that combines hard metrics with the 'Stories' from Pillar 7, closing the loop on the MAP's promise." }
+    ],
+    action: ""
+  }
+];
+
+// Guiding Research Questions
+const guidingQuestions = [
+  {
+    title: "Implementation Realism",
+    question: "Are we measuring what we control, or what we hope for?",
+    context: "The City controls building permits; it hopes for private developers to build affordable housing. Metrics must distinguish between 'Output' (Permits issued) and 'Outcome' (Units built)."
+  },
+  {
+    title: "Equity Diagnosis",
+    question: "Who is burdened by our 'improvements'?",
+    context: "Does aggressive code enforcement (Pillar 2, Goal D) lead to the displacement of low-income homeowners who cannot afford repairs? The data must look for these negative externalities."
+  },
+  {
+    title: "Conceptual Clarity",
+    question: "Does 'Thriving' mean the same thing in every neighborhood?",
+    context: "In Stratford Hills, thriving might mean 'more bike lanes.' In Blackwell, it might mean 'no shootings.' The metrics for Pillar 5 (Inclusive Communities) must be flexible enough to respect these differing priorities."
   }
 ];
 
@@ -721,6 +808,222 @@ export const DataInfrastructureTab = () => {
 
               <InsightCallout type="recommendation" title="Investment Philosophy">
                 Data infrastructure investment should be viewed as foundational—like roads or utilities—not as a discretionary IT expense. The returns manifest across all seven pillars through improved decision-making, reduced redundancy, and enhanced accountability.
+              </InsightCallout>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Analytical Strategy & Methodological Considerations */}
+        <AccordionItem value="analytical-strategy" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <GitBranch className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Analytical Strategy & Methodology</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                To extract actionable intelligence from this data, the City must employ specific analytical strategies that leverage the <strong className="text-foreground">intersections between pillars</strong>.
+              </p>
+
+              {/* Cross-Pillar Analysis */}
+              <div>
+                <h4 className="font-semibold text-foreground mb-4">Cross-Pillar Analysis</h4>
+                <div className="space-y-4">
+                  {crossPillarAnalyses.map((analysis, idx) => (
+                    <Card key={idx} className="bg-muted/20">
+                      <CardHeader className="pb-2">
+                        <CardTitle className="text-base flex items-center gap-2">
+                          <span className="text-primary">{analysis.from}</span>
+                          <ArrowRight className="w-4 h-4 text-muted-foreground" />
+                          <span className="text-primary">{analysis.to}</span>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="space-y-3">
+                        <div>
+                          <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase">Hypothesis</span>
+                          <p className="text-sm text-foreground">{analysis.hypothesis}</p>
+                        </div>
+                        <div>
+                          <span className="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase">Method</span>
+                          <p className="text-sm">{analysis.method}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
+              {/* Spatial Analysis & Disaggregation */}
+              <div>
+                <h4 className="font-semibold text-foreground mb-4">Spatial Analysis & Disaggregation</h4>
+                <Card className="border-primary/30 bg-primary/5">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base">The "One Richmond" Test</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-3 text-sm">
+                    <p>
+                      A city-wide average is often a lie. A "thriving" score of <strong className="text-foreground">8/10</strong> is meaningless if the West End is a <strong className="text-green-600">10</strong> and the East End is a <strong className="text-red-600">4</strong>.
+                    </p>
+                    <p className="font-medium text-foreground">All MAP metrics must be disaggregated by:</p>
+                    <div className="grid gap-2 mt-2">
+                      <div className="flex items-center gap-2 p-2 bg-background rounded border border-border">
+                        <Badge variant="outline">Race/Ethnicity</Badge>
+                        <span>To track the "Inclusive Communities" pillar</span>
+                      </div>
+                      <div className="flex items-center gap-2 p-2 bg-background rounded border border-border">
+                        <Badge variant="outline">Geography</Badge>
+                        <span>Council Districts (political accountability) and Census Tracts (neighborhood targeting)</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <div className="mt-4">
+                  <InsightCallout type="recommendation" title="Equity Index Template">
+                    The City should utilize the <strong>Climate Equity Index</strong> from RVAgreen 2050 as a template. This index overlays social vulnerability with climate risk. A broader "MAP Equity Index" could overlay health, housing, and economic factors to generate a single composite score for prioritizing CIP investments.
+                  </InsightCallout>
+                </div>
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Implementation Roadmap & Deliverables */}
+        <AccordionItem value="implementation-roadmap" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <Milestone className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Implementation Roadmap</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                This roadmap outlines the phases for maturing the MAP from a document into a <strong className="text-foreground">data-driven operating system</strong>.
+              </p>
+
+              <div className="space-y-6">
+                {implementationPhases.map((phase, idx) => (
+                  <Card key={idx} className={`border-l-4 ${phase.color}`}>
+                    <CardHeader className="pb-3">
+                      <div className="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                          <CardTitle className="text-lg">{phase.phase}</CardTitle>
+                          <p className="text-sm text-muted-foreground italic">"{phase.subtitle}"</p>
+                        </div>
+                        <Badge variant="secondary">{phase.timeline}</Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="space-y-3">
+                        {phase.deliverables.map((deliverable, dIdx) => (
+                          <div key={dIdx} className="flex items-start gap-3 p-3 bg-background rounded-lg border border-border">
+                            <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                            <div>
+                              <span className="font-medium text-foreground">{deliverable.name}</span>
+                              <p className="text-sm text-muted-foreground mt-1">{deliverable.description}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      {phase.action && (
+                        <div className="flex items-start gap-2 p-3 bg-primary/5 rounded border-l-2 border-primary">
+                          <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                          <div>
+                            <span className="text-xs font-semibold text-primary uppercase">Action</span>
+                            <p className="text-sm text-foreground">{phase.action}</p>
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Guiding Research Questions */}
+        <AccordionItem value="guiding-questions" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <HelpCircle className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Guiding Research Questions</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-6 text-muted-foreground">
+              <p>
+                To ensure the MAP remains a living framework, the administration must continually interrogate the data with these critical questions:
+              </p>
+
+              <div className="space-y-4">
+                {guidingQuestions.map((q, idx) => (
+                  <Card key={idx} className="bg-muted/20">
+                    <CardHeader className="pb-2">
+                      <CardTitle className="text-base flex items-center gap-2">
+                        <Badge variant="outline" className="text-primary border-primary">{q.title}</Badge>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-2">
+                      <p className="font-semibold text-foreground text-lg italic">"{q.question}"</p>
+                      <p className="text-sm">
+                        <strong className="text-muted-foreground">Context:</strong> {q.context}
+                      </p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </AccordionContent>
+        </AccordionItem>
+
+        {/* Conclusion */}
+        <AccordionItem value="conclusion" className="border border-border rounded-lg px-6 bg-card">
+          <AccordionTrigger className="hover:no-underline py-6">
+            <div className="flex items-center gap-3">
+              <BookOpen className="w-5 h-5 text-primary" />
+              <span className="text-xl font-semibold text-foreground">Conclusion</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-6">
+            <div className="space-y-6 text-muted-foreground">
+              <p className="text-lg leading-relaxed">
+                The Mayoral Action Plan represents a sophisticated attempt to impose <strong className="text-foreground">order, values, and accountability</strong> onto the complex organism of Richmond city government. Its seven-pillar structure is sound, correctly identifying that external success (Neighborhoods, Families, Economy) is contingent upon internal administrative health (City Hall).
+              </p>
+
+              <Card className="border-amber-300 dark:border-amber-700 bg-amber-50/50 dark:bg-amber-950/20">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-base flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-amber-500" />
+                    The Critical Dependency
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm">
+                    The vision of a "Thriving Richmond" faces a critical dependency: <strong className="text-foreground">Data</strong>. The current data ecosystem is transparent in form (open budget, contracts) but lacks the <em>connective intelligence</em> required to solve wicked problems like intergenerational poverty or maternal health disparities.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
+                <h4 className="font-semibold text-foreground mb-3">Immediate Priority for the Avula Administration</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Close the "Tier 1" data gaps—specifically regarding <strong className="text-foreground">workforce vacancies</strong> and <strong className="text-foreground">service level performance</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                    <span>Formalize data-sharing partnerships with the institutions (RPS, VDH, Courts) that hold the keys to the city's social health</span>
+                  </li>
+                </ul>
+              </div>
+
+              <InsightCallout type="insight" title="The Path Forward">
+                By treating data not as a byproduct of government but as a <strong>strategic asset</strong>, the MAP can evolve from a static PDF into a dynamic operating system, driving Richmond toward a future where "thriving" is not just a slogan, but a <em>measurable reality for every resident</em>.
               </InsightCallout>
             </div>
           </AccordionContent>
