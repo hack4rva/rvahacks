@@ -37,6 +37,7 @@ export const Footer = () => {
                 <li key={link.label}>
                   <Link 
                     to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-smooth"
                   >
                     {link.label}
@@ -54,6 +55,7 @@ export const Footer = () => {
                 <li key={link.label}>
                   <Link 
                     to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-smooth"
                   >
                     {link.label}
@@ -71,6 +73,7 @@ export const Footer = () => {
                 <li key={link.label}>
                   <Link 
                     to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-smooth"
                   >
                     {link.label}
@@ -88,6 +91,7 @@ export const Footer = () => {
                 <li key={link.label}>
                   <Link 
                     to={link.href}
+                    onClick={() => window.scrollTo(0, 0)}
                     className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-smooth"
                   >
                     {link.label}
