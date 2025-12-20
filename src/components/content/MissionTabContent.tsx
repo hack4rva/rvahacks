@@ -12,7 +12,6 @@ import {
   Leaf, 
   Heart, 
   Globe,
-  Database,
   ChevronLeft,
   ChevronRight,
   FileText,
@@ -22,7 +21,6 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { PillarAnalysisHero } from "@/components/pillar-analysis/PillarAnalysisHero";
 import { OverviewTab } from "@/components/pillar-analysis/tabs/OverviewTab";
 import { PillarTab } from "@/components/pillar-analysis/tabs/PillarTab";
-import { DataInfrastructureTab } from "@/components/pillar-analysis/tabs/DataInfrastructureTab";
 import { pillarData } from "@/data/pillarAnalysis";
 
 const missionTabs = [
@@ -34,7 +32,6 @@ const missionTabs = [
   { id: "pillar-5", label: "Pillar 5", icon: Leaf },
   { id: "pillar-6", label: "Pillar 6", icon: Heart },
   { id: "pillar-7", label: "Pillar 7", icon: Globe },
-  { id: "data-infrastructure", label: "Data & Recommendations", icon: Database, shortLabel: "Data" },
 ];
 
 export const MissionTabContent = () => {
@@ -63,10 +60,7 @@ export const MissionTabContent = () => {
                 className="relative px-3 md:px-4 py-3 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent data-[state=active]:text-primary font-medium text-xs md:text-sm whitespace-nowrap transition-all"
               >
                 <tab.icon className="w-4 h-4 mr-1 md:mr-2 hidden sm:inline-block" />
-                <span className="hidden lg:inline">{tab.label}</span>
-                <span className="lg:hidden">
-                  {tab.shortLabel || tab.label}
-                </span>
+                <span>{tab.label}</span>
               </TabsTrigger>
             ))}
           </TabsList>
@@ -89,10 +83,6 @@ export const MissionTabContent = () => {
               />
             </TabsContent>
           ))}
-          
-          <TabsContent value="data-infrastructure" className="mt-0">
-            <DataInfrastructureTab />
-          </TabsContent>
         </Tabs>
 
         {/* Sub-Tab Navigation Footer */}
