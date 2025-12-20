@@ -14,7 +14,7 @@ export const awardTiers: PrizeAward[] = [
   {
     title: "Mayor's Choice",
     amount: "$5,000",
-    description: "Best Overall Solution",
+    description: "Ready for Integration",
     color: "border-yellow-500 bg-yellow-500/10",
   },
   {
@@ -26,7 +26,7 @@ export const awardTiers: PrizeAward[] = [
   {
     title: "Judges' Choice",
     amount: "$2,500",
-    description: "Technical Excellence",
+    description: "Best Overall Solution",
     color: "border-violet-500 bg-violet-500/10",
   },
   {
