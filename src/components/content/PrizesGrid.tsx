@@ -25,20 +25,29 @@ const AwardCard = ({ award, featured = false }: AwardCardProps) => {
   };
 
   if (featured) {
+    // Determine icon color based on award color
+    const iconColor = award.color?.includes('yellow') ? 'text-yellow-500' : 
+                      award.color?.includes('pink') ? 'text-pink-500' : 
+                      award.color?.includes('violet') ? 'text-violet-500' : 'text-yellow-500';
+    const bgColor = award.color?.includes('yellow') ? 'bg-yellow-500/20' : 
+                    award.color?.includes('pink') ? 'bg-pink-500/20' : 
+                    award.color?.includes('violet') ? 'bg-violet-500/20' : 'bg-yellow-500/20';
+    const textColor = award.color?.includes('yellow') ? 'text-yellow-600 dark:text-yellow-400' : 
+                      award.color?.includes('pink') ? 'text-pink-600 dark:text-pink-400' : 
+                      award.color?.includes('violet') ? 'text-violet-600 dark:text-violet-400' : 'text-yellow-600 dark:text-yellow-400';
+    
     return (
-      <Card className={`border-2 ${award.color || "border-border"} transition-all duration-200 hover:shadow-lg`}>
-        <CardContent className="py-8 px-6 text-center">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <div className="w-16 h-16 rounded-full bg-yellow-500/20 flex items-center justify-center">
-              <Trophy className="w-8 h-8 text-yellow-500" />
-            </div>
-            <div className="text-center sm:text-left">
-              <p className="text-sm font-medium text-yellow-600 dark:text-yellow-400 uppercase tracking-wide mb-1">Grand Prize</p>
-              <p className="text-4xl sm:text-5xl font-bold text-foreground mb-1">{award.amount}</p>
-              <p className="text-lg font-semibold text-foreground">{award.title}</p>
-              <p className="text-sm text-muted-foreground mt-1">{award.description}</p>
-            </div>
+      <Card className={`border-2 ${award.color || "border-border"} transition-all duration-200 hover:shadow-lg hover:scale-[1.02]`}>
+        <CardContent className="py-6 px-4 text-center">
+          <div className={`w-14 h-14 rounded-full ${bgColor} flex items-center justify-center mx-auto mb-3`}>
+            <Trophy className={`w-7 h-7 ${iconColor}`} />
           </div>
+          <p className={`text-xs font-medium ${textColor} uppercase tracking-wide mb-1`}>
+            {award.title === "Mayor's Choice" ? "Grand Prize" : "Top Prize"}
+          </p>
+          <p className="text-3xl font-bold text-foreground mb-1">{award.amount}</p>
+          <p className="text-sm font-semibold text-foreground">{award.title}</p>
+          <p className="text-xs text-muted-foreground mt-1">{award.description}</p>
         </CardContent>
       </Card>
     );
@@ -70,7 +79,9 @@ interface PrizesGridProps {
 }
 
 export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridProps) => {
-  const [grandPrize, ...pillarAwards] = awardTiers;
+  // First 3 are grand prizes, rest are pillar awards
+  const grandPrizes = awardTiers.slice(0, 3);
+  const pillarAwards = awardTiers.slice(3);
   
   return (
     <div className={className}>
@@ -90,9 +101,11 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         </div>
       )}
 
-      {/* Grand Prize - Featured */}
-      <div className="mb-8">
-        <AwardCard award={grandPrize} featured />
+      {/* Grand Prizes - Featured */}
+      <div className="mb-8 grid md:grid-cols-3 gap-4">
+        {grandPrizes.map((prize, index) => (
+          <AwardCard key={index} award={prize} featured />
+        ))}
       </div>
 
       {/* Pillar Awards Section */}

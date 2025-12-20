@@ -18,6 +18,18 @@ export const awardTiers: PrizeAward[] = [
     color: "border-yellow-500 bg-yellow-500/10",
   },
   {
+    title: "People's Choice",
+    amount: "$2,500",
+    description: "Audience Favorite",
+    color: "border-pink-500 bg-pink-500/10",
+  },
+  {
+    title: "Judges' Choice",
+    amount: "$2,500",
+    description: "Technical Excellence",
+    color: "border-violet-500 bg-violet-500/10",
+  },
+  {
     title: "Pillar 1: Thriving City Hall",
     amount: "$1,000",
     description: "Government efficiency, service delivery, IT modernization",
@@ -62,7 +74,7 @@ export const awardTiers: PrizeAward[] = [
 ];
 
 /** Prize pool total */
-export const prizePoolTotal = "$12K+";
+export const prizePoolTotal = "$17K+";
 
 /** Submission timeline */
 export const prizeTimeline = [
