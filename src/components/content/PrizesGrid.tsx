@@ -128,12 +128,16 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
       <div className="space-y-3">
         <div className="flex justify-center gap-3">
           {pillarAwards.slice(0, 4).map((award, index) => (
-            <AwardCard key={index} award={award} />
+            <div key={index} className="w-[160px]">
+              <AwardCard award={award} />
+            </div>
           ))}
         </div>
         <div className="flex justify-center gap-3">
           {pillarAwards.slice(4).map((award, index) => (
-            <AwardCard key={index + 4} award={award} />
+            <div key={index + 4} className="w-[160px]">
+              <AwardCard award={award} />
+            </div>
           ))}
         </div>
       </div>
