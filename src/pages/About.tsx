@@ -15,7 +15,7 @@ import {
   MissionTabContent
 } from "@/components/content";
 import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
-import { participantTypes } from "@/data";
+import { participantTypes, sectors, teamRoles } from "@/data";
 
 const tabs = [
   { id: "schedule", label: "Schedule" },
@@ -121,73 +121,107 @@ const About = () => {
                 <PrizesGrid />
               </TabsContent>
 
-              {/* People Tab - Combined Participants & Team */}
+              {/* People Tab - Two Column Layout */}
               <TabsContent value="people" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
-                {/* Who Participates Section */}
-                <div className="text-center mb-10">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-                    Who Participates
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3">
+                    People
                   </h2>
-                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                    Every winning team needs {participantTypes.map(p => p.title).join(", ").replace(/, ([^,]*)$/, ", and $1")}. Find your role.
+                  <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+                    Join as a participant or help lead the event.
                   </p>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-6 mb-8">
-                  {participantTypes.map((type, index) => (
-                    <Card key={index} className="border-border shadow-elegant hover:shadow-hover transition-smooth">
-                      <CardHeader className="text-center">
-                        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                          {type.svgPath ? (
-                            <svg className="w-8 h-8 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={type.svgPath} />
-                            </svg>
-                          ) : (
-                            <type.icon className="w-8 h-8 text-accent" />
-                          )}
-                        </div>
-                        <CardTitle>{type.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="text-center">
-                        <p className="text-sm text-muted-foreground">
-                          {type.description}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                <div className="text-center mb-16">
-                  <Button 
-                    onClick={handleCTAClick}
-                    className="bg-accent hover:bg-accent/90 text-accent-foreground"
-                  >
-                    Stay Updated
-                  </Button>
-                </div>
-
-                {/* Divider */}
-                <div className="border-t border-border my-12" />
-
-                {/* Team Section */}
-                <div className="max-w-5xl mx-auto">
-                  <div className="text-center mb-10">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-                      Who Makes This Happen
-                    </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                      A coalition of leaders from across Richmond's tech, civic, nonprofit, and education sectors.
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Left Column - Participate */}
+                  <div className="bg-card border border-border rounded-xl p-6">
+                    <h3 className="text-xl font-bold text-foreground mb-2 text-center">Participate</h3>
+                    <p className="text-sm text-muted-foreground text-center mb-5">
+                      Every team needs all three roles
                     </p>
+                    
+                    <div className="space-y-3">
+                      {participantTypes.map((type, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-background border border-border">
+                          <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                            {type.svgPath ? (
+                              <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={type.svgPath} />
+                              </svg>
+                            ) : (
+                              <type.icon className="w-5 h-5 text-accent" />
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h4 className="font-semibold text-foreground text-sm">{type.title}</h4>
+                            <p className="text-xs text-muted-foreground line-clamp-2">
+                              {type.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="text-center mt-5">
+                      <Button 
+                        onClick={handleCTAClick}
+                        size="sm"
+                        className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                      >
+                        Stay Updated
+                      </Button>
+                    </div>
                   </div>
 
-                  <LeadershipSection showGetInvolvedLink={true} />
+                  {/* Right Column - Lead */}
+                  <div className="bg-card border border-border rounded-xl p-6">
+                    <h3 className="text-xl font-bold text-foreground mb-2 text-center">Lead</h3>
+                    <p className="text-sm text-muted-foreground text-center mb-5">
+                      Richmond's cross-sector coalition
+                    </p>
+                    
+                    {/* Compact sector badges */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-5">
+                      {sectors.map((sector, index) => (
+                        <div
+                          key={index}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background border border-border text-xs font-medium text-foreground"
+                        >
+                          <sector.icon className="w-3 h-3 text-accent" />
+                          {sector.label}
+                        </div>
+                      ))}
+                    </div>
 
-                  <div className="text-center mt-10">
-                    <Link to="/team">
-                      <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
-                        Meet the Full Team <ArrowRight className="ml-2 w-4 h-4" />
-                      </Button>
-                    </Link>
+                    {/* Compact team cards */}
+                    <div className="space-y-3">
+                      {teamRoles.map((team, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 rounded-lg bg-background border border-border">
+                          <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0">
+                            <team.icon className="w-5 h-5 text-accent" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-2">
+                              <h4 className="font-semibold text-foreground text-sm">{team.title}</h4>
+                              <span className="text-xs text-muted-foreground bg-muted px-2 py-0.5 rounded-full flex-shrink-0">
+                                {team.count}
+                              </span>
+                            </div>
+                            <p className="text-xs text-muted-foreground line-clamp-2">
+                              {team.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="text-center mt-5">
+                      <Link to="/team">
+                        <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent/10">
+                          Meet the Team <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
+                        </Button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </TabsContent>
