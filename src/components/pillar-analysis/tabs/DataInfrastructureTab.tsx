@@ -5,7 +5,6 @@
 
 import { 
   Database,
-  Layers,
   Map,
   Brain,
   DollarSign,
@@ -23,9 +22,7 @@ import {
   HeartPulse,
   Landmark,
   GitBranch,
-  Milestone,
-  HelpCircle,
-  BookOpen
+  Layers
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -1012,151 +1009,13 @@ export const DataInfrastructureTab = () => {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Implementation Roadmap & Deliverables */}
-        <AccordionItem value="implementation-roadmap" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <Milestone className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Implementation Roadmap</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-6 text-muted-foreground">
-              <p>
-                This roadmap outlines the phases for maturing the MAP from a document into a <strong className="text-foreground">data-driven operating system</strong>.
-              </p>
 
-              <div className="space-y-6">
-                {implementationPhases.map((phase, idx) => (
-                  <Card key={idx} className={`border-l-4 ${phase.color}`}>
-                    <CardHeader className="pb-3">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <div>
-                          <CardTitle className="text-lg">{phase.phase}</CardTitle>
-                          <p className="text-sm text-muted-foreground italic">"{phase.subtitle}"</p>
-                        </div>
-                        <Badge variant="secondary">{phase.timeline}</Badge>
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                      <div className="space-y-3">
-                        {phase.deliverables.map((deliverable, dIdx) => (
-                          <div key={dIdx} className="flex items-start gap-3 p-3 bg-background rounded-lg border border-border">
-                            <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
-                            <div>
-                              <span className="font-medium text-foreground">{deliverable.name}</span>
-                              <p className="text-sm text-muted-foreground mt-1">{deliverable.description}</p>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                      {phase.action && (
-                        <div className="flex items-start gap-2 p-3 bg-primary/5 rounded border-l-2 border-primary">
-                          <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                          <div>
-                            <span className="text-xs font-semibold text-primary uppercase">Action</span>
-                            <p className="text-sm text-foreground">{phase.action}</p>
-                          </div>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Guiding Research Questions */}
-        <AccordionItem value="guiding-questions" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <HelpCircle className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Guiding Research Questions</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-6 text-muted-foreground">
-              <p>
-                To ensure the MAP remains a living framework, the administration must continually interrogate the data with these critical questions:
-              </p>
-
-              <div className="space-y-4">
-                {guidingQuestions.map((q, idx) => (
-                  <Card key={idx} className="bg-muted/20">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-base flex items-center gap-2">
-                        <Badge variant="outline" className="text-primary border-primary">{q.title}</Badge>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      <p className="font-semibold text-foreground text-lg italic">"{q.question}"</p>
-                      <p className="text-sm">
-                        <strong className="text-muted-foreground">Context:</strong> {q.context}
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Conclusion */}
-        <AccordionItem value="conclusion" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <BookOpen className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Conclusion</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-6 text-muted-foreground">
-              <p className="text-lg leading-relaxed">
-                The Mayoral Action Plan represents a sophisticated attempt to impose <strong className="text-foreground">order, values, and accountability</strong> onto the complex organism of Richmond city government. Its seven-pillar structure is sound, correctly identifying that external success (Neighborhoods, Families, Economy) is contingent upon internal administrative health (City Hall).
-              </p>
-
-              <Card className="border-amber-300 dark:border-amber-700 bg-amber-50/50 dark:bg-amber-950/20">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-base flex items-center gap-2">
-                    <AlertCircle className="w-5 h-5 text-amber-500" />
-                    The Critical Dependency
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm">
-                    The vision of a "Thriving Richmond" faces a critical dependency: <strong className="text-foreground">Data</strong>. The current data ecosystem is transparent in form (open budget, contracts) but lacks the <em>connective intelligence</em> required to solve wicked problems like intergenerational poverty or maternal health disparities.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-                <h4 className="font-semibold text-foreground mb-3">Immediate Priority for the Avula Administration</h4>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Close the "Tier 1" data gaps—specifically regarding <strong className="text-foreground">workforce vacancies</strong> and <strong className="text-foreground">service level performance</strong></span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                    <span>Formalize data-sharing partnerships with the institutions (RPS, VDH, Courts) that hold the keys to the city's social health</span>
-                  </li>
-                </ul>
-              </div>
-
-              <InsightCallout type="insight" title="The Path Forward">
-                By treating data not as a byproduct of government but as a <strong>strategic asset</strong>, the MAP can evolve from a static PDF into a dynamic operating system, driving Richmond toward a future where "thriving" is not just a slogan, but a <em>measurable reality for every resident</em>.
-              </InsightCallout>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Works Cited / Sources */}
+        {/* Data Sources & Resources */}
         <AccordionItem value="works-cited" className="border border-border rounded-lg px-6 bg-card">
           <AccordionTrigger className="hover:no-underline py-6">
             <div className="flex items-center gap-3">
               <FileSpreadsheet className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Sources & References</span>
+              <span className="text-xl font-semibold text-foreground">Data Sources & Resources</span>
             </div>
           </AccordionTrigger>
           <AccordionContent className="pb-6">

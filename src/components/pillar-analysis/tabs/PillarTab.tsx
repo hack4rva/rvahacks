@@ -9,7 +9,6 @@ import {
   BarChart3,
   Database,
   Link2,
-  AlertTriangle,
   Lightbulb
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -201,64 +200,43 @@ export const PillarTab = ({ pillarNumber, data, onNavigateToPillar }: PillarTabP
           </AccordionContent>
         </AccordionItem>
 
-        {/* Risk Factors & Challenges */}
-        <AccordionItem value="risks" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-5">
-            <div className="flex items-center gap-3">
-              <AlertTriangle className="w-5 h-5 text-amber-500" />
-              <span className="text-lg font-semibold text-foreground">Risk Factors & Challenges</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-3">
-              {data.risks && data.risks.length > 0 ? (
-                data.risks.map((risk, idx) => (
-                  <InsightCallout key={idx} type="warning" title={risk.title}>
-                    {risk.description}
-                  </InsightCallout>
-                ))
-              ) : (
-                <p className="text-muted-foreground">Risk analysis to be added.</p>
-              )}
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Strategic Recommendations */}
-        <AccordionItem value="recommendations" className="border border-border rounded-lg px-6 bg-card">
+        {/* Hackathon Ideas */}
+        <AccordionItem value="hackathon-ideas" className="border border-border rounded-lg px-6 bg-card">
           <AccordionTrigger className="hover:no-underline py-5">
             <div className="flex items-center gap-3">
               <Lightbulb className="w-5 h-5 text-primary" />
-              <span className="text-lg font-semibold text-foreground">Strategic Recommendations</span>
+              <span className="text-lg font-semibold text-foreground">Hackathon Ideas</span>
             </div>
           </AccordionTrigger>
           <AccordionContent className="pb-6">
             <div className="space-y-4">
               {data.recommendations && data.recommendations.length > 0 ? (
                 <div className="grid gap-3">
-                  {data.recommendations.map((rec, idx) => (
-                    <Card key={idx} className={rec.priority === "quick-win" ? "border-green-200 bg-green-50/50 dark:border-green-800 dark:bg-green-950/20" : ""}>
+                  {data.recommendations.filter(rec => rec.priority === "quick-win").map((rec, idx) => (
+                    <Card key={idx} className="border-primary/30 bg-primary/5">
                       <CardContent className="p-4">
                         <div className="flex items-start gap-3">
                           <span className="w-8 h-8 rounded-full bg-primary/10 text-primary font-bold flex items-center justify-center flex-shrink-0">
                             {idx + 1}
                           </span>
                           <div>
-                            <div className="flex items-center gap-2 mb-1">
-                              <h5 className="font-medium text-foreground">{rec.title}</h5>
-                              {rec.priority === "quick-win" && (
-                                <Badge className="bg-green-100 text-green-800 text-xs">Quick Win</Badge>
-                              )}
-                            </div>
+                            <h5 className="font-medium text-foreground mb-1">{rec.title}</h5>
                             <p className="text-sm text-muted-foreground">{rec.description}</p>
                           </div>
                         </div>
                       </CardContent>
                     </Card>
                   ))}
+                  {data.recommendations.filter(rec => rec.priority === "quick-win").length === 0 && (
+                    <p className="text-muted-foreground">
+                      Explore the data assets above to identify opportunities for dashboards, integrations, or analysis tools.
+                    </p>
+                  )}
                 </div>
               ) : (
-                <p className="text-muted-foreground">Recommendations to be developed based on full analysis.</p>
+                <p className="text-muted-foreground">
+                  Look at the data gaps and existing assets above—these represent opportunities for hackathon projects.
+                </p>
               )}
             </div>
           </AccordionContent>

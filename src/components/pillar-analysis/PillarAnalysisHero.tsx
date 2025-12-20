@@ -44,17 +44,17 @@ export const PillarAnalysisHero = () => {
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
             A Comprehensive Deconstruction of the{" "}
             <span className="text-primary font-medium">Seven Pillars</span>{" "}
-            of a Thriving Richmond
+          of a Thriving Richmond
           </p>
 
-          {/* Executive Summary Card */}
+          {/* Hackathon Context Card */}
           <Card className="text-left bg-card/80 backdrop-blur-sm border-border/50 shadow-lg">
             <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
               <CollapsibleTrigger className="w-full">
                 <div className="flex items-center justify-between p-6 cursor-pointer hover:bg-muted/30 transition-colors rounded-t-lg">
                   <div className="flex items-center gap-3">
                     <Network className="w-5 h-5 text-primary" />
-                    <h2 className="text-lg font-semibold text-foreground">Executive Summary</h2>
+                    <h2 className="text-lg font-semibold text-foreground">What You Need to Know</h2>
                   </div>
                   {isExpanded ? (
                     <ChevronUp className="w-5 h-5 text-muted-foreground" />
@@ -68,15 +68,15 @@ export const PillarAnalysisHero = () => {
                 <CardContent className="pt-0 pb-6 px-6">
                   <div className="prose prose-sm max-w-none text-muted-foreground">
                     <p className="mb-4">
-                      The Mayoral Action Plan (MAP) represents a paradigm shift from reactive governance to a proactive <strong className="text-foreground">"culture of delivery"</strong>—a framework where municipal operations are measured, transparent, and accountable to tangible outcomes rather than bureaucratic processes.
+                      Mayor Danny Avula's <strong className="text-foreground">Mayoral Action Plan (MAP)</strong> is the city's operational roadmap for making Richmond thrive. It's organized into seven pillars—from City Hall efficiency to neighborhood development to environmental sustainability.
                     </p>
                     <p className="mb-4">
-                      This analysis deconstructs the seven strategic pillars that form the architectural foundation of Mayor Danny Avula's vision for Richmond. Each pillar represents not merely a policy domain, but an interconnected system of metrics, dependencies, and institutional relationships that must function cohesively to achieve the administration's stated objectives.
+                      For this hackathon, understanding these pillars helps you identify <strong className="text-foreground">real problems with available data</strong>. Each pillar has goals, metrics the city wants to track, and gaps where data is missing or fragmented.
                     </p>
                     <div className="bg-primary/5 border-l-4 border-primary p-4 rounded-r-lg mt-4">
-                      <p className="text-sm font-medium text-foreground mb-1">Key Insight</p>
+                      <p className="text-sm font-medium text-foreground mb-1">How to Use This</p>
                       <p className="text-sm">
-                        The MAP's success hinges on recognizing that these pillars are not siloed initiatives but interconnected systems. Pillar 1 (City Hall efficiency) serves as the operational bottleneck for all other pillars—vacancy rates in critical departments directly throttle permit processing, code enforcement, and service delivery across the entire municipal apparatus.
+                        Browse the pillars to find challenges that match your skills. Look for data gaps—these are opportunities to build something that helps the city measure what matters.
                       </p>
                     </div>
                   </div>
