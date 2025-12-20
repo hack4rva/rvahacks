@@ -27,14 +27,14 @@ import { pillarData } from "@/data/pillarAnalysis";
 
 const missionTabs = [
   { id: "overview", label: "Overview", icon: FileText },
-  { id: "pillar-1", label: "Pillar 1", icon: Building2, shortLabel: "City Hall" },
-  { id: "pillar-2", label: "Pillar 2", icon: Shield, shortLabel: "Safety" },
-  { id: "pillar-3", label: "Pillar 3", icon: Briefcase, shortLabel: "Opportunity" },
-  { id: "pillar-4", label: "Pillar 4", icon: TrendingUp, shortLabel: "Economy" },
-  { id: "pillar-5", label: "Pillar 5", icon: Leaf, shortLabel: "Environment" },
-  { id: "pillar-6", label: "Pillar 6", icon: Heart, shortLabel: "Reconciliation" },
-  { id: "pillar-7", label: "Pillar 7", icon: Globe, shortLabel: "Regional" },
-  { id: "data-infrastructure", label: "Data & Recommendations", icon: Database },
+  { id: "pillar-1", label: "Pillar 1", icon: Building2 },
+  { id: "pillar-2", label: "Pillar 2", icon: Shield },
+  { id: "pillar-3", label: "Pillar 3", icon: Briefcase },
+  { id: "pillar-4", label: "Pillar 4", icon: TrendingUp },
+  { id: "pillar-5", label: "Pillar 5", icon: Leaf },
+  { id: "pillar-6", label: "Pillar 6", icon: Heart },
+  { id: "pillar-7", label: "Pillar 7", icon: Globe },
+  { id: "data-infrastructure", label: "Data & Recommendations", icon: Database, shortLabel: "Data" },
 ];
 
 export const MissionTabContent = () => {
