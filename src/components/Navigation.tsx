@@ -17,7 +17,7 @@ const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Participate", href: "/participate" },
-  { label: "Partners", href: "/partners" },
+  { label: "Partner", href: "/partners" },
 ];
 
 interface NavigationProps {
