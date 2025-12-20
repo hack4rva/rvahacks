@@ -7,26 +7,16 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { awardTiers, prizePoolTotal } from "@/data";
 import { 
   Code, Palette, Briefcase, Landmark, 
-  Heart, Lightbulb, HandHeart, Award, Clock, Search
+  Heart, HandHeart, Award, Clock, Search, Trophy
 } from "lucide-react";
 
 const tabs = [
   { id: "sponsors", label: "Sponsors" },
   { id: "mentors", label: "Mentors" },
   { id: "volunteers", label: "Volunteers" },
-];
-
-const awardTiers = [
-  { tier: "Mayor's Choice", amount: "$5,000", quantity: "1 available", desc: "Best Overall Solution", color: "border-yellow-500 bg-yellow-500/10" },
-  { tier: "Pillar 1: Thriving City Hall", amount: "$1,000", quantity: "Pillar Award", desc: "Government efficiency, service delivery, IT modernization", color: "border-blue-500 bg-blue-500/10" },
-  { tier: "Pillar 2: Thriving Neighborhoods", amount: "$1,000", quantity: "Pillar Award", desc: "Housing production, affordability, eviction prevention", color: "border-red-500 bg-red-500/10" },
-  { tier: "Pillar 3: Thriving Families", amount: "$1,000", quantity: "Pillar Award", desc: "Education, youth programs, out-of-school time", color: "border-purple-500 bg-purple-500/10" },
-  { tier: "Pillar 4: Thriving Economy", amount: "$1,000", quantity: "Pillar Award", desc: "Workforce development, small business, economic mobility", color: "border-emerald-500 bg-emerald-500/10" },
-  { tier: "Pillar 5: Inclusive Communities", amount: "$1,000", quantity: "Pillar Award", desc: "Health equity, civil rights, community belonging", color: "border-green-500 bg-green-500/10" },
-  { tier: "Pillar 6: Thriving Environment", amount: "$1,000", quantity: "Pillar Award", desc: "Climate action, green infrastructure, sustainability", color: "border-amber-500 bg-amber-500/10" },
-  { tier: "Pillar 7: City Stories", amount: "$1,000", quantity: "Pillar Award", desc: "Historical truth-telling, Shockoe Project, reconciliation", color: "border-cyan-500 bg-cyan-500/10" },
 ];
 
 const Partners = () => {
@@ -140,23 +130,59 @@ const Partners = () => {
                     </CardContent>
                   </Card>
                   
-                  {/* Award Tiers */}
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
-                    {awardTiers.map((tier, idx) => (
-                      <Card key={idx} className={`border-2 ${tier.color}`}>
-                        <CardContent className="pt-4 pb-4 text-center">
-                          <p className="text-2xl font-bold text-foreground mb-0.5">{tier.amount}</p>
-                          <p className="text-sm font-medium text-foreground">{tier.tier}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{tier.desc}</p>
-                        </CardContent>
-                      </Card>
-                    ))}
+                  {/* Prize Pool Banner */}
+                  <div className="relative mb-6 overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-pink-500/20 to-violet-500/20 rounded-xl" />
+                    <div className="relative px-6 py-6 text-center rounded-xl border border-accent/20">
+                      <div className="flex items-center justify-center gap-2 mb-1">
+                        <Trophy className="w-5 h-5 text-yellow-500" />
+                        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Total Prize Pool</span>
+                        <Trophy className="w-5 h-5 text-yellow-500" />
+                      </div>
+                      <p className="text-4xl font-black text-foreground tracking-tight">{prizePoolTotal}</p>
+                    </div>
+                  </div>
+
+                  {/* Major Awards */}
+                  <div className="mb-4">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3 text-center">Major Awards</h3>
+                    <div className="grid sm:grid-cols-3 gap-3">
+                      {awardTiers.slice(0, 3).map((award, idx) => (
+                        <Card key={idx} className={`border-2 ${award.color} transition-all duration-200 hover:shadow-lg hover:scale-[1.02]`}>
+                          <CardContent className="py-5 px-4 text-center">
+                            <p className="text-2xl font-bold text-foreground mb-0.5">{award.amount}</p>
+                            <p className="text-sm font-semibold text-foreground">{award.title}</p>
+                            <p className="text-xs text-muted-foreground mt-1">{award.description}</p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Pillar Awards */}
+                  <div className="mb-6">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3 text-center">Pillar Bounties ($1K each)</h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
+                      {awardTiers.slice(3).map((award, idx) => {
+                        const pillarNum = award.title.match(/Pillar (\d)/)?.[1];
+                        const shortTitle = award.title.replace(/Pillar \d: /, '');
+                        return (
+                          <div 
+                            key={idx} 
+                            className={`p-3 rounded-lg border-2 ${award.color} text-center transition-all duration-200 hover:scale-[1.02]`}
+                          >
+                            <div className="text-lg font-bold text-foreground">P{pillarNum}</div>
+                            <p className="text-xs font-medium text-foreground truncate">{shortTitle}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                   
                   {/* Summary + CTA */}
                   <div className="bg-muted/30 rounded-lg p-4 text-sm">
                     <p className="text-muted-foreground mb-4">
-                      <strong className="text-foreground">Award Structure:</strong> 1× $5,000 flagship • 3× $2,500 focus area awards (Housing, Jobs, Transit) • Multiple $1,000 track awards
+                      <strong className="text-foreground">Award Structure:</strong> 1× $5,000 Grand Prize • 2× $2,500 runner-up awards (People's & Judges' Choice) • 7× $1,000 Pillar Bounties
                     </p>
                     <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                       Sponsor an Award
