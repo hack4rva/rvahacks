@@ -4,14 +4,11 @@
  */
 
 import { 
-  BookOpen, 
   Network, 
   AlertTriangle, 
-  ArrowRight,
-  Link2
+  ArrowRight
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Accordion,
   AccordionContent,
@@ -26,14 +23,6 @@ interface OverviewTabProps {
 }
 
 export const OverviewTab = ({ onNavigateToPillar }: OverviewTabProps) => {
-  const coreValues = [
-    { name: "Integrity", description: "Transparent, honest governance that builds public trust" },
-    { name: "Encouragement", description: "Fostering a supportive environment for innovation and growth" },
-    { name: "Excellence", description: "Commitment to the highest standards of public service" },
-    { name: "Equity", description: "Ensuring fair access to opportunities and resources for all residents" },
-    { name: "Partnership", description: "Collaborative approaches with communities, institutions, and stakeholders" },
-  ];
-
   return (
     <div className="max-w-4xl mx-auto space-y-8">
       {/* Section Header */}
@@ -44,36 +33,7 @@ export const OverviewTab = ({ onNavigateToPillar }: OverviewTabProps) => {
         </p>
       </div>
 
-      <Accordion type="multiple" defaultValue={["paradigm", "architecture", "dependencies"]} className="space-y-4">
-        {/* About the MAP */}
-        <AccordionItem value="paradigm" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <BookOpen className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">About the MAP</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                The <strong className="text-foreground">Mayoral Action Plan (MAP)</strong> is Richmond's operational framework under Mayor Danny Avula, launched January 2025. Unlike traditional planning documents, it establishes specific metrics, timelines, and cross-departmental dependencies that can be tracked and measured.
-              </p>
-
-              {/* Core Values */}
-              <div className="mt-4">
-                <h4 className="text-base font-semibold text-foreground mb-3">Five Core Values</h4>
-                <div className="flex flex-wrap gap-2">
-                  {coreValues.map((value) => (
-                    <Badge key={value.name} variant="secondary" className="text-sm py-1 px-3">
-                      {value.name}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
+      <Accordion type="multiple" defaultValue={["architecture", "dependencies"]} className="space-y-4">
         {/* Architectural Vision */}
         <AccordionItem value="architecture" className="border border-border rounded-lg px-6 bg-card">
           <AccordionTrigger className="hover:no-underline py-6">
