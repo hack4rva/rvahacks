@@ -47,23 +47,6 @@ export const PillarAnalysisHero = () => {
             of a Thriving Richmond
           </p>
 
-          {/* Pillar Nodes Visualization */}
-          <div className="flex justify-center items-center gap-2 md:gap-3 mb-10 flex-wrap">
-            {pillars.map((pillar, idx) => (
-              <div key={pillar.num} className="flex items-center">
-                <div 
-                  className={`w-10 h-10 md:w-12 md:h-12 rounded-full ${pillar.color} flex items-center justify-center text-white font-bold text-sm md:text-base shadow-lg`}
-                  title={pillar.name}
-                >
-                  {pillar.num}
-                </div>
-                {idx < pillars.length - 1 && (
-                  <div className="w-4 md:w-6 h-0.5 bg-border mx-1" />
-                )}
-              </div>
-            ))}
-          </div>
-
           {/* Executive Summary Card */}
           <Card className="text-left bg-card/80 backdrop-blur-sm border-border/50 shadow-lg">
             <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
