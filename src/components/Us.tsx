@@ -9,6 +9,7 @@ import christianMarkow from "@/assets/christian-markow.png";
 import heatherLyne from "@/assets/heather-lyne-blue.png";
 import ashHarris from "@/assets/ash-harris-blue.png";
 import richmondSeal from "@/assets/richmond-seal.png";
+import scienceMuseumLogo from "@/assets/science-museum-virginia.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
@@ -31,6 +32,12 @@ const partners = [
     subtitle:
       "Strategic priorities | Implementation pathway | City department champions",
     logo: richmondSeal,
+  },
+  {
+    name: "Science Museum of Virginia",
+    subtitle:
+      "Venue Sponsor | Sunday Finals & Awards Ceremony",
+    logo: scienceMuseumLogo,
   },
   {
     name: "Fiscal Sponsor",
