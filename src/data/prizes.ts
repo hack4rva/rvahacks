@@ -18,33 +18,51 @@ export const awardTiers: PrizeAward[] = [
     color: "border-yellow-500 bg-yellow-500/10",
   },
   {
-    title: "Housing Award",
-    amount: "$2,500",
-    description: "Eviction prevention, tenant rights, affordable housing",
-    color: "border-accent bg-accent/10",
-  },
-  {
-    title: "Jobs Award",
-    amount: "$2,500",
-    description: "Workforce development, small business, economic mobility",
-    color: "border-accent bg-accent/10",
-  },
-  {
-    title: "Transit Award",
-    amount: "$2,500",
-    description: "Transportation access, mobility equity, GRTC integration",
-    color: "border-accent bg-accent/10",
-  },
-  {
-    title: "Track Awards",
+    title: "Pillar 1: Thriving City Hall",
     amount: "$1,000",
-    description: "Sponsor-defined criteria",
-    color: "border-primary bg-primary/5",
+    description: "Government efficiency, service delivery, IT modernization",
+    color: "border-blue-500 bg-blue-500/10",
+  },
+  {
+    title: "Pillar 2: Thriving Neighborhoods",
+    amount: "$1,000",
+    description: "Housing production, affordability, eviction prevention",
+    color: "border-red-500 bg-red-500/10",
+  },
+  {
+    title: "Pillar 3: Thriving Families",
+    amount: "$1,000",
+    description: "Education, youth programs, out-of-school time",
+    color: "border-purple-500 bg-purple-500/10",
+  },
+  {
+    title: "Pillar 4: Thriving Economy",
+    amount: "$1,000",
+    description: "Workforce development, small business, economic mobility",
+    color: "border-emerald-500 bg-emerald-500/10",
+  },
+  {
+    title: "Pillar 5: Inclusive Communities",
+    amount: "$1,000",
+    description: "Health equity, civil rights, community belonging",
+    color: "border-green-500 bg-green-500/10",
+  },
+  {
+    title: "Pillar 6: Thriving Environment",
+    amount: "$1,000",
+    description: "Climate action, green infrastructure, sustainability",
+    color: "border-amber-500 bg-amber-500/10",
+  },
+  {
+    title: "Pillar 7: City Stories",
+    amount: "$1,000",
+    description: "Historical truth-telling, Shockoe Project, reconciliation",
+    color: "border-cyan-500 bg-cyan-500/10",
   },
 ];
 
 /** Prize pool total */
-export const prizePoolTotal = "$15K+";
+export const prizePoolTotal = "$12K+";
 
 /** Submission timeline */
 export const prizeTimeline = [
