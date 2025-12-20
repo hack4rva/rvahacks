@@ -12,6 +12,7 @@ import {
   Leaf, 
   Heart, 
   Globe,
+  Database,
   ChevronLeft,
   ChevronRight,
   FileText,
@@ -21,6 +22,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { PillarAnalysisHero } from "@/components/pillar-analysis/PillarAnalysisHero";
 import { OverviewTab } from "@/components/pillar-analysis/tabs/OverviewTab";
 import { PillarTab } from "@/components/pillar-analysis/tabs/PillarTab";
+import { DataInfrastructureTab } from "@/components/pillar-analysis/tabs/DataInfrastructureTab";
 import { pillarData } from "@/data/pillarAnalysis";
 
 const missionTabs = [
@@ -32,6 +34,7 @@ const missionTabs = [
   { id: "pillar-5", label: "Pillar 5", icon: Leaf },
   { id: "pillar-6", label: "Pillar 6", icon: Heart },
   { id: "pillar-7", label: "Pillar 7", icon: Globe },
+  { id: "data", label: "Data", icon: Database },
 ];
 
 export const MissionTabContent = () => {
@@ -83,6 +86,10 @@ export const MissionTabContent = () => {
               />
             </TabsContent>
           ))}
+          
+          <TabsContent value="data" className="mt-0">
+            <DataInfrastructureTab />
+          </TabsContent>
         </Tabs>
 
         {/* Sub-Tab Navigation Footer */}
