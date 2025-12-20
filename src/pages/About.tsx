@@ -133,8 +133,16 @@ const About = () => {
                   </p>
                 </div>
 
-                {/* Join Us CTA Banner */}
-                <div className="mb-10 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl p-6 border border-accent/30">
+                {/* Team Content */}
+                <Us />
+                
+                {/* Organizational Roles */}
+                <div className="mt-12">
+                  <OrganizationalRoles />
+                </div>
+
+                {/* Join Us CTA Banner - Bottom */}
+                <div className="mt-12 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl p-6 border border-accent/30">
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
@@ -151,14 +159,6 @@ const About = () => {
                       </Button>
                     </Link>
                   </div>
-                </div>
-
-                {/* Team Content */}
-                <Us />
-                
-                {/* Organizational Roles */}
-                <div className="mt-12">
-                  <OrganizationalRoles />
                 </div>
               </TabsContent>
 
