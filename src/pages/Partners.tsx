@@ -11,8 +11,28 @@ import { awardTiers, prizePoolTotal } from "@/data";
 import { 
   Code, Palette, Briefcase, Landmark, 
   Heart, HandHeart, Award, Clock, Search, Trophy,
-  UtensilsCrossed, Gift, MapPin
+  UtensilsCrossed, Gift, MapPin, Users
 } from "lucide-react";
+import richmondSeal from "@/assets/richmond-seal.png";
+import scienceMuseumLogo from "@/assets/science-museum-virginia.png";
+
+const institutionalPartners = [
+  {
+    name: "City of Richmond / Mayor's Office",
+    subtitle: "Strategic priorities | Implementation pathway | City department champions",
+    logo: richmondSeal,
+  },
+  {
+    name: "Science Museum of Virginia",
+    subtitle: "Venue Sponsor | Sunday Finals & Awards Ceremony",
+    logo: scienceMuseumLogo,
+  },
+  {
+    name: "Fiscal Sponsor",
+    subtitle: "Financial oversight | Legal structure | Grant administration",
+    logo: undefined,
+  },
+];
 
 const tabs = [
   { id: "sponsors", label: "Sponsors" },
@@ -270,6 +290,39 @@ const Partners = () => {
                         </div>
                       </CardContent>
                     </Card>
+                  </div>
+
+                  {/* Institutional Partner Section */}
+                  <div className="pt-6 border-t border-border">
+                    <div className="flex items-center justify-center gap-2 mb-6">
+                      <Users className="w-6 h-6 text-accent" />
+                      <h3 className="text-xl font-bold text-foreground">Partner</h3>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {institutionalPartners.map((partner, index) => (
+                        <div
+                          key={index}
+                          className="bg-card p-5 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border group hover:scale-[1.02]"
+                        >
+                          <div className="h-16 bg-muted/40 rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-smooth px-4">
+                            {partner.logo ? (
+                              <img 
+                                src={partner.logo} 
+                                alt={`${partner.name} logo`}
+                                className="max-h-12 w-auto object-contain"
+                              />
+                            ) : (
+                              <span className="text-muted-foreground/60 group-hover:text-accent font-bold text-sm text-center">
+                                {partner.name}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-muted-foreground text-center leading-relaxed">
+                            {partner.subtitle}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </TabsContent>
