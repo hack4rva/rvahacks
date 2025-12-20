@@ -54,7 +54,7 @@ export const schedule: ScheduleEvent[] = [
   },
   {
     day: eventDates.sunday.label,
-    time: "10 AM - 3 PM",
+    time: "3 PM - 6 PM",
     location: venues.primary.name,
     title: "Finals & Awards",
     icon: Award,
