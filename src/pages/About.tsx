@@ -22,6 +22,7 @@ const tabs = [
   { id: "participants", label: "Who Joins" },
   { id: "team", label: "Team" },
   { id: "impact", label: "Impact" },
+  { id: "mission", label: "Mission", isLink: true, href: "/mission" },
   { id: "faq", label: "FAQ" },
 ];
 
@@ -69,23 +70,25 @@ const About = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto py-3">
               <div className="grid w-full grid-cols-4 md:grid-cols-7 h-auto gap-2">
-                {/* Mission Link */}
-                <Link
-                  to="/mission"
-                  className="py-2.5 px-4 border border-accent/50 bg-accent/10 text-accent rounded-lg transition-smooth text-sm font-medium text-center hover:bg-accent/20"
-                >
-                  Mission
-                </Link>
-                {/* Regular Tabs */}
                 <TabsList className="contents bg-transparent p-0">
                   {tabs.map((tab) => (
-                    <TabsTrigger
-                      key={tab.id}
-                      value={tab.id}
-                      className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
-                    >
-                      {tab.label}
-                    </TabsTrigger>
+                    tab.isLink ? (
+                      <Link
+                        key={tab.id}
+                        to={tab.href!}
+                        className="py-2.5 px-4 border border-border bg-transparent text-foreground rounded-lg transition-smooth text-sm font-medium text-center hover:bg-accent/10 hover:border-accent hover:text-accent"
+                      >
+                        {tab.label}
+                      </Link>
+                    ) : (
+                      <TabsTrigger
+                        key={tab.id}
+                        value={tab.id}
+                        className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
+                      >
+                        {tab.label}
+                      </TabsTrigger>
+                    )
                   ))}
                 </TabsList>
               </div>
