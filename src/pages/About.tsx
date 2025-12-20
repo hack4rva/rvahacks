@@ -15,7 +15,7 @@ import {
   MissionTabContent
 } from "@/components/content";
 import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
-import { participantTypes, sectors, teamRoles } from "@/data";
+import { participantTypes, teamRoles } from "@/data";
 
 const tabs = [
   { id: "schedule", label: "Schedule" },
@@ -180,18 +180,6 @@ const About = () => {
                       Richmond's cross-sector coalition
                     </p>
                     
-                    {/* Compact sector badges */}
-                    <div className="flex flex-wrap justify-center gap-2 mb-5">
-                      {sectors.map((sector, index) => (
-                        <div
-                          key={index}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-background border border-border text-xs font-medium text-foreground"
-                        >
-                          <sector.icon className="w-3 h-3 text-accent" />
-                          {sector.label}
-                        </div>
-                      ))}
-                    </div>
 
                     {/* Compact team cards */}
                     <div className="space-y-3">
