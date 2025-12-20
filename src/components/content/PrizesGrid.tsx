@@ -1,44 +1,7 @@
 import { useState } from "react";
-import { awardTiers, prizeTimeline, type PrizeAward } from "@/data";
+import { awardTiers, prizeTimeline, prizePoolTotal, type PrizeAward } from "@/data";
 import { Card, CardContent } from "@/components/ui/card";
-import { Trophy } from "lucide-react";
-
-interface AwardCardProps {
-  award: PrizeAward;
-  featured?: boolean;
-}
-
-const AwardCard = ({ award, featured = false }: AwardCardProps) => {
-  if (featured) {
-    const iconColor = award.color?.includes('yellow') ? 'text-yellow-500' : 
-                      award.color?.includes('pink') ? 'text-pink-500' : 
-                      award.color?.includes('violet') ? 'text-violet-500' : 'text-yellow-500';
-    const bgColor = award.color?.includes('yellow') ? 'bg-yellow-500/20' : 
-                    award.color?.includes('pink') ? 'bg-pink-500/20' : 
-                    award.color?.includes('violet') ? 'bg-violet-500/20' : 'bg-yellow-500/20';
-    const textColor = award.color?.includes('yellow') ? 'text-yellow-600 dark:text-yellow-400' : 
-                      award.color?.includes('pink') ? 'text-pink-600 dark:text-pink-400' : 
-                      award.color?.includes('violet') ? 'text-violet-600 dark:text-violet-400' : 'text-yellow-600 dark:text-yellow-400';
-    
-    return (
-      <Card className={`border-2 ${award.color || "border-border"} transition-all duration-200 hover:shadow-lg hover:scale-[1.02]`}>
-        <CardContent className="py-6 px-4 text-center">
-          <div className={`w-14 h-14 rounded-full ${bgColor} flex items-center justify-center mx-auto mb-3`}>
-            <Trophy className={`w-7 h-7 ${iconColor}`} />
-          </div>
-          <p className={`text-xs font-medium ${textColor} uppercase tracking-wide mb-1`}>
-            {award.title === "Mayor's Choice" ? "Grand Prize" : "Top Prize"}
-          </p>
-          <p className="text-3xl font-bold text-foreground mb-1">{award.amount}</p>
-          <p className="text-sm font-semibold text-foreground">{award.title}</p>
-          <p className="text-xs text-muted-foreground mt-1">{award.description}</p>
-        </CardContent>
-      </Card>
-    );
-  }
-
-  return null;
-};
+import { Trophy, Award, Star, ChevronRight } from "lucide-react";
 
 // Pillar badge colors mapping
 const getPillarStyle = (award: PrizeAward) => {
@@ -72,14 +35,14 @@ const PillarBadge = ({ award, isSelected, onClick }: PillarBadgeProps) => {
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center gap-2 px-4 py-3 rounded-full border-2 shadow-sm hover:shadow-elegant transition-smooth ${
+      className={`group inline-flex items-center gap-2 px-4 py-3 rounded-full border-2 transition-all duration-300 ${
         isSelected
-          ? `${style.border} ${style.bg}`
-          : `border-border hover:${style.border} bg-card`
+          ? `${style.border} ${style.bg} shadow-lg scale-105`
+          : `border-border hover:border-muted-foreground/50 bg-card hover:bg-muted/50 hover:scale-[1.02]`
       }`}
     >
       <div 
-        className="w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+        className={`w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 transition-transform duration-300 ${isSelected ? 'scale-110' : 'group-hover:scale-105'}`}
         style={{ backgroundColor: style.hex }}
       >
         {style.pillarNum}
@@ -90,6 +53,11 @@ const PillarBadge = ({ award, isSelected, onClick }: PillarBadgeProps) => {
       <span className={`text-xs font-bold ${style.text}`}>
         {award.amount}
       </span>
+      <ChevronRight 
+        className={`w-4 h-4 text-muted-foreground transition-all duration-300 ${
+          isSelected ? 'rotate-90 opacity-100' : 'opacity-0 group-hover:opacity-50'
+        }`} 
+      />
     </button>
   );
 };
@@ -100,7 +68,8 @@ interface PrizesGridProps {
 }
 
 export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridProps) => {
-  const [selectedPillar, setSelectedPillar] = useState<number | null>(null);
+  // Start with first pillar expanded by default
+  const [selectedPillar, setSelectedPillar] = useState<number | null>(0);
   
   const grandPrize = awardTiers[0];
   const runnerUpPrizes = awardTiers.slice(1, 3);
@@ -108,55 +77,122 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
   
   return (
     <div className={className}>
-      {/* Timeline */}
+      {/* Prize Pool Hero Banner */}
+      <div className="relative mb-10 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-pink-500/20 to-violet-500/20 rounded-2xl" />
+        <div className="relative px-6 py-8 text-center rounded-2xl border border-accent/20">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Trophy className="w-6 h-6 text-yellow-500" />
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Total Prize Pool</span>
+            <Trophy className="w-6 h-6 text-yellow-500" />
+          </div>
+          <p className="text-5xl md:text-6xl font-black text-foreground tracking-tight">
+            {prizePoolTotal}
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">in prizes and recognition</p>
+        </div>
+      </div>
+
+      {/* Horizontal Timeline */}
       {showTimeline && (
-        <div className="bg-accent/10 border border-accent/20 rounded-lg p-5 mb-12 max-w-3xl mx-auto">
-          <div className="space-y-2.5">
+        <div className="mb-12 max-w-4xl mx-auto">
+          <div className="relative flex items-center justify-between">
+            {/* Timeline connector line */}
+            <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-accent/50 via-accent to-accent/50 -translate-y-1/2 z-0" />
+            
             {prizeTimeline.map((item, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-2 h-2 rounded-full bg-accent mt-1.5 flex-shrink-0" />
-                <p className="text-sm text-card-foreground">
-                  <span className="font-bold">{item.label}:</span> {item.description}
-                </p>
+              <div key={index} className="relative z-10 flex flex-col items-center text-center px-2">
+                <div className="w-4 h-4 rounded-full bg-accent border-4 border-background mb-2 shadow-md" />
+                <div className="bg-background px-3 py-1 rounded-lg">
+                  <p className="text-xs font-bold text-accent whitespace-nowrap">{item.label}</p>
+                  <p className="text-xs text-muted-foreground whitespace-nowrap">{item.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       )}
 
-      {/* Grand Prize - Featured */}
-      <div className="mb-8 max-w-md mx-auto">
-        <AwardCard award={grandPrize} featured />
-      </div>
-
-      {/* Runner-Up Prizes */}
+      {/* Grand Prize - Hero Treatment */}
       <div className="mb-10">
-        <h3 className="text-center text-lg font-semibold text-foreground mb-1">$2.5K Runner-Up Prizes</h3>
-        <p className="text-center text-sm text-muted-foreground mb-4">Voted by judges and audience</p>
-        <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
-          {runnerUpPrizes.map((prize, index) => (
-            <AwardCard key={index} award={prize} featured />
-          ))}
+        <div className="relative max-w-lg mx-auto">
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-yellow-500/20 blur-3xl rounded-full scale-75 animate-pulse" />
+          
+          <Card className="relative border-2 border-yellow-500 bg-gradient-to-br from-yellow-500/10 to-yellow-600/5 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
+            <CardContent className="py-8 px-6 text-center">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center mx-auto mb-4 shadow-lg">
+                <Trophy className="w-10 h-10 text-white" />
+              </div>
+              <p className="text-xs font-medium text-yellow-600 dark:text-yellow-400 uppercase tracking-widest mb-1">
+                Grand Prize
+              </p>
+              <p className="text-4xl md:text-5xl font-black text-foreground mb-1">{grandPrize.amount}</p>
+              <p className="text-lg font-bold text-foreground">{grandPrize.title}</p>
+              <p className="text-sm text-muted-foreground mt-2">{grandPrize.description}</p>
+            </CardContent>
+          </Card>
         </div>
       </div>
 
-      {/* Pillar Awards Section - Interactive Bubbles */}
+      {/* Runner-Up Prizes - Side by Side */}
+      <div className="mb-12">
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <div className="h-px w-12 bg-gradient-to-r from-transparent to-muted-foreground/30" />
+          <h3 className="text-lg font-semibold text-foreground text-center">Runner-Up Prizes</h3>
+          <div className="h-px w-12 bg-gradient-to-l from-transparent to-muted-foreground/30" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          {runnerUpPrizes.map((prize, index) => {
+            const Icon = index === 0 ? Star : Award;
+            const iconColor = prize.color?.includes('pink') ? 'text-pink-500' : 'text-violet-500';
+            const bgColor = prize.color?.includes('pink') ? 'from-pink-500/10 to-pink-600/5' : 'from-violet-500/10 to-violet-600/5';
+            
+            return (
+              <Card 
+                key={index} 
+                className={`border-2 ${prize.color?.split(' ')[0] || 'border-border'} bg-gradient-to-br ${bgColor} transition-all duration-300 hover:shadow-lg hover:scale-[1.02]`}
+              >
+                <CardContent className="py-6 px-4 text-center">
+                  <div className={`w-12 h-12 rounded-full ${prize.color?.includes('pink') ? 'bg-pink-500/20' : 'bg-violet-500/20'} flex items-center justify-center mx-auto mb-3`}>
+                    <Icon className={`w-6 h-6 ${iconColor}`} />
+                  </div>
+                  <p className="text-2xl font-bold text-foreground mb-1">{prize.amount}</p>
+                  <p className="text-sm font-semibold text-foreground">{prize.title}</p>
+                  <p className="text-xs text-muted-foreground mt-1">{prize.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Pillar Awards Section */}
       <div className="mb-6">
-        <h3 className="text-center text-lg font-semibold text-foreground mb-1">$1K Pillar Bounties</h3>
+        <div className="flex items-center justify-center gap-2 mb-2">
+          <div className="h-px w-12 bg-gradient-to-r from-transparent to-muted-foreground/30" />
+          <h3 className="text-lg font-semibold text-foreground text-center">Pillar Bounties</h3>
+          <div className="h-px w-12 bg-gradient-to-l from-transparent to-muted-foreground/30" />
+        </div>
         <p className="text-center text-sm text-muted-foreground mb-6">
-          Click a pillar to learn more. One award for each of the Mayor's 7 Pillars.
+          $1,000 each · One award for each of the Mayor's 7 Pillars
         </p>
       </div>
 
-      {/* Interactive Pillar Badges */}
+      {/* Interactive Pillar Badges - Wave Pattern */}
       <div className="flex flex-wrap justify-center gap-3 mb-6">
         {pillarAwards.map((award, index) => (
-          <PillarBadge
-            key={index}
-            award={award}
-            isSelected={selectedPillar === index}
-            onClick={() => setSelectedPillar(selectedPillar === index ? null : index)}
-          />
+          <div 
+            key={index} 
+            className="animate-fade-in"
+            style={{ animationDelay: `${index * 50}ms` }}
+          >
+            <PillarBadge
+              award={award}
+              isSelected={selectedPillar === index}
+              onClick={() => setSelectedPillar(selectedPillar === index ? null : index)}
+            />
+          </div>
         ))}
       </div>
 
@@ -164,7 +200,7 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
       {selectedPillar !== null && (
         <div className="max-w-2xl mx-auto mb-6">
           <div 
-            className="p-6 rounded-xl border-2 shadow-elegant animate-fade-in"
+            className="p-6 rounded-xl border-2 shadow-lg animate-fade-in"
             style={{ 
               borderColor: getPillarStyle(pillarAwards[selectedPillar]).hex + '50',
               backgroundColor: getPillarStyle(pillarAwards[selectedPillar]).hex + '10'
@@ -172,18 +208,18 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
           >
             <div className="flex items-start gap-4">
               <div 
-                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg"
                 style={{ backgroundColor: getPillarStyle(pillarAwards[selectedPillar]).hex }}
               >
                 {getPillarStyle(pillarAwards[selectedPillar]).pillarNum}
               </div>
               <div className="flex-1">
-                <div className="flex items-center justify-between mb-2">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                   <h3 className="text-xl font-bold text-card-foreground">
                     {pillarAwards[selectedPillar].title}
                   </h3>
                   <span 
-                    className="text-lg font-bold"
+                    className="text-xl font-black"
                     style={{ color: getPillarStyle(pillarAwards[selectedPillar]).hex }}
                   >
                     {pillarAwards[selectedPillar].amount}
@@ -199,7 +235,7 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
       )}
 
       {/* Note */}
-      <div className="text-center mt-8 space-y-2">
+      <div className="text-center mt-10 space-y-2 max-w-xl mx-auto">
         <p className="text-sm text-muted-foreground">
           Each pillar category will have a winner recognized at the awards ceremony.
         </p>
