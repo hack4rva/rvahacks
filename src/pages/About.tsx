@@ -161,16 +161,6 @@ const About = () => {
                         </div>
                       ))}
                     </div>
-
-                    <div className="text-center mt-5">
-                      <Button 
-                        onClick={handleCTAClick}
-                        size="sm"
-                        className="bg-accent hover:bg-accent/90 text-accent-foreground"
-                      >
-                        Stay Updated
-                      </Button>
-                    </div>
                   </div>
 
                   {/* Right Column - Lead */}
@@ -180,7 +170,6 @@ const About = () => {
                       Richmond's cross-sector coalition
                     </p>
                     
-
                     {/* Compact team cards */}
                     <div className="space-y-3">
                       {teamRoles.map((team, index) => (
@@ -202,15 +191,22 @@ const About = () => {
                         </div>
                       ))}
                     </div>
-
-                    <div className="text-center mt-5">
-                      <Link to="/team">
-                        <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent/10">
-                          Meet the Team <ArrowRight className="ml-1.5 w-3.5 h-3.5" />
-                        </Button>
-                      </Link>
-                    </div>
                   </div>
+                </div>
+
+                {/* Centered buttons below both columns */}
+                <div className="flex flex-wrap justify-center gap-4 mt-8">
+                  <Button 
+                    onClick={handleCTAClick}
+                    className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                  >
+                    Stay Updated
+                  </Button>
+                  <Link to="/team">
+                    <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
+                      Meet the Team <ArrowRight className="ml-1.5 w-4 h-4" />
+                    </Button>
+                  </Link>
                 </div>
               </TabsContent>
 
