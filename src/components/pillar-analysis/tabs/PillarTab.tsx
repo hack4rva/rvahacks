@@ -9,7 +9,9 @@ import {
   BarChart3,
   Database,
   Link2,
-  Lightbulb
+  Lightbulb,
+  Handshake,
+  ExternalLink
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -199,6 +201,48 @@ export const PillarTab = ({ pillarNumber, data, onNavigateToPillar }: PillarTabP
             </div>
           </AccordionContent>
         </AccordionItem>
+
+        {/* Key Partners */}
+        {data.partners && data.partners.length > 0 && (
+          <AccordionItem value="partners" className="border border-border rounded-lg px-6 bg-card">
+            <AccordionTrigger className="hover:no-underline py-5">
+              <div className="flex items-center gap-3">
+                <Handshake className="w-5 h-5 text-primary" />
+                <span className="text-lg font-semibold text-foreground">Key Partners & Data Sources</span>
+              </div>
+            </AccordionTrigger>
+            <AccordionContent className="pb-6">
+              <div className="space-y-4">
+                {data.partners.map((partner, idx) => (
+                  <Card key={idx} className="bg-muted/30">
+                    <CardContent className="p-4">
+                      <h5 className="font-semibold text-foreground mb-2">{partner.name}</h5>
+                      <p className="text-sm text-muted-foreground mb-3">{partner.role}</p>
+                      <div className="flex items-start gap-2 p-2 bg-primary/5 rounded border-l-2 border-primary">
+                        <Database className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
+                        <div className="flex-1">
+                          <span className="text-xs font-semibold text-primary uppercase">Data Asset</span>
+                          <p className="text-sm text-foreground">{partner.dataAsset}</p>
+                          {partner.sourceUrl && (
+                            <a 
+                              href={partner.sourceUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
+                            >
+                              <ExternalLink className="w-3 h-3" />
+                              View Source
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        )}
 
         {/* Hackathon Ideas */}
         <AccordionItem value="hackathon-ideas" className="border border-border rounded-lg px-6 bg-card">

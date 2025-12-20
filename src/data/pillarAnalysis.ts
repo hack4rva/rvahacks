@@ -30,6 +30,13 @@ export interface Recommendation {
   priority?: "quick-win" | "long-term";
 }
 
+export interface Partner {
+  name: string;
+  role: string;
+  dataAsset: string;
+  sourceUrl?: string;
+}
+
 export interface PillarData {
   pillarNumber: number;
   name: string;
@@ -47,6 +54,7 @@ export interface PillarData {
   dependencies?: Dependency[];
   risks?: Risk[];
   recommendations?: Recommendation[];
+  partners?: Partner[];
 }
 
 /**
@@ -124,7 +132,8 @@ export const pillarData: PillarData[] = [
       { title: "SLA Definition Sprint", description: "Conduct 90-day sprint to define SLAs for top 20 highest-volume 311 request types", priority: "quick-win" },
       { title: "CitiStat Pilot", description: "Launch weekly performance review meetings for three high-impact departments before citywide rollout", priority: "quick-win" },
       { title: "IT Modernization Roadmap", description: "Complete comprehensive IT audit and develop 3-year system replacement strategy with budget projections", priority: "long-term" }
-    ]
+    ],
+    partners: []
   },
 
   // ============================================================
@@ -202,6 +211,26 @@ export const pillarData: PillarData[] = [
       { title: "Mandatory AMI Reporting", description: "Require all permitted projects to report anticipated AMI levels for tracking", priority: "quick-win" },
       { title: "Severe Cost-Burden KPI", description: "Establish separate tracking and intervention programs for >50% cost-burdened households", priority: "quick-win" },
       { title: "Inclusionary Zoning Study", description: "Evaluate mandatory affordability requirements for new development", priority: "long-term" }
+    ],
+    partners: [
+      {
+        name: "Partnership for Housing Affordability (PHA) & PlanRVA",
+        role: "Manage the Market Value Analysis (MVA)—a sophisticated tool that classifies neighborhoods by market strength (distressed, middle, strong). Superior to simple tax assessments for targeting affordable housing investments.",
+        dataAsset: "Regional housing supply data, cost-burden analysis, neighborhood market classification",
+        sourceUrl: "https://planrva.org/wp-content/uploads/CEDS_ReportAppendices.pdf"
+      },
+      {
+        name: "Housing Opportunities Made Equal (HOME)",
+        role: "Primary watchdog for fair housing. Holds data on fair housing complaints and eviction defense cases.",
+        dataAsset: "Qualitative and quantitative data on discrimination patterns that City systems (311) will never capture",
+        sourceUrl: "https://homeofva.org/wp-content/uploads/2020/04/EvictionCrisis_RVA_Booklet_1_24_20.pdf"
+      },
+      {
+        name: "Better Housing Coalition (BHC)",
+        role: "Nonprofit developer with visibility into affordable housing pipeline.",
+        dataAsset: "Pipeline data—knows what affordable units are in financing/development before they hit the City's permitting system",
+        sourceUrl: "http://www.ecosproject.com/wp/wp-content/uploads/2023/05/Data2020_BuildingHomesTogether_Final_20221012.pdf"
+      }
     ]
   },
 
@@ -282,6 +311,20 @@ export const pillarData: PillarData[] = [
       { title: "Data Sharing Agreement", description: "Prioritize DSA negotiation with RPS as foundational infrastructure", priority: "quick-win" },
       { title: "YPQI Mandate", description: "Require YPQI assessments for all City-funded OST programs", priority: "quick-win" },
       { title: "Joint City-RPS Dashboard", description: "Create shared accountability dashboard for family-focused metrics", priority: "long-term" }
+    ],
+    partners: [
+      {
+        name: "Communities in Schools (CIS) & NextUp RVA",
+        role: "Intermediaries managing the network of out-of-school time (OST) providers.",
+        dataAsset: "Out-of-School Time Participation & Quality—tracks 'Tier 2 & 3' supports with granular data on attendance, behavior, and coursework (ABC) for specific at-risk cohorts",
+        sourceUrl: "https://cisrva.org/wp-content/uploads/2024/11/Annual-Report-2024.pdf"
+      },
+      {
+        name: "Richmond Public Schools (RPS)",
+        role: "Primary educator. A robust MOU is needed to link academic data with City human services data.",
+        dataAsset: "Student-level academic and attendance data",
+        sourceUrl: "https://citizenportal.ai/articles/6498150/Virginia/Richmond-Public-Schools-graduation-rate-rises-to-801-district-outlines-targeted-strategies-as-SOL-scores-climb"
+      }
     ]
   },
 
@@ -362,6 +405,19 @@ export const pillarData: PillarData[] = [
       { title: "Adopt ALICE Threshold", description: "Formally adopt ALICE standard as Richmond's living wage definition for City programs", priority: "quick-win" },
       { title: "SWaM Capacity Building", description: "Create mentorship and capacity-building programs for SWaM businesses to handle larger contracts", priority: "long-term" },
       { title: "Wealth Dashboard", description: "Develop public dashboard tracking wealth-building metrics beyond income", priority: "long-term" }
+    ],
+    partners: [
+      {
+        name: "Greater Richmond Partnership (GRP)",
+        role: "Regional economic development organization.",
+        dataAsset: "Business attraction pipeline and regional labor market analysis"
+      },
+      {
+        name: "ChamberRVA",
+        role: "Business advocacy organization providing external validation for Pillar 4.",
+        dataAsset: "'Upward Mobility' Dashboard—tracks workforce readiness, skills gaps, and regional alignment",
+        sourceUrl: "https://planrva.org/planrvas-data-team-calculates-regions-key-metrics/"
+      }
     ]
   },
 
@@ -439,6 +495,14 @@ export const pillarData: PillarData[] = [
       { title: "Community-Led Surveying", description: "Partner with trusted community organizations to conduct sentiment surveys", priority: "quick-win" },
       { title: "CIP Equity Scoring", description: "Implement equity score for all proposed capital projects before approval", priority: "quick-win" },
       { title: "Health Equity Task Force", description: "Convene cross-sector group to address maternal health disparities", priority: "long-term" }
+    ],
+    partners: [
+      {
+        name: "Richmond City Health District (RCHD)",
+        role: "Public health authority (state agency embedded in the city).",
+        dataAsset: "Health Equity Metrics—Maternity Navigation program data (clients served, outcomes)",
+        sourceUrl: "https://www.vdh.virginia.gov/richmond-city/healthy-childbirth-and-infancy/"
+      }
     ]
   },
 
@@ -516,6 +580,14 @@ export const pillarData: PillarData[] = [
       { title: "CIP Carbon Scoring", description: "Require carbon impact assessment for all capital projects over $1M", priority: "quick-win" },
       { title: "Tree Equity Map", description: "Create public dashboard showing canopy by neighborhood with investment priorities", priority: "quick-win" },
       { title: "Fleet Electrification Plan", description: "Develop comprehensive timeline for vehicle replacement with EV alternatives", priority: "long-term" }
+    ],
+    partners: [
+      {
+        name: "RVA Clean City Commission & Science Museum of Virginia",
+        role: "Environmental advocacy and research.",
+        dataAsset: "Urban Heat Island Maps—hyperlocal temperature data used to target tree plantings",
+        sourceUrl: "https://www.epa.gov/system/files/documents/2023-12/rva-green-2050-climate-equity-action-plan-2030.pdf"
+      }
     ]
   },
 
@@ -598,6 +670,14 @@ export const pillarData: PillarData[] = [
       { title: "Descendant Community Council", description: "Formalize advisory structure with descendant community representation", priority: "quick-win" },
       { title: "RPS Curriculum Partnership", description: "Begin curriculum development in parallel with site construction", priority: "quick-win" },
       { title: "National Network Building", description: "Connect with peer cities and institutions for mutual learning and recognition", priority: "long-term" }
+    ],
+    partners: [
+      {
+        name: "Shockoe Institute & National Slavery Museum Foundation",
+        role: "Stewards of the 'Stories' pillar.",
+        dataAsset: "Qualitative & Historical Data—oral histories, archaeological findings, and descendant community registries that constitute the 'truth' in Pillar 7",
+        sourceUrl: "https://theshockoeproject.com/"
+      }
     ]
   }
 ];
