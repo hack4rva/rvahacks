@@ -26,116 +26,102 @@ const advisoryTeam = [
 
 export const Us = () => {
   return (
-    <section id="us" className="py-20 md:py-32 bg-secondary/10">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Our Team
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              100% volunteer planning & execution team
-            </p>
-          </div>
-
-          {/* Core Team */}
-          <div className="mb-16">
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <Users className="w-6 h-6 text-accent" />
-              <h3 className="text-2xl font-bold text-foreground">Core Team</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {coreTeam.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
-                >
-                  {member.image ? (
-                    member.linkedin ? (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mb-4 hover:opacity-80 transition-opacity"
-                      >
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-24 h-24 rounded-full object-cover object-top"
-                        />
-                      </a>
-                    ) : (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover object-top mb-4"
-                      />
-                    )
-                  ) : (
-                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-muted-foreground" />
-                    </div>
-                  )}
-                  <h4 className="text-lg font-bold text-foreground mb-2">
-                    {member.name}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
+    <div className="space-y-12">
+      {/* Core Team */}
+      <div>
+        <div className="flex items-center justify-center gap-2 mb-8">
+          <Users className="w-6 h-6 text-accent" />
+          <h3 className="text-2xl font-bold text-foreground">Core Team</h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {coreTeam.map((member, index) => (
+            <div
+              key={index}
+              className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
+            >
+              {member.image ? (
+                member.linkedin ? (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-4 hover:opacity-80 transition-opacity"
+                  >
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-24 h-24 rounded-full object-cover object-top"
+                    />
+                  </a>
+                ) : (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-24 h-24 rounded-full object-cover object-top mb-4"
+                  />
+                )
+              ) : (
+                <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
+                  <Users className="w-12 h-12 text-muted-foreground" />
                 </div>
-              ))}
+              )}
+              <h4 className="text-lg font-bold text-foreground mb-2">
+                {member.name}
+              </h4>
+              <p className="text-sm text-muted-foreground">{member.role}</p>
             </div>
-          </div>
-
-          {/* Advisory Team */}
-          <div>
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <Users className="w-6 h-6 text-accent" />
-              <h3 className="text-2xl font-bold text-foreground">
-                Advisory Team
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {advisoryTeam.map((member, index) => (
-                <div
-                  key={index}
-                  className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
-                >
-                  {member.image ? (
-                    member.linkedin ? (
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mb-4 hover:opacity-80 transition-opacity"
-                      >
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-24 h-24 rounded-full object-cover object-top"
-                        />
-                      </a>
-                    ) : (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-24 h-24 rounded-full object-cover object-top mb-4"
-                      />
-                    )
-                  ) : (
-                    <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
-                      <Users className="w-12 h-12 text-muted-foreground" />
-                    </div>
-                  )}
-                  <h4 className="text-lg font-bold text-foreground mb-2">
-                    {member.name}
-                  </h4>
-                  <p className="text-sm text-muted-foreground">{member.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
+          ))}
         </div>
       </div>
-    </section>
+
+      {/* Advisory Team */}
+      <div>
+        <div className="flex items-center justify-center gap-2 mb-8">
+          <Users className="w-6 h-6 text-accent" />
+          <h3 className="text-2xl font-bold text-foreground">
+            Advisory Team
+          </h3>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {advisoryTeam.map((member, index) => (
+            <div
+              key={index}
+              className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
+            >
+              {member.image ? (
+                member.linkedin ? (
+                  <a
+                    href={member.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-4 hover:opacity-80 transition-opacity"
+                  >
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-24 h-24 rounded-full object-cover object-top"
+                    />
+                  </a>
+                ) : (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-24 h-24 rounded-full object-cover object-top mb-4"
+                  />
+                )
+              ) : (
+                <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
+                  <Users className="w-12 h-12 text-muted-foreground" />
+                </div>
+              )}
+              <h4 className="text-lg font-bold text-foreground mb-2">
+                {member.name}
+              </h4>
+              <p className="text-sm text-muted-foreground">{member.role}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
