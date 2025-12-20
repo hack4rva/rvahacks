@@ -20,8 +20,7 @@ import { participantTypes } from "@/data";
 const tabs = [
   { id: "schedule", label: "Schedule" },
   { id: "prizes", label: "Prizes" },
-  { id: "participants", label: "Who Joins" },
-  { id: "team", label: "Team" },
+  { id: "people", label: "People" },
   { id: "impact", label: "Impact" },
   { id: "mission", label: "Mission" },
   { id: "faq", label: "FAQ" },
@@ -70,7 +69,7 @@ const About = () => {
         <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto py-3">
-              <div className="grid w-full grid-cols-4 md:grid-cols-7 h-auto gap-2">
+              <div className="grid w-full grid-cols-3 md:grid-cols-6 h-auto gap-2">
                 <TabsList className="contents bg-transparent p-0">
                   {tabs.map((tab) => (
                     <TabsTrigger
@@ -122,9 +121,10 @@ const About = () => {
                 <PrizesGrid />
               </TabsContent>
 
-              {/* Participants Tab */}
-              <TabsContent value="participants" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
-                <div className="text-center mb-12">
+              {/* People Tab - Combined Participants & Team */}
+              <TabsContent value="people" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                {/* Who Participates Section */}
+                <div className="text-center mb-10">
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
                     Who Participates
                   </h2>
@@ -133,7 +133,7 @@ const About = () => {
                   </p>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-6 mb-12">
+                <div className="grid sm:grid-cols-3 gap-6 mb-8">
                   {participantTypes.map((type, index) => (
                     <Card key={index} className="border-border shadow-elegant hover:shadow-hover transition-smooth">
                       <CardHeader className="text-center">
@@ -157,7 +157,7 @@ const About = () => {
                   ))}
                 </div>
 
-                <div className="text-center">
+                <div className="text-center mb-16">
                   <Button 
                     onClick={handleCTAClick}
                     className="bg-accent hover:bg-accent/90 text-accent-foreground"
@@ -165,10 +165,11 @@ const About = () => {
                     Stay Updated
                   </Button>
                 </div>
-              </TabsContent>
 
-              {/* Team Tab */}
-              <TabsContent value="team" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                {/* Divider */}
+                <div className="border-t border-border my-12" />
+
+                {/* Team Section */}
                 <div className="max-w-5xl mx-auto">
                   <div className="text-center mb-10">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
