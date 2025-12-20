@@ -1,4 +1,6 @@
-import { Users } from "lucide-react";
+import { useState } from "react";
+import { Users, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import fordPrior from "@/assets/ford-prior.png";
 import michaelKolbe from "@/assets/michael-kolbe.png";
 import dannyAvula from "@/assets/danny-avula.png";
@@ -10,19 +12,81 @@ import heatherLyne from "@/assets/heather-lyne-blue.png";
 import ashHarris from "@/assets/ash-harris-blue.png";
 
 const coreTeam = [
-  { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
-  { name: "Crystal Harvey", role: "Co-Organizer", image: crystalHarvey, linkedin: undefined },
-  { name: "Ash Harris", role: "Onsite Ops", image: ashHarris, linkedin: undefined },
-  { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined },
-  { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined },
-  { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined },
+  { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior", bio: "" },
+  { name: "Crystal Harvey", role: "Co-Organizer", image: crystalHarvey, linkedin: undefined, bio: "" },
+  { name: "Ash Harris", role: "Onsite Ops", image: ashHarris, linkedin: undefined, bio: "" },
+  { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined, bio: "" },
+  { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined, bio: "" },
+  { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined, bio: "" },
 ];
 
 const advisoryTeam = [
-  { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
-  { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
-  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
+  { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined, bio: "" },
+  { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined, bio: "" },
+  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined, bio: "" },
 ];
+
+interface TeamMember {
+  name: string;
+  role: string;
+  image: string;
+  linkedin?: string;
+  bio: string;
+}
+
+const TeamMemberCard = ({ member }: { member: TeamMember }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const hasBio = member.bio && member.bio.trim().length > 0;
+
+  return (
+    <div className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center">
+      {member.image ? (
+        member.linkedin ? (
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-4 hover:opacity-80 transition-opacity"
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-24 h-24 rounded-full object-cover object-top"
+            />
+          </a>
+        ) : (
+          <img
+            src={member.image}
+            alt={member.name}
+            className="w-24 h-24 rounded-full object-cover object-top mb-4"
+          />
+        )
+      ) : (
+        <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
+          <Users className="w-12 h-12 text-muted-foreground" />
+        </div>
+      )}
+      <h4 className="text-lg font-bold text-foreground mb-1">
+        {member.name}
+      </h4>
+      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+      
+      {hasBio && (
+        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full">
+          <CollapsibleTrigger className="flex items-center justify-center gap-1 text-xs text-accent hover:text-accent/80 transition-colors cursor-pointer">
+            <span>{isOpen ? "Less" : "More"}</span>
+            <ChevronDown className={`w-3 h-3 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+          </CollapsibleTrigger>
+          <CollapsibleContent className="mt-3 pt-3 border-t border-border">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {member.bio}
+            </p>
+          </CollapsibleContent>
+        </Collapsible>
+      )}
+    </div>
+  );
+};
 
 export const Us = () => {
   return (
@@ -35,41 +99,7 @@ export const Us = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {coreTeam.map((member, index) => (
-            <div
-              key={index}
-              className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
-            >
-              {member.image ? (
-                member.linkedin ? (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mb-4 hover:opacity-80 transition-opacity"
-                  >
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover object-top"
-                    />
-                  </a>
-                ) : (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover object-top mb-4"
-                  />
-                )
-              ) : (
-                <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
-                  <Users className="w-12 h-12 text-muted-foreground" />
-                </div>
-              )}
-              <h4 className="text-lg font-bold text-foreground mb-2">
-                {member.name}
-              </h4>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-            </div>
+            <TeamMemberCard key={index} member={member} />
           ))}
         </div>
       </div>
@@ -84,41 +114,7 @@ export const Us = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {advisoryTeam.map((member, index) => (
-            <div
-              key={index}
-              className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center"
-            >
-              {member.image ? (
-                member.linkedin ? (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mb-4 hover:opacity-80 transition-opacity"
-                  >
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover object-top"
-                    />
-                  </a>
-                ) : (
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover object-top mb-4"
-                  />
-                )
-              ) : (
-                <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
-                  <Users className="w-12 h-12 text-muted-foreground" />
-                </div>
-              )}
-              <h4 className="text-lg font-bold text-foreground mb-2">
-                {member.name}
-              </h4>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-            </div>
+            <TeamMemberCard key={index} member={member} />
           ))}
         </div>
       </div>
