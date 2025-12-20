@@ -70,49 +70,7 @@ const sources = {
   rvaGov: "https://www.rva.gov/"
 };
 
-// Open Data Portal inventory data
-const odpInventory = [
-  {
-    pillar: "Pillar 1: City Hall",
-    datasets: [
-      { name: "City Budget - General Fund", quality: "high", notes: "10+ years of history. Essential for tracking fiscal inputs. Updated annually.", sourceKey: "budgetRecap" },
-      { name: "City Contracts", quality: "medium", notes: "Lists active contracts but lacks compliance/performance data. Updated monthly.", sourceKey: "procurementMeta" },
-      { name: "Payment Register", quality: "high", notes: "Granular transparency on vendor payments. Essential for tracking 'timely payments' (Goal A).", sourceKey: "openDataPortal" }
-    ]
-  },
-  {
-    pillar: "Pillar 2: Neighborhoods",
-    datasets: [
-      { name: "Real Estate Sales / Assessments", quality: "high", notes: "Parcel-level granularity. Excellent for tracking gentrification trends and property value shifts.", sourceKey: "gisMapping" },
-      { name: "Building Permits (Implied)", quality: "medium", notes: "Usually available via Socrata/GIS. Leading indicator for 'New Housing Units' (Goal A).", sourceKey: "openDataPortal" },
-      { name: "Eviction Data", quality: "gap", notes: "Critical Gap: The City does not publish eviction filings. This data exists in court records only.", sourceKey: null }
-    ]
-  },
-  {
-    pillar: "Pillar 3: Families",
-    datasets: [
-      { name: "RPS Academic Data", quality: "gap", notes: "No direct RPS academic data is hosted on the City ODP.", sourceKey: null }
-    ]
-  },
-  {
-    pillar: "Pillar 4: Economy",
-    datasets: [
-      { name: "Business Licenses (Limited)", quality: "low", notes: "Often aggregated. Lacks 'minority-owned' (SWaM) flags publicly, making Goal D difficult to track.", sourceKey: "openDataPortal" }
-    ]
-  },
-  {
-    pillar: "Pillar 6: Environment",
-    datasets: [
-      { name: "GIS Layers (Floods, Parcels)", quality: "high", notes: "Strong GIS integration for land use and flood zones (Shockoe).", sourceKey: "gisMapping" }
-    ]
-  },
-  {
-    pillar: "Pillar 7: Stories",
-    datasets: [
-      { name: "Oral Histories / Qualitative", quality: "gap", notes: "Qualitative data (oral histories) is not suitable for Socrata formats.", sourceKey: null }
-    ]
-  }
-];
+// Note: Pillar-specific ODP data is now embedded in each pillar's dataAssets in pillarAnalysis.ts
 
 const priorityDatasets = [
   {
@@ -452,80 +410,9 @@ export const DataInfrastructureTab = () => {
         </p>
       </div>
 
-      <Accordion type="multiple" defaultValue={["odp-inventory", "priority-datasets", "current-state"]} className="space-y-4">
+      <Accordion type="multiple" defaultValue={["priority-datasets", "current-state"]} className="space-y-4">
         
-        {/* Open Data Portal Inventory - NEW SECTION */}
-        <AccordionItem value="odp-inventory" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <FileSpreadsheet className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Open Data Portal Inventory</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-6 text-muted-foreground">
-              <p>
-                A comprehensive audit of Richmond's data landscape reveals a dichotomy: the city possesses a robust technical infrastructure for "open data" (Socrata-based), yet the specific <strong className="text-foreground">"human-centric" datasets</strong> required to track the MAP's equity and outcome goals are often siloed, fragmented, or non-existent in the public domain.
-              </p>
-
-              <div className="flex items-center gap-2 text-sm">
-                <ExternalLink className="w-4 h-4" />
-                <a 
-                  href="https://data.richmondgov.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  City of Richmond Open Data Portal
-                </a>
-              </div>
-
-              {/* ODP Inventory by Pillar */}
-              <div className="space-y-4 mt-4">
-                {odpInventory.map((pillar, idx) => (
-                  <Card key={idx} className="bg-muted/20">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-base font-semibold">{pillar.pillar}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="space-y-3">
-                        {pillar.datasets.map((dataset, dIdx) => (
-                          <div key={dIdx} className="flex flex-col sm:flex-row sm:items-start gap-2 p-3 bg-background rounded-lg border border-border">
-                            <div className="flex items-center gap-2 min-w-[200px]">
-                              {dataset.quality === "gap" ? (
-                                <AlertCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
-                              ) : (
-                                <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
-                              )}
-                              <span className="font-medium text-foreground text-sm">
-                                {dataset.sourceKey ? (
-                                  <a 
-                                    href={sources[dataset.sourceKey as keyof typeof sources]} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="hover:text-primary hover:underline"
-                                  >
-                                    {dataset.name}
-                                  </a>
-                                ) : (
-                                  dataset.name
-                                )}
-                              </span>
-                            </div>
-                            <div className="flex-1 flex flex-col sm:flex-row sm:items-start gap-2">
-                              {getQualityBadge(dataset.quality)}
-                              <span className="text-sm text-muted-foreground">{dataset.notes}</span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {/* Note: Pillar-specific ODP data is now shown in each pillar's Data Ecosystem section */}
 
         {/* Priority Datasets to Locate - NEW SECTION */}
         <AccordionItem value="priority-datasets" className="border border-border rounded-lg px-6 bg-card">
