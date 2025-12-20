@@ -421,7 +421,8 @@ export const pillarData: PillarData[] = [
       missing: [
         { name: "Community Sentiment Survey", description: "Regular assessment of psychological safety and belonging", source: "Proposed: Community partnership" },
         { name: "CIP Equity Analysis Tool", description: "Systematic scoring of projects for equity impact", source: "Proposed: Budget Office" },
-        { name: "Service Access Mapping", description: "Geographic analysis of reproductive and LGBTQ+ health services", source: "Proposed: VDH + community orgs" }
+        { name: "Service Access Mapping", description: "Geographic analysis of reproductive and LGBTQ+ health services", source: "Proposed: VDH + community orgs" },
+        { name: "Community Health Metrics (Disaggregated)", description: "State data on maternal health, opioid overdoses, and life expectancy is held by VDH but often aggregated to 'Health District' level. Must be disaggregated to census tract or neighborhood level for MAP equity goals.", source: "Priority Gap" }
       ]
     },
     dependencies: [
