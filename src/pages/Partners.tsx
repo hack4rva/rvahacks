@@ -10,7 +10,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { awardTiers, prizePoolTotal } from "@/data";
 import { 
   Code, Palette, Briefcase, Landmark, 
-  Heart, HandHeart, Award, Clock, Search, Trophy
+  Heart, HandHeart, Award, Clock, Search, Trophy,
+  UtensilsCrossed, Gift, MapPin
 } from "lucide-react";
 
 const tabs = [
@@ -187,6 +188,88 @@ const Partners = () => {
                     <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
                       Sponsor an Award
                     </Button>
+                  </div>
+
+                  {/* Sponsorship Packages */}
+                  <div className="pt-6 border-t border-border">
+                    <h3 className="text-xl font-bold text-foreground mb-2 text-center">Sponsorship Packages</h3>
+                    <p className="text-sm text-muted-foreground text-center mb-4">
+                      Beyond awards, sponsor key event experiences that bring participants together.
+                    </p>
+                    <div className="grid sm:grid-cols-3 gap-4">
+                      <Card className="border-orange-500/30 hover:border-orange-500/60 transition-colors">
+                        <CardContent className="pt-5 text-center">
+                          <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-3">
+                            <UtensilsCrossed className="w-5 h-5 text-orange-500" />
+                          </div>
+                          <p className="font-semibold text-foreground mb-1">Friday Kick-Off Breakfast</p>
+                          <p className="text-xs text-muted-foreground mb-3">
+                            Fuel the start of the hackathon. Your brand welcomes participants as they form teams and dive in.
+                          </p>
+                          <Button onClick={handleCTAClick} variant="outline" size="sm" className="border-orange-500/50 text-orange-600 hover:bg-orange-500/10">
+                            Inquire
+                          </Button>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border-violet-500/30 hover:border-violet-500/60 transition-colors">
+                        <CardContent className="pt-5 text-center">
+                          <div className="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center mx-auto mb-3">
+                            <Trophy className="w-5 h-5 text-violet-500" />
+                          </div>
+                          <p className="font-semibold text-foreground mb-1">Sunday Awards Banquet</p>
+                          <p className="text-xs text-muted-foreground mb-3">
+                            Host the celebratory finale. Your brand on the stage where winners are crowned and solutions celebrated.
+                          </p>
+                          <Button onClick={handleCTAClick} variant="outline" size="sm" className="border-violet-500/50 text-violet-600 hover:bg-violet-500/10">
+                            Inquire
+                          </Button>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border-pink-500/30 hover:border-pink-500/60 transition-colors">
+                        <CardContent className="pt-5 text-center">
+                          <div className="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center mx-auto mb-3">
+                            <Gift className="w-5 h-5 text-pink-500" />
+                          </div>
+                          <p className="font-semibold text-foreground mb-1">Swag Bags</p>
+                          <p className="text-xs text-muted-foreground mb-3">
+                            Every participant gets one. Include your branded items or sponsor the entire swag experience.
+                          </p>
+                          <Button onClick={handleCTAClick} variant="outline" size="sm" className="border-pink-500/50 text-pink-600 hover:bg-pink-500/10">
+                            Inquire
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  {/* Satellite Venues */}
+                  <div className="pt-6 border-t border-border">
+                    <Card className="border-2 border-dashed border-accent/40 bg-accent/5">
+                      <CardContent className="py-6">
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
+                            <MapPin className="w-6 h-6 text-accent" />
+                          </div>
+                          <div className="flex-1">
+                            <h3 className="text-lg font-bold text-foreground mb-1">Hack-Friendly Satellite Venues</h3>
+                            <p className="text-sm text-muted-foreground mb-3">
+                              We're looking for spaces across Richmond where teams can gather to hack. Offer your office, coworking space, 
+                              coffee shop, or community center as a satellite venue. You provide the space; we'll help coordinate logistics.
+                            </p>
+                            <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-4">
+                              <span className="bg-background rounded px-2 py-1">WiFi + power outlets</span>
+                              <span className="bg-background rounded px-2 py-1">8+ hour availability Saturday</span>
+                              <span className="bg-background rounded px-2 py-1">Seating for 10+ people</span>
+                            </div>
+                            <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                              Offer Your Space
+                            </Button>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
               </TabsContent>
