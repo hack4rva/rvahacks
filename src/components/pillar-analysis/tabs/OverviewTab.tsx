@@ -201,61 +201,6 @@ export const OverviewTab = ({ onNavigateToPillar }: OverviewTabProps) => {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Critical Dependencies */}
-        <AccordionItem value="dependencies" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <AlertTriangle className="w-5 h-5 text-amber-500" />
-              <span className="text-xl font-semibold text-foreground">Critical Dependencies</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                The MAP's ambitious goals face several structural dependencies that require careful attention and proactive management.
-              </p>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-base text-amber-800 dark:text-amber-200">Data Infrastructure Fragmentation</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-amber-700 dark:text-amber-300">
-                    Municipal data exists in siloed systems with inconsistent formats, making cross-pillar analysis and real-time decision-making challenging.
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-base text-amber-800 dark:text-amber-200">Partner Institution Reliance</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-amber-700 dark:text-amber-300">
-                    Critical outcomes depend on entities outside direct municipal control: Richmond Public Schools, Virginia Dept. of Health, PlanRVA, and regional partners.
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-base text-amber-800 dark:text-amber-200">Workforce Capacity</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-amber-700 dark:text-amber-300">
-                    Persistent vacancies in key departments create bottlenecks that ripple across all service delivery areas.
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-amber-50/50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800">
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-base text-amber-800 dark:text-amber-200">Federated Data Model Need</CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-sm text-amber-700 dark:text-amber-300">
-                    Success requires building a data governance structure that enables sharing while respecting institutional autonomy and privacy requirements.
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
       </Accordion>
     </div>
   );
