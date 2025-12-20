@@ -20,10 +20,13 @@ const tabs = [
 
 const awardTiers = [
   { tier: "Mayor's Choice", amount: "$5,000", quantity: "1 available", desc: "Best Overall Solution", color: "border-yellow-500 bg-yellow-500/10" },
-  { tier: "Housing Award", amount: "$2,500", quantity: "Focus Area", desc: "Eviction prevention, tenant rights, affordable housing", color: "border-accent bg-accent/10" },
-  { tier: "Jobs Award", amount: "$2,500", quantity: "Focus Area", desc: "Workforce development, small business, economic mobility", color: "border-accent bg-accent/10" },
-  { tier: "Transit Award", amount: "$2,500", quantity: "Focus Area", desc: "Transportation access, mobility equity, GRTC integration", color: "border-accent bg-accent/10" },
-  { tier: "Track Awards", amount: "$1,000", quantity: "Many available", desc: "Sponsor-defined criteria", color: "border-primary bg-primary/5" },
+  { tier: "Pillar 1: Thriving City Hall", amount: "$1,000", quantity: "Pillar Award", desc: "Government efficiency, service delivery, IT modernization", color: "border-blue-500 bg-blue-500/10" },
+  { tier: "Pillar 2: Thriving Neighborhoods", amount: "$1,000", quantity: "Pillar Award", desc: "Housing production, affordability, eviction prevention", color: "border-red-500 bg-red-500/10" },
+  { tier: "Pillar 3: Thriving Families", amount: "$1,000", quantity: "Pillar Award", desc: "Education, youth programs, out-of-school time", color: "border-purple-500 bg-purple-500/10" },
+  { tier: "Pillar 4: Thriving Economy", amount: "$1,000", quantity: "Pillar Award", desc: "Workforce development, small business, economic mobility", color: "border-emerald-500 bg-emerald-500/10" },
+  { tier: "Pillar 5: Inclusive Communities", amount: "$1,000", quantity: "Pillar Award", desc: "Health equity, civil rights, community belonging", color: "border-green-500 bg-green-500/10" },
+  { tier: "Pillar 6: Thriving Environment", amount: "$1,000", quantity: "Pillar Award", desc: "Climate action, green infrastructure, sustainability", color: "border-amber-500 bg-amber-500/10" },
+  { tier: "Pillar 7: City Stories", amount: "$1,000", quantity: "Pillar Award", desc: "Historical truth-telling, Shockoe Project, reconciliation", color: "border-cyan-500 bg-cyan-500/10" },
 ];
 
 const Partners = () => {
