@@ -8,8 +8,6 @@ import sinclairJenks from "@/assets/sinclair-jenks.png";
 import christianMarkow from "@/assets/christian-markow.png";
 import heatherLyne from "@/assets/heather-lyne-blue.png";
 import ashHarris from "@/assets/ash-harris-blue.png";
-import richmondSeal from "@/assets/richmond-seal.png";
-import scienceMuseumLogo from "@/assets/science-museum-virginia.png";
 
 const coreTeam = [
   { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior" },
@@ -24,26 +22,6 @@ const advisoryTeam = [
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined },
-];
-
-const partners = [
-  {
-    name: "City of Richmond / Mayor's Office",
-    subtitle:
-      "Strategic priorities | Implementation pathway | City department champions",
-    logo: richmondSeal,
-  },
-  {
-    name: "Science Museum of Virginia",
-    subtitle:
-      "Venue Sponsor | Sunday Finals & Awards Ceremony",
-    logo: scienceMuseumLogo,
-  },
-  {
-    name: "Fiscal Sponsor",
-    subtitle: "Financial oversight | Legal structure | Grant administration",
-    logo: undefined,
-  },
 ];
 
 export const Us = () => {
@@ -156,43 +134,6 @@ export const Us = () => {
             </div>
           </div>
 
-          {/* Partners */}
-          <div className="mt-16">
-            <div className="flex items-center justify-center gap-2 mb-8">
-              <Users className="w-6 h-6 text-accent" />
-              <h3 className="text-2xl font-bold text-foreground">
-                Partners
-              </h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-4xl mx-auto">
-              {partners.map((partner, index) => (
-                <div
-                  key={index}
-                  className="bg-card p-6 md:p-8 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border group hover:scale-105 animate-fade-in"
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  {/* Logo */}
-                  <div className="h-20 md:h-24 bg-muted/40 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/10 transition-smooth px-4">
-                    {partner.logo ? (
-                      <img 
-                        src={partner.logo} 
-                        alt={`${partner.name} logo`}
-                        className="max-h-16 w-auto object-contain"
-                      />
-                    ) : (
-                      <span className="text-muted-foreground/60 group-hover:text-accent font-bold text-lg text-center">
-                        {partner.name}
-                      </span>
-                    )}
-                  </div>
-                  {/* Subtitle */}
-                  <p className="text-sm text-muted-foreground text-center leading-relaxed">
-                    {partner.subtitle}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
