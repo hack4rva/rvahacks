@@ -97,7 +97,7 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
 
       {/* Pillar Awards Section */}
       <div className="mb-6">
-        <h3 className="text-center text-lg font-semibold text-foreground mb-1">Pillar Awards</h3>
+        <h3 className="text-center text-lg font-semibold text-foreground mb-1">$1K Pillar Bounties</h3>
         <p className="text-center text-sm text-muted-foreground mb-6">One award for each of the Mayor's 7 Pillars</p>
       </div>
 
