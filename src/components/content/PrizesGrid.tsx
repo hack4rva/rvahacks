@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { awardTiers, prizeTimeline, type PrizeAward } from "@/data";
 import { Card, CardContent } from "@/components/ui/card";
-import { Trophy, Award } from "lucide-react";
+import { Trophy } from "lucide-react";
 
 interface AwardCardProps {
   award: PrizeAward;
@@ -8,24 +9,7 @@ interface AwardCardProps {
 }
 
 const AwardCard = ({ award, featured = false }: AwardCardProps) => {
-  // Extract pillar number from title if present
-  const pillarMatch = award.title.match(/Pillar (\d)/);
-  const pillarNum = pillarMatch ? pillarMatch[1] : null;
-  
-  // Get color for the pillar
-  const getColor = () => {
-    if (award.color?.includes('blue')) return '#3b82f6';
-    if (award.color?.includes('red')) return '#ef4444';
-    if (award.color?.includes('purple')) return '#a855f7';
-    if (award.color?.includes('emerald')) return '#10b981';
-    if (award.color?.includes('green')) return '#22c55e';
-    if (award.color?.includes('amber')) return '#f59e0b';
-    if (award.color?.includes('cyan')) return '#06b6d4';
-    return '#888';
-  };
-
   if (featured) {
-    // Determine icon color based on award color
     const iconColor = award.color?.includes('yellow') ? 'text-yellow-500' : 
                       award.color?.includes('pink') ? 'text-pink-500' : 
                       award.color?.includes('violet') ? 'text-violet-500' : 'text-yellow-500';
@@ -53,33 +37,71 @@ const AwardCard = ({ award, featured = false }: AwardCardProps) => {
     );
   }
 
-  // Compact pillar card
+  return null;
+};
+
+// Pillar badge colors mapping
+const getPillarStyle = (award: PrizeAward) => {
+  const pillarMatch = award.title.match(/Pillar (\d)/);
+  const pillarNum = pillarMatch ? pillarMatch[1] : null;
+  
+  const colorMap: Record<string, { bg: string; border: string; text: string; hex: string }> = {
+    'blue': { bg: 'bg-blue-500/20', border: 'border-blue-500/50', text: 'text-blue-600 dark:text-blue-400', hex: '#3b82f6' },
+    'red': { bg: 'bg-red-500/20', border: 'border-red-500/50', text: 'text-red-600 dark:text-red-400', hex: '#ef4444' },
+    'purple': { bg: 'bg-purple-500/20', border: 'border-purple-500/50', text: 'text-purple-600 dark:text-purple-400', hex: '#a855f7' },
+    'emerald': { bg: 'bg-emerald-500/20', border: 'border-emerald-500/50', text: 'text-emerald-600 dark:text-emerald-400', hex: '#10b981' },
+    'green': { bg: 'bg-green-500/20', border: 'border-green-500/50', text: 'text-green-600 dark:text-green-400', hex: '#22c55e' },
+    'amber': { bg: 'bg-amber-500/20', border: 'border-amber-500/50', text: 'text-amber-600 dark:text-amber-400', hex: '#f59e0b' },
+    'cyan': { bg: 'bg-cyan-500/20', border: 'border-cyan-500/50', text: 'text-cyan-600 dark:text-cyan-400', hex: '#06b6d4' },
+  };
+  
+  const colorKey = Object.keys(colorMap).find(key => award.color?.includes(key)) || 'blue';
+  return { ...colorMap[colorKey], pillarNum };
+};
+
+interface PillarBadgeProps {
+  award: PrizeAward;
+  isSelected: boolean;
+  onClick: () => void;
+}
+
+const PillarBadge = ({ award, isSelected, onClick }: PillarBadgeProps) => {
+  const style = getPillarStyle(award);
+  const shortTitle = award.title.replace(/Pillar \d: /, '');
+  
   return (
-    <Card className={`border-2 ${award.color || "border-border"} transition-all duration-200 hover:scale-[1.02] hover:shadow-lg min-w-[140px] flex-1`}>
-      <CardContent className="py-4 px-3 text-center">
-        <div 
-          className="w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2 text-white font-bold text-sm"
-          style={{ backgroundColor: getColor() }}
-        >
-          {pillarNum || <Award className="w-4 h-4" />}
-        </div>
-        <p className="text-xl font-bold text-foreground mb-1">{award.amount}</p>
-        <p className="text-xs font-semibold text-foreground leading-tight line-clamp-2">
-          {award.title.replace(/Pillar \d: /, '')}
-        </p>
-      </CardContent>
-    </Card>
+    <button
+      onClick={onClick}
+      className={`inline-flex items-center gap-2 px-4 py-3 rounded-full border-2 shadow-sm hover:shadow-elegant transition-smooth ${
+        isSelected
+          ? `${style.border} ${style.bg}`
+          : `border-border hover:${style.border} bg-card`
+      }`}
+    >
+      <div 
+        className="w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0"
+        style={{ backgroundColor: style.hex }}
+      >
+        {style.pillarNum}
+      </div>
+      <span className="text-sm font-semibold text-card-foreground whitespace-nowrap">
+        {shortTitle}
+      </span>
+      <span className={`text-xs font-bold ${style.text}`}>
+        {award.amount}
+      </span>
+    </button>
   );
 };
 
 interface PrizesGridProps {
   className?: string;
-  /** Show the timeline section */
   showTimeline?: boolean;
 }
 
 export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridProps) => {
-  // Separate prizes: grand prize (index 0), runner-up prizes (1-2), pillar awards (3+)
+  const [selectedPillar, setSelectedPillar] = useState<number | null>(null);
+  
   const grandPrize = awardTiers[0];
   const runnerUpPrizes = awardTiers.slice(1, 3);
   const pillarAwards = awardTiers.slice(3);
@@ -108,7 +130,7 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
       </div>
 
       {/* Runner-Up Prizes */}
-      <div className="mb-8">
+      <div className="mb-10">
         <h3 className="text-center text-lg font-semibold text-foreground mb-1">$2.5K Runner-Up Prizes</h3>
         <p className="text-center text-sm text-muted-foreground mb-4">Voted by judges and audience</p>
         <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
@@ -118,32 +140,66 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         </div>
       </div>
 
-      {/* Pillar Awards Section */}
+      {/* Pillar Awards Section - Interactive Bubbles */}
       <div className="mb-6">
         <h3 className="text-center text-lg font-semibold text-foreground mb-1">$1K Pillar Bounties</h3>
-        <p className="text-center text-sm text-muted-foreground mb-6">One award for each of the Mayor's 7 Pillars</p>
+        <p className="text-center text-sm text-muted-foreground mb-6">
+          Click a pillar to learn more. One award for each of the Mayor's 7 Pillars.
+        </p>
       </div>
 
-      {/* Award Tiers - 4 top, 3 bottom centered */}
-      <div className="space-y-3">
-        <div className="flex justify-center gap-3">
-          {pillarAwards.slice(0, 4).map((award, index) => (
-            <div key={index} className="w-[160px]">
-              <AwardCard award={award} />
-            </div>
-          ))}
-        </div>
-        <div className="flex justify-center gap-3">
-          {pillarAwards.slice(4).map((award, index) => (
-            <div key={index + 4} className="w-[160px]">
-              <AwardCard award={award} />
-            </div>
-          ))}
-        </div>
+      {/* Interactive Pillar Badges */}
+      <div className="flex flex-wrap justify-center gap-3 mb-6">
+        {pillarAwards.map((award, index) => (
+          <PillarBadge
+            key={index}
+            award={award}
+            isSelected={selectedPillar === index}
+            onClick={() => setSelectedPillar(selectedPillar === index ? null : index)}
+          />
+        ))}
       </div>
+
+      {/* Expanded Detail Panel */}
+      {selectedPillar !== null && (
+        <div className="max-w-2xl mx-auto mb-6">
+          <div 
+            className="p-6 rounded-xl border-2 shadow-elegant animate-fade-in"
+            style={{ 
+              borderColor: getPillarStyle(pillarAwards[selectedPillar]).hex + '50',
+              backgroundColor: getPillarStyle(pillarAwards[selectedPillar]).hex + '10'
+            }}
+          >
+            <div className="flex items-start gap-4">
+              <div 
+                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0"
+                style={{ backgroundColor: getPillarStyle(pillarAwards[selectedPillar]).hex }}
+              >
+                {getPillarStyle(pillarAwards[selectedPillar]).pillarNum}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="text-xl font-bold text-card-foreground">
+                    {pillarAwards[selectedPillar].title}
+                  </h3>
+                  <span 
+                    className="text-lg font-bold"
+                    style={{ color: getPillarStyle(pillarAwards[selectedPillar]).hex }}
+                  >
+                    {pillarAwards[selectedPillar].amount}
+                  </span>
+                </div>
+                <p className="text-muted-foreground leading-relaxed">
+                  {pillarAwards[selectedPillar].description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Note */}
-      <div className="text-center mt-10 space-y-2">
+      <div className="text-center mt-8 space-y-2">
         <p className="text-sm text-muted-foreground">
           Each pillar category will have a winner recognized at the awards ceremony.
         </p>
@@ -155,7 +211,7 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
   );
 };
 
-// Legacy named exports (kept for backwards compatibility with older imports)
+// Legacy named exports
 export { awardTiers };
 export const majorAwards: PrizeAward[] = awardTiers;
 export const sponsorAwards: PrizeAward[] = [];
