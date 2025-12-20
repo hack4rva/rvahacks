@@ -1,6 +1,7 @@
 /**
  * Data Resources Tab
- * Hackathon-focused: data sources, partnerships, and cross-pillar analysis inspiration
+ * Hackathon-focused: data sources and cross-pillar analysis inspiration
+ * Note: Partnership ecosystem moved to individual pillar tabs
  */
 
 import { 
@@ -8,16 +9,10 @@ import {
   ArrowRight,
   FileSpreadsheet,
   ExternalLink,
-  Handshake,
-  Home,
-  GraduationCap,
-  Building,
-  HeartPulse,
-  Landmark,
   GitBranch
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
@@ -77,105 +72,6 @@ const crossPillarAnalyses = [
   }
 ];
 
-// Partnership Ecosystem Data
-const partnershipEcosystems = [
-  {
-    category: "Housing & Neighborhoods",
-    icon: Home,
-    color: "text-red-500",
-    partners: [
-      {
-        name: "Partnership for Housing Affordability (PHA) & PlanRVA",
-        role: "Manage the Market Value Analysis (MVA)—a sophisticated tool that classifies neighborhoods by market strength (distressed, middle, strong). Superior to simple tax assessments for targeting affordable housing investments.",
-        dataAsset: "Regional housing supply data, cost-burden analysis, neighborhood market classification",
-        sourceKey: "planRvaCeds"
-      },
-      {
-        name: "Housing Opportunities Made Equal (HOME)",
-        role: "Primary watchdog for fair housing. Holds data on fair housing complaints and eviction defense cases.",
-        dataAsset: "Qualitative and quantitative data on discrimination patterns that City systems (311) will never capture",
-        sourceKey: "homeEviction"
-      },
-      {
-        name: "Better Housing Coalition (BHC)",
-        role: "Nonprofit developer with visibility into affordable housing pipeline.",
-        dataAsset: "Pipeline data—knows what affordable units are in financing/development before they hit the City's permitting system",
-        sourceKey: "betterHousing"
-      }
-    ]
-  },
-  {
-    category: "Education & Youth",
-    icon: GraduationCap,
-    color: "text-purple-500",
-    partners: [
-      {
-        name: "Communities in Schools (CIS) & NextUp RVA",
-        role: "Intermediaries managing the network of out-of-school time (OST) providers.",
-        dataAsset: "Out-of-School Time Participation & Quality—tracks 'Tier 2 & 3' supports with granular data on attendance, behavior, and coursework (ABC) for specific at-risk cohorts",
-        sourceKey: "cisRichmond"
-      },
-      {
-        name: "Richmond Public Schools (RPS)",
-        role: "Primary educator. A robust MOU is needed to link academic data with City human services data.",
-        dataAsset: "Student-level academic and attendance data",
-        sourceKey: "rpsGraduation"
-      }
-    ]
-  },
-  {
-    category: "Economic Development",
-    icon: Building,
-    color: "text-emerald-500",
-    partners: [
-      {
-        name: "Greater Richmond Partnership (GRP)",
-        role: "Regional economic development organization.",
-        dataAsset: "Business attraction pipeline and regional labor market analysis",
-        sourceKey: null
-      },
-      {
-        name: "ChamberRVA",
-        role: "Business advocacy organization providing external validation for Pillar 4.",
-        dataAsset: "'Upward Mobility' Dashboard—tracks workforce readiness, skills gaps, and regional alignment",
-        sourceKey: "planRvaMetrics"
-      }
-    ]
-  },
-  {
-    category: "Health & Environment",
-    icon: HeartPulse,
-    color: "text-green-500",
-    partners: [
-      {
-        name: "Richmond City Health District (RCHD)",
-        role: "Public health authority (state agency embedded in the city).",
-        dataAsset: "Health Equity Metrics—Maternity Navigation program data (clients served, outcomes) for Pillar 5",
-        sourceKey: "rchdChildbirth"
-      },
-      {
-        name: "RVA Clean City Commission & Science Museum of Virginia",
-        role: "Environmental advocacy and research.",
-        dataAsset: "Urban Heat Island Maps—hyperlocal temperature data used to target tree plantings for Pillar 6",
-        sourceKey: "rvaGreen2050"
-      }
-    ]
-  },
-  {
-    category: "History & Culture",
-    icon: Landmark,
-    color: "text-amber-500",
-    partners: [
-      {
-        name: "Shockoe Institute & National Slavery Museum Foundation",
-        role: "Stewards of the 'Stories' pillar.",
-        dataAsset: "Qualitative & Historical Data—oral histories, archaeological findings, and descendant community registries that constitute the 'truth' in Pillar 7",
-        sourceKey: "shockoeProject"
-      }
-    ]
-  }
-];
-
 // All sources for the Works Cited section
 const worksCited = [
   { id: 1, title: "Mayoral Action Plan 2025 (PDF)", url: sources.mapPdf },
@@ -217,13 +113,13 @@ export const DataInfrastructureTab = () => {
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-foreground mb-3">Data Resources</h2>
         <p className="text-lg text-muted-foreground">
-          Data sources, partnership ecosystem, and cross-pillar analysis inspiration for hackathon participants.
+          Data sources and cross-pillar analysis inspiration for hackathon participants. Partner information is now shown within each pillar tab.
         </p>
       </div>
 
       <Accordion type="multiple" defaultValue={["works-cited"]} className="space-y-4">
         
-        {/* Data Sources & Resources - FIRST (most actionable) */}
+        {/* Data Sources & Resources */}
         <AccordionItem value="works-cited" className="border border-border rounded-lg px-6 bg-card">
           <AccordionTrigger className="hover:no-underline py-6">
             <div className="flex items-center gap-3">
@@ -271,66 +167,7 @@ export const DataInfrastructureTab = () => {
           </AccordionContent>
         </AccordionItem>
 
-        {/* Partnership Ecosystem - SECOND (where to dig deeper) */}
-        <AccordionItem value="partnership-ecosystem" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <Handshake className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Partnership Ecosystem</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-6 text-muted-foreground">
-              <p>
-                The MAP explicitly lists <strong className="text-foreground">Partnership</strong> as a core value—an acknowledgment that the City does not possess all the levers or data required to make Richmond thrive. These organizations hold valuable data assets for hackathon solutions.
-              </p>
-
-              <div className="space-y-6">
-                {partnershipEcosystems.map((ecosystem, idx) => {
-                  const IconComponent = ecosystem.icon;
-                  return (
-                    <Card key={idx} className="bg-muted/20">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="text-lg flex items-center gap-2">
-                          <IconComponent className={`w-5 h-5 ${ecosystem.color}`} />
-                          {ecosystem.category}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="space-y-4">
-                        {ecosystem.partners.map((partner, pIdx) => (
-                          <div key={pIdx} className="p-4 bg-background rounded-lg border border-border">
-                            <h5 className="font-semibold text-foreground mb-2">{partner.name}</h5>
-                            <p className="text-sm mb-3">{partner.role}</p>
-                            <div className="flex items-start gap-2 p-2 bg-primary/5 rounded border-l-2 border-primary">
-                              <Database className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                              <div className="flex-1">
-                                <span className="text-xs font-semibold text-primary uppercase">Data Asset</span>
-                                <p className="text-sm text-foreground">{partner.dataAsset}</p>
-                                {partner.sourceKey && (
-                                  <a 
-                                    href={sources[partner.sourceKey as keyof typeof sources]} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
-                                  >
-                                    <ExternalLink className="w-3 h-3" />
-                                    View Source
-                                  </a>
-                                )}
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Cross-Pillar Analysis - THIRD (inspiration for connections) */}
+        {/* Cross-Pillar Analysis */}
         <AccordionItem value="cross-pillar-analysis" className="border border-border rounded-lg px-6 bg-card">
           <AccordionTrigger className="hover:no-underline py-6">
             <div className="flex items-center gap-3">
@@ -347,14 +184,12 @@ export const DataInfrastructureTab = () => {
               <div className="space-y-4">
                 {crossPillarAnalyses.map((analysis, idx) => (
                   <Card key={idx} className="bg-muted/20">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-base flex items-center gap-2">
+                    <CardContent className="p-4 space-y-3">
+                      <div className="flex items-center gap-2 text-base font-semibold">
                         <span className="text-primary">{analysis.from}</span>
                         <ArrowRight className="w-4 h-4 text-muted-foreground" />
                         <span className="text-primary">{analysis.to}</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-3">
+                      </div>
                       <div>
                         <span className="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase">Hypothesis</span>
                         <p className="text-sm text-foreground">{analysis.hypothesis}</p>
