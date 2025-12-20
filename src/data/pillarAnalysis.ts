@@ -97,12 +97,16 @@ export const pillarData: PillarData[] = [
       existing: [
         { name: "HR Management System", description: "Employee records, vacancies, hiring pipeline tracking", source: "Human Resources", quality: "medium" },
         { name: "311 Request System", description: "Service requests and average closure times", source: "Customer Service", quality: "medium" },
-        { name: "Procurement Database", description: "Contract status, payment processing times", source: "Finance/Procurement", quality: "medium" }
+        { name: "Procurement Database", description: "Contract status, payment processing times", source: "Finance/Procurement", quality: "medium" },
+        { name: "City Budget - General Fund", description: "10+ years of history. Essential for tracking fiscal inputs. Updated annually.", source: "Open Data Portal", quality: "high" },
+        { name: "City Contracts", description: "Lists active contracts but lacks compliance/performance data. Updated monthly.", source: "Open Data Portal", quality: "medium" },
+        { name: "Payment Register", description: "Granular transparency on vendor payments. Essential for tracking 'timely payments' goal.", source: "Open Data Portal", quality: "high" }
       ],
       missing: [
         { name: "Real-time Vacancy Dashboard", description: "Live view of vacancies by department with hiring pipeline status and time-to-fill metrics", source: "Proposed: HR + Finance integration" },
         { name: "SLA Performance Tracking", description: "Granular tracking of 311 SLA compliance by request type with automatic alerting", source: "Proposed: 311 system enhancement" },
-        { name: "IT Modernization Index", description: "Systematic inventory of all systems with age, support status, and replacement timeline", source: "Proposed: IT Department audit" }
+        { name: "IT Modernization Index", description: "Systematic inventory of all systems with age, support status, and replacement timeline", source: "Proposed: IT Department audit" },
+        { name: "Employee Vacancy & Turnover Rates", description: "While budget documents list authorized FTEs, the real-time vacancy rate is not published as an open dataset. This is the 'lead domino' for Pillar 1.", source: "Priority Gap" }
       ]
     },
     dependencies: [
@@ -172,12 +176,16 @@ export const pillarData: PillarData[] = [
     dataAssets: {
       existing: [
         { name: "Permit Database", description: "New construction permits and unit counts", source: "Planning & Development", quality: "high" },
-        { name: "ACS Housing Data", description: "American Community Survey cost-burden estimates", source: "US Census", quality: "medium" }
+        { name: "ACS Housing Data", description: "American Community Survey cost-burden estimates", source: "US Census", quality: "medium" },
+        { name: "Real Estate Sales / Assessments", description: "Parcel-level granularity. Excellent for tracking gentrification trends and property value shifts.", source: "Open Data Portal / GIS", quality: "high" },
+        { name: "Building Permits", description: "Usually available via Socrata/GIS. Leading indicator for 'New Housing Units' goal.", source: "Open Data Portal", quality: "medium" }
       ],
       missing: [
         { name: "AMI-Segmented Production Tracking", description: "Real-time tracking of housing production by affordability level", source: "Proposed: Enhanced permit system" },
         { name: "Eviction Risk Index", description: "Predictive model for households at risk of eviction", source: "Proposed: Court records + utility data integration" },
-        { name: "Spatial Equity Dashboard", description: "Geographic visualization of housing investment by neighborhood", source: "Proposed: GIS integration" }
+        { name: "Spatial Equity Dashboard", description: "Geographic visualization of housing investment by neighborhood", source: "Proposed: GIS integration" },
+        { name: "Eviction Filings Data", description: "Critical Gap: The City does not publish eviction filings. This data exists in court records only and is scraped by third parties like HOME and RVA Eviction Lab.", source: "Priority Gap" },
+        { name: "Housing Unit Production & Affordability", description: "Fragmented: City tracks permits, but 'affordability' (AMI levels) is often tracked separately by nonprofits like Better Housing Coalition or PlanRVA.", source: "Priority Gap" }
       ]
     },
     dependencies: [
@@ -250,12 +258,14 @@ export const pillarData: PillarData[] = [
       existing: [
         { name: "NextUp RVA Enrollment", description: "Participation data for coordinated OST programs", source: "NextUp RVA", quality: "medium" },
         { name: "Library Program Data", description: "Youth participation in library programs", source: "Richmond Public Library", quality: "medium" },
-        { name: "Parks & Rec Youth Programs", description: "Recreation program enrollment and completion", source: "Parks & Recreation", quality: "medium" }
+        { name: "Parks & Rec Youth Programs", description: "Recreation program enrollment and completion", source: "Parks & Recreation", quality: "medium" },
+        { name: "VDOE School Performance Data", description: "SOL scores, graduation rates, and chronic absenteeism data from state dashboards", source: "Virginia Dept. of Education", quality: "high" }
       ],
       missing: [
         { name: "RPS Data Sharing Agreement", description: "Anonymized student data linked to City program participation", source: "Proposed: City-RPS DSA" },
         { name: "YPQI Assessment Database", description: "Standardized quality scores across all OST providers", source: "Proposed: NextUp RVA" },
-        { name: "Longitudinal Student Tracking", description: "Multi-year tracking of students through City programs and educational outcomes", source: "Proposed: Integrated data system" }
+        { name: "Longitudinal Student Tracking", description: "Multi-year tracking of students through City programs and educational outcomes", source: "Proposed: Integrated data system" },
+        { name: "RPS Academic Data on ODP", description: "No direct RPS academic data is hosted on the City Open Data Portal. Must come from VDOE or RPS directly.", source: "Priority Gap" }
       ]
     },
     dependencies: [
@@ -329,12 +339,13 @@ export const pillarData: PillarData[] = [
       existing: [
         { name: "SWaM Certification Database", description: "Registry of certified small, women-owned, and minority businesses", source: "Procurement", quality: "high" },
         { name: "OCWB Program Data", description: "Job placement and training program outcomes", source: "OCWB", quality: "medium" },
-        { name: "Business License Data", description: "New business registrations and renewals", source: "Finance", quality: "high" }
+        { name: "Business License Data", description: "New business registrations and renewals. Often aggregated and lacks 'minority-owned' (SWaM) flags publicly.", source: "Finance / Open Data Portal", quality: "low" }
       ],
       missing: [
         { name: "Longitudinal Wealth Tracking", description: "Multi-year tracking of asset accumulation for program participants", source: "Proposed: OCWB + financial institutions" },
         { name: "ALICE-Aligned Wage Data", description: "Job placements categorized by ALICE threshold attainment", source: "Proposed: OCWB enhancement" },
-        { name: "Procurement Attribution", description: "Tracking how SWaM dollars flow through local economy", source: "Proposed: Economic modeling" }
+        { name: "Procurement Attribution", description: "Tracking how SWaM dollars flow through local economy", source: "Proposed: Economic modeling" },
+        { name: "SWaM Participation Flags", description: "Business license data lacks public 'minority-owned' flags, making Goal D (SWaM participation) difficult to track on ODP.", source: "Priority Gap" }
       ]
     },
     dependencies: [
@@ -480,12 +491,14 @@ export const pillarData: PillarData[] = [
       existing: [
         { name: "GHG Inventory", description: "Periodic citywide carbon emissions estimate", source: "Office of Sustainability", quality: "medium" },
         { name: "Tree Canopy Analysis", description: "Satellite-derived canopy coverage maps", source: "GIS/Sustainability", quality: "high" },
-        { name: "Parks Inventory", description: "Location and amenities of city parks", source: "Parks & Recreation", quality: "high" }
+        { name: "Parks Inventory", description: "Location and amenities of city parks", source: "Parks & Recreation", quality: "high" },
+        { name: "GIS Layers (Floods, Parcels)", description: "Strong GIS integration for land use and flood zones (Shockoe). Useful for climate vulnerability mapping.", source: "Open Data Portal / GIS", quality: "high" }
       ],
       missing: [
         { name: "CIP Carbon Scoring", description: "Systematic carbon impact assessment for all capital projects", source: "Proposed: Budget Office + Sustainability" },
         { name: "Real-time Air Quality", description: "Neighborhood-level air quality monitoring network", source: "Proposed: Sensor network" },
-        { name: "Green Space Quality Index", description: "Assessment of park condition, not just existence", source: "Proposed: Parks assessment tool" }
+        { name: "Green Space Quality Index", description: "Assessment of park condition, not just existence", source: "Proposed: Parks assessment tool" },
+        { name: "Community Health Metrics", description: "Data on maternal health, opioid overdoses, life expectancy held by VDH. Often aggregated to Health District level—must be disaggregated for MAP equity goals.", source: "Priority Gap - VDH" }
       ]
     },
     dependencies: [
@@ -566,7 +579,8 @@ export const pillarData: PillarData[] = [
       missing: [
         { name: "Descendant Community Registry", description: "Systematic tracking of descendant community input and endorsement", source: "Proposed: Community partnership" },
         { name: "Curriculum Adoption Tracking", description: "RPS integration of historical content by grade level", source: "Proposed: RPS partnership" },
-        { name: "Economic Impact Model", description: "Tracking of heritage tourism economic benefits to local businesses", source: "Proposed: Economic Development" }
+        { name: "Economic Impact Model", description: "Tracking of heritage tourism economic benefits to local businesses", source: "Proposed: Economic Development" },
+        { name: "Oral Histories / Qualitative Data", description: "Qualitative data (oral histories, archaeological findings) is not suitable for Socrata formats and requires alternative archival approaches.", source: "Priority Gap - Qualitative" }
       ]
     },
     dependencies: [
