@@ -124,11 +124,18 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         <p className="text-center text-sm text-muted-foreground mb-6">One award for each of the Mayor's 7 Pillars</p>
       </div>
 
-      {/* Award Tiers - Single Row */}
-      <div className="flex gap-2 overflow-x-auto pb-2 md:overflow-visible md:justify-center">
-        {pillarAwards.map((award, index) => (
-          <AwardCard key={index} award={award} />
-        ))}
+      {/* Award Tiers - 4 top, 3 bottom centered */}
+      <div className="space-y-3">
+        <div className="flex justify-center gap-3">
+          {pillarAwards.slice(0, 4).map((award, index) => (
+            <AwardCard key={index} award={award} />
+          ))}
+        </div>
+        <div className="flex justify-center gap-3">
+          {pillarAwards.slice(4).map((award, index) => (
+            <AwardCard key={index + 4} award={award} />
+          ))}
+        </div>
       </div>
 
       {/* Note */}
