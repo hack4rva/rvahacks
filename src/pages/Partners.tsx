@@ -7,15 +7,29 @@ import { EmailSignup } from "@/components/EmailSignup";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Accordion } from "@/components/ui/accordion";
 import { awardTiers, prizePoolTotal } from "@/data";
 import { 
   Code, Palette, Briefcase, Landmark, 
   Heart, HandHeart, Award, Clock, Search, Trophy,
-  UtensilsCrossed, Gift, MapPin, Users, Check
+  UtensilsCrossed, Gift, MapPin, Users, Check, 
+  Sparkles, Calendar, ArrowRight, Building2, ClipboardCheck
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import richmondSeal from "@/assets/richmond-seal.png";
 import scienceMuseumLogo from "@/assets/science-museum-virginia.png";
+import { 
+  PillarEcosystemAccordion, 
+  RoleCategoryAccordion,
+} from "@/components/volunteers";
+import {
+  preEventRoles,
+  fridayRoles,
+  saturdaySiteRoles,
+  saturdayVirtualRoles,
+  sundayRoles,
+  supportRoles,
+} from "@/data/volunteerRoles";
 
 const institutionalPartners = [
   {
@@ -85,6 +99,9 @@ const Partners = () => {
   };
   
   const [activeTab, setActiveTab] = useState(getInitialTab);
+
+  // Combine Saturday roles for display
+  const saturdayRoles = [...saturdaySiteRoles, ...saturdayVirtualRoles];
 
   const handleCTAClick = () => {
     setIsEmailSignupOpen(true);
@@ -449,79 +466,152 @@ const Partners = () => {
 
               {/* Volunteers Tab */}
               <TabsContent value="volunteers" className="mt-0 focus-visible:outline-none">
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {/* Page Header */}
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+                  <div className="text-center mb-6">
+                    <Badge variant="outline" className="mb-3 border-accent text-accent">
+                      <Sparkles className="w-3 h-3 mr-1" />
+                      150-200 volunteers needed
+                    </Badge>
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3">
                       Volunteers
                     </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                      Contribute your time, domain knowledge, or organizational resources to help make the hackathon a success for all participants.
+                    <p className="text-base text-muted-foreground max-w-2xl mx-auto mb-4">
+                      Hack for RVA needs passionate volunteers to make Richmond's largest civic hackathon a success. Browse roles below and sign up.
                     </p>
-                  </div>
-
-                  {/* Volunteer Roles */}
-                  <div className="grid sm:grid-cols-3 gap-4">
-                    <Card className="border-border">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base flex items-center gap-2">
-                          <Search className="w-4 h-4 text-accent" />
-                          Domain Experts
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="text-sm text-muted-foreground">
-                        <p className="mb-3">
-                          Specialists in housing, transit, workforce, public health who ground teams in real-world constraints.
-                        </p>
-                        <Button onClick={handleCTAClick} variant="outline" size="sm" className="w-full border-accent text-accent hover:bg-accent/10">
-                          Share Expertise
-                        </Button>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="border-border">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base flex items-center gap-2">
-                          <Heart className="w-4 h-4 text-accent" />
-                          Nonprofits
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="text-sm text-muted-foreground">
-                        <p className="mb-3">
-                          Organizations with real needs who can provide problem context and deploy winning solutions.
-                        </p>
-                        <Button onClick={handleCTAClick} variant="outline" size="sm" className="w-full border-accent text-accent hover:bg-accent/10">
-                          Bring a Challenge
-                        </Button>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="border-border">
-                      <CardHeader className="pb-2">
-                        <CardTitle className="text-base flex items-center gap-2">
-                          <HandHeart className="w-4 h-4 text-accent" />
-                          Event Volunteers
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="text-sm text-muted-foreground">
-                        <p className="mb-3">
-                          Help with registration, logistics, participant support across all locations.
-                        </p>
-                        <Button onClick={handleCTAClick} variant="outline" size="sm" className="w-full border-accent text-accent hover:bg-accent/10">
-                          Sign Up
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  </div>
-
-                  {/* General CTA */}
-                  <div className="bg-muted/30 rounded-lg p-4 text-center">
-                    <p className="text-sm text-muted-foreground mb-3">
-                      Not sure how to help? Reach out and we'll find the right fit.
-                    </p>
-                    <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                      Contact Us
+                    <Button 
+                      size="lg" 
+                      className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                      onClick={handleCTAClick}
+                    >
+                      Sign Up to Volunteer
+                      <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
+                  </div>
+
+                  {/* Quick Stats */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 bg-muted/30 rounded-lg border border-border">
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                        <Building2 className="w-4 h-4 text-blue-500" />
+                        <span className="text-xl font-bold text-foreground">22</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Stakeholders</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                        <Users className="w-4 h-4 text-emerald-500" />
+                        <span className="text-xl font-bold text-foreground">45+</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Roles</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                        <ClipboardCheck className="w-4 h-4 text-purple-500" />
+                        <span className="text-xl font-bold text-foreground">~1,600</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Hours</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="flex items-center justify-center gap-1.5 mb-0.5">
+                        <Calendar className="w-4 h-4 text-accent" />
+                        <span className="text-xl font-bold text-foreground">3</span>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Days</p>
+                    </div>
+                  </div>
+
+                  {/* Accordions */}
+                  <Accordion type="multiple" className="space-y-3">
+                    {/* Pillar Ecosystem Accordion */}
+                    <PillarEcosystemAccordion />
+
+                    {/* Pre-Event Roles */}
+                    <RoleCategoryAccordion
+                      id="pre-event"
+                      title="Pre-Event Roles"
+                      description="6-8 weeks before • Flexible hours"
+                      roles={preEventRoles}
+                      count="25-35 needed"
+                      icon={Sparkles}
+                      colorClass="bg-purple-500/10 text-purple-600"
+                      onSignUp={handleCTAClick}
+                    />
+
+                    {/* Friday Roles */}
+                    <RoleCategoryAccordion
+                      id="friday"
+                      title="Friday — Kickoff Day"
+                      description="March 27 • Science Museum of Virginia"
+                      roles={fridayRoles}
+                      count="35-45 needed"
+                      icon={Calendar}
+                      colorClass="bg-blue-500/10 text-blue-600"
+                      onSignUp={handleCTAClick}
+                    />
+
+                    {/* Saturday Roles */}
+                    <RoleCategoryAccordion
+                      id="saturday"
+                      title="Saturday — Hacking Day"
+                      description="March 28 • 15+ locations citywide + virtual"
+                      roles={saturdayRoles}
+                      count="60-80 needed"
+                      icon={MapPin}
+                      colorClass="bg-green-500/10 text-green-600"
+                      onSignUp={handleCTAClick}
+                    />
+
+                    {/* Sunday Roles */}
+                    <RoleCategoryAccordion
+                      id="sunday"
+                      title="Sunday — Finals & Awards"
+                      description="March 29 • Science Museum of Virginia"
+                      roles={sundayRoles}
+                      count="30-40 needed"
+                      icon={Award}
+                      colorClass="bg-orange-500/10 text-orange-600"
+                      onSignUp={handleCTAClick}
+                    />
+
+                    {/* Support / Mentor Roles */}
+                    <RoleCategoryAccordion
+                      id="support"
+                      title="Support & Mentors"
+                      description="Throughout event • Flexible shifts"
+                      roles={supportRoles}
+                      count="30-40 needed"
+                      icon={Heart}
+                      colorClass="bg-pink-500/10 text-pink-600"
+                      onSignUp={handleCTAClick}
+                    />
+                  </Accordion>
+
+                  {/* Bottom CTA */}
+                  <div className="bg-accent/5 border border-accent/20 rounded-xl p-5 text-center">
+                    <h3 className="text-lg font-bold text-foreground mb-1">
+                      Ready to Make a Difference?
+                    </h3>
+                    <p className="text-sm text-muted-foreground mb-3 max-w-lg mx-auto">
+                      Every role has clear responsibilities, decision authority, and success criteria.
+                    </p>
+                    <Button 
+                      className="bg-accent hover:bg-accent/90 text-accent-foreground"
+                      onClick={handleCTAClick}
+                    >
+                      Sign Up to Volunteer
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </div>
+
+                  {/* Corporate VTO */}
+                  <div className="text-center p-4 bg-muted/30 rounded-lg">
+                    <h4 className="text-sm font-semibold text-foreground mb-1">Use Your Company's VTO</h4>
+                    <div className="flex flex-wrap justify-center gap-2 text-xs">
+                      <span className="bg-background rounded px-2 py-1"><strong>CarMax:</strong> 16 hrs/yr</span>
+                      <span className="bg-background rounded px-2 py-1"><strong>Capital One:</strong> 8+ hrs</span>
+                      <span className="bg-background rounded px-2 py-1"><strong>Dominion:</strong> Matching</span>
+                    </div>
                   </div>
                 </div>
               </TabsContent>

@@ -17,7 +17,6 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Pitch from "./pages/Pitch";
 import PitchNext from "./pages/PitchNext";
 import Mission from "./pages/Mission";
-import Volunteers from "./pages/Volunteers";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,7 +41,7 @@ const App = () => (
           <Route path="/pitch" element={<Pitch />} />
           <Route path="/pitch/next" element={<PitchNext />} />
           <Route path="/mission" element={<Mission />} />
-          <Route path="/volunteers" element={<Volunteers />} />
+          <Route path="/volunteers" element={<Navigate to="/partners#volunteers" replace />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
