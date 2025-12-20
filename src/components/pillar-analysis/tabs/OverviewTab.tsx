@@ -5,14 +5,7 @@
 
 import { 
   Network, 
-  AlertTriangle, 
-  ArrowRight,
-  Handshake,
-  Home,
-  GraduationCap,
-  Building,
-  HeartPulse,
-  Landmark
+  ArrowRight
 } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -28,39 +21,6 @@ interface OverviewTabProps {
   onNavigateToPillar: (pillarId: string) => void;
 }
 
-// Key partner organizations for quick reference
-const keyPartners = [
-  {
-    category: "Housing",
-    icon: Home,
-    color: "text-red-500",
-    partners: ["PlanRVA", "Housing Opportunities Made Equal (HOME)", "Better Housing Coalition"]
-  },
-  {
-    category: "Education",
-    icon: GraduationCap,
-    color: "text-purple-500",
-    partners: ["Richmond Public Schools", "Communities in Schools", "NextUp RVA"]
-  },
-  {
-    category: "Economy",
-    icon: Building,
-    color: "text-emerald-500",
-    partners: ["Greater Richmond Partnership", "ChamberRVA"]
-  },
-  {
-    category: "Health",
-    icon: HeartPulse,
-    color: "text-green-500",
-    partners: ["Richmond City Health District", "Virginia Dept. of Health"]
-  },
-  {
-    category: "History",
-    icon: Landmark,
-    color: "text-amber-500",
-    partners: ["Shockoe Institute", "National Slavery Museum Foundation"]
-  }
-];
 
 export const OverviewTab = ({ onNavigateToPillar }: OverviewTabProps) => {
   return (
@@ -156,47 +116,6 @@ export const OverviewTab = ({ onNavigateToPillar }: OverviewTabProps) => {
                   </li>
                 </ul>
               </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
-
-        {/* Key Partners */}
-        <AccordionItem value="partners" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <Handshake className="w-5 h-5 text-primary" />
-              <span className="text-xl font-semibold text-foreground">Key Partner Organizations</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                The MAP's success depends on collaboration with partner institutions that hold critical data and deliver key services. These organizations are essential for hackathon teams to understand.
-              </p>
-
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {keyPartners.map((category) => (
-                  <Card key={category.category} className="bg-muted/30">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-sm font-semibold flex items-center gap-2">
-                        <category.icon className={`w-4 h-4 ${category.color}`} />
-                        {category.category}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-0">
-                      <ul className="text-xs space-y-1">
-                        {category.partners.map((partner) => (
-                          <li key={partner} className="text-muted-foreground">• {partner}</li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-
-              <p className="text-sm">
-                See the <strong className="text-foreground">Data</strong> tab for detailed information about each partner's data assets and how to access them.
-              </p>
             </div>
           </AccordionContent>
         </AccordionItem>

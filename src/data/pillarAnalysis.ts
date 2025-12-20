@@ -502,6 +502,12 @@ export const pillarData: PillarData[] = [
         role: "Public health authority (state agency embedded in the city).",
         dataAsset: "Health Equity Metrics—Maternity Navigation program data (clients served, outcomes)",
         sourceUrl: "https://www.vdh.virginia.gov/richmond-city/healthy-childbirth-and-infancy/"
+      },
+      {
+        name: "Virginia Department of Health (VDH)",
+        role: "State health agency providing vital statistics and population health data.",
+        dataAsset: "Maternal and child health statistics, pregnancy-associated deaths data, and community health assessments",
+        sourceUrl: "https://www.vdh.virginia.gov/data/maternal-child-health/pregnancy-associated-deaths/"
       }
     ]
   },
