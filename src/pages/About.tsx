@@ -124,8 +124,17 @@ const About = () => {
 
               {/* People Tab - Team Content */}
               <TabsContent value="people" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+                    People
+                  </h2>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                    100% volunteer planning & execution team
+                  </p>
+                </div>
+
                 {/* Join Us CTA Banner */}
-                <div className="mb-8 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl p-6 border border-accent/30">
+                <div className="mb-10 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl p-6 border border-accent/30">
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
