@@ -11,7 +11,8 @@ import {
   PrizesGrid, 
   ScheduleTimeline, 
   LeadershipSection,
-  FAQAccordion 
+  FAQAccordion,
+  MissionTabContent
 } from "@/components/content";
 import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight } from "lucide-react";
 import { participantTypes } from "@/data";
@@ -43,10 +44,6 @@ const About = () => {
   };
 
   const handleTabChange = (value: string) => {
-    if (value === "mission") {
-      navigate("/mission");
-      return;
-    }
     setActiveTab(value);
     navigate(`/about#${value}`, { replace: true });
   };
@@ -335,6 +332,11 @@ const About = () => {
                     </Button>
                   </Link>
                 </div>
+              </TabsContent>
+
+              {/* Mission Tab */}
+              <TabsContent value="mission" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
+                <MissionTabContent />
               </TabsContent>
 
               {/* FAQ Tab */}
