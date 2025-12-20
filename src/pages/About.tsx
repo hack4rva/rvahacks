@@ -196,17 +196,17 @@ const About = () => {
 
                 {/* Centered buttons below both columns */}
                 <div className="flex flex-wrap justify-center gap-4 mt-8">
+                  <Link to="/team">
+                    <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
+                      Meet the Team
+                    </Button>
+                  </Link>
                   <Button 
                     onClick={handleCTAClick}
                     className="bg-accent hover:bg-accent/90 text-accent-foreground"
                   >
                     Stay Updated
                   </Button>
-                  <Link to="/team">
-                    <Button variant="outline" className="border-accent text-accent hover:bg-accent/10">
-                      Meet the Team <ArrowRight className="ml-1.5 w-4 h-4" />
-                    </Button>
-                  </Link>
                 </div>
               </TabsContent>
 
