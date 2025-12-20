@@ -72,54 +72,7 @@ const sources = {
 
 // Note: Pillar-specific ODP data is now embedded in each pillar's dataAssets in pillarAnalysis.ts
 
-const priorityDatasets = [
-  {
-    name: "Employee Vacancy & Turnover Rates",
-    goals: "Goal A-A, A-B",
-    status: "Unavailable Publicly",
-    statusType: "gap",
-    description: "While budget documents list authorized FTEs, the real-time vacancy rate is not published as an open dataset.",
-    importance: "This is the 'lead domino' for Pillar 1. Without it, the public cannot hold the administration accountable for 'getting things done.'",
-    proxy: "Overtime expenditures in the City Budget (high overtime often signals understaffing).",
-    sourceKey: "fy2025Budget"
-  },
-  {
-    name: "Housing Unit Production & Affordability",
-    goals: "Goal B-A, B-B",
-    status: "Fragmented",
-    statusType: "warning",
-    description: "The City tracks permits, but 'affordability' (AMI levels) is often tracked separately by nonprofits like Better Housing Coalition or PlanRVA.",
-    importance: "A consolidated 'Housing Pipeline Dashboard' that merges permit data with AMI restrictions from subsidy contracts.",
-    sourceKey: "betterHousing"
-  },
-  {
-    name: "Eviction Filings",
-    goals: "Goal B-B",
-    status: "External",
-    statusType: "warning",
-    description: "This data resides with the courts. It is scraped and analyzed by third parties like Housing Opportunities Made Equal (HOME) and the RVA Eviction Lab.",
-    importance: "The City needs to formalize a feed of this data to track 'housing stability' in real-time, rather than relying on annual reports.",
-    sourceKey: "homeEviction"
-  },
-  {
-    name: "RPS School Performance",
-    goals: "Goal C-A",
-    status: "State-Held",
-    statusType: "warning",
-    description: "The Virginia Department of Education (VDOE) publishes SOL scores, graduation rates, and chronic absenteeism data.",
-    importance: "Integrate VDOE API feeds directly into the MAP dashboard to create a 'single pane of glass' for residents.",
-    sourceKey: "vdoeDashboards"
-  },
-  {
-    name: "Community Health Metrics",
-    goals: "Pillar 5",
-    status: "VDH Dashboards",
-    statusType: "warning",
-    description: "Data on maternal health, opioid overdoses, and life expectancy is held by the Virginia Department of Health.",
-    importance: "State data is often aggregated to the 'Health District' level (Richmond City + Henrico County). Must be disaggregated to census tract or neighborhood level for MAP equity goals.",
-    sourceKey: "vdhMaternal"
-  }
-];
+// Note: Priority datasets have been moved to each pillar's dataAssets.missing in pillarAnalysis.ts
 
 // Cross-Pillar Analysis Hypotheses
 const crossPillarAnalyses = [
@@ -410,64 +363,9 @@ export const DataInfrastructureTab = () => {
         </p>
       </div>
 
-      <Accordion type="multiple" defaultValue={["priority-datasets", "current-state"]} className="space-y-4">
+      <Accordion type="multiple" defaultValue={["current-state"]} className="space-y-4">
         
-        {/* Note: Pillar-specific ODP data is now shown in each pillar's Data Ecosystem section */}
-
-        {/* Priority Datasets to Locate - NEW SECTION */}
-        <AccordionItem value="priority-datasets" className="border border-border rounded-lg px-6 bg-card">
-          <AccordionTrigger className="hover:no-underline py-6">
-            <div className="flex items-center gap-3">
-              <AlertCircle className="w-5 h-5 text-amber-500" />
-              <span className="text-xl font-semibold text-foreground">Priority Datasets to Locate</span>
-            </div>
-          </AccordionTrigger>
-          <AccordionContent className="pb-6">
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                To fully operationalize the MAP, the following datasets must be located, validated, or constructed:
-              </p>
-
-              <div className="space-y-4">
-                {priorityDatasets.map((dataset, idx) => (
-                  <Card key={idx} className={dataset.statusType === "gap" ? "border-red-200 dark:border-red-800" : "border-amber-200 dark:border-amber-800"}>
-                    <CardHeader className="pb-2">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <CardTitle className="text-base">{dataset.name}</CardTitle>
-                        <Badge variant="outline" className="text-xs">{dataset.goals}</Badge>
-                        {getStatusBadge(dataset.statusType, dataset.status)}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="space-y-2">
-                      <p className="text-sm">{dataset.description}</p>
-                      <InsightCallout type={dataset.statusType === "gap" ? "warning" : "insight"} title="Why It Matters">
-                        {dataset.importance}
-                      </InsightCallout>
-                      {dataset.proxy && (
-                        <p className="text-xs text-muted-foreground mt-2">
-                          <strong>Proxy Available:</strong> {dataset.proxy}
-                        </p>
-                      )}
-                      {dataset.sourceKey && (
-                        <div className="flex items-center gap-1 mt-2">
-                          <ExternalLink className="w-3 h-3 text-primary" />
-                          <a 
-                            href={sources[dataset.sourceKey as keyof typeof sources]} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            className="text-xs text-primary hover:underline"
-                          >
-                            View Source
-                          </a>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </AccordionContent>
-        </AccordionItem>
+        {/* Note: Pillar-specific data gaps are now shown in each pillar's Data Ecosystem section */}
 
         {/* Cross-Reference Requirements - NEW SECTION */}
         <AccordionItem value="cross-reference" className="border border-border rounded-lg px-6 bg-card">
