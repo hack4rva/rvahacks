@@ -1,136 +1,85 @@
 import { Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useEffect, useState } from "react";
-import { eventDates, venues, eventStatsHero, participantTaglineAlt } from "@/data";
+import { eventDates, venues } from "@/data";
 
 interface HeroProps {
   onCTAClick: () => void;
 }
 
 export const Hero = ({ onCTAClick }: HeroProps) => {
-  const { elementRef, isVisible } = useScrollAnimation();
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center gradient-hero overflow-hidden"
+      className="relative flex-1 flex items-center justify-center gradient-hero overflow-hidden"
     >
-      {/* Background Pattern with parallax effect */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          transform: `translateY(${scrollY * 0.5}px)`,
-          transition: 'transform 0.1s ease-out',
-        }}
-      >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
         }} />
       </div>
 
-      <div 
-        ref={elementRef}
-        className={`container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}
-      >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 leading-tight">
-            Engineer the City We Want to Live In
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 leading-tight">
+            Hack for RVA
           </h1>
 
-          {/* Byline */}
-          <p className="text-lg sm:text-xl md:text-2xl font-medium text-accent mb-6 tracking-wide">
-            {participantTaglineAlt}
+          {/* Tagline - direct, no fluff */}
+          <p className="text-lg sm:text-xl text-accent font-medium mb-4">
+            Build civic tech for Richmond. Win prizes. Ship real solutions.
           </p>
 
-          {/* Subheadline */}
-          <p className="text-base sm:text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-            A civic tech hackathon. One weekend. Impact that lasts beyond Sunday.
-          </p>
-
-          {/* Key Stats - From centralized data */}
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 mb-8">
+          {/* Key Stats - compact row */}
+          <div className="flex items-center justify-center gap-6 mb-4 text-white">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{eventStatsHero.duration.value}</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">{eventStatsHero.duration.label}</div>
+              <div className="text-2xl md:text-3xl font-bold">48h</div>
+              <div className="text-xs text-white/70 uppercase">Hackathon</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
+            <div className="w-px h-8 bg-white/30" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{eventStatsHero.prizePool.value}</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">{eventStatsHero.prizePool.label}</div>
+              <div className="text-2xl md:text-3xl font-bold">$15K+</div>
+              <div className="text-xs text-white/70 uppercase">Prizes</div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-white/30" aria-hidden="true" />
+            <div className="w-px h-8 bg-white/30" />
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-white mb-1">{eventStatsHero.participants.value}</div>
-              <div className="text-sm text-white/80 uppercase tracking-wider">{eventStatsHero.participants.label}</div>
+              <div className="text-2xl md:text-3xl font-bold">7</div>
+              <div className="text-xs text-white/70 uppercase">Pillars</div>
             </div>
           </div>
 
-          {/* Event Details - From centralized data */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 text-white/95">
-            <div className="flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-accent" aria-hidden="true" />
-              <span className="text-lg font-medium">{eventDates.fullRange}</span>
-            </div>
-            <div className="hidden sm:block w-1 h-1 rounded-full bg-white/50" aria-hidden="true" />
-            <div className="flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-accent" aria-hidden="true" />
-              <span className="text-lg font-medium">
-                {venues.primary.shortName} & Citywide
-              </span>
-            </div>
+          {/* Event Details - single line */}
+          <div className="flex items-center justify-center gap-4 mb-5 text-white/90 text-sm">
+            <span className="flex items-center gap-1.5">
+              <Calendar className="w-4 h-4 text-accent" />
+              {eventDates.fullRange}
+            </span>
+            <span className="text-white/40">•</span>
+            <span className="flex items-center gap-1.5">
+              <MapPin className="w-4 h-4 text-accent" />
+              {venues.primary.shortName}
+            </span>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* CTA */}
+          <div className="flex flex-wrap justify-center gap-3">
             <Button
-              size="lg"
+              size="default"
               disabled
-              className="bg-accent/50 text-accent-foreground text-lg px-8 py-6 font-bold cursor-not-allowed"
-              aria-label="Registration opens January 1"
+              className="bg-accent/50 text-accent-foreground font-semibold cursor-not-allowed"
             >
-              Registration Opens January 1
+              Registration Opens Jan 1
+            </Button>
+            <Button
+              size="default"
+              onClick={onCTAClick}
+              className="bg-white text-primary font-semibold hover:bg-white/90"
+            >
+              Stay Updated!
             </Button>
           </div>
-          
-          {/* Secondary CTA */}
-          <div className="mt-4">
-            <button
-              onClick={onCTAClick}
-              className="text-white/70 hover:text-white text-sm underline underline-offset-4 transition-smooth"
-            >
-              Stay Updated
-            </button>
-          </div>
         </div>
-      </div>
-
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
-        <svg
-          viewBox="0 0 1440 120"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-auto"
-        >
-          <path
-            d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z"
-            fill="hsl(var(--background))"
-          />
-        </svg>
       </div>
     </section>
   );

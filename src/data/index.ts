@@ -1,10 +1,9 @@
 /**
  * Barrel export for all centralized data.
- * Import from here for convenience: import { focusAreas, eventDates } from '@/data';
+ * Import from here for convenience: import { pillars, eventDates } from '@/data';
  */
 
 export * from './eventInfo';
-export * from './focusAreas';
 export * from './participantTypes';
 export * from './schedule';
 export * from './prizes';
@@ -13,3 +12,5 @@ export * from './opportunity';
 export * from './leadership';
 export * from './pillarEcosystem';
 export * from './volunteerRoles';
+
+// Legacy: focusAreas is deprecated, use pillars from pillarEcosystem instead

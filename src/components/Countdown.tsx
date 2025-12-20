@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Calendar, Clock } from "lucide-react";
 
 interface TimeLeft {
   days: number;
@@ -37,57 +36,31 @@ export const Countdown = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const timeBlocks = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hours", value: timeLeft.hours },
-    { label: "Minutes", value: timeLeft.minutes },
-    { label: "Seconds", value: timeLeft.seconds },
-  ];
-
   return (
-    <section className="py-12 md:py-16 bg-accent/5 border-y border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-10 md:mb-12">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <Calendar className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-              <Clock className="w-5 h-5 md:w-6 md:h-6 text-accent" />
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">
-              Countdown to Hack for RVA
-            </h2>
-            <p className="text-muted-foreground text-base md:text-lg">
-              March 27-29, 2026 • Downtown Richmond VA
-            </p>
+    <section className="py-6 bg-accent/5 border-y border-border">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center gap-3 sm:gap-6">
+          <span className="text-base text-foreground font-semibold hidden sm:inline">Starts in</span>
+          <div className="flex items-center gap-2 sm:gap-3 font-mono">
+            <TimeBlock value={timeLeft.days} label="d" />
+            <span className="text-2xl text-muted-foreground font-light">:</span>
+            <TimeBlock value={timeLeft.hours} label="h" />
+            <span className="text-2xl text-muted-foreground font-light">:</span>
+            <TimeBlock value={timeLeft.minutes} label="m" />
+            <span className="text-2xl text-muted-foreground font-light">:</span>
+            <TimeBlock value={timeLeft.seconds} label="s" />
           </div>
-
-          {/* Countdown Display */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
-            {timeBlocks.map((block, index) => (
-              <div
-                key={block.label}
-                className="bg-card rounded-xl p-4 md:p-6 shadow-elegant border border-border hover:border-accent/40 transition-smooth hover:scale-105 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="text-center">
-                  <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-accent mb-2 font-mono">
-                    {String(block.value).padStart(2, "0")}
-                  </div>
-                  <div className="text-xs sm:text-sm md:text-base text-muted-foreground font-semibold uppercase tracking-wider">
-                    {block.label}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* Caption */}
-          <p className="text-center text-muted-foreground text-sm md:text-base mt-8">
-            Kickoff and citywide launch from the Science Museum of Virginia.
-          </p>
         </div>
       </div>
     </section>
   );
 };
+
+const TimeBlock = ({ value, label }: { value: number; label: string }) => (
+  <div className="flex items-baseline gap-1">
+    <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent">
+      {String(value).padStart(2, "0")}
+    </span>
+    <span className="text-sm text-muted-foreground font-medium">{label}</span>
+  </div>
+);

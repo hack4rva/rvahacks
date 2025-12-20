@@ -1,5 +1,4 @@
 // Content components barrel export
-export { FocusAreasGrid, focusAreas } from "./FocusAreasGrid";
 export { OpportunityBox } from "./OpportunityBox";
 export { StatsBar, stats } from "./StatsBar";
 export { PrizesGrid, awardTiers } from "./PrizesGrid";

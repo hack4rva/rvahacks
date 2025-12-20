@@ -132,14 +132,13 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <Button
+              <button
                 onClick={() => navigate("/login")}
-                variant="ghost"
-                size="sm"
-                aria-label="Login"
+                className="p-1.5 text-foreground/40 hover:text-foreground/70 transition-colors"
+                aria-label="Admin login"
               >
-                Login
-              </Button>
+                <Shield className="w-4 h-4" />
+              </button>
             )}
           </div>
 
@@ -216,16 +215,17 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 </button>
               </div>
             ) : (
-              <Button
+              <button
                 onClick={() => {
                   navigate("/login");
                   setIsMobileMenuOpen(false);
                 }}
-                variant="outline"
-                className="w-full"
+                className="flex items-center gap-2 text-foreground/40 hover:text-foreground/70 transition-colors py-2"
+                aria-label="Admin login"
               >
-                Login
-              </Button>
+                <Shield className="w-4 h-4" />
+                <span className="text-sm">Admin</span>
+              </button>
             )}
           </div>
         </div>

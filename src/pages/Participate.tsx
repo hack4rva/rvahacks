@@ -11,7 +11,6 @@ import {
   ResourcesContent, 
   RegistrationContent 
 } from "@/components/participate";
-import { eventDates } from "@/data";
 
 const tabs = [
   { id: "logistics", label: "Logistics" },
