@@ -22,7 +22,7 @@ const tabs = [
   { id: "participants", label: "Who Joins" },
   { id: "team", label: "Team" },
   { id: "impact", label: "Impact" },
-  { id: "mission", label: "Mission", isLink: true, href: "/mission" },
+  { id: "mission", label: "Mission" },
   { id: "faq", label: "FAQ" },
 ];
 
@@ -43,6 +43,10 @@ const About = () => {
   };
 
   const handleTabChange = (value: string) => {
+    if (value === "mission") {
+      navigate("/mission");
+      return;
+    }
     setActiveTab(value);
     navigate(`/about#${value}`, { replace: true });
   };
@@ -72,23 +76,13 @@ const About = () => {
               <div className="grid w-full grid-cols-4 md:grid-cols-7 h-auto gap-2">
                 <TabsList className="contents bg-transparent p-0">
                   {tabs.map((tab) => (
-                    tab.isLink ? (
-                      <Link
-                        key={tab.id}
-                        to={tab.href!}
-                        className="py-2.5 px-4 border border-border bg-transparent text-foreground rounded-lg transition-smooth text-sm font-medium text-center hover:bg-accent/10 hover:border-accent hover:text-accent"
-                      >
-                        {tab.label}
-                      </Link>
-                    ) : (
-                      <TabsTrigger
-                        key={tab.id}
-                        value={tab.id}
-                        className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
-                      >
-                        {tab.label}
-                      </TabsTrigger>
-                    )
+                    <TabsTrigger
+                      key={tab.id}
+                      value={tab.id}
+                      className="py-2.5 px-4 data-[state=active]:bg-accent data-[state=active]:text-accent-foreground border border-border data-[state=active]:border-accent rounded-lg transition-smooth text-sm font-medium"
+                    >
+                      {tab.label}
+                    </TabsTrigger>
                   ))}
                 </TabsList>
               </div>
