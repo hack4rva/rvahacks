@@ -79,8 +79,9 @@ interface PrizesGridProps {
 }
 
 export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridProps) => {
-  // First 3 are grand prizes, rest are pillar awards
-  const grandPrizes = awardTiers.slice(0, 3);
+  // Separate prizes: grand prize (index 0), runner-up prizes (1-2), pillar awards (3+)
+  const grandPrize = awardTiers[0];
+  const runnerUpPrizes = awardTiers.slice(1, 3);
   const pillarAwards = awardTiers.slice(3);
   
   return (
@@ -101,11 +102,20 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         </div>
       )}
 
-      {/* Grand Prizes - Featured */}
-      <div className="mb-8 grid md:grid-cols-3 gap-4">
-        {grandPrizes.map((prize, index) => (
-          <AwardCard key={index} award={prize} featured />
-        ))}
+      {/* Grand Prize - Featured */}
+      <div className="mb-8 max-w-md mx-auto">
+        <AwardCard award={grandPrize} featured />
+      </div>
+
+      {/* Runner-Up Prizes */}
+      <div className="mb-8">
+        <h3 className="text-center text-lg font-semibold text-foreground mb-1">$2.5K Runner-Up Prizes</h3>
+        <p className="text-center text-sm text-muted-foreground mb-4">Voted by judges and audience</p>
+        <div className="grid grid-cols-2 gap-4 max-w-lg mx-auto">
+          {runnerUpPrizes.map((prize, index) => (
+            <AwardCard key={index} award={prize} featured />
+          ))}
+        </div>
       </div>
 
       {/* Pillar Awards Section */}
