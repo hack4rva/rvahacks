@@ -205,7 +205,7 @@ const About = () => {
                     onClick={handleCTAClick}
                     className="bg-accent hover:bg-accent/90 text-accent-foreground"
                   >
-                    Stay Updated
+                    Get Involved
                   </Button>
                 </div>
               </TabsContent>
