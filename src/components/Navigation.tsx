@@ -62,13 +62,13 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
       className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
         isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-elegant"
-          : "bg-transparent"
+          : "bg-black/30 backdrop-blur-sm"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
-          <Link to="/" className="font-bold text-lg text-foreground hover:text-primary transition-smooth">
+          <Link to="/" className={`font-bold text-lg transition-smooth ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"}`}>
             Hack for RVA
           </Link>
 
@@ -79,7 +79,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 key={item.label}
                 to={item.href}
                 onClick={scrollToTop}
-                className="text-foreground/80 hover:text-primary transition-smooth font-medium focus:outline-2 focus:outline-accent"
+                className={`font-medium transition-smooth focus:outline-2 focus:outline-accent ${isScrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"}`}
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
@@ -89,8 +89,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             {/* Primary CTA */}
             <Button
               onClick={onCTAClick}
-              variant="outline"
-              className="border-foreground/20"
+              className={isScrolled ? "border-foreground/20 bg-transparent hover:bg-foreground/5" : "bg-white text-primary hover:bg-white/90"}
               aria-label="Sign up to stay updated"
             >
               Stay Updated
@@ -134,7 +133,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="p-1.5 text-foreground/40 hover:text-foreground/70 transition-colors"
+                className={`p-1.5 transition-colors ${isScrolled ? "text-foreground/40 hover:text-foreground/70" : "text-white/40 hover:text-white/70"}`}
                 aria-label="Admin login"
               >
                 <Shield className="w-4 h-4" />

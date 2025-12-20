@@ -15,7 +15,7 @@ const Index = () => {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       <Navigation onCTAClick={handleCTAClick} />
-      <Hero onCTAClick={handleCTAClick} />
+      <Hero />
       <Countdown />
       <Footer />
       <EmailSignup

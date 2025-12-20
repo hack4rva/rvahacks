@@ -1,23 +1,21 @@
 import { Calendar, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { eventDates, venues } from "@/data";
+import richmondSkyline from "@/assets/richmond-skyline.jpg";
 
-interface HeroProps {
-  onCTAClick: () => void;
-}
-
-export const Hero = ({ onCTAClick }: HeroProps) => {
+export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex-1 flex items-center justify-center gradient-hero overflow-hidden"
+      className="relative flex-1 flex items-center justify-center overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
-      </div>
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${richmondSkyline})` }}
+      />
+      {/* Dark overlay for readability */}
+      <div className="absolute inset-0 bg-primary/75" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -63,22 +61,13 @@ export const Hero = ({ onCTAClick }: HeroProps) => {
           </div>
 
           {/* CTA */}
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button
-              size="default"
-              disabled
-              className="bg-accent/50 text-accent-foreground font-semibold cursor-not-allowed"
-            >
-              Registration Opens Jan 1
-            </Button>
-            <Button
-              size="default"
-              onClick={onCTAClick}
-              className="bg-white text-primary font-semibold hover:bg-white/90"
-            >
-              Stay Updated!
-            </Button>
-          </div>
+          <Button
+            size="default"
+            disabled
+            className="bg-accent/50 text-accent-foreground font-semibold cursor-not-allowed"
+          >
+            Registration Opens Jan 15
+          </Button>
         </div>
       </div>
     </section>
