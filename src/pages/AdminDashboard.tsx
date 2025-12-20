@@ -11,33 +11,23 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Edit, Plus, Trash2, Eye } from "lucide-react";
+import { Plus } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import { KanbanBoard, Task, ColumnId } from "@/components/admin";
 
-interface Document {
-  id: string;
-  title: string;
-  content: string | null;
-  category: string;
-  created_at: string;
-  updated_at: string;
-  assignee: string | null;
-  due_date: string | null;
-  priority: 'low' | 'medium' | 'high' | 'critical';
-  status: 'pending' | 'in-progress' | 'completed' | 'blocked';
-}
+// Using Task type from KanbanBoard for documents
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [signups, setSignups] = useState<any[]>([]);
-  const [documents, setDocuments] = useState<Document[]>([]);
+  const [documents, setDocuments] = useState<Task[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isDocDialogOpen, setIsDocDialogOpen] = useState(false);
   const [isViewDialogOpen, setIsViewDialogOpen] = useState(false);
-  const [editingDoc, setEditingDoc] = useState<Document | null>(null);
-  const [viewingDoc, setViewingDoc] = useState<Document | null>(null);
+  const [editingDoc, setEditingDoc] = useState<Task | null>(null);
+  const [viewingDoc, setViewingDoc] = useState<Task | null>(null);
   const [docForm, setDocForm] = useState<{
     title: string;
     content: string;
@@ -55,10 +45,6 @@ const AdminDashboard = () => {
     priority: "medium",
     status: "pending"
   });
-  const [filterStatus, setFilterStatus] = useState<string>("all");
-  const [filterPriority, setFilterPriority] = useState<string>("all");
-  const [filterAssignee, setFilterAssignee] = useState<string>("all");
-  const [sortBy, setSortBy] = useState<string>("due_date");
 
   useEffect(() => {
     checkAdminAndFetchData();
@@ -121,7 +107,7 @@ const AdminDashboard = () => {
       .order("due_date", { ascending: true });
 
     if (error) throw error;
-    setDocuments((data || []) as unknown as Document[]);
+    setDocuments((data || []) as unknown as Task[]);
   };
 
   const teamMembers = [
@@ -130,41 +116,6 @@ const AdminDashboard = () => {
     "Tom Becker", "Danny Avula", "Ankit Mathur", "Drew Cleveland", "Nick Serfass"
   ];
 
-  const getFilteredAndSortedDocuments = () => {
-    let filtered = documents;
-
-    if (filterStatus !== "all") {
-      filtered = filtered.filter(doc => doc.status === filterStatus);
-    }
-    if (filterPriority !== "all") {
-      filtered = filtered.filter(doc => doc.priority === filterPriority);
-    }
-    if (filterAssignee !== "all") {
-      if (filterAssignee === "unassigned") {
-        filtered = filtered.filter(doc => !doc.assignee);
-      } else {
-        filtered = filtered.filter(doc => doc.assignee === filterAssignee);
-      }
-    }
-
-    const sorted = [...filtered].sort((a, b) => {
-      if (sortBy === "due_date") {
-        if (!a.due_date) return 1;
-        if (!b.due_date) return -1;
-        return new Date(a.due_date).getTime() - new Date(b.due_date).getTime();
-      }
-      if (sortBy === "priority") {
-        const priorityOrder = { critical: 0, high: 1, medium: 2, low: 3 };
-        return priorityOrder[a.priority] - priorityOrder[b.priority];
-      }
-      if (sortBy === "status") {
-        return a.status.localeCompare(b.status);
-      }
-      return 0;
-    });
-
-    return sorted;
-  };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -213,7 +164,7 @@ const AdminDashboard = () => {
           .eq("id", editingDoc.id);
 
         if (error) throw error;
-        toast({ title: "Document updated successfully" });
+        toast({ title: "Task updated successfully" });
       } else {
         const { error } = await supabase
           .from("admin_documents")
@@ -229,7 +180,7 @@ const AdminDashboard = () => {
           });
 
         if (error) throw error;
-        toast({ title: "Document created successfully" });
+        toast({ title: "Task created successfully" });
       }
 
       setIsDocDialogOpen(false);
@@ -253,7 +204,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleEditDocument = (doc: Document) => {
+  const handleEditDocument = (doc: Task) => {
     setEditingDoc(doc);
     setDocForm({
       title: doc.title,
@@ -268,7 +219,7 @@ const AdminDashboard = () => {
   };
 
   const handleDeleteDocument = async (id: string) => {
-    if (!confirm("Are you sure you want to delete this document?")) return;
+    if (!confirm("Are you sure you want to delete this task?")) return;
 
     try {
       const { error } = await supabase
@@ -277,7 +228,7 @@ const AdminDashboard = () => {
         .eq("id", id);
 
       if (error) throw error;
-      toast({ title: "Document deleted successfully" });
+      toast({ title: "Task deleted successfully" });
       fetchDocuments();
     } catch (error: any) {
       toast({
@@ -292,6 +243,20 @@ const AdminDashboard = () => {
     acc[doc.category] = (acc[doc.category] || 0) + 1;
     return acc;
   }, {} as Record<string, number>);
+
+  const handleAddTask = (status: ColumnId) => {
+    setEditingDoc(null);
+    setDocForm({
+      title: "",
+      content: "",
+      category: "action-items",
+      assignee: "unassigned",
+      due_date: "",
+      priority: "medium",
+      status: status,
+    });
+    setIsDocDialogOpen(true);
+  };
 
   if (isLoading) {
     return (
@@ -318,7 +283,7 @@ const AdminDashboard = () => {
 
         <Tabs defaultValue="documents" className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-8">
-            <TabsTrigger value="documents">Internal Documents</TabsTrigger>
+            <TabsTrigger value="documents">Tasks</TabsTrigger>
             <TabsTrigger value="signups">Email Signups</TabsTrigger>
           </TabsList>
 
@@ -327,9 +292,9 @@ const AdminDashboard = () => {
               <CardHeader>
                 <div className="flex justify-between items-center">
                   <div>
-                    <CardTitle>Internal Documents</CardTitle>
+                    <CardTitle>Task Board</CardTitle>
                     <CardDescription>
-                      Manage budget, action items, and other internal knowledge
+                      Drag tasks between columns to update status
                     </CardDescription>
                   </div>
                   <Dialog open={isDocDialogOpen} onOpenChange={setIsDocDialogOpen}>
@@ -347,16 +312,16 @@ const AdminDashboard = () => {
                         });
                       }}>
                         <Plus className="w-4 h-4 mr-2" />
-                        New Document
+                        New Task
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-2xl">
                       <DialogHeader>
                         <DialogTitle>
-                          {editingDoc ? "Edit Document" : "Create New Document"}
+                          {editingDoc ? "Edit Task" : "Create New Task"}
                         </DialogTitle>
                         <DialogDescription>
-                          Add or update internal documents and knowledge
+                          Add or update tasks
                         </DialogDescription>
                       </DialogHeader>
                       <div className="space-y-4">
@@ -480,174 +445,13 @@ const AdminDashboard = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                {/* Filters and Sorting */}
-                <div className="mb-6 p-4 bg-muted/50 rounded-lg space-y-4">
-                  <div className="flex flex-wrap gap-4">
-                    <div className="flex-1 min-w-[200px]">
-                      <Label className="text-sm">Filter by Status</Label>
-                      <Select value={filterStatus} onValueChange={setFilterStatus}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Statuses</SelectItem>
-                          <SelectItem value="pending">Pending</SelectItem>
-                          <SelectItem value="in-progress">In Progress</SelectItem>
-                          <SelectItem value="completed">Completed</SelectItem>
-                          <SelectItem value="blocked">Blocked</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="flex-1 min-w-[200px]">
-                      <Label className="text-sm">Filter by Priority</Label>
-                      <Select value={filterPriority} onValueChange={setFilterPriority}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Priorities</SelectItem>
-                          <SelectItem value="critical">Critical</SelectItem>
-                          <SelectItem value="high">High</SelectItem>
-                          <SelectItem value="medium">Medium</SelectItem>
-                          <SelectItem value="low">Low</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="flex-1 min-w-[200px]">
-                      <Label className="text-sm">Filter by Assignee</Label>
-                      <Select value={filterAssignee} onValueChange={setFilterAssignee}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="all">All Assignees</SelectItem>
-                          <SelectItem value="unassigned">Unassigned</SelectItem>
-                          {teamMembers.map((member) => (
-                            <SelectItem key={member} value={member}>{member}</SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    
-                    <div className="flex-1 min-w-[200px]">
-                      <Label className="text-sm">Sort By</Label>
-                      <Select value={sortBy} onValueChange={setSortBy}>
-                        <SelectTrigger>
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="due_date">Due Date</SelectItem>
-                          <SelectItem value="priority">Priority</SelectItem>
-                          <SelectItem value="status">Status</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="mb-4 flex gap-4">
-                  {Object.entries(categoryCounts).map(([category, count]) => (
-                    <div key={category} className="text-sm">
-                      <span className="font-medium capitalize">{category.replace('-', ' ')}</span>: {count}
-                    </div>
-                  ))}
-                </div>
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>Priority</TableHead>
-                      <TableHead>Status</TableHead>
-                      <TableHead>Title</TableHead>
-                      <TableHead>Category</TableHead>
-                      <TableHead>Assignee</TableHead>
-                      <TableHead>Due Date</TableHead>
-                      <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {getFilteredAndSortedDocuments().map((doc) => (
-                      <TableRow key={doc.id}>
-                        <TableCell>
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            doc.priority === 'critical' ? 'bg-red-100 text-red-800' :
-                            doc.priority === 'high' ? 'bg-orange-100 text-orange-800' :
-                            doc.priority === 'medium' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-green-100 text-green-800'
-                          }`}>
-                            {doc.priority}
-                          </span>
-                        </TableCell>
-                        <TableCell>
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            doc.status === 'completed' ? 'bg-green-100 text-green-800' :
-                            doc.status === 'in-progress' ? 'bg-blue-100 text-blue-800' :
-                            doc.status === 'blocked' ? 'bg-red-100 text-red-800' :
-                            'bg-gray-100 text-gray-800'
-                          }`}>
-                            {doc.status.replace('-', ' ')}
-                          </span>
-                        </TableCell>
-                        <TableCell className="font-medium">
-                          <button 
-                            onClick={() => {
-                              setViewingDoc(doc);
-                              setIsViewDialogOpen(true);
-                            }}
-                            className="text-left hover:underline hover:text-primary"
-                          >
-                            {doc.title}
-                          </button>
-                        </TableCell>
-                        <TableCell className="capitalize">{doc.category.replace('-', ' ')}</TableCell>
-                        <TableCell>{doc.assignee || <span className="text-muted-foreground">Unassigned</span>}</TableCell>
-                        <TableCell>
-                          {doc.due_date ? (
-                            <span className={
-                              new Date(doc.due_date) < new Date() && doc.status !== 'completed'
-                                ? 'text-red-600 font-medium'
-                                : ''
-                            }>
-                              {new Date(doc.due_date).toLocaleDateString()}
-                            </span>
-                          ) : (
-                            <span className="text-muted-foreground">No date</span>
-                          )}
-                        </TableCell>
-                        <TableCell className="text-right">
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => {
-                              setViewingDoc(doc);
-                              setIsViewDialogOpen(true);
-                            }}
-                            title="View details"
-                          >
-                            <Eye className="w-4 h-4" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => handleEditDocument(doc)}
-                            title="Edit"
-                          >
-                            <Edit className="w-4 h-4" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() => handleDeleteDocument(doc.id)}
-                            title="Delete"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
+                <KanbanBoard
+                  tasks={documents}
+                  onTasksChange={fetchDocuments}
+                  onEdit={handleEditDocument}
+                  onDelete={handleDeleteDocument}
+                  onAddTask={handleAddTask}
+                />
               </CardContent>
             </Card>
           </TabsContent>

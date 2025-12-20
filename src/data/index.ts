@@ -11,3 +11,5 @@ export * from './prizes';
 export * from './stats';
 export * from './opportunity';
 export * from './leadership';
+export * from './pillarEcosystem';
+export * from './volunteerRoles';
