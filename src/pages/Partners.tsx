@@ -11,8 +11,9 @@ import { awardTiers, prizePoolTotal } from "@/data";
 import { 
   Code, Palette, Briefcase, Landmark, 
   Heart, HandHeart, Award, Clock, Search, Trophy,
-  UtensilsCrossed, Gift, MapPin, Users
+  UtensilsCrossed, Gift, MapPin, Users, Check
 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import richmondSeal from "@/assets/richmond-seal.png";
 import scienceMuseumLogo from "@/assets/science-museum-virginia.png";
 
@@ -32,6 +33,38 @@ const institutionalPartners = [
     subtitle: "Financial oversight | Legal structure | Grant administration",
     logo: undefined,
   },
+];
+
+// Sponsorship opportunities with status
+type SponsorshipOpportunity = {
+  id: string;
+  title: string;
+  category: "award" | "event" | "inkind";
+  amount?: string;
+  description: string;
+  claimedBy?: string;
+  icon: React.ReactNode;
+  color: string;
+};
+
+const sponsorshipOpportunities: SponsorshipOpportunity[] = [
+  // Awards
+  { id: "grand-prize", title: "Grand Prize", category: "award", amount: "$5,000", description: "Top overall solution", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "yellow" },
+  { id: "peoples-choice", title: "People's Choice", category: "award", amount: "$2,500", description: "Community-voted favorite", claimedBy: undefined, icon: <Heart className="w-5 h-5" />, color: "pink" },
+  { id: "judges-choice", title: "Judges' Choice", category: "award", amount: "$2,500", description: "Panel-selected excellence", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "violet" },
+  { id: "pillar-1", title: "Pillar 1: Housing", category: "award", amount: "$1,000", description: "Best housing solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "pillar-2", title: "Pillar 2: Safety", category: "award", amount: "$1,000", description: "Best public safety solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "pillar-3", title: "Pillar 3: Youth", category: "award", amount: "$1,000", description: "Best youth-focused solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "pillar-4", title: "Pillar 4: Workforce", category: "award", amount: "$1,000", description: "Best workforce solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "pillar-5", title: "Pillar 5: Blight", category: "award", amount: "$1,000", description: "Best blight remediation", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "pillar-6", title: "Pillar 6: Infrastructure", category: "award", amount: "$1,000", description: "Best infrastructure solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "pillar-7", title: "Pillar 7: One Richmond", category: "award", amount: "$1,000", description: "Best cross-pillar solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  // Events
+  { id: "breakfast", title: "Friday Kick-Off Breakfast", category: "event", amount: "TBD", description: "Fuel the start of the hackathon", claimedBy: undefined, icon: <UtensilsCrossed className="w-5 h-5" />, color: "orange" },
+  { id: "banquet", title: "Sunday Awards Banquet", category: "event", amount: "TBD", description: "Host the celebratory finale", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "violet" },
+  { id: "swag", title: "Swag Bags", category: "event", amount: "TBD", description: "Branded items for all participants", claimedBy: undefined, icon: <Gift className="w-5 h-5" />, color: "pink" },
+  // In-kind
+  { id: "venue", title: "Satellite Venue", category: "inkind", description: "Provide hacking space on Saturday", claimedBy: undefined, icon: <MapPin className="w-5 h-5" />, color: "accent" },
 ];
 
 const tabs = [
@@ -160,193 +193,164 @@ const Partners = () => {
 
               {/* Sponsors Tab */}
               <TabsContent value="sponsors" className="mt-0 focus-visible:outline-none">
-                <div className="space-y-5">
+                <div className="space-y-6">
                   {/* Page Header */}
-                  <div className="text-center mb-8">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
+                  <div className="text-center mb-6">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-3">
                       Sponsors
                     </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                      Sponsor an award and become an active participant in shaping Richmond's civic tech future—set your own criteria, judge submissions, and put your name on solutions that matter.
+                    <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+                      Sponsor an award or event. Set your own criteria, judge submissions, and put your name on solutions that matter.
                     </p>
                   </div>
 
-                  {/* How Sponsorship Works */}
-                  <Card className="border-accent border-2">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="text-lg flex items-center gap-2">
-                        <Award className="w-5 h-5 text-accent" />
-                        How Award Sponsorship Works
-                      </CardTitle>
-                      <p className="text-sm text-muted-foreground">
-                        Sponsors are active participants, not passive funders. This is our primary event expense.
-                      </p>
-                    </CardHeader>
-                    <CardContent className="text-sm">
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <p className="font-medium text-foreground mb-2">What Sponsors Do:</p>
-                          <ul className="text-muted-foreground space-y-1">
-                            <li>• Fund a specific award at your chosen tier</li>
-                            <li>• Set your own award rubric (e.g., housing-focused, transit innovation)</li>
-                            <li>• Sit on the judging panel</li>
-                            <li>• Vote on ALL awards, not just your own</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <p className="font-medium text-foreground mb-2">What You Get:</p>
-                          <ul className="text-muted-foreground space-y-1">
-                            <li>• Direct influence on which solutions get recognized</li>
-                            <li>• Shape civic tech in your area of expertise</li>
-                            <li>• Connect with Richmond's builder community</li>
-                            <li>• Your name on an award aligned with your mission</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  
-                  {/* Prize Pool Banner */}
-                  <div className="relative mb-6 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/20 via-pink-500/20 to-violet-500/20 rounded-xl" />
-                    <div className="relative px-6 py-6 text-center rounded-xl border border-accent/20">
-                      <div className="flex items-center justify-center gap-2 mb-1">
-                        <Trophy className="w-5 h-5 text-yellow-500" />
-                        <span className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Total Prize Pool</span>
-                        <Trophy className="w-5 h-5 text-yellow-500" />
-                      </div>
-                      <p className="text-4xl font-black text-foreground tracking-tight">{prizePoolTotal}</p>
+                  {/* Legend */}
+                  <div className="flex items-center justify-center gap-4 text-sm">
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30">
+                        <Check className="w-3 h-3 mr-1" /> Claimed
+                      </Badge>
+                      <span className="text-muted-foreground">Sponsor secured</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30">
+                        Available
+                      </Badge>
+                      <span className="text-muted-foreground">Seeking sponsor</span>
                     </div>
                   </div>
 
-                  {/* Major Awards */}
-                  <div className="mb-4">
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3 text-center">Major Awards</h3>
-                    <div className="grid sm:grid-cols-3 gap-3">
-                      {awardTiers.slice(0, 3).map((award, idx) => (
-                        <Card key={idx} className={`border-2 ${award.color} transition-all duration-200 hover:shadow-lg hover:scale-[1.02]`}>
-                          <CardContent className="py-5 px-4 text-center">
-                            <p className="text-2xl font-bold text-foreground mb-0.5">{award.amount}</p>
-                            <p className="text-sm font-semibold text-foreground">{award.title}</p>
-                            <p className="text-xs text-muted-foreground mt-1">{award.description}</p>
-                          </CardContent>
-                        </Card>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Pillar Awards */}
-                  <div className="mb-6">
-                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3 text-center">Pillar Bounties ($1K each)</h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2">
-                      {awardTiers.slice(3).map((award, idx) => {
-                        const pillarNum = award.title.match(/Pillar (\d)/)?.[1];
-                        const shortTitle = award.title.replace(/Pillar \d: /, '');
+                  {/* Award Sponsorships */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Award Sponsorships</h3>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {sponsorshipOpportunities.filter(o => o.category === "award").map((opp) => {
+                        const colorMap: Record<string, string> = {
+                          yellow: "border-yellow-500/30 hover:border-yellow-500/60",
+                          pink: "border-pink-500/30 hover:border-pink-500/60",
+                          violet: "border-violet-500/30 hover:border-violet-500/60",
+                          blue: "border-blue-500/30 hover:border-blue-500/60",
+                        };
+                        const iconColorMap: Record<string, string> = {
+                          yellow: "text-yellow-500 bg-yellow-500/10",
+                          pink: "text-pink-500 bg-pink-500/10",
+                          violet: "text-violet-500 bg-violet-500/10",
+                          blue: "text-blue-500 bg-blue-500/10",
+                        };
                         return (
-                          <div 
-                            key={idx} 
-                            className={`p-3 rounded-lg border-2 ${award.color} text-center transition-all duration-200 hover:scale-[1.02]`}
+                          <div
+                            key={opp.id}
+                            className={`bg-card p-4 rounded-lg border ${colorMap[opp.color]} transition-colors flex items-start gap-3`}
                           >
-                            <div className="text-lg font-bold text-foreground">P{pillarNum}</div>
-                            <p className="text-xs font-medium text-foreground truncate">{shortTitle}</p>
+                            <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${iconColorMap[opp.color]}`}>
+                              {opp.icon}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-start justify-between gap-2">
+                                <div>
+                                  <p className="font-semibold text-foreground text-sm">{opp.title}</p>
+                                  {opp.amount && <p className="text-xs text-muted-foreground">{opp.amount}</p>}
+                                </div>
+                                {opp.claimedBy ? (
+                                  <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30 text-xs shrink-0">
+                                    <Check className="w-3 h-3 mr-1" /> {opp.claimedBy}
+                                  </Badge>
+                                ) : (
+                                  <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30 text-xs shrink-0">
+                                    Available
+                                  </Badge>
+                                )}
+                              </div>
+                              <p className="text-xs text-muted-foreground mt-1">{opp.description}</p>
+                            </div>
                           </div>
                         );
                       })}
                     </div>
                   </div>
-                  
-                  {/* Summary + CTA */}
-                  <div className="bg-muted/30 rounded-lg p-4 text-sm">
-                    <p className="text-muted-foreground mb-4">
-                      <strong className="text-foreground">Award Structure:</strong> 1× $5,000 Grand Prize • 2× $2,500 runner-up awards (People's & Judges' Choice) • 7× $1,000 Pillar Bounties
-                    </p>
-                    <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                      Sponsor an Award
-                    </Button>
-                  </div>
 
-                  {/* Sponsorship Packages */}
-                  <div className="pt-6 border-t border-border">
-                    <h3 className="text-xl font-bold text-foreground mb-2 text-center">Sponsorship Packages</h3>
-                    <p className="text-sm text-muted-foreground text-center mb-4">
-                      Beyond awards, sponsor key event experiences that bring participants together.
-                    </p>
-                    <div className="grid sm:grid-cols-3 gap-4">
-                      <Card className="border-orange-500/30 hover:border-orange-500/60 transition-colors">
-                        <CardContent className="pt-5 text-center">
-                          <div className="w-10 h-10 rounded-full bg-orange-500/10 flex items-center justify-center mx-auto mb-3">
-                            <UtensilsCrossed className="w-5 h-5 text-orange-500" />
+                  {/* Event Sponsorships */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Event Sponsorships</h3>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {sponsorshipOpportunities.filter(o => o.category === "event").map((opp) => {
+                        const colorMap: Record<string, string> = {
+                          orange: "border-orange-500/30 hover:border-orange-500/60",
+                          violet: "border-violet-500/30 hover:border-violet-500/60",
+                          pink: "border-pink-500/30 hover:border-pink-500/60",
+                        };
+                        const iconColorMap: Record<string, string> = {
+                          orange: "text-orange-500 bg-orange-500/10",
+                          violet: "text-violet-500 bg-violet-500/10",
+                          pink: "text-pink-500 bg-pink-500/10",
+                        };
+                        return (
+                          <div
+                            key={opp.id}
+                            className={`bg-card p-4 rounded-lg border ${colorMap[opp.color]} transition-colors flex items-start gap-3`}
+                          >
+                            <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${iconColorMap[opp.color]}`}>
+                              {opp.icon}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-start justify-between gap-2">
+                                <div>
+                                  <p className="font-semibold text-foreground text-sm">{opp.title}</p>
+                                  {opp.amount && <p className="text-xs text-muted-foreground">{opp.amount}</p>}
+                                </div>
+                                {opp.claimedBy ? (
+                                  <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30 text-xs shrink-0">
+                                    <Check className="w-3 h-3 mr-1" /> {opp.claimedBy}
+                                  </Badge>
+                                ) : (
+                                  <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30 text-xs shrink-0">
+                                    Available
+                                  </Badge>
+                                )}
+                              </div>
+                              <p className="text-xs text-muted-foreground mt-1">{opp.description}</p>
+                            </div>
                           </div>
-                          <p className="font-semibold text-foreground mb-1">Friday Kick-Off Breakfast</p>
-                          <p className="text-xs text-muted-foreground mb-3">
-                            Fuel the start of the hackathon. Your brand welcomes participants as they form teams and dive in.
-                          </p>
-                          <Button onClick={handleCTAClick} variant="outline" size="sm" className="border-orange-500/50 text-orange-600 hover:bg-orange-500/10">
-                            Inquire
-                          </Button>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="border-violet-500/30 hover:border-violet-500/60 transition-colors">
-                        <CardContent className="pt-5 text-center">
-                          <div className="w-10 h-10 rounded-full bg-violet-500/10 flex items-center justify-center mx-auto mb-3">
-                            <Trophy className="w-5 h-5 text-violet-500" />
-                          </div>
-                          <p className="font-semibold text-foreground mb-1">Sunday Awards Banquet</p>
-                          <p className="text-xs text-muted-foreground mb-3">
-                            Host the celebratory finale. Your brand on the stage where winners are crowned and solutions celebrated.
-                          </p>
-                          <Button onClick={handleCTAClick} variant="outline" size="sm" className="border-violet-500/50 text-violet-600 hover:bg-violet-500/10">
-                            Inquire
-                          </Button>
-                        </CardContent>
-                      </Card>
-
-                      <Card className="border-pink-500/30 hover:border-pink-500/60 transition-colors">
-                        <CardContent className="pt-5 text-center">
-                          <div className="w-10 h-10 rounded-full bg-pink-500/10 flex items-center justify-center mx-auto mb-3">
-                            <Gift className="w-5 h-5 text-pink-500" />
-                          </div>
-                          <p className="font-semibold text-foreground mb-1">Swag Bags</p>
-                          <p className="text-xs text-muted-foreground mb-3">
-                            Every participant gets one. Include your branded items or sponsor the entire swag experience.
-                          </p>
-                          <Button onClick={handleCTAClick} variant="outline" size="sm" className="border-pink-500/50 text-pink-600 hover:bg-pink-500/10">
-                            Inquire
-                          </Button>
-                        </CardContent>
-                      </Card>
+                        );
+                      })}
                     </div>
                   </div>
 
-                  {/* Satellite Venues */}
-                  <div className="pt-6 border-t border-border">
-                    <Card className="border-2 border-dashed border-accent/40 bg-accent/5">
-                      <CardContent className="py-6">
-                        <div className="flex items-start gap-4">
-                          <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
-                            <MapPin className="w-6 h-6 text-accent" />
+                  {/* In-Kind Sponsorships */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">In-Kind Contributions</h3>
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {sponsorshipOpportunities.filter(o => o.category === "inkind").map((opp) => (
+                        <div
+                          key={opp.id}
+                          className="bg-card p-4 rounded-lg border border-accent/30 hover:border-accent/60 transition-colors flex items-start gap-3"
+                        >
+                          <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-accent bg-accent/10">
+                            {opp.icon}
                           </div>
-                          <div className="flex-1">
-                            <h3 className="text-lg font-bold text-foreground mb-1">Hack-Friendly Satellite Venues</h3>
-                            <p className="text-sm text-muted-foreground mb-3">
-                              We're looking for spaces across Richmond where teams can gather to hack. Offer your office, coworking space, 
-                              coffee shop, or community center as a satellite venue. You provide the space; we'll help coordinate logistics.
-                            </p>
-                            <div className="flex flex-wrap gap-2 text-xs text-muted-foreground mb-4">
-                              <span className="bg-background rounded px-2 py-1">WiFi + power outlets</span>
-                              <span className="bg-background rounded px-2 py-1">8+ hour availability Saturday</span>
-                              <span className="bg-background rounded px-2 py-1">Seating for 10+ people</span>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2">
+                              <p className="font-semibold text-foreground text-sm">{opp.title}</p>
+                              <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30 text-xs shrink-0">
+                                Available
+                              </Badge>
                             </div>
-                            <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                              Offer Your Space
-                            </Button>
+                            <p className="text-xs text-muted-foreground mt-1">{opp.description}</p>
                           </div>
                         </div>
-                      </CardContent>
-                    </Card>
+                      ))}
+                    </div>
                   </div>
 
+                  {/* CTA */}
+                  <div className="bg-muted/30 rounded-lg p-5 text-center">
+                    <p className="text-sm text-muted-foreground mb-3">
+                      Interested in sponsoring? Reach out to discuss opportunities and custom packages.
+                    </p>
+                    <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
+                      Become a Sponsor
+                    </Button>
+                  </div>
                 </div>
               </TabsContent>
 
