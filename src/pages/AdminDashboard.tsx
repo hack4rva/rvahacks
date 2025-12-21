@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus, Users, ChevronDown, Handshake } from "lucide-react";
+import { Plus, Users, ChevronDown, Handshake, Link2 } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { KanbanBoard, Task, ColumnId } from "@/components/admin";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
@@ -120,6 +120,38 @@ const AdminDashboard = () => {
     "Gray Crenshaw", "Bridget Cochran", "Carly Manning", "Michael Ghaffari", "Nick Pericle",
     "Claire Jordan", "Kenton Vizdos", "Alyssa Paulette", "J. Albert Bowden II", "Madison Johnson",
     "David Cariello", "Mike Mitchell", "Larry Thacker", "Mohammad Hassan"
+  ];
+
+  // Connectors - people who help bridge networks and make introductions
+  const connectors = [
+    {
+      name: "Dawson Boyer",
+      description: "Community connector with broad Richmond network",
+    },
+    {
+      name: "Drew Cleveland",
+      description: "Startup and entrepreneurial ecosystem connections",
+    },
+    {
+      name: "Nick Serfass",
+      description: "Tech community and professional network",
+    },
+    {
+      name: "Paul Devitt",
+      description: "Business and civic leadership connections",
+    },
+    {
+      name: "Danny Avula",
+      description: "Public health and government network",
+    },
+    {
+      name: "Ankit Mathur",
+      description: "Technology and innovation community",
+    },
+    {
+      name: "Debbie Irwin",
+      description: "Economic development and business community",
+    },
   ];
 
   // Team delegation structure - Core Leaders and their sub-role assignments
@@ -1072,6 +1104,24 @@ const AdminDashboard = () => {
                             <span className="text-muted-foreground">{foundation.contactStrategy}</span>
                           </div>
                         </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Connectors */}
+                <div className="mt-8">
+                  <h4 className="font-semibold mb-4 flex items-center gap-2">
+                    <Link2 className="w-5 h-5" /> Connectors
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Key people who bridge networks and can make introductions to sponsors, partners, and community stakeholders.
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {connectors.map((connector, idx) => (
+                      <div key={idx} className="border border-border rounded-lg p-4 bg-card hover:bg-muted/30 transition-colors">
+                        <h5 className="font-bold text-foreground">{connector.name}</h5>
+                        <p className="text-xs text-muted-foreground mt-1">{connector.description}</p>
                       </div>
                     ))}
                   </div>
