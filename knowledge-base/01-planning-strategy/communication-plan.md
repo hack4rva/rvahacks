@@ -20,6 +20,7 @@ The framework ensures we:
 | **2** | Core Team | 7 leadership areas defined and staffed | 7 roles | 🟡 6 of 7 |
 | **3** | Pillar Teams | 21 stakeholders across 7 pillars (3 each) | 21 people | ⬜ 0 of 21 |
 | **4** | Corporate Pillars | Corporate sponsor rep added to each pillar | 7 people | ⬜ 0 of 7 |
+| **5** | Satellite Locations | Distributed hack spaces including 2 all-night venues | 5-7 locations | ⬜ 0 of 5-7 |
 
 ---
 
@@ -336,6 +337,121 @@ This brings City + NGO + Business leaders together at the same table, discussing
 
 ---
 
+## Level 5: Satellite Locations
+
+**Purpose:** Secure distributed hacking venues across Richmond to expand capacity and bring the hackathon into the community—including two all-night locations for teams who want to hack through the night.
+
+### The Model: 5-7 Satellite Locations
+
+| Type | Count | Purpose |
+|------|-------|---------|
+| **All-Night Hack Spaces** | 2 | 24-hour access for overnight hacking (UR + VCU) |
+| **Daytime Satellites** | 3-5 | Overflow and community access during event hours |
+
+### Location Tracking
+
+#### All-Night Hack Spaces (Required)
+
+| Location | Institution | Status | Site Contact | Notes |
+|----------|-------------|--------|--------------|-------|
+| **University of Richmond** | UR | ⬜ Not Started | TBD | 24-hour access Friday night → Sunday |
+| **VCU** | VCU | ⬜ Not Started | TBD | 24-hour access Friday night → Sunday |
+
+**Total All-Night: 0 of 2 confirmed**
+
+#### Daytime Satellite Locations
+
+| Location | Type | Status | Site Contact | Notes |
+|----------|------|--------|--------------|-------|
+| TBD | Coworking | ⬜ Not Started | TBD | — |
+| TBD | Library | ⬜ Not Started | TBD | — |
+| TBD | Corporate | ⬜ Not Started | TBD | — |
+| TBD | Community | ⬜ Not Started | TBD | — |
+| TBD | Other | ⬜ Not Started | TBD | — |
+
+**Total Daytime: 0 of 3-5 confirmed**
+
+### Potential Satellite Venues
+
+| Venue | Type | Capacity | 24-Hour? | Notes |
+|-------|------|----------|----------|-------|
+| **University of Richmond** | University | 50-100 | ✅ Yes | Strong fit for overnight hacking |
+| **VCU (various buildings)** | University | 50-100 | ✅ Yes | daVinci Center, Engineering, Library |
+| **Common House Richmond** | Coworking | 30-50 | ❌ No | Downtown, professional setting |
+| **Capital One Café** | Corporate | 20-30 | ❌ No | Multiple locations, public-facing |
+| **Richmond Public Library** | Library | 30-50 | ❌ No | Main branch or Broad Rock |
+| **Startup Virginia** | Coworking | 20-40 | ❌ No | Entrepreneurial community |
+| **1717 Innovation Center** | Innovation hub | 40-60 | ❌ No | Tech-focused space |
+
+### Requirements Per Satellite
+
+**Minimum Requirements (All Locations):**
+- [ ] WiFi capacity for 20+ simultaneous users
+- [ ] Adequate power outlets / power strips
+- [ ] Accessible seating and work surfaces
+- [ ] Restroom access
+- [ ] Clear emergency procedures
+
+**All-Night Location Additional Requirements:**
+- [ ] 24-hour building access Friday evening → Sunday evening
+- [ ] Security/safety protocols for overnight
+- [ ] Quiet zones for rest
+- [ ] Food storage/refrigeration
+- [ ] Proximity to food options or delivery access
+
+### Site Captain Model
+
+Each satellite location needs a **Site Captain** — a volunteer lead who:
+- Serves as primary point of contact for that location
+- Coordinates with main venue via Discord
+- Manages local logistics (A/V, supplies, food)
+- Handles issues and escalates to core team as needed
+- Ensures participants feel connected to the broader event
+
+| Location | Site Captain | Status |
+|----------|--------------|--------|
+| University of Richmond | TBD | ⬜ |
+| VCU | TBD | ⬜ |
+| Satellite 3 | TBD | ⬜ |
+| Satellite 4 | TBD | ⬜ |
+| Satellite 5 | TBD | ⬜ |
+
+### Coordination with Main Venue
+
+Satellite locations connect to the Science Museum (main venue) via:
+
+1. **Discord/Slack channels** — Real-time communication with each satellite
+2. **Livestream** — Friday kickoff and Sunday awards streamed to all locations
+3. **Roving support** — Mentors rotate between locations or offer virtual office hours
+4. **Unified submissions** — All teams submit via same Devpost regardless of location
+
+### Completion Criteria
+
+✅ 2 all-night locations confirmed (UR + VCU)  
+✅ 3-5 daytime satellite locations confirmed  
+✅ All locations meet minimum technical requirements  
+✅ Site Captain assigned for each location  
+✅ Communication protocols established with main venue  
+
+**Level 5 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **Hack for RVA is everywhere.**
+>
+> One hackathon. Multiple locations across Richmond.
+>
+> Our main venue at the Science Museum of Virginia is joined by satellite hack spaces at:
+> - University of Richmond (24-hour access)
+> - VCU (24-hour access)
+> - [Additional locations]
+>
+> Whether you're a night owl who wants to code until dawn or prefer structured hours, there's a space for you.
+>
+> Same challenges. Same community. Same mission. Just closer to you.
+
+---
+
 ## Timeline Dependencies
 
 ```
@@ -365,6 +481,14 @@ Level 4 (Corporate Pillars - +7 people)
     ├── Complete cross-sector model
     ├── All pillar awards funded
     └── Full Friday programming locked
+    │
+    ▼
+Level 5 (Satellite Locations)
+    │
+    ├── All-night venues at UR + VCU confirmed
+    ├── Daytime satellites secured
+    ├── Site Captains assigned
+    └── Full distributed event infrastructure ready
 ```
 
 ### Suggested Target Dates
@@ -375,6 +499,7 @@ Level 4 (Corporate Pillars - +7 people)
 | Level 2 | Mid-February 2026 | Team announcement |
 | Level 3 | End of February 2026 | Pillar teams in place for challenge design |
 | Level 4 | Mid-March 2026 | 2 weeks before event |
+| Level 5 | Mid-March 2026 | Can parallel with Level 4; needed for logistics |
 
 ---
 
@@ -390,6 +515,7 @@ Level 4 (Corporate Pillars - +7 people)
 - **Level 2:** Team spotlight blog post + social media
 - **Level 3:** Pillar teams announcement + stakeholder features
 - **Level 4:** "Full partnership" announcement + countdown to event
+- **Level 5:** "Hack anywhere" announcement featuring all locations
 
 ### Announcement Approval
 All external communications require:
