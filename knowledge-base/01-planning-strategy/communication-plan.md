@@ -12,17 +12,74 @@ The framework ensures we:
 
 ---
 
-## Milestone Summary
+## The Story: From Vision to Impact
 
-| Level | Name | Description | Target Count | Status |
-|-------|------|-------------|--------------|--------|
-| **1** | Foundation Lock | Date, venue, fiscal sponsor, title sponsor, kickoff meeting | 5 components | 🟡 2 of 5 |
-| **2** | Core Team | 7 leadership areas defined and staffed | 7 roles | 🟡 6 of 7 |
-| **3** | Pillar Teams | 21 stakeholders across 7 pillars (3 each) | 21 people | ⬜ 0 of 21 |
-| **4** | Corporate Pillars | Corporate sponsor rep added to each pillar | 7 people | ⬜ 0 of 7 |
-| **5** | Satellite Locations | Distributed hack spaces including 2 all-night venues | ~15 locations | ⬜ 0 of ~15 |
+Building Richmond's first civic hackathon is a journey through five acts:
+
+1. **Act I: Foundation** — Lock the essentials (Levels 1-2)
+2. **Act II: Ecosystem** — Build the cross-sector partnerships (Levels 3-5)
+3. **Act III: The Work** — Create substance and staff the machine (Levels 6-8)
+4. **Act IV: Resources** — Secure what we need to deliver (Levels 9-10)
+5. **Act V: Launch** — Open the doors (Levels 11-12)
+6. **Epilogue** — Ensure solutions live on (Level 13)
 
 ---
+
+## Milestone Summary
+
+| Level | Phase | Name | Description | Target | Status |
+|-------|-------|------|-------------|--------|--------|
+| **1** | Foundation | Foundation Lock | Date, venue, fiscal sponsor, title sponsor, kickoff meeting | 5 components | 🟡 2 of 5 |
+| **2** | Foundation | Core Team | 7 leadership areas defined and staffed | 7 roles | 🟡 6 of 7 |
+| **3** | Ecosystem | Pillar Teams | 21 stakeholders across 7 pillars (3 each) | 21 people | ⬜ 0 of 21 |
+| **4** | Ecosystem | Corporate Pillars | Corporate sponsor rep added to each pillar | 7 people | ⬜ 0 of 7 |
+| **5** | Ecosystem | Satellite Locations | Distributed hack spaces including 2 all-night venues | ~15 locations | ⬜ 0 of ~15 |
+| **6** | The Work | Challenge Design | 7 crisp problem statements with research + raw data | 7 challenges | ⬜ 0 of 7 |
+| **7** | The Work | Leadership Crew | 23 sub-roles beyond core leadership (t-shirt tier) | 23 roles | ⬜ 0 of 23 |
+| **8** | The Work | Academia Pipeline | K-12 districts + specialty schools + universities confirmed | 10+ partners | ⬜ 0 of 10 |
+| **9** | Resources | Prize Pool Secured | $17K+ in awards funded and committed | $17K+ | ⬜ $0 |
+| **10** | Resources | Volunteer Army | 150-200 volunteers recruited + trained | 150-200 | ⬜ 0 |
+| **11** | Launch | Platform Ready | Devpost + Discord + GitHub configured, tested | 3 platforms | ⬜ 0 of 3 |
+| **12** | Launch | Registration Open | 300+ participants / 30+ teams registered | 300+ / 30+ | ⬜ 0 |
+| **13** | Epilogue | Implementation Handoff | Top winners have 90-day plans + city department matches | 3+ solutions | ⬜ 0 |
+
+---
+
+## Parallel Workstreams
+
+Not all levels are sequential. Some run in parallel:
+
+```mermaid
+gantt
+    title Hack for RVA Milestone Timeline
+    dateFormat YYYY-MM
+    section Foundation
+    Level1_FoundationLock :l1, 2025-12, 2026-01
+    Level2_CoreTeam :l2, 2026-01, 2026-02
+    section Ecosystem
+    Level3_PillarTeams :l3, 2026-01, 2026-03
+    Level4_CorporatePillars :l4, 2026-02, 2026-03
+    Level5_SatelliteLocations :l5, 2026-02, 2026-03
+    section TheWork
+    Level6_ChallengeDesign :l6, 2026-01, 2026-03
+    Level7_LeadershipCrew :l7, 2026-02, 2026-03
+    Level8_AcademiaPipeline :l8, 2026-01, 2026-02
+    section Resources
+    Level9_PrizePool :l9, 2026-02, 2026-03
+    Level10_VolunteerArmy :l10, 2026-02, 2026-03
+    section Launch
+    Level11_PlatformReady :l11, 2026-02, 2026-03
+    Level12_RegistrationOpen :l12, 2026-03, 2026-03
+```
+
+**Key Parallel Tracks:**
+- **Level 6 (Challenge Design)** starts with Level 3, not after Level 5
+- **Level 8 (Academia Pipeline)** has hard deadlines (field trips need 4-6 weeks) — must start early
+- **Levels 9-11** can all run in parallel during the final weeks
+
+---
+
+# ACT I: FOUNDATION
 
 ## Level 1: Foundation Lock
 
@@ -167,6 +224,8 @@ The framework ensures we:
 > Together, we're building Richmond's first civic hackathon—not as a one-time event, but as a new model for how our city innovates.
 
 ---
+
+# ACT II: ECOSYSTEM
 
 ## Level 3: Pillar Teams
 
@@ -461,6 +520,656 @@ Satellite locations connect to the Science Museum (main venue) via:
 
 ---
 
+# ACT III: THE WORK
+
+## Level 6: Challenge Design
+
+**Purpose:** Create 7 crisp, solvable problem statements with research, raw data, and grading rubrics—ensuring hackers build solutions that can actually be implemented.
+
+**Timeline Note:** This work starts in PARALLEL with Level 3 and must complete before the event. City Liaisons and Nonprofit Partners inform the challenge design process.
+
+### The Model: What Each Pillar Delivers
+
+| Component | Description | Owner |
+|-----------|-------------|-------|
+| **Problem Statement** | 1-paragraph crisp description of the civic challenge | City Liaison + Nonprofit Partner |
+| **Research Brief** | Context on existing initiatives, what's been tried, what works | Pre-Event Prep Team |
+| **Raw Data Package** | Curated datasets from Richmond Open Data Portal, city systems | Data Ambassador + City Data Liaison |
+| **Grading Rubric** | What "good," "better," and "best" solutions look like | Judging Team + Pillar Stakeholders |
+| **Implementation Pathway** | How winning solutions could be adopted by city/nonprofits | City Hall Owner |
+
+### Challenge Tracking
+
+| # | Pillar | Problem Statement | Research Brief | Data Package | Rubric | Status |
+|---|--------|------------------|----------------|--------------|--------|--------|
+| 1 | Thriving City Hall | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+| 2 | Thriving Neighborhoods | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+| 3 | Thriving Families | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+| 4 | Thriving Economy | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+| 5 | Inclusive Communities | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+| 6 | Thriving Environment | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+| 7 | City Stories | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ 0/4 |
+
+**Total: 0 of 28 components complete**
+
+### Data Sources
+
+Priority data to curate for participants:
+
+| Source | Examples | Owner |
+|--------|----------|-------|
+| **Richmond Open Data Portal** | 311 data, permits, crime stats | Data Ambassador |
+| **RVAgreen 2050** | Climate action plan data | Pre-Event Prep Team |
+| **City GIS** | Parcel data, zoning, infrastructure | City Data Liaison |
+| **Census/ACS** | Demographics, housing, economics | Data Ambassador |
+| **Pillar-Specific** | Eviction data (Neighborhoods), health data (Inclusive) | Pillar stakeholders |
+
+### Completion Criteria
+
+✅ All 7 pillars have approved problem statements  
+✅ All 7 pillars have research briefs available  
+✅ All 7 pillars have curated data packages  
+✅ Grading rubrics published to participants 2 weeks before event  
+✅ Challenge materials reviewed by city stakeholders  
+
+**Level 6 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **The challenges are set. The data is ready.**
+>
+> We've worked with city leaders, nonprofit partners, and community experts to define 7 real problems facing Richmond—problems you can help solve.
+>
+> Each challenge comes with:
+> - A crisp problem statement
+> - Research on what's been tried
+> - Real city data to work with
+> - Clear criteria for what makes a winning solution
+>
+> [Challenge previews by pillar]
+>
+> These aren't hypotheticals. These are the priorities from Mayor Avula's Action Plan. Build something that matters.
+
+---
+
+## Level 7: Leadership Crew
+
+**Purpose:** Staff the 23 leadership sub-roles beyond the 7 core leaders—the "t-shirt tier" who get the special organizer shirts and own specific functional areas.
+
+### The 23 Leadership Sub-Roles
+
+These roles are drawn from the [Organizing Team Structure](../02-team-governance/organizing-team-structure.md) and [Leadership-Volunteer Mapping](../02-team-governance/leadership-volunteer-mapping.md).
+
+#### Core Leadership (Level 2 — Already Tracked)
+
+| # | Role | Owner | Status |
+|---|------|-------|--------|
+| 1 | Event Director | Ford Prior | ✅ |
+| 2 | Venue & Operations | Crystal Harvey | ✅ |
+| 3 | City Liaison | Michael Kolbe | ✅ |
+| 4 | Marketing & Comms | Sinclair Jenks | ✅ |
+| 5 | Entrepreneurial Ecosystems | Heather Lyne | ✅ |
+| 6 | Sponsorships & Partnerships | Will Melton | ✅ |
+| 7 | Community & Volunteers | TBD | ⬜ |
+
+#### Venue & Logistics Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 8 | Science Museum Liaison | Main venue coordination, AV, catering | TBD | ⬜ |
+| 9 | Satellite Location Coordinator | 15+ venue relationships | TBD | ⬜ |
+| 10 | 24/7 Access Coordinator | All-night venue oversight | TBD | ⬜ |
+
+#### Programming & Content Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 11 | Friday Programming Lead | Kickoff ceremonies, pillar sessions | TBD | ⬜ |
+| 12 | SME Recruiter | Subject matter expert engagement | TBD | ⬜ |
+| 13 | Data Ambassador Coordinator | Cross-pillar data support | TBD | ⬜ |
+
+#### Support Infrastructure Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 14 | Design Lounge Lead | VCU Brandcenter mentors (6-8) | TBD | ⬜ |
+| 15 | Hacker Space Lead | Technical mentors (8-12) | TBD | ⬜ |
+| 16 | Business Room Lead | Pitch coaches (4-6) | TBD | ⬜ |
+| 17 | Mentor Coordinator | Help desk, mentor queue | TBD | ⬜ |
+
+#### Technology & Data Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 18 | Technology Support Coordinator | Cloud credits, dev resources | TBD | ⬜ |
+| 19 | City Data Liaison | Government data access, APIs | TBD | ⬜ |
+| 20 | Platform Administrator | Devpost, Discord, GitHub | TBD | ⬜ |
+
+#### Community & Communications Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 21 | Volunteer Coordinator | 150-200 volunteer recruitment | TBD | ⬜ |
+| 22 | Social Media Manager | Photographers, content creators | TBD | ⬜ |
+| 23 | Registration Manager | Check-in, badges, info desk | TBD | ⬜ |
+
+#### Judging & Awards Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 24 | Judge Coordinator | Judge recruitment, deliberation | TBD | ⬜ |
+
+#### Post-Event Cluster
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 25 | Post-Event Sustainability Coordinator | Implementation handoff | TBD | ⬜ |
+| 26 | Nonprofit Partnership Coordinator | 7 nonprofit relationships | TBD | ⬜ |
+
+#### Cross-Cutting
+
+| # | Role | Responsibility | Owner | Status |
+|---|------|---------------|-------|--------|
+| 27 | Data Ambassador | All-pillar data expert | TBD | ⬜ |
+
+**Total Sub-Roles: 0 of 20 staffed** (beyond core 7)
+
+### The T-Shirt Tier
+
+These 27 people (7 core + 20 sub-roles) are the **Leadership Crew**—they get:
+- Special organizer t-shirts (different color/design than participants)
+- Access to leadership Discord channel
+- Pre-event planning meetings
+- Post-event celebration invite
+- Recognition on website and materials
+
+### Completion Criteria
+
+✅ All 27 leadership roles defined  
+✅ All 27 roles staffed with confirmed owners  
+✅ Each owner understands their responsibilities  
+✅ Leadership t-shirt order placed  
+
+**Level 7 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **Meet the crew behind Hack for RVA.**
+>
+> 27 leaders. 27 responsibilities. One mission.
+>
+> Beyond our core team, we've assembled specialists in venues, programming, mentorship, technology, volunteers, and more—each owning a piece of what makes this hackathon work.
+>
+> [Leadership crew photo or grid]
+>
+> These are the people who will greet you at registration, connect you to mentors, keep the wifi running, and make sure your solutions get seen.
+>
+> Hack for RVA. March 27-29, 2026.
+
+---
+
+## Level 8: Academia Pipeline
+
+**Purpose:** Secure participation from K-12 districts, specialty schools, and universities—ensuring diverse, qualified participants and compliance for minors.
+
+**Timeline Note:** This has HARD DEADLINES. Field trips need 4-6 weeks lead time. Bus requests for HCPS/CCPS are due **February 13, 2026**. Start early.
+
+### Partner Categories
+
+| Category | Target | Purpose |
+|----------|--------|---------|
+| **K-12 Districts** | RPS, Henrico, Chesterfield | CTE program integration, field trip approval |
+| **Specialty Schools** | CodeRVA, MLWGS, Governor's Academy | High-compatibility CS/civic students |
+| **Universities** | VCU, UR, VSU | Mentors, participants, venue support |
+
+### K-12 District Tracking
+
+| District | CTE Leader | Key Schools | Spring Break | Status | Notes |
+|----------|------------|-------------|--------------|--------|-------|
+| **RPS** | Dr. Rhonda Turner | RTC, RCHS, Open High | April 1 | ⬜ Not Contacted | March 27 is school day |
+| **Henrico** | Mac Beaton | ACE Centers, Deep Run | March 30 | ⬜ Not Contacted | National CTE leader |
+| **Chesterfield** | Chad Maclin | Governor's Academy (L.C. Bird) | March 30 | ⬜ Not Contacted | Transportation challenge |
+
+### Specialty School Tracking
+
+| School | Compatibility | March 27 Status | Key Contact | Status |
+|--------|--------------|-----------------|-------------|--------|
+| **CodeRVA** | HIGH | In Session | TBD | ⬜ |
+| **Maggie L. Walker Governor's School** | HIGH | Potential Holiday* | TBD | ⬜ |
+| **Governor's Academy for Engineering** | MEDIUM | In Session | Dr. Nancy Hoover | ⬜ |
+| **Wilder School (VCU)** | HIGH | In Session | TBD | ⬜ |
+
+*If fewer than 5 snow days used, March 27 becomes a school holiday at MLWGS.
+
+### University Tracking
+
+| University | Role | Key Contacts | Status |
+|------------|------|--------------|--------|
+| **VCU** | Host Partner | CS Dept, daVinci Center, Service Learning | ⬜ |
+| **University of Richmond** | Civic Engagement | Bonner Center (Sylvia Gale), CCE | ⬜ |
+| **Virginia State University** | Diversity Partner | Engineering Dean (Dr. Dawit Haile) | ⬜ |
+
+### Critical Deadlines
+
+| Date | Action | Owner | Priority |
+|------|--------|-------|----------|
+| **Feb 13, 2026** | Submit bus requests to HCPS/CCPS | TBD | CRITICAL |
+| **Feb 15, 2026** | Distribute Teacher Toolkits | TBD | High |
+| **Feb 25, 2026** | VCU Protection of Minors registration | TBD | CRITICAL |
+| **Mar 1, 2026** | Bind special event liability insurance | TBD | High |
+| **Mar 15, 2026** | Collect all parent-signed permission slips | TBD | High |
+| **Mar 20, 2026** | Finalize chaperone background checks | TBD | High |
+
+### Compliance Requirements for Minors
+
+| Requirement | Details | Status |
+|-------------|---------|--------|
+| VCU Protection of Minors Registration | Register event 30 days in advance | ⬜ |
+| Background Checks (Tier I/II Staff) | Multi-state criminal + sex offender registry | ⬜ |
+| 1:10 Adult-to-Minor Ratio | Maintain for all time blocks | ⬜ |
+| "Rule of Two" | Never one adult alone with minor | ⬜ |
+| Parent Permission Slips | Liability, media, medical release | ⬜ |
+| Color-Coded Lanyards | RED = Minors, GREEN = University, BLUE = Staff | ⬜ |
+| Insurance | $1M/$2M special event liability | ⬜ |
+
+### Diploma Seal Integration
+
+Frame participation to help students earn:
+
+| Seal | Requirement | Hackathon Fit |
+|------|-------------|---------------|
+| **Excellence in Civics Education** | 50 hours civic service | 15-20 hours (Fri-Sun) as "Civic Tech" |
+| **STEM Seal** | 50 hours WBL in STEM | Counts as service learning/job shadowing |
+
+### Completion Criteria
+
+✅ At least 2 K-12 districts confirmed with field trip approval  
+✅ At least 2 specialty schools participating  
+✅ VCU and UR confirmed as partners  
+✅ All compliance requirements met  
+✅ Transportation arranged for students needing it  
+
+**Level 8 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **Richmond's students are part of Hack for RVA.**
+>
+> We've partnered with Richmond-area schools and universities to bring the next generation of civic innovators to the table:
+>
+> - **K-12 Partners:** [Districts/Schools]
+> - **University Partners:** VCU, University of Richmond, VSU
+>
+> Students can earn credit toward their Civics and STEM Diploma Seals while building real solutions for Richmond's challenges.
+>
+> This isn't a field trip. It's a launch pad.
+
+---
+
+# ACT IV: RESOURCES
+
+## Level 9: Prize Pool Secured
+
+**Purpose:** Secure $17K+ in prize funding to reward winning solutions and incentivize participation.
+
+### Prize Structure
+
+| Award | Amount | Judge/Voter | Funding Source |
+|-------|--------|-------------|----------------|
+| **Mayor's Choice** | $5,000 | Mayor Avula + designees | Title Sponsor |
+| **People's Choice** | $2,500 | Audience vote | Title Sponsor |
+| **Judges' Choice** | $2,500 | Panel of 3-5 judges | Title Sponsor |
+| **Pillar 1: Thriving City Hall** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **Pillar 2: Thriving Neighborhoods** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **Pillar 3: Thriving Families** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **Pillar 4: Thriving Economy** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **Pillar 5: Inclusive Communities** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **Pillar 6: Thriving Environment** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **Pillar 7: City Stories** | $1,000 | Pillar stakeholders | Pillar Sponsor |
+| **TOTAL** | **$17,000** | | |
+
+### Funding Breakdown
+
+| Source | Contribution | Awards Covered |
+|--------|--------------|----------------|
+| **Title Sponsor (CoStar)** | $10,000 | Mayor's, People's, Judges' Choice |
+| **7 Pillar Sponsors** | $7,000 ($1K each) | Pillar Awards |
+| **TOTAL** | **$17,000** | All 10 awards |
+
+### Funding Tracking
+
+| Source | Committed | Received | Status |
+|--------|-----------|----------|--------|
+| Title Sponsor (CoStar) | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 1 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 2 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 3 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 4 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 5 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 6 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| Pillar 7 Sponsor | ⬜ $0 | ⬜ $0 | ⬜ Not Confirmed |
+| **TOTAL** | **$0** | **$0** | |
+
+### Judging Panel
+
+| Award | Judges | Recruitment Owner |
+|-------|--------|-------------------|
+| **Mayor's Choice** | Mayor Avula + 2 designees | Event Director |
+| **People's Choice** | Audience vote (no panel) | Platform Administrator |
+| **Judges' Choice** | Panel of 3-5 (tech, business, civic) | Judge Coordinator |
+| **Pillar Awards** | Nonprofit Partner Rep + City Hall Owner | Pillar stakeholders |
+
+**Judges' Choice Panel Composition:**
+- 1-2 tech leaders (CTO/VP Engineering from major Richmond companies)
+- 1-2 business leaders (CEO/entrepreneur)
+- 1-2 civic leaders (nonprofit ED, community advocate)
+
+### Prize Administration
+
+- **Tax implications:** Prizes over $600 require 1099 reporting
+- **Distribution method:** Checks or direct deposit (via fiscal sponsor)
+- **Timeline:** Distribute within 2 weeks of event
+- **Owner:** Gifts & Swag Team + Fiscal Sponsor
+
+### Completion Criteria
+
+✅ $17K+ committed from sponsors  
+✅ All prize funds received by fiscal sponsor  
+✅ Judging panels confirmed for all awards  
+✅ Prize distribution logistics confirmed  
+
+**Level 9 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **$17,000 in prizes. Real money for real solutions.**
+>
+> Hack for RVA isn't just about building—it's about winning.
+>
+> **Top Awards:**
+> - Mayor's Choice: $5,000
+> - People's Choice: $2,500
+> - Judges' Choice: $2,500
+>
+> **Plus $1,000 for each pillar winner:**
+> - Thriving City Hall, Neighborhoods, Families, Economy, Inclusive Communities, Environment, City Stories
+>
+> Build something that matters. Get rewarded.
+
+---
+
+## Level 10: Volunteer Army
+
+**Purpose:** Recruit and train 150-200 volunteers to staff all event functions across multiple days and locations.
+
+### Volunteer Categories
+
+| Category | Count | Primary Roles |
+|----------|-------|---------------|
+| **Pre-Event** | 25-35 | Outreach ambassadors, data prep, venue scouts |
+| **Friday** | 35-45 | Registration, wayfinders, room captains, AV |
+| **Saturday** | 60-80 | Site captains, tech support, comfort monitors, help desk |
+| **Sunday** | 30-40 | Setup, judging support, stage, cleanup |
+| **Support** | 30-40 | Mentors (tech, design, business), SMEs, accessibility |
+| **TOTAL** | **150-200** | ~1,600 volunteer hours |
+
+### Recruitment Channels
+
+| Channel | Target Volunteers | Owner |
+|---------|-------------------|-------|
+| **HandsOn Greater Richmond** | General volunteers | Volunteer Coordinator |
+| **VCU ACM / RamDev** | Technical mentors, students | Hacker Space Lead |
+| **UR Bonner Center** | Civic-minded students | Registration Manager |
+| **Corporate ERGs** | Professionals, diverse backgrounds | Social Media Manager |
+| **RVATech Community** | Tech mentors | Hacker Space Lead |
+| **Corporate VTO Programs** | CarMax, Capital One, Dominion | Sponsorships Lead |
+
+### Corporate VTO Programs
+
+Many Richmond employers offer Volunteer Time Off:
+
+| Company | VTO Hours | Notes |
+|---------|-----------|-------|
+| CarMax | 16 hrs/year | Strong tech culture |
+| Capital One | 8+ hrs | Multiple offices |
+| Dominion Energy | Matching program | Environmental pillar |
+
+We provide documentation for VTO reimbursement.
+
+### Training Requirements
+
+| Role | Training |
+|------|----------|
+| Site Captains | 1-hr training + venue walkthrough |
+| Room Captains | 30-min AV/facilitation training |
+| Registration Leads | 30-min system training |
+| Discord Mods | 15-min platform orientation |
+| General Volunteers | 15-min orientation on event day |
+| Mentors | No formal training (expertise assumed) |
+
+### Volunteer Tracking
+
+| Category | Target | Recruited | Trained | Status |
+|----------|--------|-----------|---------|--------|
+| Pre-Event | 25-35 | 0 | 0 | ⬜ 0% |
+| Friday | 35-45 | 0 | 0 | ⬜ 0% |
+| Saturday | 60-80 | 0 | 0 | ⬜ 0% |
+| Sunday | 30-40 | 0 | 0 | ⬜ 0% |
+| Support | 30-40 | 0 | 0 | ⬜ 0% |
+| **TOTAL** | **150-200** | **0** | **0** | **⬜ 0%** |
+
+### Completion Criteria
+
+✅ 150+ volunteers recruited  
+✅ All volunteers assigned to specific roles/shifts  
+✅ Training completed for role-specific positions  
+✅ Volunteer handbook distributed  
+✅ Communication channels (Slack/Discord) set up  
+
+**Level 10 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **[X] volunteers. One weekend. Richmond's future.**
+>
+> Behind every great hackathon is an army of volunteers. Ours includes:
+>
+> - Technical mentors from Richmond's top tech companies
+> - Design experts from VCU Brandcenter
+> - Civic leaders and community advocates
+> - Students, professionals, and everyone in between
+>
+> They're not just helping—they're investing in Richmond's future.
+>
+> [Volunteer recognition or call for more volunteers]
+
+---
+
+# ACT V: LAUNCH
+
+## Level 11: Platform Ready
+
+**Purpose:** Configure and test all technical platforms for submissions, communication, and team collaboration.
+
+### Platform Checklist
+
+| Platform | Purpose | Owner | Status |
+|----------|---------|-------|--------|
+| **Devpost** | Project submissions, judging workflow | Platform Administrator | ⬜ |
+| **Discord** | Real-time communication, help channels | Platform Administrator | ⬜ |
+| **GitHub Organization** | Code repositories, open source | Platform Administrator | ⬜ |
+
+### Devpost Configuration
+
+- [ ] Hackathon page created
+- [ ] 7 pillar categories configured
+- [ ] Submission template aligned with judging rubric
+- [ ] Judging workflow configured
+- [ ] Prize display configured
+- [ ] Rules and requirements published
+- [ ] Test submission completed
+
+### Discord Configuration
+
+- [ ] Server created
+- [ ] Channel structure set up:
+  - #general
+  - #announcements
+  - #help-desk
+  - #team-formation
+  - 7 pillar channels
+  - #mentors-only
+  - #organizers-only
+- [ ] Roles and permissions configured
+- [ ] Bots configured (announcements, moderation)
+- [ ] Invite links generated
+
+### GitHub Organization
+
+- [ ] Organization created (e.g., github.com/hackforrva)
+- [ ] Repository template for teams
+- [ ] Open source license guidance
+- [ ] Access controls configured
+
+### End-to-End Testing
+
+| Test | Description | Status |
+|------|-------------|--------|
+| Registration → Discord | New registrant gets Discord access | ⬜ |
+| Submission → Devpost | Test project submitted successfully | ⬜ |
+| Judging → Scores | Judge can score via Devpost | ⬜ |
+| Help request → Response | Discord help channel works | ⬜ |
+
+### Completion Criteria
+
+✅ All 3 platforms configured  
+✅ End-to-end testing completed  
+✅ Disaster recovery plan documented  
+✅ Platform handoff to Hacking Support Team complete  
+
+**Level 11 = COMPLETE** when all criteria met.
+
+---
+
+## Level 12: Registration Open
+
+**Purpose:** Launch public registration and marketing campaign to reach 300+ participants across 30+ teams.
+
+### Registration Targets
+
+| Metric | Target | Minimum | Status |
+|--------|--------|---------|--------|
+| **Total Participants** | 300+ | 150 | ⬜ 0 |
+| **Teams** | 30+ | 15 | ⬜ 0 |
+| **Solo Registrants** | 50+ | 25 | ⬜ 0 |
+
+### Diversity Targets
+
+| Demographic | Target | Status |
+|-------------|--------|--------|
+| Women/Non-binary | 30%+ | ⬜ |
+| Black/Latino/Indigenous | 40%+ | ⬜ |
+| Non-technical (designers, policy, etc.) | 25%+ | ⬜ |
+| Students (university/K-12) | 30%+ | ⬜ |
+
+### Marketing Campaign
+
+| Channel | Content | Owner | Status |
+|---------|---------|-------|--------|
+| **Website** | Registration page, FAQs, schedule | Marketing Lead | ⬜ |
+| **LinkedIn** | Professional announcement, stakeholder spotlights | Social Media Manager | ⬜ |
+| **Instagram** | Visual teasers, behind-the-scenes | Social Media Manager | ⬜ |
+| **Email** | Newsletter to existing lists | Marketing Lead | ⬜ |
+| **Press** | RTD, Richmond Magazine, local TV | Marketing Lead | ⬜ |
+| **Community** | RVATech, Code for America, meetups | Community Lead | ⬜ |
+
+### Completion Criteria
+
+✅ Registration page live  
+✅ 300+ participants registered  
+✅ 30+ teams formed  
+✅ Diversity targets on track  
+✅ 3+ media placements secured  
+
+**Level 12 = COMPLETE** when all criteria met.
+
+### Announcement Template
+
+> **Registration is open. Richmond, it's your turn.**
+>
+> Hack for RVA is live. 48 hours to build something that matters.
+>
+> **What you'll get:**
+> - Real challenges from Mayor Avula's Action Plan
+> - Mentorship from Richmond's top tech, design, and business leaders
+> - $17,000 in prizes
+> - The chance to see your solution implemented by the city
+>
+> **March 27-29, 2026**
+>
+> [Register Now]
+>
+> Whether you're a developer, designer, policy wonk, community organizer, or just someone who cares—there's a place for you.
+
+---
+
+# EPILOGUE
+
+## Level 13: Implementation Handoff
+
+**Purpose:** Ensure winning solutions don't die after the hackathon—connect them to city departments and nonprofit partners for real implementation.
+
+### Implementation Pathway
+
+| Step | Timing | Owner |
+|------|--------|-------|
+| **90-Day Roadmap** | Within 2 weeks post-event | Post-Event Sustainability Coordinator |
+| **City Department Match** | Within 1 month | City Liaison |
+| **Demo Day** | Within 2-3 months | Event Director |
+| **Progress Check-in** | 90 days post-event | Post-Event Sustainability Coordinator |
+
+### Winner Support Package
+
+Each winning team receives:
+- 90-day implementation roadmap template
+- City department introduction (relevant to their pillar)
+- Nonprofit partner introduction (if applicable)
+- Demo Day invitation (present to city council/stakeholders)
+- Follow-up check-in at 30, 60, 90 days
+
+### Tracking
+
+| Winner | Pillar | City Match | Nonprofit Match | 90-Day Roadmap | Demo Day | Status |
+|--------|--------|------------|-----------------|----------------|----------|--------|
+| TBD | TBD | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| TBD | TBD | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+| TBD | TBD | ⬜ | ⬜ | ⬜ | ⬜ | ⬜ |
+
+### Completion Criteria
+
+✅ Top 3+ winners have 90-day implementation roadmaps  
+✅ Each winner matched with relevant city department  
+✅ Demo Day scheduled with city stakeholders  
+✅ 90-day follow-up completed  
+
+**Level 13 = COMPLETE** when all criteria met.
+
+### Announcement Template (Post-Event)
+
+> **The hackathon ended. The work continues.**
+>
+> [X] winning solutions from Hack for RVA are now in implementation with the City of Richmond.
+>
+> - [Winner 1] is working with [City Department] on [brief description]
+> - [Winner 2] has partnered with [Nonprofit] to [brief description]
+> - [Winner 3] will present to City Council on [date]
+>
+> This is what civic innovation looks like. Not a one-time event—a continuous process of building, testing, and implementing solutions that make Richmond better.
+>
+> Hack for RVA 2027 dates coming soon.
+
+---
+
 ## Timeline Dependencies
 
 ```
@@ -478,26 +1187,48 @@ Level 2 (Core Team)
     └── Will (Sponsorships) starts corporate outreach
     │
     ▼
-Level 3 (Pillar Teams - 21 people)
-    │
-    ├── Nonprofit reps inform challenge design
-    ├── City Hall owners confirm data availability
-    └── Breakout coordinators begin session planning
-    │
-    ▼
-Level 4 (Corporate Pillars - +7 people)
-    │
-    ├── Complete cross-sector model
-    ├── All pillar awards funded
-    └── Full Friday programming locked
+Level 3 (Pillar Teams - 21 people)        Level 6 (Challenge Design)
+    │                                         │
+    ├── Nonprofit reps inform                 ├── Starts in parallel
+    │   challenge design ─────────────────────┤   with Level 3
+    ├── City Hall owners confirm              └── City Liaison + Pillar
+    │   data availability                         stakeholders own content
+    └── Breakout coordinators begin
+        session planning
     │
     ▼
-Level 5 (Satellite Locations - ~15 venues)
+Level 4 (Corporate Pillars - +7 people)   Level 8 (Academia Pipeline)
+    │                                         │
+    ├── Complete cross-sector model           ├── HARD DEADLINES
+    ├── All pillar awards funded              ├── Bus requests: Feb 13
+    └── Full Friday programming locked        └── VCU minors: Feb 25
     │
-    ├── All-night venues at UR + VCU confirmed
-    ├── ~13 daytime satellites secured
-    ├── 45-75 Saturday volunteers recruited
-    └── Full distributed event infrastructure ready
+    ▼
+Level 5 (Satellite Locations)             Level 7 (Leadership Crew)
+    │                                         │
+    ├── ~15 venues secured                    └── 23 sub-roles staffed
+    └── Site Captains assigned
+    │
+    ▼
+Level 9 (Prize Pool)    Level 10 (Volunteers)    Level 11 (Platforms)
+    │                        │                        │
+    ├── $17K+ secured        ├── 150-200 recruited    └── Devpost/Discord/
+    └── Judges confirmed     └── Training complete        GitHub configured
+    │
+    └───────────────────────────┬─────────────────────────┘
+                                ▼
+                    Level 12 (Registration Open)
+                                │
+                                ├── 300+ participants
+                                └── Marketing campaign live
+                                │
+                                ▼
+                          [EVENT: March 27-29]
+                                │
+                                ▼
+                    Level 13 (Implementation Handoff)
+                                │
+                                └── Top winners → City implementation
 ```
 
 ### Suggested Target Dates
@@ -506,9 +1237,17 @@ Level 5 (Satellite Locations - ~15 venues)
 |-------|------------------|-------|
 | Level 1 | End of January 2026 | Enables public launch |
 | Level 2 | Mid-February 2026 | Team announcement |
-| Level 3 | End of February 2026 | Pillar teams in place for challenge design |
+| Level 3 | End of February 2026 | Pillar teams in place |
 | Level 4 | Mid-March 2026 | 2 weeks before event |
-| Level 5 | Mid-March 2026 | Can parallel with Level 4; needed for logistics |
+| Level 5 | Mid-March 2026 | Parallel with Level 4 |
+| Level 6 | Early March 2026 | Challenges published 2 weeks before |
+| Level 7 | End of February 2026 | Leadership ready for final push |
+| Level 8 | Mid-February 2026 | Academia deadlines are earliest |
+| Level 9 | Mid-March 2026 | Prize funds received |
+| Level 10 | Mid-March 2026 | All volunteers trained |
+| Level 11 | Early March 2026 | Platforms tested before registration |
+| Level 12 | Early March 2026 | Registration open 3 weeks before |
+| Level 13 | End of June 2026 | 90-day post-event |
 
 ---
 
@@ -525,6 +1264,14 @@ Level 5 (Satellite Locations - ~15 venues)
 - **Level 3:** Pillar teams announcement + stakeholder features
 - **Level 4:** "Full partnership" announcement + countdown to event
 - **Level 5:** "Hack anywhere" announcement featuring all locations
+- **Level 6:** Challenge reveal + data packages published
+- **Level 7:** Leadership crew introduction
+- **Level 8:** Academia partners announcement
+- **Level 9:** Prize pool announcement
+- **Level 10:** Volunteer appreciation / recruitment push
+- **Level 11:** "Platforms ready" + registration reminder
+- **Level 12:** "Registration open" + final push
+- **Level 13:** Post-event impact report
 
 ### Announcement Approval
 All external communications require:
@@ -539,6 +1286,7 @@ All external communications require:
 - [Pillar Ecosystem](../02-team-governance/pillar-ecosystem.md) — Detailed pillar stakeholder definitions
 - [Organizing Team Structure](../02-team-governance/organizing-team-structure.md) — Full team breakdown (36-52 people)
 - [Leadership-Volunteer Mapping](../02-team-governance/leadership-volunteer-mapping.md) — How leadership roles map to volunteers
+- [Volunteer System Overview](../02-team-governance/volunteer-system.md) — 150-200 volunteer categories and roles
 
 ---
 
@@ -547,4 +1295,3 @@ All external communications require:
 - ✅ Confirmed — Commitment received and documented
 - 🟡 In Progress — Active discussions or partially complete
 - ⬜ Not Started — No action yet
-
