@@ -25,7 +25,6 @@ interface NavigationProps {
 }
 
 export const Navigation = ({ onCTAClick }: NavigationProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState<any>(null);
   const { isAdmin } = useIsAdmin();
@@ -45,30 +44,18 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
     return () => subscription.unsubscribe();
   }, []);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-smooth ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-elegant"
-          : "bg-black/30 backdrop-blur-sm"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-smooth bg-primary/95 backdrop-blur-md shadow-elegant"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
-          <Link to="/" className={`font-bold text-lg transition-smooth ${isScrolled ? "text-foreground hover:text-primary" : "text-white hover:text-white/80"}`}>
+          <Link to="/" className="font-bold text-lg transition-smooth text-white hover:text-white/80">
             Hack for RVA
           </Link>
 
@@ -79,7 +66,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                 key={item.label}
                 to={item.href}
                 onClick={scrollToTop}
-                className={`font-medium transition-smooth focus:outline-2 focus:outline-accent ${isScrolled ? "text-foreground/80 hover:text-primary" : "text-white/90 hover:text-white"}`}
+                className="font-medium transition-smooth focus:outline-2 focus:outline-accent text-white/90 hover:text-white"
                 aria-label={`Navigate to ${item.label}`}
               >
                 {item.label}
@@ -89,7 +76,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             {/* Primary CTA */}
             <Button
               onClick={onCTAClick}
-              className={isScrolled ? "border-foreground/20 bg-transparent hover:bg-foreground/5" : "bg-white text-primary hover:bg-white/90"}
+              className="border-white/30 bg-white/10 hover:bg-white/20 text-white"
               aria-label="Sign up to stay updated"
             >
               Stay Updated
@@ -133,7 +120,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className={`p-1.5 transition-colors ${isScrolled ? "text-foreground/40 hover:text-foreground/70" : "text-white/40 hover:text-white/70"}`}
+                className="p-1.5 transition-colors text-white/40 hover:text-white/70"
                 aria-label="Admin login"
               >
                 <Shield className="w-4 h-4" />
@@ -143,7 +130,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMobileMenuOpen}

@@ -11,9 +11,10 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Plus } from "lucide-react";
+import { Plus, Users, ChevronDown } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { KanbanBoard, Task, ColumnId } from "@/components/admin";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 // Using Task type from KanbanBoard for documents
 
@@ -113,7 +114,99 @@ const AdminDashboard = () => {
   const teamMembers = [
     "Ford Prior", "Crystal Harvey", "Michael Kolbe", "Sinclair Jenks",
     "Christian Markow", "Alex Otanez", "Adam Woodward", "April Palmer",
-    "Tom Becker", "Danny Avula", "Ankit Mathur", "Drew Cleveland", "Nick Serfass"
+    "Tom Becker", "Danny Avula", "Ankit Mathur", "Drew Cleveland", "Nick Serfass",
+    "Will Melton", "Heather Lyne", "Ash Harris", "Ryan Shriver", "Debbie Irwin",
+    "Gray Crenshaw", "Bridget Cochran", "Carly Manning", "Michael Ghaffari", "Nick Pericle",
+    "Claire Jordan", "Kenton Vizdos", "Alyssa Paulette", "J. Albert Bowden II", "Madison Johnson",
+    "David Cariello", "Mike Mitchell", "Larry Thacker"
+  ];
+
+  // Team delegation structure - Core Leaders and their sub-role assignments
+  const teamDelegation = [
+    {
+      name: "Ford Prior",
+      role: "Co-Organizer",
+      focus: "Tech, Platform, Judging",
+      subRoles: [
+        { title: "Platform Administrator", assignee: "Tom Becker" },
+        { title: "Hacker Space Lead", assignee: "Michael Ghaffari" },
+        { title: "Technical Mentor", assignee: "Kenton Vizdos" },
+        { title: "Accessibility Mentor", assignee: "J. Albert Bowden II" },
+        { title: "Security Mentor", assignee: "Mike Mitchell" },
+        { title: "Judge Coordinator", assignee: "Ankit Mathur" },
+        { title: "Judge — Thriving Economy", assignee: "Debbie Irwin" },
+        { title: "Judge — Product/Innovation", assignee: "Alex Otanez" },
+        { title: "Help Desk Lead", assignee: "David Cariello" },
+      ]
+    },
+    {
+      name: "Crystal Harvey",
+      role: "Co-Organizer", 
+      focus: "Venue & Operations",
+      subRoles: [
+        { title: "Friday Operations Lead", assignee: null },
+        { title: "Sunday Operations Lead", assignee: null },
+        { title: "Registration Manager", assignee: null },
+        { title: "AV Coordinator", assignee: null },
+        { title: "Catering Coordinator", assignee: "Bridget Cochran" },
+      ]
+    },
+    {
+      name: "Michael Kolbe",
+      role: "City Liaison",
+      focus: "Government Stakeholders, Pillars, SMEs",
+      subRoles: [
+        { title: "Challenge Design Facilitator", assignee: "Ryan Shriver" },
+        { title: "Pillar Room Captain Coordinator", assignee: null },
+        { title: "Pillar Room Captain", assignee: "Gray Crenshaw" },
+        { title: "SME Recruiter", assignee: null },
+        { title: "VIP/Speaker Host Lead", assignee: null },
+      ]
+    },
+    {
+      name: "Sinclair Jenks",
+      role: "Marketing & Comms",
+      focus: "Brand, Social Media, Press, Content",
+      subRoles: [
+        { title: "Outreach Lead", assignee: null },
+        { title: "Marketing Content Lead", assignee: "Carly Manning" },
+        { title: "Photography Lead", assignee: null },
+      ]
+    },
+    {
+      name: "Heather Lyne",
+      role: "Entrepreneurial Ecosystems",
+      focus: "Mentorship, Pitch Coaching, Design Support",
+      subRoles: [
+        { title: "Design Lounge Lead", assignee: "Alyssa Paulette" },
+        { title: "Design Mentor", assignee: "Madison Johnson" },
+        { title: "Design Mentor", assignee: "Larry Thacker" },
+        { title: "Pitch Coaching Lead", assignee: "April Palmer" },
+        { title: "Product Advisor", assignee: "Alex Otanez" },
+        { title: "Business Mentor", assignee: "Adam Woodward" },
+        { title: "Workshop Facilitator", assignee: "Nick Pericle" },
+      ]
+    },
+    {
+      name: "Will Melton",
+      role: "Sponsorships & Partnerships",
+      focus: "Corporate Sponsors, Nonprofit Partners",
+      subRoles: [
+        { title: "Corporate Sponsor Coordinator", assignee: null },
+        { title: "Nonprofit Partner Coordinator", assignee: null },
+      ]
+    },
+    {
+      name: "TBD",
+      role: "Community & Volunteers",
+      focus: "Volunteer Recruitment, Site Captains, Participant Experience",
+      subRoles: [
+        { title: "Volunteer Coordinator", assignee: null },
+        { title: "Volunteer Recruitment Advisor", assignee: "Claire Jordan" },
+        { title: "Site Captain Coordinator", assignee: null },
+        { title: "Team Formation Lead", assignee: "Christian Markow" },
+      ]
+    },
   ];
 
 
@@ -282,8 +375,9 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs defaultValue="documents" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 mb-8">
+          <TabsList className="grid w-full grid-cols-3 mb-8">
             <TabsTrigger value="documents">Tasks</TabsTrigger>
+            <TabsTrigger value="team">Team Delegation</TabsTrigger>
             <TabsTrigger value="signups">Email Signups</TabsTrigger>
           </TabsList>
 
@@ -452,6 +546,149 @@ const AdminDashboard = () => {
                   onDelete={handleDeleteDocument}
                   onAddTask={handleAddTask}
                 />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="team">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="w-5 h-5" />
+                  Team Delegation
+                </CardTitle>
+                <CardDescription>
+                  Core leadership and their recruited leadership volunteers
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {teamDelegation.map((leader, idx) => (
+                    <div 
+                      key={idx} 
+                      className="border border-border rounded-lg p-4 bg-card"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div>
+                          <h3 className={`text-lg font-bold ${leader.name === 'TBD' ? 'text-muted-foreground italic' : 'text-foreground'}`}>
+                            {leader.name}
+                          </h3>
+                          <p className="text-sm font-medium text-accent">{leader.role}</p>
+                          <p className="text-xs text-muted-foreground mt-1">{leader.focus}</p>
+                        </div>
+                      </div>
+                      
+                      <div className="border-t border-border pt-3 mt-3">
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                          Leadership Roles to Fill
+                        </p>
+                        <div className="space-y-2">
+                          {leader.subRoles.map((subRole, subIdx) => (
+                            <div 
+                              key={subIdx}
+                              className="flex items-center justify-between py-1.5 px-2 rounded bg-muted/50"
+                            >
+                              <span className="text-sm text-foreground">{subRole.title}</span>
+                              {subRole.assignee ? (
+                                <span className="text-sm font-medium text-accent">
+                                  {subRole.assignee}
+                                </span>
+                              ) : (
+                                <span className="text-xs text-muted-foreground italic">
+                                  Unassigned
+                                </span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Summary Stats */}
+                <div className="mt-8 p-4 bg-muted/30 rounded-lg">
+                  <h4 className="font-semibold mb-3">Summary</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                      <p className="text-2xl font-bold text-foreground">{teamDelegation.length}</p>
+                      <p className="text-xs text-muted-foreground">Core Leaders</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-foreground">
+                        {teamDelegation.reduce((acc, l) => acc + l.subRoles.length, 0)}
+                      </p>
+                      <p className="text-xs text-muted-foreground">Leadership Roles</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-accent">
+                        {teamDelegation.reduce((acc, l) => acc + l.subRoles.filter(r => r.assignee).length, 0)}
+                      </p>
+                      <p className="text-xs text-muted-foreground">Filled</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-orange-500">
+                        {teamDelegation.reduce((acc, l) => acc + l.subRoles.filter(r => !r.assignee).length, 0)}
+                      </p>
+                      <p className="text-xs text-muted-foreground">Unfilled</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Potential Sponsors */}
+                <div className="mt-8">
+                  <h4 className="font-semibold mb-4 flex items-center gap-2">
+                    <span className="text-lg">💰</span> Sponsorship Pipeline
+                  </h4>
+                  <div className="space-y-4">
+                    <div className="border border-border rounded-lg p-4 bg-card">
+                      <div className="flex items-start justify-between mb-2">
+                        <div>
+                          <h5 className="font-bold text-foreground">Parallel Web Systems</h5>
+                          <p className="text-sm text-accent">$100M Series A • AI Infrastructure</p>
+                          <p className="text-xs text-muted-foreground mt-1">Contact: Matt Harris (Engineering)</p>
+                        </div>
+                        <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
+                          Inbound Lead
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3">
+                        Parallel is building infrastructure for AI agents to search and research across the web. 
+                        Matt Harris (local Richmond engineer, ex-Netflix, ex-Capital One) reached out asking how 
+                        Parallel could get involved as a sponsor. Strong fit for a tech/API sponsor — could offer 
+                        API credits for participants, sponsor an "AI Agents" challenge category, or provide 
+                        technical mentors. Their $100M Series A funding suggests capacity for meaningful sponsorship.
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-2 italic">
+                        → Assign to Will Melton for follow-up
+                      </p>
+                    </div>
+
+                    <div className="border border-border rounded-lg p-4 bg-card">
+                      <div className="flex items-start justify-between mb-2">
+                        <div>
+                          <h5 className="font-bold text-foreground">goHappy</h5>
+                          <p className="text-sm text-accent">HR Tech • Frontline Employee Engagement</p>
+                          <p className="text-xs text-muted-foreground mt-1">Contact: Larry Thacker (Principal UX Designer)</p>
+                        </div>
+                        <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full">
+                          Team Connection
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-3">
+                        goHappy builds employee engagement tools for frontline workers — surveys with AI sentiment 
+                        analysis, recognition programs, and referral systems. Strong alignment with the "Thriving 
+                        Economy" pillar, specifically workforce development and jobs challenges. Larry Thacker 
+                        (15+ years UX, ex-CarMax, ex-LendingTree) is joining as a Design Mentor, creating a natural 
+                        connection for sponsorship conversation. goHappy could sponsor workforce/jobs-related 
+                        challenges or provide mentorship on employee experience solutions.
+                      </p>
+                      <p className="text-xs text-muted-foreground mt-2 italic">
+                        → Explore with Larry; assign to Will Melton if interested
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>

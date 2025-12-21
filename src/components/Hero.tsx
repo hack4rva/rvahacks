@@ -66,7 +66,7 @@ export const Hero = () => {
             disabled
             className="bg-accent/50 text-accent-foreground font-semibold cursor-not-allowed"
           >
-            Registration Opens Jan 15
+            Registration Opens January 2026
           </Button>
         </div>
       </div>

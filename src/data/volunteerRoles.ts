@@ -6,9 +6,8 @@
 
 import { 
   ClipboardCheck, MapPin, Presentation, Monitor, UtensilsCrossed, Camera,
-  Users, UserCircle, HelpCircle, Radio, MessageSquare, Headphones,
-  Bell, Clock, FileCheck, AlertTriangle, Armchair, Theater, Award,
-  PartyPopper, Trash2, Code, Palette, Mic, Brain, HeartPulse, Accessibility,
+  Users, UserCircle, HelpCircle, Headphones,
+  Trash2, Code, Palette, Mic, Brain,
   Megaphone, Database, Building2, Sparkles, Package, LucideIcon
 } from "lucide-react";
 
@@ -647,40 +646,6 @@ export const saturdaySiteRoles: RoleCard[] = [
     icon: Monitor,
     color: 'cyan'
   },
-  {
-    id: 'comfort-monitor',
-    title: 'Comfort Monitor',
-    category: 'saturday-site',
-    description: 'Check on teams regularly. Encourage breaks, monitor morale, maintain positive atmosphere.',
-    commitment: 'Split shifts (AM: 9 AM - 1 PM, PM: 1 PM - 6 PM)',
-    quantity: '15-30 (1-2 per site)',
-    youOwn: [
-      'Check on teams every 1-2 hours',
-      'Encourage breaks and self-care',
-      'Monitor team energy and morale',
-      'Ensure snacks/drinks accessible',
-      'Look for signs of stress or conflict',
-      'Remind teams about deadline'
-    ],
-    youEscalate: [
-      { situation: 'Team seems stuck or demoralized', escalateTo: 'Mentor Coordinator', channel: 'Discord #mentor-queue' },
-      { situation: 'Team conflict', escalateTo: 'Site Captain', channel: 'In person' },
-      { situation: 'Code of Conduct concern', escalateTo: 'Event Manager', channel: 'Slack DM' }
-    ],
-    decisionAuthority: [
-      'When and how often to check on teams',
-      'What kind of encouragement to offer',
-      'How to handle minor morale issues'
-    ],
-    successCriteria: 'All teams feel supported; teams take breaks; positive atmosphere.',
-    skillsRequired: ['Empathy', 'Positive energy', 'Good judgment on when to engage'],
-    skillsPreferred: ['Previous hackathon experience', 'Mental health awareness', 'Coaching experience'],
-    reportsTo: 'Volunteer Coordinator',
-    location: 'satellite',
-    trainingRequired: false,
-    icon: Armchair,
-    color: 'pink'
-  }
 ];
 
 // ============================================================================
@@ -688,43 +653,6 @@ export const saturdaySiteRoles: RoleCard[] = [
 // ============================================================================
 
 export const saturdayVirtualRoles: RoleCard[] = [
-  {
-    id: 'discord-moderator',
-    title: 'Discord/Slack Moderator',
-    category: 'saturday-virtual',
-    description: 'Monitor communication channels. Route questions, enforce Code of Conduct, maintain positive community.',
-    commitment: '3-4 hour shifts (coverage 8 AM - midnight)',
-    quantity: '4-6',
-    youOwn: [
-      'Monitor all public channels',
-      'Answer or route general questions',
-      'Welcome new participants',
-      'Pin important announcements',
-      'Archive resolved threads',
-      'Log concerning behavior patterns'
-    ],
-    youEscalate: [
-      { situation: 'Clear CoC violation', escalateTo: 'Event Manager', channel: 'DM immediately + document' },
-      { situation: 'Technical question you can\'t answer', escalateTo: 'Hacker Space Lead', channel: '#tech-help' },
-      { situation: 'Team dispute in public', escalateTo: 'Volunteer Coordinator', channel: 'DM' },
-      { situation: 'Suspected cheating', escalateTo: 'Event Manager', channel: 'DM + document' }
-    ],
-    decisionAuthority: [
-      'Mute disruptive users for up to 10 minutes',
-      'Delete spam or inappropriate content',
-      'Create temporary channels',
-      'Pin/unpin messages',
-      'Issue informal warnings'
-    ],
-    successCriteria: 'Questions answered within 10 minutes; channels organized; no unaddressed CoC issues.',
-    skillsRequired: ['Discord/Slack proficiency', 'Written communication', 'Patience'],
-    skillsPreferred: ['Moderation experience', 'Technical knowledge', 'Night-owl availability'],
-    reportsTo: 'Platform Administrator',
-    location: 'virtual',
-    trainingRequired: true,
-    icon: MessageSquare,
-    color: 'purple'
-  },
   {
     id: 'help-desk-monitor',
     title: 'Help Desk Monitor',
@@ -759,146 +687,6 @@ export const saturdayVirtualRoles: RoleCard[] = [
     icon: Headphones,
     color: 'green'
   },
-  {
-    id: 'mentor-queue-manager',
-    title: 'Mentor Queue Manager',
-    category: 'saturday-virtual',
-    description: 'Manage mentor request queue. Match requests to mentors by specialty, prevent mentor overwhelm.',
-    commitment: '3-4 hour shifts (coverage 9 AM - 10 PM)',
-    quantity: '3-4',
-    youOwn: [
-      'Monitor mentor request queue',
-      'Match requests to available mentors',
-      'Assign mentors and notify teams',
-      'Track mentor availability and workload',
-      'Prevent mentor overwhelm (max 2-3 concurrent)',
-      'Report metrics on wait times'
-    ],
-    youEscalate: [
-      { situation: 'No mentors available in specialty', escalateTo: 'Mentor Coordinator', channel: 'Discord DM' },
-      { situation: 'Mentor not responding', escalateTo: 'Mentor Coordinator', channel: 'Discord DM' },
-      { situation: 'Team frustrated with wait', escalateTo: 'Volunteer Coordinator', channel: 'Discord DM' },
-      { situation: 'System/bot technical issues', escalateTo: 'Platform Administrator', channel: 'Discord #tech-help' }
-    ],
-    decisionAuthority: [
-      'Which mentor to assign',
-      'When to reassign if mentor unavailable',
-      'Priority for urgent requests'
-    ],
-    successCriteria: 'Average wait under 15 minutes; mentor workload balanced; no dropped requests.',
-    skillsRequired: ['Organizational skills', 'Multi-tasking', 'Understanding of mentor specialties'],
-    skillsPreferred: ['Customer service experience', 'Technical background', 'Queue management experience'],
-    reportsTo: 'Mentor Coordinator',
-    location: 'virtual',
-    trainingRequired: true,
-    icon: Bell,
-    color: 'orange'
-  },
-  {
-    id: 'morning-checkin-host',
-    title: 'Morning Check-in Host',
-    category: 'saturday-virtual',
-    description: 'Host optional morning standup call. Welcome teams, run status updates, flag stuck teams.',
-    commitment: '9:00 AM - 11:00 AM',
-    quantity: '2',
-    youOwn: [
-      'Host morning standup video call',
-      'Welcome teams and set positive tone',
-      'Run quick status updates (30 sec per team)',
-      'Share important announcements',
-      'Flag teams that seem stuck',
-      'Close with motivation'
-    ],
-    youEscalate: [
-      { situation: 'Team reports major blocker', escalateTo: 'Mentor Coordinator', channel: 'Discord DM' },
-      { situation: 'Team seems demoralized', escalateTo: 'Volunteer Coordinator', channel: 'Discord DM' },
-      { situation: 'Technical issues with call', escalateTo: 'Platform Administrator', channel: 'Slack' }
-    ],
-    decisionAuthority: [
-      'How long per team share',
-      'When to cut off check-in',
-      'Whether to do mid-day check-in'
-    ],
-    successCriteria: 'Check-in completed on time; teams energized; stuck teams identified.',
-    skillsRequired: ['Video call hosting', 'Positive energy', 'Time management'],
-    skillsPreferred: ['Previous hackathon experience', 'Team facilitation'],
-    reportsTo: 'Event Manager',
-    location: 'virtual',
-    trainingRequired: false,
-    icon: Radio,
-    color: 'blue'
-  },
-  {
-    id: 'submission-tracker',
-    title: 'Submission Tracker',
-    category: 'saturday-virtual',
-    description: 'Monitor Devpost for submissions. Remind teams, troubleshoot issues, track completion.',
-    commitment: '4:00 PM - 12:00 AM',
-    quantity: '2-3',
-    youOwn: [
-      'Monitor Devpost for submissions',
-      'Track which teams have/haven\'t submitted',
-      'Send reminder messages',
-      'Help troubleshoot submission issues',
-      'Verify submissions are complete',
-      'Report final metrics'
-    ],
-    youEscalate: [
-      { situation: 'Devpost platform issues', escalateTo: 'Platform Administrator', channel: 'Slack immediately' },
-      { situation: 'Team can\'t submit due to tech issue', escalateTo: 'Platform Administrator', channel: 'Discord #tech-help' },
-      { situation: 'Team requesting extension', escalateTo: 'Event Manager', channel: 'Slack DM' },
-      { situation: 'Submission appears to violate rules', escalateTo: 'Event Manager', channel: 'Slack DM' }
-    ],
-    decisionAuthority: [
-      'How frequently to send reminders',
-      'How to phrase reminder messages',
-      'Whether submission meets minimum requirements'
-    ],
-    successCriteria: 'All teams reminded; issues resolved quickly; final count reported within 30 min of deadline.',
-    skillsRequired: ['Attention to detail', 'Communication skills', 'Ability to work late'],
-    skillsPreferred: ['Devpost familiarity', 'Hackathon experience', 'Technical troubleshooting'],
-    reportsTo: 'Platform Administrator',
-    location: 'virtual',
-    trainingRequired: true,
-    icon: FileCheck,
-    color: 'green'
-  },
-  {
-    id: 'emergency-coordinator',
-    title: 'Emergency Coordinator',
-    category: 'saturday-virtual',
-    description: 'Central point for all site escalations. Maintain real-time status, coordinate responses.',
-    commitment: 'Full day (9:00 AM - 6:00 PM)',
-    quantity: '1-2',
-    youOwn: [
-      'Central contact for all site escalations',
-      'Maintain real-time status of venues',
-      'Coordinate emergency responses',
-      'Keep Event Manager informed',
-      'Log all incidents',
-      'Maintain emergency contact list'
-    ],
-    youEscalate: [
-      { situation: 'Medical emergency', escalateTo: '911 (site calls), Event Manager', channel: 'Phone' },
-      { situation: 'Security threat', escalateTo: '911 (site calls), Event Manager', channel: 'Phone' },
-      { situation: 'Major CoC violation', escalateTo: 'Event Manager', channel: 'Phone immediately' },
-      { situation: 'Venue evacuation', escalateTo: 'Event Manager', channel: 'Phone' }
-    ],
-    decisionAuthority: [
-      'Initial response to non-emergency escalations',
-      'Which resources to deploy',
-      'Whether to close a site temporarily',
-      'Communication to other sites'
-    ],
-    successCriteria: 'All escalations logged and resolved; Event Manager informed; no emergencies mishandled.',
-    skillsRequired: ['Crisis management', 'Calm under pressure', 'Excellent communication', 'Decision-making'],
-    skillsPreferred: ['Emergency response training', 'Event management experience', 'First aid'],
-    reportsTo: 'Event Manager',
-    location: 'virtual',
-    trainingRequired: true,
-    icon: AlertTriangle,
-    color: 'red'
-  }
 ];
 
 // ============================================================================
@@ -974,39 +762,6 @@ export const sundayRoles: RoleCard[] = [
     color: 'purple'
   },
   {
-    id: 'timekeeper',
-    title: 'Timekeeper',
-    category: 'sunday',
-    description: 'Keep pitches running on schedule. Fair and consistent time management for all teams.',
-    commitment: 'During pitches (approx 2-3 hours)',
-    quantity: '2',
-    youOwn: [
-      'Display time remaining to presenter',
-      'Give visual cues at 2 min, 1 min, 30 sec',
-      'Signal hard stop at time limit',
-      'Track actual time per team',
-      'Ensure consistent enforcement'
-    ],
-    youEscalate: [
-      { situation: 'Team significantly over time', escalateTo: 'Stage Manager', channel: 'Visual signal' },
-      { situation: 'Technical issue affecting time', escalateTo: 'Stage Manager', channel: 'In person' },
-      { situation: 'Judge asks to extend Q&A', escalateTo: 'Judge Coordinator', channel: 'In person' }
-    ],
-    decisionAuthority: [
-      'Grant up to 15 extra seconds for tech issues',
-      'Pause timer during obvious AV problems',
-      'Adjust warning intervals for different pitch lengths'
-    ],
-    successCriteria: 'All teams get equal time; schedule stays on track; no fairness complaints.',
-    skillsRequired: ['Attention to detail', 'Assertiveness', 'Fairness-minded', 'Focus'],
-    skillsPreferred: ['Timing experience', 'Stage visibility experience'],
-    reportsTo: 'Friday Programming Lead',
-    location: 'science-museum',
-    trainingRequired: true,
-    icon: Clock,
-    color: 'red'
-  },
-  {
     id: 'judge-liaison',
     title: 'Judge Liaison',
     category: 'sunday',
@@ -1044,108 +799,6 @@ export const sundayRoles: RoleCard[] = [
     color: 'yellow'
   },
   {
-    id: 'audience-manager',
-    title: 'Audience Manager',
-    category: 'sunday',
-    description: 'Manage public entry for finals. Check capacity, seat families, maintain quiet during pitches.',
-    commitment: '2:00 PM - 6:00 PM',
-    quantity: '3-4',
-    youOwn: [
-      'Manage public entry',
-      'Check capacity and manage overflow',
-      'Seat families and community',
-      'Direct to restrooms and refreshments',
-      'Maintain quiet during pitches',
-      'Handle late arrivals'
-    ],
-    youEscalate: [
-      { situation: 'Capacity reached', escalateTo: 'Event Manager', channel: 'Radio' },
-      { situation: 'Disruptive audience member', escalateTo: 'Event Manager', channel: 'In person' },
-      { situation: 'Medical issue in audience', escalateTo: '911 + Event Manager', channel: 'Radio' },
-      { situation: 'Lost child', escalateTo: 'Event Manager', channel: 'Radio immediately' }
-    ],
-    decisionAuthority: [
-      'Where to seat latecomers',
-      'When to ask for quiet',
-      'How to handle standing room'
-    ],
-    successCriteria: 'Audience seated smoothly; minimal disruption; family-friendly atmosphere.',
-    skillsRequired: ['Crowd management', 'Friendly but firm', 'Physical stamina'],
-    skillsPreferred: ['Ushering experience', 'Customer service', 'Venue knowledge'],
-    reportsTo: 'Event Manager',
-    location: 'science-museum',
-    trainingRequired: false,
-    icon: Users,
-    color: 'green'
-  },
-  {
-    id: 'stage-manager',
-    title: 'Stage Manager',
-    category: 'sunday',
-    description: 'Keep show running smoothly. Cue presenters, manage transitions, coordinate with AV.',
-    commitment: 'During program (approx 3-4 hours)',
-    quantity: '1-2',
-    youOwn: [
-      'Cue presenters to take stage',
-      'Manage transitions between teams',
-      'Coordinate with AV on slides/demos',
-      'Handle presentation laptop logistics',
-      'Communicate with Timekeeper',
-      'Coordinate with MC'
-    ],
-    youEscalate: [
-      { situation: 'Major AV failure', escalateTo: 'Science Museum Liaison', channel: 'Radio' },
-      { situation: 'Presenter emergency', escalateTo: 'Finalist Coordinator', channel: 'In person' },
-      { situation: 'Schedule significantly off', escalateTo: 'Event Manager', channel: 'Radio' }
-    ],
-    decisionAuthority: [
-      'Transition timing',
-      'When to start next presenter',
-      'How to handle minor AV glitches',
-      'Brief holds for technical issues'
-    ],
-    successCriteria: 'Smooth transitions; no dead air; schedule on track; professional stage presence.',
-    skillsRequired: ['Stage management experience', 'Calm under pressure', 'Clear communication', 'Multi-tasking'],
-    skillsPreferred: ['Professional theater/event experience', 'AV coordination experience'],
-    reportsTo: 'Science Museum Liaison',
-    location: 'science-museum',
-    trainingRequired: true,
-    icon: Theater,
-    color: 'purple'
-  },
-  {
-    id: 'award-runner',
-    title: 'Award Runner',
-    category: 'sunday',
-    description: 'Prepare and hand off awards during ceremony. Ensure smooth award presentation.',
-    commitment: '4:00 PM - 6:00 PM',
-    quantity: '1-2',
-    youOwn: [
-      'Prepare certificates and checks',
-      'Organize awards in presentation order',
-      'Hand awards to presenter at right moment',
-      'Ensure photographer ready for each award',
-      'Track which awards presented'
-    ],
-    youEscalate: [
-      { situation: 'Missing award or certificate', escalateTo: 'Event Manager', channel: 'In person immediately' },
-      { situation: 'Award amount incorrect', escalateTo: 'Event Manager', channel: 'In person' },
-      { situation: 'Winner not present', escalateTo: 'Finalist Coordinator', channel: 'In person' }
-    ],
-    decisionAuthority: [
-      'How to organize awards backstage',
-      'Timing of handoff to presenter'
-    ],
-    successCriteria: 'All awards presented correctly; smooth handoffs; photos captured.',
-    skillsRequired: ['Attention to detail', 'Organization', 'Discretion'],
-    skillsPreferred: ['Ceremony experience', 'Stage awareness'],
-    reportsTo: 'Event Manager',
-    location: 'science-museum',
-    trainingRequired: false,
-    icon: Award,
-    color: 'yellow'
-  },
-  {
     id: 'photographer-sunday',
     title: 'Photographer/Videographer',
     category: 'sunday',
@@ -1177,42 +830,6 @@ export const sundayRoles: RoleCard[] = [
     location: 'science-museum',
     trainingRequired: false,
     icon: Camera,
-    color: 'pink'
-  },
-  {
-    id: 'celebration-host',
-    title: 'Celebration Host',
-    category: 'sunday',
-    description: 'Make awards celebration welcoming for everyone. Facilitate networking, welcome families.',
-    commitment: '4:00 PM - 7:00 PM',
-    quantity: '3-4',
-    youOwn: [
-      'Welcome families and community',
-      'Explain event context to newcomers',
-      'Facilitate networking',
-      'Ensure refreshments flowing',
-      'Create photo opportunities',
-      'Help winners connect with attendees',
-      'Maintain festive atmosphere'
-    ],
-    youEscalate: [
-      { situation: 'Uninvited media', escalateTo: 'Social Media Manager', channel: 'In person' },
-      { situation: 'Attendee complaint', escalateTo: 'Event Manager', channel: 'In person' },
-      { situation: 'Catering issues', escalateTo: 'Catering Coordinator', channel: 'In person' }
-    ],
-    decisionAuthority: [
-      'Reception space arrangement',
-      'When to initiate icebreakers',
-      'Minor reception timing adjustments',
-      'Accommodating family requests'
-    ],
-    successCriteria: 'Attendees engaged; positive feedback from families; winners feel celebrated.',
-    skillsRequired: ['Warmth', 'Social skills', 'Energy'],
-    skillsPreferred: ['Hosting experience', 'Community connections'],
-    reportsTo: 'Event Manager',
-    location: 'science-museum',
-    trainingRequired: false,
-    icon: PartyPopper,
     color: 'pink'
   },
   {
@@ -1397,74 +1014,6 @@ export const supportRoles: RoleCard[] = [
     icon: Brain,
     color: 'purple'
   },
-  {
-    id: 'first-aid-volunteer',
-    title: 'First Aid Volunteer',
-    category: 'support',
-    description: 'Handle minor health issues. Be available and visible. Know when to call 911.',
-    commitment: 'On-site shifts as scheduled',
-    quantity: '3-4',
-    youOwn: [
-      'Be available and visible during shift',
-      'Respond to minor health issues',
-      'Know location of first aid supplies',
-      'Monitor for exhaustion signs',
-      'Perform wellness checks if requested',
-      'Know when and how to call 911'
-    ],
-    youEscalate: [
-      { situation: 'Any emergency requiring 911', escalateTo: '911 + Event Manager', channel: 'Phone immediately' },
-      { situation: 'Serious health concern', escalateTo: 'Event Manager', channel: 'Phone/radio' },
-      { situation: 'First aid supplies depleted', escalateTo: 'Site Captain or Event Manager', channel: 'In person' }
-    ],
-    decisionAuthority: [
-      'How to handle minor injuries',
-      'Whether to recommend breaks',
-      'When situation requires professional medical attention'
-    ],
-    successCriteria: 'Minor incidents handled; serious issues escalated quickly; participants feel safe.',
-    skillsRequired: ['Current CPR/First Aid certification', 'Calm under pressure', 'Good judgment', 'Clear communication'],
-    skillsPreferred: ['EMT or medical background', 'Event first aid experience', 'Mental health first aid training'],
-    reportsTo: 'Event Manager',
-    location: 'varies',
-    trainingRequired: true,
-    icon: HeartPulse,
-    color: 'red'
-  },
-  {
-    id: 'accessibility-support',
-    title: 'Accessibility Support',
-    category: 'support',
-    description: 'Provide accessibility accommodations. ASL interpretation, mobility assistance, sensory support.',
-    commitment: 'As needed based on participant requests',
-    quantity: '2-3',
-    youOwn: [
-      'Provide accessibility accommodations',
-      'ASL interpretation if qualified',
-      'Mobility assistance as needed',
-      'Guide to accessible routes',
-      'Ensure sensory-friendly spaces maintained',
-      'Advocate for accessibility needs'
-    ],
-    youEscalate: [
-      { situation: 'Accommodation not available', escalateTo: 'Volunteer Coordinator', channel: 'In person' },
-      { situation: 'Venue accessibility issue', escalateTo: 'Site Captain', channel: 'In person' },
-      { situation: 'Participant distress', escalateTo: 'Volunteer Coordinator', channel: 'In person' }
-    ],
-    decisionAuthority: [
-      'How to best provide accommodation',
-      'When to proactively check in',
-      'Minor adjustments to improve accessibility'
-    ],
-    successCriteria: 'All requested accommodations provided; participants feel supported and included.',
-    skillsRequired: ['Specific accommodation skill or general awareness', 'Patience', 'Discretion'],
-    skillsPreferred: ['Professional accessibility experience', 'Disability community connections', 'ADA knowledge'],
-    reportsTo: 'Volunteer Coordinator',
-    location: 'varies',
-    trainingRequired: false,
-    icon: Accessibility,
-    color: 'green'
-  }
 ];
 
 // ============================================================================
@@ -1523,10 +1072,10 @@ export const getVolunteerCounts = (): { category: RoleCategory; label: string; c
   return [
     { category: 'pre-event', label: 'Pre-Event', count: '25-35' },
     { category: 'friday', label: 'Friday', count: '35-45' },
-    { category: 'saturday-site', label: 'Saturday (Site)', count: '45-75' },
-    { category: 'saturday-virtual', label: 'Saturday (Virtual)', count: '18-25' },
-    { category: 'sunday', label: 'Sunday', count: '30-40' },
-    { category: 'support', label: 'Support/Mentors', count: '30-40' }
+    { category: 'saturday-site', label: 'Saturday (Site)', count: '30-45' },
+    { category: 'saturday-virtual', label: 'Saturday (Virtual)', count: '6-8' },
+    { category: 'sunday', label: 'Sunday', count: '16-26' },
+    { category: 'support', label: 'Support/Mentors', count: '25-35' }
   ];
 };
 

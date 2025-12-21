@@ -10,14 +10,65 @@ import sinclairJenks from "@/assets/sinclair-jenks.png";
 import christianMarkow from "@/assets/christian-markow.png";
 import heatherLyne from "@/assets/heather-lyne-blue.png";
 import ashHarris from "@/assets/ash-harris-blue.png";
+import willMelton from "@/assets/will-melton.png";
 
 const coreTeam = [
-  { name: "Ford Prior", role: "Co-Organizer", image: fordPrior, linkedin: "https://www.linkedin.com/in/ford-prior", bio: "" },
-  { name: "Crystal Harvey", role: "Co-Organizer", image: crystalHarvey, linkedin: undefined, bio: "" },
-  { name: "Ash Harris", role: "Onsite Ops", image: ashHarris, linkedin: undefined, bio: "" },
-  { name: "Michael Kolbe", role: "City Liaison", image: michaelKolbe, linkedin: undefined, bio: "" },
-  { name: "Sinclair Jenks", role: "Community Engagement", image: sinclairJenks, linkedin: undefined, bio: "" },
-  { name: "Heather Lyne", role: "Entrepreneurial Ecosystems", image: heatherLyne, linkedin: undefined, bio: "" },
+  { 
+    name: "Ford Prior", 
+    role: "Co-Organizer", 
+    image: fordPrior, 
+    linkedin: "https://www.linkedin.com/in/ford-prior", 
+    bio: "Ford will oversee tech infrastructure, platform administration, and competition integrity. He'll recruit leadership for: Platform Admin, Technical Mentor Coordinator, Judge Coordinator, and Help Desk Lead." 
+  },
+  { 
+    name: "Crystal Harvey", 
+    role: "Co-Organizer", 
+    image: crystalHarvey, 
+    linkedin: undefined, 
+    bio: "Crystal will manage venue operations and logistics at the Science Museum. She'll recruit leadership for: Friday Operations Lead, Sunday Operations Lead, Registration Manager, and AV/Catering Coordinator." 
+  },
+  { 
+    name: "Ash Harris", 
+    role: "Onsite Ops", 
+    image: ashHarris, 
+    linkedin: undefined, 
+    bio: "Ash serves in an advisory capacity for onsite operations, providing guidance and expertise as needed." 
+  },
+  { 
+    name: "Michael Kolbe", 
+    role: "City Liaison", 
+    image: michaelKolbe, 
+    linkedin: undefined, 
+    bio: "Michael will coordinate government stakeholders, pillar content, and subject matter experts. He'll recruit leadership for: Pillar Room Captain Coordinator, SME Recruiter, and VIP/Speaker Host Lead." 
+  },
+  { 
+    name: "Sinclair Jenks", 
+    role: "Marketing & Comms", 
+    image: sinclairJenks, 
+    linkedin: undefined, 
+    bio: "Sinclair will own brand, social media, press relations, and content strategy. He'll recruit leadership for: Outreach Lead, Marketing Content Lead, and Photography Lead." 
+  },
+  { 
+    name: "Heather Lyne", 
+    role: "Entrepreneurial Ecosystems", 
+    image: heatherLyne, 
+    linkedin: undefined, 
+    bio: "Heather will coordinate mentorship programs and entrepreneurial support. She'll recruit leadership for: Design Lounge Lead, Pitch Coaching Lead, and Business Mentor Coordinator." 
+  },
+  { 
+    name: "Will Melton", 
+    role: "Sponsorships & Partnerships", 
+    image: willMelton, 
+    linkedin: undefined, 
+    bio: "Will will manage corporate sponsor recruitment and nonprofit partnerships. He'll recruit leadership for: Corporate Sponsor Coordinator and Nonprofit Partner Coordinator." 
+  },
+  { 
+    name: "TBD", 
+    role: "Community & Volunteers", 
+    image: undefined, 
+    linkedin: undefined, 
+    bio: "This person will own volunteer recruitment, training, and participant experience. They'll recruit leadership for: Volunteer Coordinator, Site Captain Coordinator, and Team Formation Lead." 
+  },
 ];
 
 const advisoryTeam = [
@@ -39,52 +90,60 @@ const TeamMemberCard = ({ member }: { member: TeamMember }) => {
   const hasBio = member.bio && member.bio.trim().length > 0;
 
   return (
-    <div className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center">
-      {member.image ? (
-        member.linkedin ? (
-          <a
-            href={member.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mb-4 hover:opacity-80 transition-opacity"
-          >
+    <Collapsible open={isOpen} onOpenChange={setIsOpen}>
+      <div className="bg-card p-6 rounded-xl shadow-elegant hover:shadow-hover transition-smooth border border-border flex flex-col items-center text-center">
+        {member.image ? (
+          member.linkedin ? (
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-4 hover:opacity-80 transition-opacity"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-24 h-24 rounded-full object-cover object-top"
+              />
+            </a>
+          ) : (
             <img
               src={member.image}
               alt={member.name}
-              className="w-24 h-24 rounded-full object-cover object-top"
+              className="w-24 h-24 rounded-full object-cover object-top mb-4"
             />
-          </a>
+          )
         ) : (
-          <img
-            src={member.image}
-            alt={member.name}
-            className="w-24 h-24 rounded-full object-cover object-top mb-4"
-          />
-        )
-      ) : (
-        <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
-          <Users className="w-12 h-12 text-muted-foreground" />
-        </div>
-      )}
-      <h4 className="text-lg font-bold text-foreground mb-1">
-        {member.name}
-      </h4>
-      <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
-      
-      {hasBio && (
-        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full">
-          <CollapsibleTrigger className="flex items-center justify-center gap-1 text-xs text-accent hover:text-accent/80 transition-colors cursor-pointer">
-            <span>{isOpen ? "Less" : "More"}</span>
-            <ChevronDown className={`w-3 h-3 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+          <div className="w-24 h-24 rounded-full bg-muted mb-4 flex items-center justify-center">
+            <Users className="w-12 h-12 text-muted-foreground" />
+          </div>
+        )}
+        
+        {hasBio ? (
+          <CollapsibleTrigger className="cursor-pointer group">
+            <h4 className="text-lg font-bold text-foreground mb-1 group-hover:text-accent transition-colors flex items-center gap-1">
+              {member.name}
+              <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
+            </h4>
           </CollapsibleTrigger>
-          <CollapsibleContent className="mt-3 pt-3 border-t border-border">
+        ) : (
+          <h4 className="text-lg font-bold text-foreground mb-1">
+            {member.name}
+          </h4>
+        )}
+        
+        <p className="text-sm text-muted-foreground mb-2">{member.role}</p>
+        
+        {hasBio && (
+          <CollapsibleContent className="mt-3 pt-3 border-t border-border w-full">
             <p className="text-sm text-muted-foreground leading-relaxed">
               {member.bio}
             </p>
           </CollapsibleContent>
-        </Collapsible>
-      )}
-    </div>
+        )}
+      </div>
+    </Collapsible>
   );
 };
 
