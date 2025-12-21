@@ -224,6 +224,57 @@ Use this when migrating content from KB to app:
 
 ---
 
+## Git Commit & Push Rules
+
+### Automatic Commits After Code Changes
+After completing any request that results in file changes (code or documentation), you MUST:
+
+1. **Stage all changed files**:
+   ```bash
+   git add -A
+   ```
+
+2. **Create a descriptive commit**:
+   - Use a clear, concise commit message that describes what was changed
+   - Follow conventional commit format when applicable: `type(scope): description`
+   - Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+   - Example: `feat(sponsors): add new sponsor contact to pipeline`
+   - Example: `docs(kb): update team governance structure`
+   - Example: `fix(ui): correct button alignment on mobile`
+
+3. **Push to main**:
+   ```bash
+   git push origin main
+   ```
+
+### Commit Message Guidelines
+- **Be specific**: Describe what was actually changed, not the intent
+- **Keep it short**: First line should be under 72 characters
+- **Use present tense**: "Add feature" not "Added feature"
+- **Reference context**: If implementing from KB, mention the relevant section
+
+### Examples
+```bash
+# After adding a new component
+git add -A && git commit -m "feat(components): add EmailSignup component with validation" && git push origin main
+
+# After updating knowledge base
+git add -A && git commit -m "docs(kb): document volunteer role assignments" && git push origin main
+
+# After fixing a bug
+git add -A && git commit -m "fix(navigation): resolve mobile menu toggle issue" && git push origin main
+
+# After refactoring
+git add -A && git commit -m "refactor(data): consolidate sponsor data into single source" && git push origin main
+```
+
+### When NOT to Commit
+- If only reading files without making changes
+- If changes were rejected or rolled back
+- If explicitly told not to commit
+
+---
+
 ## Questions?
 
 When unsure:
@@ -231,3 +282,4 @@ When unsure:
 2. Check if this involves code → implement from KB specifications
 3. Check if KB is missing info → flag it and code defensively (with TODOs)
 4. When done → verify you didn't modify KB files
+5. After completing changes → commit and push to main
