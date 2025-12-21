@@ -121,10 +121,13 @@ const AdminDashboard = () => {
       whyItMatters: "The Event Director is the single point of accountability for the entire hackathon — ensuring all teams are aligned, decisions get made, and the event delivers on its promise to the Mayor's office.",
       subRoles: [
         { title: "Platform Administrator", assignee: "Tom Becker", description: "Manage Devpost, Discord, and GitHub infrastructure. Configure submission workflows, test platforms, run day-of operations.", whyItMatters: "Smooth platform operations prevent submission failures and keep 300 participants connected throughout the weekend.", commitment: "3-5 hrs/week Feb-Mar + weekend" },
-        { title: "Hacker Space Lead", assignee: "Michael Ghaffari", description: "Staff and manage technical mentorship with 8-12 software engineers. Create shift schedules, manage mentor queue, pair teams with expertise.", whyItMatters: "Technical mentors are the difference between a stuck team and a working prototype. This role ensures every team gets unblocked.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
-        { title: "Technical Mentor", assignee: null, volunteers: ["Kenton Vizdos", "Mohammad Hassan"], targetCount: "8-12", description: "Respond to mentor queue requests, help teams with architecture decisions, debug issues, and provide technical guidance.", whyItMatters: "Real engineers helping real teams build real solutions — the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
+        { title: "Hacker Space Lead", assignee: "Michael Ghaffari", description: "Staff and manage the Hacker Space with software engineers, security experts, and technical specialists. Create shift schedules, manage mentor queue, pair teams with the right expertise.", whyItMatters: "The Hacker Space is where code gets written and bugs get squashed. This role ensures every team has access to the technical firepower they need.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
+        { title: "Hacker Mentor", assignee: null, volunteers: [
+          { name: "Kenton Vizdos", focus: "Full-Stack Development" },
+          { name: "Mohammad Hassan", focus: "CI/CD & DevOps" },
+          { name: "Mike Mitchell", focus: "Security & Data Protection" },
+        ], targetCount: "8-12", description: "Staff the Hacker Space — the technical mentorship hub where teams get help with code, architecture, APIs, databases, security, and deployment. Respond to mentor queue requests, pair program with stuck teams, review code, and help teams make smart technical decisions within hackathon constraints.", whyItMatters: "The Hacker Space is the engine room of the hackathon. When teams hit technical walls — broken APIs, deployment failures, architecture questions — Hacker Mentors get them unstuck. Real engineers helping real teams build real solutions is the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
         { title: "Accessibility Mentor", assignee: "J. Albert Bowden II", description: "Ensure solutions are accessible. Advise teams on WCAG compliance, screen reader support, keyboard navigation.", whyItMatters: "Civic tech must work for everyone. Accessibility isn't optional — it's how we ensure solutions serve all Richmonders.", commitment: "On-call during event" },
-        { title: "Security Mentor", assignee: "Mike Mitchell", description: "Advise teams on security best practices, data handling, and safe deployment.", whyItMatters: "Civic solutions may handle sensitive data. Security guidance prevents vulnerabilities and builds trust.", commitment: "On-call during event" },
         { title: "Judge Coordinator", assignee: "Ankit Mathur", description: "Recruit 15-20 judges, design rubrics with pillar stakeholders, manage Sunday judging rounds, orchestrate finals.", whyItMatters: "Fair, rigorous judging ensures the best solutions win — and get implemented. This role protects the integrity of the competition.", commitment: "3-5 hrs/week Feb-Mar + Sunday" },
         { title: "Judge", assignee: null, volunteers: [
           { name: "Debbie Irwin", focus: "Thriving Economy" },
@@ -190,21 +193,26 @@ const AdminDashboard = () => {
     {
       name: "Heather Lyne",
       role: "Entrepreneurial Ecosystems",
-      focus: "Mentorship, Pitch Coaching, Design Support",
+      focus: "Art Lounge, Hustle Corner, Pitch Coaching",
       responsibilities: [
-        "Design Lounge (VCU Brandcenter)",
-        "Pitch coaching and business mentorship",
-        "Startup and innovation community engagement",
+        "Art Lounge (VCU Brandcenter)",
+        "Hustle Corner (business & product strategy)",
+        "Pitch coaching and presentation skills",
         "Workshop facilitation",
       ],
-      whyItMatters: "Entrepreneurial Ecosystems ensures teams don't just build code — they build solutions with good UX, compelling stories, and viable paths to implementation.",
+      whyItMatters: "Entrepreneurial Ecosystems ensures teams don't just build code — they build solutions with beautiful design, compelling stories, and viable paths to implementation.",
       subRoles: [
-        { title: "Design Lounge Lead", assignee: "Alyssa Paulette", description: "Staff Design Lounge with VCU Brandcenter mentors. Provide UX/UI guidance, visual design feedback, accessibility advice.", whyItMatters: "Great civic tech needs great design. Design mentors elevate solutions from 'functional' to 'delightful and usable'.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
-        { title: "Design Mentor", assignee: null, volunteers: ["Madison Johnson", "Larry Thacker"], targetCount: "6-8", description: "Provide design guidance to teams. Review wireframes, advise on UX, help with pitch deck visuals.", whyItMatters: "Direct design support helps teams create polished, user-centered solutions.", commitment: "2-4 hr shifts during event" },
-        { title: "Pitch Coaching Lead", assignee: "April Palmer", description: "Run pitch practice sessions. Help teams structure their story, coach delivery, prepare for judge Q&A.", whyItMatters: "A great solution with a bad pitch loses. Pitch coaching ensures the best ideas get recognized.", commitment: "Saturday evening + Sunday" },
-        { title: "Product Advisor", assignee: "Alex Otanez", description: "Advise teams on product strategy, feature prioritization, and building for real users.", whyItMatters: "Product thinking ensures solutions are scoped appropriately and address genuine user needs.", commitment: "On-call during event" },
-        { title: "Business Mentor", assignee: "Adam Woodward", description: "Help teams think through business models, sustainability, and implementation pathways.", whyItMatters: "Civic solutions need viable paths forward. Business mentors help teams think beyond the demo.", commitment: "2-4 hr shifts during event" },
-        { title: "Workshop Facilitator", assignee: "Nick Pericle", description: "Run skill-building workshops during the event. Topics might include: design thinking, data analysis, pitching.", whyItMatters: "Workshops level the playing field, helping less experienced participants contribute effectively.", commitment: "1-2 workshops during event" },
+        { title: "Art Lounge Lead", assignee: "Alyssa Paulette", description: "Staff the Art Lounge with VCU Brandcenter mentors and creative professionals. Coordinate design critiques, visual feedback sessions, and UX guidance.", whyItMatters: "The Art Lounge is where solutions get their visual identity. Great civic tech needs great design — this role ensures teams have access to creative expertise.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
+        { title: "Artist Mentor", assignee: null, volunteers: [
+          { name: "Madison Johnson", focus: "UX/UI Design" },
+          { name: "Larry Thacker", focus: "Visual Design" },
+        ], targetCount: "6-8", description: "Staff the Art Lounge — the creative mentorship hub where teams get help with user experience, visual design, branding, and presentation aesthetics. Review wireframes, advise on color and typography, help with pitch deck visuals, and ensure solutions are user-centered and visually compelling.", whyItMatters: "The Art Lounge transforms functional prototypes into delightful experiences. Artist Mentors help teams think beyond 'does it work' to 'does it feel right' — ensuring solutions are intuitive, accessible, and beautiful.", commitment: "2-4 hr shifts during event" },
+        { title: "Hustle Corner Lead", assignee: "April Palmer", description: "Staff the Hustle Corner with business strategists, product thinkers, and pitch coaches. Coordinate mock pitches, business model feedback, and implementation planning.", whyItMatters: "The Hustle Corner is where solutions get their story and strategy. A great product with a bad pitch loses — this role ensures teams can articulate impact and viability.", commitment: "Saturday evening + Sunday" },
+        { title: "Hustle Mentor", assignee: null, volunteers: [
+          { name: "Alex Otanez", focus: "Product Strategy" },
+          { name: "Adam Woodward", focus: "Business Models" },
+          { name: "Nick Pericle", focus: "Workshops & Facilitation" },
+        ], targetCount: "4-6", description: "Staff the Hustle Corner — the business mentorship hub where teams get help with product strategy, business models, sustainability planning, and pitch preparation. Run mock pitch sessions, advise on feature prioritization, help teams articulate their value proposition, and coach presentation delivery.", whyItMatters: "The Hustle Corner ensures solutions are more than demos — they're viable, fundable, implementable ideas. Hustle Mentors help teams answer 'so what?' — connecting technical work to real-world impact, city adoption pathways, and compelling narratives.", commitment: "2-4 hr shifts during event" },
       ]
     },
     {
