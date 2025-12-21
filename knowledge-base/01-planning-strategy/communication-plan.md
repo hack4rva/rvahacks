@@ -20,7 +20,7 @@ The framework ensures we:
 | **2** | Core Team | 7 leadership areas defined and staffed | 7 roles | 🟡 6 of 7 |
 | **3** | Pillar Teams | 21 stakeholders across 7 pillars (3 each) | 21 people | ⬜ 0 of 21 |
 | **4** | Corporate Pillars | Corporate sponsor rep added to each pillar | 7 people | ⬜ 0 of 7 |
-| **5** | Satellite Locations | Distributed hack spaces including 2 all-night venues | 5-7 locations | ⬜ 0 of 5-7 |
+| **5** | Satellite Locations | Distributed hack spaces including 2 all-night venues | ~15 locations | ⬜ 0 of ~15 |
 
 ---
 
@@ -341,47 +341,56 @@ This brings City + NGO + Business leaders together at the same table, discussing
 
 **Purpose:** Secure distributed hacking venues across Richmond to expand capacity and bring the hackathon into the community—including two all-night locations for teams who want to hack through the night.
 
-### The Model: 5-7 Satellite Locations
+### The Model: ~15 Satellite Locations
 
 | Type | Count | Purpose |
 |------|-------|---------|
 | **All-Night Hack Spaces** | 2 | 24-hour access for overnight hacking (UR + VCU) |
-| **Daytime Satellites** | 3-5 | Overflow and community access during event hours |
+| **Daytime Satellites** | ~13 | Overflow and community access during event hours |
+
+**Note:** Some locations (like Common House) may accommodate multiple teams.
 
 ### Location Tracking
 
 #### All-Night Hack Spaces (Required)
 
-| Location | Institution | Status | Site Contact | Notes |
-|----------|-------------|--------|--------------|-------|
-| **University of Richmond** | UR | ⬜ Not Started | TBD | 24-hour access Friday night → Sunday |
-| **VCU** | VCU | ⬜ Not Started | TBD | 24-hour access Friday night → Sunday |
+| Location | Institution | Status | Site Contact | Site Captain | Notes |
+|----------|-------------|--------|--------------|--------------|-------|
+| **University of Richmond** | UR | ⬜ Not Started | TBD | TBD | 24-hour access Friday night → Sunday |
+| **VCU** | VCU | ⬜ Not Started | TBD | TBD | daVinci Center or Engineering Building |
 
 **Total All-Night: 0 of 2 confirmed**
 
-#### Daytime Satellite Locations
+#### Daytime Satellite Locations (~13 needed)
 
-| Location | Type | Status | Site Contact | Notes |
-|----------|------|--------|--------------|-------|
-| TBD | Coworking | ⬜ Not Started | TBD | — |
-| TBD | Library | ⬜ Not Started | TBD | — |
-| TBD | Corporate | ⬜ Not Started | TBD | — |
-| TBD | Community | ⬜ Not Started | TBD | — |
-| TBD | Other | ⬜ Not Started | TBD | — |
+| # | Location | Type | Status | Site Contact | Site Captain |
+|---|----------|------|--------|--------------|--------------|
+| 1 | Common House - Downtown | Coworking | ⬜ | TBD | TBD |
+| 2 | Common House - Scott's Addition | Coworking | ⬜ | TBD | TBD |
+| 3 | Startup Virginia / 1717 Innovation | Coworking | ⬜ | TBD | TBD |
+| 4 | Capital One Café - Downtown | Corporate | ⬜ | TBD | TBD |
+| 5 | Capital One Café - Short Pump | Corporate | ⬜ | TBD | TBD |
+| 6 | Richmond Public Library - Main | Library | ⬜ | TBD | TBD |
+| 7 | Richmond Public Library - Broad Rock | Library | ⬜ | TBD | TBD |
+| 8 | VCU Library (daytime only) | University | ⬜ | TBD | TBD |
+| 9 | UR Library (daytime only) | University | ⬜ | TBD | TBD |
+| 10 | CoStar Research Center | Corporate | ⬜ | TBD | TBD |
+| 11 | Gather - Scott's Addition | Coworking | ⬜ | TBD | TBD |
+| 12 | Circuit - Church Hill | Coworking | ⬜ | TBD | TBD |
+| 13 | TBD - Southside location | Community | ⬜ | TBD | TBD |
 
-**Total Daytime: 0 of 3-5 confirmed**
+**Total Daytime: 0 of ~13 confirmed**
 
-### Potential Satellite Venues
+### Potential Additional Venues
 
 | Venue | Type | Capacity | 24-Hour? | Notes |
 |-------|------|----------|----------|-------|
-| **University of Richmond** | University | 50-100 | ✅ Yes | Strong fit for overnight hacking |
-| **VCU (various buildings)** | University | 50-100 | ✅ Yes | daVinci Center, Engineering, Library |
-| **Common House Richmond** | Coworking | 30-50 | ❌ No | Downtown, professional setting |
-| **Capital One Café** | Corporate | 20-30 | ❌ No | Multiple locations, public-facing |
-| **Richmond Public Library** | Library | 30-50 | ❌ No | Main branch or Broad Rock |
-| **Startup Virginia** | Coworking | 20-40 | ❌ No | Entrepreneurial community |
-| **1717 Innovation Center** | Innovation hub | 40-60 | ❌ No | Tech-focused space |
+| **Dominion Energy HQ** | Corporate | 20-30 | ❌ No | Potential sponsor venue |
+| **CarMax HQ** | Corporate | 20-30 | ❌ No | Tech-forward, sponsor potential |
+| **Ippon Technologies** | Corporate | 15-25 | ❌ No | AI Ready RVA connection |
+| **Capital One - West Creek** | Corporate | 30-50 | ❌ No | Larger capacity |
+| **Petersburg Library** | Library | 20-30 | ❌ No | Extend beyond Richmond |
+| **Henrico Library - Libbie Mill** | Library | 25-35 | ❌ No | County access |
 
 ### Requirements Per Satellite
 
@@ -408,13 +417,11 @@ Each satellite location needs a **Site Captain** — a volunteer lead who:
 - Handles issues and escalates to core team as needed
 - Ensures participants feel connected to the broader event
 
-| Location | Site Captain | Status |
-|----------|--------------|--------|
-| University of Richmond | TBD | ⬜ |
-| VCU | TBD | ⬜ |
-| Satellite 3 | TBD | ⬜ |
-| Satellite 4 | TBD | ⬜ |
-| Satellite 5 | TBD | ⬜ |
+**Per-site staffing:** 3-5 volunteers per site (Site Captain + Tech Support + Comfort Monitor)
+
+**Total Saturday volunteers for satellites:** 45-75 people
+
+Site Captains are tracked in the location table above.
 
 ### Coordination with Main Venue
 
@@ -428,9 +435,10 @@ Satellite locations connect to the Science Museum (main venue) via:
 ### Completion Criteria
 
 ✅ 2 all-night locations confirmed (UR + VCU)  
-✅ 3-5 daytime satellite locations confirmed  
+✅ ~13 daytime satellite locations confirmed  
 ✅ All locations meet minimum technical requirements  
 ✅ Site Captain assigned for each location  
+✅ 45-75 Saturday volunteers recruited for satellite staffing  
 ✅ Communication protocols established with main venue  
 
 **Level 5 = COMPLETE** when all criteria met.
@@ -439,14 +447,15 @@ Satellite locations connect to the Science Museum (main venue) via:
 
 > **Hack for RVA is everywhere.**
 >
-> One hackathon. Multiple locations across Richmond.
+> One hackathon. 15+ locations across Richmond.
 >
-> Our main venue at the Science Museum of Virginia is joined by satellite hack spaces at:
-> - University of Richmond (24-hour access)
-> - VCU (24-hour access)
-> - [Additional locations]
+> Our main venue at the Science Museum of Virginia is joined by satellite hack spaces across the region:
+> - **All-Night Venues:** University of Richmond & VCU (hack 'til dawn)
+> - **Coworking:** Common House, Startup Virginia, Gather, Circuit
+> - **Corporate:** Capital One, CoStar, and more
+> - **Libraries:** Richmond Public Library branches
 >
-> Whether you're a night owl who wants to code until dawn or prefer structured hours, there's a space for you.
+> Whether you're a night owl who wants to code until dawn, prefer a coffee shop vibe, or want to work from your neighborhood—there's a space for you.
 >
 > Same challenges. Same community. Same mission. Just closer to you.
 
@@ -483,11 +492,11 @@ Level 4 (Corporate Pillars - +7 people)
     └── Full Friday programming locked
     │
     ▼
-Level 5 (Satellite Locations)
+Level 5 (Satellite Locations - ~15 venues)
     │
     ├── All-night venues at UR + VCU confirmed
-    ├── Daytime satellites secured
-    ├── Site Captains assigned
+    ├── ~13 daytime satellites secured
+    ├── 45-75 Saturday volunteers recruited
     └── Full distributed event infrastructure ready
 ```
 
