@@ -180,8 +180,8 @@ gantt
 - Participant communications
 
 **Entrepreneurial Ecosystems (Heather Lyne)**
-- Design Lounge (VCU Brandcenter)
-- Pitch coaching and business mentorship
+- Art Lounge (VCU Brandcenter — Artist Mentors)
+- Hustle Corner (Pitch coaching, product strategy — Hustle Mentors)
 - Startup and innovation community engagement
 - Workshop facilitation
 
@@ -632,9 +632,9 @@ These roles are drawn from the [Organizing Team Structure](../02-team-governance
 
 | # | Role | Responsibility | Owner | Status |
 |---|------|---------------|-------|--------|
-| 14 | Design Lounge Lead | VCU Brandcenter mentors (6-8) | TBD | ⬜ |
-| 15 | Hacker Space Lead | Technical mentors (8-12) | TBD | ⬜ |
-| 16 | Business Room Lead | Pitch coaches (4-6) | TBD | ⬜ |
+| 14 | Art Lounge Lead | Artist Mentors — UX/UI, visual design (6-8) | TBD | ⬜ |
+| 15 | Hacker Space Lead | Hacker Mentors — code, architecture, security (8-12) | TBD | ⬜ |
+| 16 | Hustle Corner Lead | Hustle Mentors — product, business, pitch (4-6) | TBD | ⬜ |
 | 17 | Mentor Coordinator | Help desk, mentor queue | TBD | ⬜ |
 
 #### Technology & Data Cluster

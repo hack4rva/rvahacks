@@ -27,7 +27,7 @@ These are the executive leadership roles. Each owns a major functional area and 
 | 2 | **Venue & Operations** | Crystal Harvey | ✅ | Museum Liaison, Satellite Coordinator, Registration |
 | 3 | **City Liaison** | Michael Kolbe | ✅ | SME Recruiter, Data Ambassador, Friday Programming |
 | 4 | **Marketing & Comms** | Sinclair Jenks | ✅ | Social Media Manager, Content Creator |
-| 5 | **Entrepreneurial Ecosystems** | Heather Lyne | ✅ | Design Lounge Lead, Hacker Space Lead, Business Room Lead |
+| 5 | **Entrepreneurial Ecosystems** | Heather Lyne | ✅ | Art Lounge Lead, Hacker Space Lead, Hustle Corner Lead |
 | 6 | **Sponsorships & Partnerships** | Will Melton | ✅ | Corporate Coordinator, Nonprofit Coordinator |
 | 7 | **Community & Volunteers** | **TBD** | ⬜ OPEN | Volunteer Coordinator, Site Captains, Team Formation |
 
@@ -70,9 +70,9 @@ These report to Core Team members. They get organizer t-shirts, Discord access, 
 
 | # | Role | Responsibility | Status |
 |---|------|---------------|--------|
-| 15 | Design Lounge Lead | VCU Brandcenter mentors (6-8) | ⬜ |
-| 16 | Hacker Space Lead | Technical mentors (8-12) | ⬜ |
-| 17 | Business Room Lead | Pitch coaches (4-6) | ⬜ |
+| 15 | Art Lounge Lead | Artist Mentors — UX/UI, visual design (6-8) | ⬜ |
+| 16 | Hacker Space Lead | Hacker Mentors — code, architecture, security (8-12) | ⬜ |
+| 17 | Hustle Corner Lead | Hustle Mentors — product, business, pitch (4-6) | ⬜ |
 | 18 | Mentor Coordinator | Help desk, mentor queue | ⬜ |
 
 ## Technology & Platform (Reports to: Ford Prior)
@@ -151,7 +151,7 @@ These are recruited later (February-March) and work specific shifts during the e
 | Friday (Registration, Wayfinders, Room Captains, AV, Catering) | 35-45 | Feb |
 | Saturday (Site Captains, Tech Support, Comfort Monitors) | 60-80 | Feb |
 | Sunday (Setup, Judges, Stage, Awards, Cleanup) | 30-40 | Feb |
-| Support (Technical Mentors, Design Mentors, Pitch Coaches) | 30-40 | Jan-Feb |
+| Support (Hacker Mentors, Artist Mentors, Hustle Mentors) | 30-40 | Jan-Feb |
 
 **Detailed role cards:** See `role-cards/` folder
 

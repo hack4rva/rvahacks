@@ -273,11 +273,11 @@ Best,
 
 ## 2.3 Support Infrastructure Cluster
 
-### Design Lounge Lead
+### Art Lounge Lead
 
 **Reports to:** Heather Lyne (Entrepreneurial Ecosystems)  
 **Commitment:** 3-4 hours/week February-March, plus event weekend  
-**Responsibility:** Staff and manage the Design Lounge with VCU Brandcenter mentors (6-8 people)
+**Responsibility:** Staff and manage the Art Lounge with Artist Mentors (6-8 people from VCU Brandcenter and design community)
 
 #### Outreach Template
 
@@ -287,11 +287,11 @@ Best,
 
 Hi [Name],
 
-Great civic tech solutions need great design. We're creating a **Design Lounge** at Hack for RVA (March 27-29, 2026) — a dedicated space where hackers can get UX/UI guidance, visual design feedback, and user research advice.
+Great civic tech solutions need great design. We're creating an **Art Lounge** at Hack for RVA (March 27-29, 2026) — a dedicated creative mentorship hub where hackers can get UX/UI guidance, visual design feedback, and user research advice.
 
-We're looking for a **Design Lounge Lead** to:
-- Recruit 6-8 design mentors (ideally VCU Brandcenter students or alumni)
-- Staff the lounge throughout the weekend
+We're looking for an **Art Lounge Lead** to:
+- Recruit 6-8 Artist Mentors (ideally VCU Brandcenter students or alumni)
+- Staff the Art Lounge throughout the weekend
 - Provide structured critique sessions and drop-in hours
 - Help teams think through user experience for their solutions
 
@@ -308,9 +308,9 @@ Best,
 
 ### Hacker Space Lead
 
-**Reports to:** Heather Lyne (Entrepreneurial Ecosystems)  
+**Reports to:** Ford Prior (Event Director)  
 **Commitment:** 3-4 hours/week February-March, plus event weekend  
-**Responsibility:** Staff and manage technical mentorship with 8-12 software engineers
+**Responsibility:** Staff and manage technical mentorship with 8-12 Hacker Mentors (software engineers, security experts)
 
 #### Outreach Template
 
@@ -320,10 +320,10 @@ Best,
 
 Hi [Name],
 
-We're building a **Hacker Space** at Hack for RVA (March 27-29, 2026) — a dedicated area where teams can get technical help: debugging, architecture advice, API troubleshooting, and best practices.
+We're building a **Hacker Space** at Hack for RVA (March 27-29, 2026) — a dedicated technical mentorship hub where teams can get help with code, architecture, debugging, security, and deployment.
 
 We need a **Hacker Space Lead** to:
-- Recruit 8-12 technical mentors (software engineers, data scientists, DevOps)
+- Recruit 8-12 Hacker Mentors (software engineers, data scientists, DevOps, security)
 - Create a shift schedule for mentor availability
 - Manage the mentor queue and pair teams with the right expertise
 - Troubleshoot and escalate complex technical issues
@@ -339,25 +339,25 @@ Best,
 
 ---
 
-### Business Room Lead
+### Hustle Corner Lead
 
 **Reports to:** Heather Lyne (Entrepreneurial Ecosystems)  
 **Commitment:** 3-4 hours/week February-March, plus event weekend  
-**Responsibility:** Staff and manage pitch coaching with 4-6 business mentors
+**Responsibility:** Staff and manage the Hustle Corner with 4-6 Hustle Mentors (product, business, pitch)
 
 #### Outreach Template
 
-**Subject:** Lead pitch coaching at Hack for RVA
+**Subject:** Lead pitch & business mentorship at Hack for RVA
 
 ---
 
 Hi [Name],
 
-A great solution needs a great pitch. We're creating a **Business Room** at Hack for RVA (March 27-29, 2026) — a space where teams can refine their business models, practice presentations, and think through implementation.
+A great solution needs a great pitch — and a viable path to implementation. We're creating a **Hustle Corner** at Hack for RVA (March 27-29, 2026) — a business mentorship hub where teams can refine their product strategy, practice presentations, and think through sustainability.
 
-We're looking for a **Business Room Lead** to:
-- Recruit 4-6 business mentors (MBA students, entrepreneurs, nonprofit leaders)
-- Provide pitch coaching and presentation feedback
+We're looking for a **Hustle Corner Lead** to:
+- Recruit 4-6 Hustle Mentors (MBA students, entrepreneurs, product managers)
+- Provide pitch coaching and product strategy feedback
 - Help teams articulate impact, sustainability, and implementation pathways
 - Coordinate mock pitch sessions before Sunday finals
 
@@ -386,7 +386,7 @@ Best,
 
 Hi [Name],
 
-We're building three support lounges at Hack for RVA (Design, Technical, Business) — and we need someone to coordinate the overall mentorship operation.
+We're building three mentorship hubs at Hack for RVA (Art Lounge, Hacker Space, Hustle Corner) — and we need someone to coordinate the overall mentorship operation.
 
 As **Mentor Coordinator**, you'd:
 - Work with the three lounge leads to ensure coverage and quality
@@ -970,9 +970,9 @@ Hack for RVA Organizing Team
 | 5 | Friday Programming Lead | Michael Kolbe | ⬜ OPEN | High |
 | 6 | SME Recruiter | Michael Kolbe | ⬜ OPEN | Medium |
 | 7 | Data Ambassador Coordinator | Michael Kolbe | ⬜ OPEN | Medium |
-| 8 | Design Lounge Lead | Heather Lyne | ⬜ OPEN | Medium |
+| 8 | Art Lounge Lead | Heather Lyne | ⬜ OPEN | Medium |
 | 9 | Hacker Space Lead | Heather Lyne | ⬜ OPEN | Medium |
-| 10 | Business Room Lead | Heather Lyne | ⬜ OPEN | Medium |
+| 10 | Hustle Corner Lead | Heather Lyne | ⬜ OPEN | Medium |
 | 11 | Mentor Coordinator | Heather Lyne | ⬜ OPEN | Medium |
 | 12 | Technology Support Coordinator | Ford Prior | ⬜ OPEN | Medium |
 | 13 | City Data Liaison | Ford Prior / Michael | ⬜ OPEN | High |

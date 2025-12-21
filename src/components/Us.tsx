@@ -18,7 +18,7 @@ const coreTeam = [
     role: "Event Director", 
     image: fordPrior, 
     linkedin: "https://www.linkedin.com/in/ford-prior", 
-    bio: "Ford will oversee tech infrastructure, platform administration, and competition integrity. He'll recruit leadership for: Platform Admin, Technical Mentor Coordinator, Judge Coordinator, and Help Desk Lead." 
+    bio: "Ford will oversee tech infrastructure, platform administration, and competition integrity. He'll recruit leadership for: Platform Admin, Hacker Space Lead, Judge Coordinator, and Help Desk Lead." 
   },
   { 
     name: "Crystal Harvey", 
@@ -46,7 +46,7 @@ const coreTeam = [
     role: "Entrepreneurial Ecosystems", 
     image: heatherLyne, 
     linkedin: undefined, 
-    bio: "Heather will coordinate mentorship programs and entrepreneurial support. She'll recruit leadership for: Design Lounge Lead, Pitch Coaching Lead, and Business Mentor Coordinator." 
+    bio: "Heather will coordinate mentorship programs and entrepreneurial support. She'll recruit leadership for: Art Lounge Lead, Hustle Corner Lead, and Mentor Coordinator." 
   },
   { 
     name: "Will Melton", 

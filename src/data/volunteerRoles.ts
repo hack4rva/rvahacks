@@ -630,7 +630,7 @@ export const saturdaySiteRoles: RoleCard[] = [
     youEscalate: [
       { situation: 'WiFi infrastructure problem', escalateTo: 'Platform Administrator', channel: 'Discord #tech-help' },
       { situation: 'Team needs mentor help', escalateTo: 'Mentor Queue Manager', channel: 'Discord #mentor-queue' },
-      { situation: 'Coding issue beyond basic help', escalateTo: 'Technical Mentors', channel: 'Discord #hacker-space' }
+      { situation: 'Coding issue beyond basic help', escalateTo: 'Hacker Mentors', channel: 'Discord #hacker-space' }
     ],
     decisionAuthority: [
       'Troubleshooting steps to try',
@@ -874,8 +874,8 @@ export const sundayRoles: RoleCard[] = [
 
 export const supportRoles: RoleCard[] = [
   {
-    id: 'technical-mentor',
-    title: 'Technical Mentor',
+    id: 'hacker-mentor',
+    title: 'Hacker Mentor',
     category: 'support',
     description: 'Share engineering expertise with teams. Help with architecture, debugging, deployment.',
     commitment: '2-4 hour shifts (flexible)',
@@ -909,8 +909,8 @@ export const supportRoles: RoleCard[] = [
     color: 'cyan'
   },
   {
-    id: 'design-mentor',
-    title: 'Design Mentor',
+    id: 'artist-mentor',
+    title: 'Artist Mentor',
     category: 'support',
     description: 'Share design expertise with teams. Help with UX, visual design, accessibility.',
     commitment: '2-4 hour shifts (flexible)',
@@ -924,9 +924,9 @@ export const supportRoles: RoleCard[] = [
       'Assist with pitch deck design'
     ],
     youEscalate: [
-      { situation: 'Team needs technical implementation', escalateTo: 'Technical Mentor', channel: 'Discord #hacker-space' },
+      { situation: 'Team needs technical implementation', escalateTo: 'Hacker Mentor', channel: 'Discord #hacker-space' },
       { situation: 'Team needs user research context', escalateTo: 'Data Ambassador', channel: 'Discord' },
-      { situation: 'Team needs pitch help', escalateTo: 'Pitch Coach', channel: 'Discord #business-room' }
+      { situation: 'Team needs pitch help', escalateTo: 'Hustle Mentor', channel: 'Discord #hustle-corner' }
     ],
     decisionAuthority: [
       'Design direction recommendations',
@@ -937,7 +937,7 @@ export const supportRoles: RoleCard[] = [
     successCriteria: 'Teams have usable, coherent designs; accessibility addressed; pitch materials professional.',
     skillsRequired: ['Strong design skills', 'Constructive feedback', 'Patience with non-designers', 'Rapid prototyping'],
     skillsPreferred: ['Product design experience', 'Hackathon experience', 'Civic tech or social impact design'],
-    reportsTo: 'Design Lounge Lead',
+    reportsTo: 'Art Lounge Lead',
     location: 'varies',
     trainingRequired: false,
     icon: Palette,
@@ -960,7 +960,7 @@ export const supportRoles: RoleCard[] = [
       'Build presenter confidence'
     ],
     youEscalate: [
-      { situation: 'Team has no working demo', escalateTo: 'Technical Mentor', channel: 'Discord #hacker-space' },
+      { situation: 'Team has no working demo', escalateTo: 'Hacker Mentor', channel: 'Discord #hacker-space' },
       { situation: 'Team conflict affecting prep', escalateTo: 'Volunteer Coordinator', channel: 'Slack DM' },
       { situation: 'Team needs subject matter input', escalateTo: 'Data Ambassador or SME', channel: 'Discord' }
     ],
@@ -973,7 +973,7 @@ export const supportRoles: RoleCard[] = [
     successCriteria: 'Teams feel confident; stay within time limits; tell clear story.',
     skillsRequired: ['Presentation skills', 'Storytelling', 'Constructive feedback', 'Patience'],
     skillsPreferred: ['Startup pitch experience', 'Public speaking coaching', 'Previous hackathon judging'],
-    reportsTo: 'Business Room Lead',
+    reportsTo: 'Hustle Corner Lead',
     location: 'varies',
     trainingRequired: false,
     icon: Mic,
@@ -996,7 +996,7 @@ export const supportRoles: RoleCard[] = [
     ],
     youEscalate: [
       { situation: 'Question outside expertise', escalateTo: 'Other SME or Data Ambassador', channel: 'Discord' },
-      { situation: 'Team needs technical help', escalateTo: 'Technical Mentor', channel: 'Discord #hacker-space' },
+      { situation: 'Team needs technical help', escalateTo: 'Hacker Mentor', channel: 'Discord #hacker-space' },
       { situation: 'Team needs data access', escalateTo: 'City Data Liaison', channel: 'Discord' }
     ],
     decisionAuthority: [

@@ -130,32 +130,32 @@ const roleCategories: RoleCategory[] = [
     ]
   },
   {
-    name: "Support Infrastructure (Virtual Help Desks)",
+    name: "Support Infrastructure (Mentorship Hubs)",
     icon: Headphones,
     color: "bg-green-100 text-green-700 border-green-200",
     roles: [
       {
-        title: "Design Lounge Lead",
+        title: "Art Lounge Lead",
         responsibilities: [
-          "Recruits and staffs design experts (VCU Brandcenter students, etc.)",
-          "Manages virtual room throughout event",
-          "Creates schedule for design mentor availability"
+          "Recruits and staffs Artist Mentors (VCU Brandcenter, designers)",
+          "Manages the Art Lounge — creative mentorship hub",
+          "Creates schedule for UX/UI and visual design support"
         ]
       },
       {
         title: "Hacker Space Lead",
         responsibilities: [
-          "Recruits and staffs software engineering experts",
-          "Manages virtual room throughout event",
-          "Creates schedule for technical mentor availability"
+          "Recruits and staffs Hacker Mentors (engineers, security experts)",
+          "Manages the Hacker Space — technical mentorship hub",
+          "Creates schedule for code, architecture, and DevOps support"
         ]
       },
       {
-        title: "Business Room Lead",
+        title: "Hustle Corner Lead",
         responsibilities: [
-          "Recruits and staffs MBAs and startup experts",
-          "Manages virtual room throughout event",
-          "Creates schedule for business mentor availability"
+          "Recruits and staffs Hustle Mentors (product, business, pitch)",
+          "Manages the Hustle Corner — business mentorship hub",
+          "Creates schedule for strategy, pitch coaching, and business model support"
         ]
       },
       {
