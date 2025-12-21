@@ -242,13 +242,13 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs defaultValue="team" className="w-full">
-          <TabsList className="grid w-full grid-cols-6 mb-8">
-            <TabsTrigger value="team">Team</TabsTrigger>
-            <TabsTrigger value="pillars">Pillars</TabsTrigger>
-            <TabsTrigger value="sponsors">Sponsors</TabsTrigger>
-            <TabsTrigger value="academia">Academia</TabsTrigger>
-            <TabsTrigger value="connectors">Connectors</TabsTrigger>
-            <TabsTrigger value="signups">Signups</TabsTrigger>
+          <TabsList className="flex flex-wrap gap-2 h-auto p-2 bg-muted/50 border border-border rounded-lg mb-8">
+            <TabsTrigger value="team" className="flex-1 min-w-[100px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Team</TabsTrigger>
+            <TabsTrigger value="pillars" className="flex-1 min-w-[100px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Pillars</TabsTrigger>
+            <TabsTrigger value="sponsors" className="flex-1 min-w-[100px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Sponsors</TabsTrigger>
+            <TabsTrigger value="academia" className="flex-1 min-w-[100px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Academia</TabsTrigger>
+            <TabsTrigger value="connectors" className="flex-1 min-w-[100px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Connectors</TabsTrigger>
+            <TabsTrigger value="signups" className="flex-1 min-w-[100px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">Signups</TabsTrigger>
           </TabsList>
 
           <TabsContent value="team">
