@@ -54,8 +54,8 @@ export function KanbanColumn({
       {/* Column Header */}
       <div className="flex items-center justify-between p-3 border-b">
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-sm">{title}</h3>
-          <span className="flex items-center justify-center w-5 h-5 rounded-full bg-muted text-xs font-medium">
+          <h3 className="font-semibold text-base">{title}</h3>
+          <span className="flex items-center justify-center w-6 h-6 rounded-full bg-muted text-sm font-medium">
             {tasks.length}
           </span>
         </div>
@@ -85,7 +85,7 @@ export function KanbanColumn({
           strategy={verticalListSortingStrategy}
         >
           {tasks.length === 0 ? (
-            <div className="flex items-center justify-center h-20 text-sm text-muted-foreground italic">
+            <div className="flex items-center justify-center h-20 text-base text-muted-foreground italic">
               No tasks
             </div>
           ) : (
