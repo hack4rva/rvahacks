@@ -108,86 +108,135 @@ const AdminDashboard = () => {
   const teamDelegation = [
     {
       name: "Ford Prior",
-      role: "Co-Organizer",
+      role: "Event Director",
       focus: "Tech, Platform, Judging",
+      responsibilities: [
+        "Overall event vision and strategy",
+        "Mayor's office relationship",
+        "Platform and technology decisions",
+        "Judging framework and criteria",
+      ],
+      whyItMatters: "The Event Director is the single point of accountability for the entire hackathon — ensuring all teams are aligned, decisions get made, and the event delivers on its promise to the Mayor's office.",
       subRoles: [
-        { title: "Platform Administrator", assignee: "Tom Becker" },
-        { title: "Hacker Space Lead", assignee: "Michael Ghaffari" },
-        { title: "Technical Mentor", assignee: "Kenton Vizdos" },
-        { title: "Technical Mentor", assignee: "Mohammad Hassan" },
-        { title: "Accessibility Mentor", assignee: "J. Albert Bowden II" },
-        { title: "Security Mentor", assignee: "Mike Mitchell" },
-        { title: "Judge Coordinator", assignee: "Ankit Mathur" },
-        { title: "Judge — Thriving Economy", assignee: "Debbie Irwin" },
-        { title: "Judge — Product/Innovation", assignee: "Alex Otanez" },
-        { title: "Help Desk Lead", assignee: "David Cariello" },
+        { title: "Platform Administrator", assignee: "Tom Becker", description: "Manage Devpost, Discord, and GitHub infrastructure. Configure submission workflows, test platforms, run day-of operations.", whyItMatters: "Smooth platform operations prevent submission failures and keep 300 participants connected throughout the weekend.", commitment: "3-5 hrs/week Feb-Mar + weekend" },
+        { title: "Hacker Space Lead", assignee: "Michael Ghaffari", description: "Staff and manage technical mentorship with 8-12 software engineers. Create shift schedules, manage mentor queue, pair teams with expertise.", whyItMatters: "Technical mentors are the difference between a stuck team and a working prototype. This role ensures every team gets unblocked.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
+        { title: "Technical Mentor", assignee: "Kenton Vizdos", description: "Respond to mentor queue requests, help teams with architecture decisions, debug issues, and provide technical guidance.", whyItMatters: "Real engineers helping real teams build real solutions — the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
+        { title: "Technical Mentor", assignee: "Mohammad Hassan", description: "Respond to mentor queue requests, help teams with architecture decisions, debug issues, and provide technical guidance.", whyItMatters: "Real engineers helping real teams build real solutions — the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
+        { title: "Accessibility Mentor", assignee: "J. Albert Bowden II", description: "Ensure solutions are accessible. Advise teams on WCAG compliance, screen reader support, keyboard navigation.", whyItMatters: "Civic tech must work for everyone. Accessibility isn't optional — it's how we ensure solutions serve all Richmonders.", commitment: "On-call during event" },
+        { title: "Security Mentor", assignee: "Mike Mitchell", description: "Advise teams on security best practices, data handling, and safe deployment.", whyItMatters: "Civic solutions may handle sensitive data. Security guidance prevents vulnerabilities and builds trust.", commitment: "On-call during event" },
+        { title: "Judge Coordinator", assignee: "Ankit Mathur", description: "Recruit 15-20 judges, design rubrics with pillar stakeholders, manage Sunday judging rounds, orchestrate finals.", whyItMatters: "Fair, rigorous judging ensures the best solutions win — and get implemented. This role protects the integrity of the competition.", commitment: "3-5 hrs/week Feb-Mar + Sunday" },
+        { title: "Judge — Thriving Economy", assignee: "Debbie Irwin", description: "Evaluate solutions for the Thriving Economy pillar. Score based on rubric, provide feedback, participate in deliberations.", whyItMatters: "Domain experts ensure winning solutions actually address real economic development challenges.", commitment: "Sunday judging (4-6 hrs)" },
+        { title: "Judge — Product/Innovation", assignee: "Alex Otanez", description: "Evaluate solutions for product quality, innovation, and user experience across all pillars.", whyItMatters: "Technical excellence matters. Product-focused judges ensure solutions are actually usable and well-built.", commitment: "Sunday judging (4-6 hrs)" },
+        { title: "Help Desk Lead", assignee: "David Cariello", description: "Manage general help desk, troubleshoot issues, triage questions to right resources, track common problems.", whyItMatters: "When participants hit friction, help desk is first response. Fast resolution keeps teams productive.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
       ]
     },
     {
       name: "Crystal Harvey",
-      role: "Co-Organizer", 
-      focus: "Venue & Operations",
+      role: "Venue & Operations", 
+      focus: "Science Museum, Logistics, Day-of",
+      responsibilities: [
+        "Science Museum relationship and logistics",
+        "Catering and food service",
+        "AV and technical setup",
+        "Day-of operations coordination",
+      ],
+      whyItMatters: "Venue & Operations owns the physical experience — ensuring 300 participants have a professional, well-run environment where they can focus on building solutions, not logistics.",
       subRoles: [
-        { title: "Friday Operations Lead", assignee: null },
-        { title: "Sunday Operations Lead", assignee: null },
-        { title: "Registration Manager", assignee: null },
-        { title: "AV Coordinator", assignee: null },
-        { title: "Catering Coordinator", assignee: "Bridget Cochran" },
+        { title: "Friday Operations Lead", assignee: null, description: "Own all Friday logistics: registration flow, kickoff ceremonies, pillar sessions, team formation, evening transition.", whyItMatters: "Friday sets the tone. A smooth kickoff energizes teams; friction kills momentum before hacking begins.", commitment: "Full Friday + planning" },
+        { title: "Sunday Operations Lead", assignee: null, description: "Own all Sunday logistics: demo setup, judging logistics, finals production, awards ceremony, cleanup.", whyItMatters: "Sunday is the payoff. Professional execution of finals makes winners feel recognized and sponsors feel valued.", commitment: "Full Sunday + planning" },
+        { title: "Registration Manager", assignee: null, description: "Design check-in process, coordinate badge production, train desk volunteers, manage credentials.", whyItMatters: "First impressions matter. Efficient registration starts the weekend right; chaos creates frustration.", commitment: "2-3 hrs/week Feb-Mar + Friday/Sunday" },
+        { title: "AV Coordinator", assignee: null, description: "Set up and test all AV equipment. Manage microphones, projectors, recordings. Troubleshoot issues.", whyItMatters: "AV failures derail sessions. Reliable equipment ensures speakers are heard and sessions are captured.", commitment: "Full event + setup/testing" },
+        { title: "Catering Coordinator", assignee: "Bridget Cochran", description: "Coordinate with caterers, manage food setup and replenishment, handle dietary accommodations, maintain clean stations.", whyItMatters: "Fed hackers are happy hackers. Smooth food service keeps energy high without disrupting workflow.", commitment: "Event weekend + planning" },
       ]
     },
     {
       name: "Michael Kolbe",
       role: "City Liaison",
       focus: "Government Stakeholders, Pillars, SMEs",
+      responsibilities: [
+        "City department engagement",
+        "Pillar challenge design",
+        "Subject matter expert recruitment",
+        "Government data access",
+      ],
+      whyItMatters: "City Liaison bridges the hackathon to city government — ensuring challenges address real city needs and solutions have a path to implementation through city departments.",
       subRoles: [
-        { title: "Challenge Design Facilitator", assignee: "Ryan Shriver" },
-        { title: "Pillar Coordinator", assignee: null },
-        { title: "SME Recruiter", assignee: null },
-        { title: "VIP/Speaker Host Lead", assignee: null },
+        { title: "Challenge Design Facilitator", assignee: "Ryan Shriver", description: "Work with city departments and nonprofits to define specific, solvable problems. Create rubrics showing what good solutions look like.", whyItMatters: "Good challenge design is the difference between 'cool demo' and 'implementable solution'. This role shapes what teams build.", commitment: "8-12 hrs total in Jan-Feb" },
+        { title: "Pillar Coordinator", assignee: null, description: "Recruit and manage the 21 pillar stakeholders (3 per pillar). Ensure each pillar has city, nonprofit, and breakout representation.", whyItMatters: "Pillars are the backbone of the event. Without stakeholders, challenges lack authenticity and solutions lack champions.", commitment: "5-8 hrs/week Jan-Mar" },
+        { title: "SME Recruiter", assignee: null, description: "Recruit subject matter experts from city departments and nonprofits. Coordinate their availability for sessions and Discord support.", whyItMatters: "SMEs ground solutions in reality. They tell teams 'we've tried that' or 'that would be amazing' — context code can't provide.", commitment: "3-4 hrs/week Jan-Mar" },
+        { title: "VIP/Speaker Host Lead", assignee: null, description: "Greet stakeholders, escort VIPs, ensure speakers are prepared, facilitate introductions, handle VIP needs.", whyItMatters: "City officials and nonprofit leaders need white-glove treatment. Their experience determines whether they champion solutions post-event.", commitment: "Full Friday + some Sunday" },
       ]
     },
     {
       name: "Sinclair Jenks",
       role: "Marketing & Comms",
       focus: "Brand, Social Media, Press, Content",
+      responsibilities: [
+        "Brand identity and visual design",
+        "Website and social media",
+        "Press and media relations",
+        "Participant communications",
+      ],
+      whyItMatters: "Marketing & Comms tells Richmond's story — building awareness that drives registrations, captures moments that inspire future civic tech, and earns media coverage that validates the model.",
       subRoles: [
-        { title: "Outreach Lead", assignee: null },
-        { title: "Marketing Content Lead", assignee: "Carly Manning" },
-        { title: "Photography Lead", assignee: null },
+        { title: "Outreach Lead", assignee: null, description: "Lead pre-event promotion campaigns. Coordinate with partners for cross-promotion. Drive registration targets.", whyItMatters: "300 participants don't appear magically. Outreach converts awareness to signups across diverse communities.", commitment: "5-8 hrs/week Jan-Mar" },
+        { title: "Marketing Content Lead", assignee: "Carly Manning", description: "Create blog posts, social content, email campaigns. Document pillar challenges and stakeholder stories.", whyItMatters: "Great content builds excitement and explains why this matters. It's how we move from 'hackathon' to 'civic innovation movement'.", commitment: "3-5 hrs/week Jan-Mar" },
+        { title: "Photography Lead", assignee: null, description: "Coordinate photographers during event. Capture candids, sessions, teams, awards. Organize and share photos for social/press.", whyItMatters: "Photos become the permanent record. Great event photography drives post-event coverage and next year's recruitment.", commitment: "Full event weekend" },
       ]
     },
     {
       name: "Heather Lyne",
       role: "Entrepreneurial Ecosystems",
       focus: "Mentorship, Pitch Coaching, Design Support",
+      responsibilities: [
+        "Design Lounge (VCU Brandcenter)",
+        "Pitch coaching and business mentorship",
+        "Startup and innovation community engagement",
+        "Workshop facilitation",
+      ],
+      whyItMatters: "Entrepreneurial Ecosystems ensures teams don't just build code — they build solutions with good UX, compelling stories, and viable paths to implementation.",
       subRoles: [
-        { title: "Design Lounge Lead", assignee: "Alyssa Paulette" },
-        { title: "Design Mentor", assignee: "Madison Johnson" },
-        { title: "Design Mentor", assignee: "Larry Thacker" },
-        { title: "Pitch Coaching Lead", assignee: "April Palmer" },
-        { title: "Product Advisor", assignee: "Alex Otanez" },
-        { title: "Business Mentor", assignee: "Adam Woodward" },
-        { title: "Workshop Facilitator", assignee: "Nick Pericle" },
+        { title: "Design Lounge Lead", assignee: "Alyssa Paulette", description: "Staff Design Lounge with VCU Brandcenter mentors. Provide UX/UI guidance, visual design feedback, accessibility advice.", whyItMatters: "Great civic tech needs great design. Design mentors elevate solutions from 'functional' to 'delightful and usable'.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
+        { title: "Design Mentor", assignee: "Madison Johnson", description: "Provide design guidance to teams. Review wireframes, advise on UX, help with pitch deck visuals.", whyItMatters: "Direct design support helps teams create polished, user-centered solutions.", commitment: "2-4 hr shifts during event" },
+        { title: "Design Mentor", assignee: "Larry Thacker", description: "Provide design guidance to teams. Review wireframes, advise on UX, help with pitch deck visuals.", whyItMatters: "Direct design support helps teams create polished, user-centered solutions.", commitment: "2-4 hr shifts during event" },
+        { title: "Pitch Coaching Lead", assignee: "April Palmer", description: "Run pitch practice sessions. Help teams structure their story, coach delivery, prepare for judge Q&A.", whyItMatters: "A great solution with a bad pitch loses. Pitch coaching ensures the best ideas get recognized.", commitment: "Saturday evening + Sunday" },
+        { title: "Product Advisor", assignee: "Alex Otanez", description: "Advise teams on product strategy, feature prioritization, and building for real users.", whyItMatters: "Product thinking ensures solutions are scoped appropriately and address genuine user needs.", commitment: "On-call during event" },
+        { title: "Business Mentor", assignee: "Adam Woodward", description: "Help teams think through business models, sustainability, and implementation pathways.", whyItMatters: "Civic solutions need viable paths forward. Business mentors help teams think beyond the demo.", commitment: "2-4 hr shifts during event" },
+        { title: "Workshop Facilitator", assignee: "Nick Pericle", description: "Run skill-building workshops during the event. Topics might include: design thinking, data analysis, pitching.", whyItMatters: "Workshops level the playing field, helping less experienced participants contribute effectively.", commitment: "1-2 workshops during event" },
       ]
     },
     {
       name: "Will Melton",
       role: "Sponsorships & Partnerships",
       focus: "Corporate Sponsors, Nonprofit Partners",
+      responsibilities: [
+        "Corporate sponsor recruitment",
+        "Sponsorship package development",
+        "Partner relationship management",
+        "Sponsorship fulfillment",
+      ],
+      whyItMatters: "Sponsorships & Partnerships secures the resources that make the event possible — funding, prizes, mentors, and the cross-sector legitimacy that makes solutions adoptable.",
       subRoles: [
-        { title: "Corporate Sponsor Coordinator", assignee: null },
-        { title: "Nonprofit Partner Coordinator", assignee: null },
+        { title: "Corporate Sponsor Coordinator", assignee: null, description: "Support sponsor outreach, track pipeline, manage sponsor communications, ensure fulfillment of sponsor benefits.", whyItMatters: "Sponsors fund prizes, food, and swag. Good sponsor management means they come back next year.", commitment: "3-5 hrs/week Jan-Mar" },
+        { title: "Nonprofit Partner Coordinator", assignee: null, description: "Build relationships with 7+ nonprofits across pillars. Manage expectations, coordinate participation, ensure authentic community voice.", whyItMatters: "Nonprofits ensure solutions address real needs — not just interesting technical problems. They're the voice of the community.", commitment: "3-5 hrs/week Jan-Mar + event" },
       ]
     },
     {
       name: "TBD",
       role: "Community & Volunteers",
       focus: "Volunteer Recruitment, Site Captains, Participant Experience",
+      responsibilities: [
+        "Volunteer recruitment and coordination",
+        "Participant experience design",
+        "Team formation facilitation",
+        "Community outreach",
+      ],
+      whyItMatters: "Community & Volunteers is the human infrastructure — ensuring 150-200 volunteers are recruited, trained, and deployed to create an experience where every participant feels supported.",
       subRoles: [
-        { title: "Volunteer Coordinator", assignee: null },
-        { title: "Volunteer Recruitment Advisor", assignee: "Claire Jordan" },
-        { title: "Site Captain Coordinator", assignee: null },
-        { title: "Team Formation Lead", assignee: "Christian Markow" },
+        { title: "Volunteer Coordinator", assignee: null, description: "Recruit 150-200 volunteers. Design training, create shift schedules, handle no-shows, manage day-of support.", whyItMatters: "Volunteers are the engine. Without them, registration doesn't happen, food doesn't flow, and participants feel abandoned.", commitment: "5-8 hrs/week Feb-Mar + event" },
+        { title: "Volunteer Recruitment Advisor", assignee: "Claire Jordan", description: "Provide guidance on volunteer recruitment strategy and channels.", whyItMatters: "Strategic advice ensures we recruit diverse, reliable volunteers from the right communities.", commitment: "Advisory (2-3 hrs total)" },
+        { title: "Site Captain Coordinator", assignee: null, description: "Recruit and train Site Captains for 15+ satellite locations. Establish communication protocols with main venue.", whyItMatters: "Distributed hacking only works if every location has a capable captain. This role scales the event citywide.", commitment: "3-5 hrs/week Feb-Mar" },
+        { title: "Team Formation Lead", assignee: "Christian Markow", description: "Design and facilitate team formation activities. Ensure solo attendees find teams, skill-match participants.", whyItMatters: "Nobody should feel left out. Great team formation creates diverse, capable teams — and prevents the loneliness that kills participation.", commitment: "Friday afternoon/evening" },
       ]
     },
   ];
@@ -492,67 +541,139 @@ const AdminDashboard = () => {
                   Team Structure
                 </CardTitle>
                 <CardDescription>
-                  Core leadership and their recruited leadership volunteers
+                  Core leadership and their recruited leadership volunteers — click any role to see responsibilities
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-6">
                   {teamDelegation.map((leader, idx) => (
-                    <div 
-                      key={idx} 
-                      className="border border-border rounded-lg p-4 bg-card"
-                    >
-                      <div className="flex items-start justify-between mb-3">
-                        <div>
-                          <h3 className={`text-lg font-bold ${leader.name === 'TBD' ? 'text-muted-foreground italic' : 'text-foreground'}`}>
-                            {leader.name}
-                          </h3>
-                          <p className="text-sm font-medium text-accent">{leader.role}</p>
-                          <p className="text-xs text-muted-foreground mt-1">{leader.focus}</p>
+                    <Collapsible key={idx} className="border border-border rounded-lg bg-card">
+                      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors text-left">
+                        <div className="flex items-center gap-4">
+                          <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+                            leader.name === 'TBD' ? 'bg-orange-500 text-white' : 'bg-accent text-accent-foreground'
+                          }`}>
+                            {leader.name === 'TBD' ? '?' : leader.name.split(' ').map(n => n[0]).join('')}
+                          </div>
+                          <div>
+                            <h3 className={`text-lg font-bold ${leader.name === 'TBD' ? 'text-orange-500 italic' : 'text-foreground'}`}>
+                              {leader.name}
+                            </h3>
+                            <p className="text-sm font-medium text-accent">{leader.role}</p>
+                          </div>
                         </div>
-                      </div>
-                      
-                      <div className="border-t border-border pt-3 mt-3">
-                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
-                          Leadership Roles to Fill
-                        </p>
-                        <div className="space-y-2">
-                          {leader.subRoles.map((subRole, subIdx) => (
-                            <div 
-                              key={subIdx}
-                              className="flex items-center justify-between py-1.5 px-2 rounded bg-muted/50"
-                            >
-                              <span className="text-sm text-foreground">{subRole.title}</span>
-                              {subRole.assignee ? (
-                                <span className="text-sm font-medium text-accent">
-                                  {subRole.assignee}
-                                </span>
-                              ) : (
-                                <span className="text-xs text-muted-foreground italic">
-                                  Unassigned
-                                </span>
-                              )}
+                        <div className="flex items-center gap-4">
+                          <div className="text-right">
+                            <p className="text-sm font-bold text-foreground">
+                              {leader.subRoles.filter(r => r.assignee).length}/{leader.subRoles.length}
+                            </p>
+                            <p className="text-xs text-muted-foreground">roles filled</p>
+                          </div>
+                          <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                        </div>
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="border-t border-border">
+                        {/* Core Leader Details */}
+                        <div className="p-4 bg-muted/30">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                                Responsibilities
+                              </p>
+                              <ul className="text-sm text-foreground space-y-1">
+                                {leader.responsibilities.map((resp, rIdx) => (
+                                  <li key={rIdx} className="flex items-start gap-2">
+                                    <span className="text-accent">•</span>
+                                    {resp}
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
-                          ))}
+                            <div>
+                              <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                                Why This Role Matters
+                              </p>
+                              <p className="text-sm text-muted-foreground italic leading-relaxed">
+                                {leader.whyItMatters}
+                              </p>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+
+                        {/* Sub-roles */}
+                        <div className="p-4">
+                          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
+                            Sub-Roles ({leader.subRoles.filter(r => r.assignee).length} of {leader.subRoles.length} filled)
+                          </p>
+                          <div className="space-y-2">
+                            {leader.subRoles.map((subRole, subIdx) => (
+                              <Collapsible key={subIdx}>
+                                <CollapsibleTrigger className="flex items-center justify-between w-full py-2 px-3 rounded bg-muted/50 hover:bg-muted transition-colors text-left">
+                                  <div className="flex items-center gap-3">
+                                    <div className={`w-2 h-2 rounded-full ${subRole.assignee ? 'bg-green-500' : 'bg-orange-500'}`} />
+                                    <span className="text-sm font-medium text-foreground">{subRole.title}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    {subRole.assignee ? (
+                                      <span className="text-sm font-medium text-accent">
+                                        {subRole.assignee}
+                                      </span>
+                                    ) : (
+                                      <span className="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded">
+                                        Open
+                                      </span>
+                                    )}
+                                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                                  </div>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent className="mt-2 ml-5 p-3 bg-card border border-border rounded-lg">
+                                  <div className="space-y-3">
+                                    <div>
+                                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                                        What This Role Does
+                                      </p>
+                                      <p className="text-sm text-foreground">{subRole.description}</p>
+                                    </div>
+                                    <div>
+                                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                                        Why It Matters
+                                      </p>
+                                      <p className="text-sm text-muted-foreground italic">{subRole.whyItMatters}</p>
+                                    </div>
+                                    <div className="flex items-center gap-2 pt-2 border-t border-border">
+                                      <Clock className="w-4 h-4 text-muted-foreground" />
+                                      <span className="text-xs text-muted-foreground">{subRole.commitment}</span>
+                                    </div>
+                                  </div>
+                                </CollapsibleContent>
+                              </Collapsible>
+                            ))}
+                          </div>
+                        </div>
+                      </CollapsibleContent>
+                    </Collapsible>
                   ))}
                 </div>
 
                 {/* Summary Stats */}
                 <div className="mt-8 p-4 bg-muted/30 rounded-lg">
                   <h4 className="font-semibold mb-3">Team Summary</h4>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
                     <div>
                       <p className="text-2xl font-bold text-foreground">{teamDelegation.length}</p>
                       <p className="text-xs text-muted-foreground">Core Leaders</p>
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-foreground">
+                        {teamDelegation.filter(l => l.name !== 'TBD').length}
+                      </p>
+                      <p className="text-xs text-muted-foreground">Filled Core</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-foreground">
                         {teamDelegation.reduce((acc, l) => acc + l.subRoles.length, 0)}
                       </p>
-                      <p className="text-xs text-muted-foreground">Leadership Roles</p>
+                      <p className="text-xs text-muted-foreground">Sub-Roles</p>
                     </div>
                     <div>
                       <p className="text-2xl font-bold text-accent">
@@ -564,7 +685,7 @@ const AdminDashboard = () => {
                       <p className="text-2xl font-bold text-orange-500">
                         {teamDelegation.reduce((acc, l) => acc + l.subRoles.filter(r => !r.assignee).length, 0)}
                       </p>
-                      <p className="text-xs text-muted-foreground">Unfilled</p>
+                      <p className="text-xs text-muted-foreground">Open</p>
                     </div>
                   </div>
                 </div>
