@@ -13,5 +13,6 @@ export * from './leadership';
 export * from './pillarEcosystem';
 export * from './volunteerRoles';
 export * from './sponsorshipPipeline';
+export * from './academiaPartners';
 
 // Legacy: focusAreas is deprecated, use pillars from pillarEcosystem instead
