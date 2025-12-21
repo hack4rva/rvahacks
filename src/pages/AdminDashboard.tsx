@@ -105,6 +105,8 @@ const AdminDashboard = () => {
   ];
 
   // Team delegation structure - Core Leaders and their sub-role assignments
+  // Roles with `volunteers` array are pool roles (multiple people in same role)
+  // Roles with `assignee` string are single-person roles
   const teamDelegation = [
     {
       name: "Ford Prior",
@@ -120,13 +122,14 @@ const AdminDashboard = () => {
       subRoles: [
         { title: "Platform Administrator", assignee: "Tom Becker", description: "Manage Devpost, Discord, and GitHub infrastructure. Configure submission workflows, test platforms, run day-of operations.", whyItMatters: "Smooth platform operations prevent submission failures and keep 300 participants connected throughout the weekend.", commitment: "3-5 hrs/week Feb-Mar + weekend" },
         { title: "Hacker Space Lead", assignee: "Michael Ghaffari", description: "Staff and manage technical mentorship with 8-12 software engineers. Create shift schedules, manage mentor queue, pair teams with expertise.", whyItMatters: "Technical mentors are the difference between a stuck team and a working prototype. This role ensures every team gets unblocked.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
-        { title: "Technical Mentor", assignee: "Kenton Vizdos", description: "Respond to mentor queue requests, help teams with architecture decisions, debug issues, and provide technical guidance.", whyItMatters: "Real engineers helping real teams build real solutions — the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
-        { title: "Technical Mentor", assignee: "Mohammad Hassan", description: "Respond to mentor queue requests, help teams with architecture decisions, debug issues, and provide technical guidance.", whyItMatters: "Real engineers helping real teams build real solutions — the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
+        { title: "Technical Mentor", assignee: null, volunteers: ["Kenton Vizdos", "Mohammad Hassan"], targetCount: "8-12", description: "Respond to mentor queue requests, help teams with architecture decisions, debug issues, and provide technical guidance.", whyItMatters: "Real engineers helping real teams build real solutions — the core of what makes a hackathon valuable.", commitment: "2-4 hr shifts during event" },
         { title: "Accessibility Mentor", assignee: "J. Albert Bowden II", description: "Ensure solutions are accessible. Advise teams on WCAG compliance, screen reader support, keyboard navigation.", whyItMatters: "Civic tech must work for everyone. Accessibility isn't optional — it's how we ensure solutions serve all Richmonders.", commitment: "On-call during event" },
         { title: "Security Mentor", assignee: "Mike Mitchell", description: "Advise teams on security best practices, data handling, and safe deployment.", whyItMatters: "Civic solutions may handle sensitive data. Security guidance prevents vulnerabilities and builds trust.", commitment: "On-call during event" },
         { title: "Judge Coordinator", assignee: "Ankit Mathur", description: "Recruit 15-20 judges, design rubrics with pillar stakeholders, manage Sunday judging rounds, orchestrate finals.", whyItMatters: "Fair, rigorous judging ensures the best solutions win — and get implemented. This role protects the integrity of the competition.", commitment: "3-5 hrs/week Feb-Mar + Sunday" },
-        { title: "Judge — Thriving Economy", assignee: "Debbie Irwin", description: "Evaluate solutions for the Thriving Economy pillar. Score based on rubric, provide feedback, participate in deliberations.", whyItMatters: "Domain experts ensure winning solutions actually address real economic development challenges.", commitment: "Sunday judging (4-6 hrs)" },
-        { title: "Judge — Product/Innovation", assignee: "Alex Otanez", description: "Evaluate solutions for product quality, innovation, and user experience across all pillars.", whyItMatters: "Technical excellence matters. Product-focused judges ensure solutions are actually usable and well-built.", commitment: "Sunday judging (4-6 hrs)" },
+        { title: "Judge", assignee: null, volunteers: [
+          { name: "Debbie Irwin", focus: "Thriving Economy" },
+          { name: "Alex Otanez", focus: "Product/Innovation" },
+        ], targetCount: "15-20", description: "Evaluate solutions based on rubric criteria. Score submissions, provide feedback, participate in deliberations.", whyItMatters: "Domain experts ensure winning solutions actually address real challenges and are technically sound.", commitment: "Sunday judging (4-6 hrs)" },
         { title: "Help Desk Lead", assignee: "David Cariello", description: "Manage general help desk, troubleshoot issues, triage questions to right resources, track common problems.", whyItMatters: "When participants hit friction, help desk is first response. Fast resolution keeps teams productive.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
       ]
     },
@@ -197,8 +200,7 @@ const AdminDashboard = () => {
       whyItMatters: "Entrepreneurial Ecosystems ensures teams don't just build code — they build solutions with good UX, compelling stories, and viable paths to implementation.",
       subRoles: [
         { title: "Design Lounge Lead", assignee: "Alyssa Paulette", description: "Staff Design Lounge with VCU Brandcenter mentors. Provide UX/UI guidance, visual design feedback, accessibility advice.", whyItMatters: "Great civic tech needs great design. Design mentors elevate solutions from 'functional' to 'delightful and usable'.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
-        { title: "Design Mentor", assignee: "Madison Johnson", description: "Provide design guidance to teams. Review wireframes, advise on UX, help with pitch deck visuals.", whyItMatters: "Direct design support helps teams create polished, user-centered solutions.", commitment: "2-4 hr shifts during event" },
-        { title: "Design Mentor", assignee: "Larry Thacker", description: "Provide design guidance to teams. Review wireframes, advise on UX, help with pitch deck visuals.", whyItMatters: "Direct design support helps teams create polished, user-centered solutions.", commitment: "2-4 hr shifts during event" },
+        { title: "Design Mentor", assignee: null, volunteers: ["Madison Johnson", "Larry Thacker"], targetCount: "6-8", description: "Provide design guidance to teams. Review wireframes, advise on UX, help with pitch deck visuals.", whyItMatters: "Direct design support helps teams create polished, user-centered solutions.", commitment: "2-4 hr shifts during event" },
         { title: "Pitch Coaching Lead", assignee: "April Palmer", description: "Run pitch practice sessions. Help teams structure their story, coach delivery, prepare for judge Q&A.", whyItMatters: "A great solution with a bad pitch loses. Pitch coaching ensures the best ideas get recognized.", commitment: "Saturday evening + Sunday" },
         { title: "Product Advisor", assignee: "Alex Otanez", description: "Advise teams on product strategy, feature prioritization, and building for real users.", whyItMatters: "Product thinking ensures solutions are scoped appropriately and address genuine user needs.", commitment: "On-call during event" },
         { title: "Business Mentor", assignee: "Adam Woodward", description: "Help teams think through business models, sustainability, and implementation pathways.", whyItMatters: "Civic solutions need viable paths forward. Business mentors help teams think beyond the demo.", commitment: "2-4 hr shifts during event" },
@@ -603,51 +605,100 @@ const AdminDashboard = () => {
                         {/* Sub-roles */}
                         <div className="p-4">
                           <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">
-                            Sub-Roles ({leader.subRoles.filter(r => r.assignee).length} of {leader.subRoles.length} filled)
+                            Sub-Roles
                           </p>
                           <div className="space-y-2">
-                            {leader.subRoles.map((subRole, subIdx) => (
-                              <Collapsible key={subIdx}>
-                                <CollapsibleTrigger className="flex items-center justify-between w-full py-2 px-3 rounded bg-muted/50 hover:bg-muted transition-colors text-left">
-                                  <div className="flex items-center gap-3">
-                                    <div className={`w-2 h-2 rounded-full ${subRole.assignee ? 'bg-green-500' : 'bg-orange-500'}`} />
-                                    <span className="text-sm font-medium text-foreground">{subRole.title}</span>
-                                  </div>
-                                  <div className="flex items-center gap-2">
-                                    {subRole.assignee ? (
-                                      <span className="text-sm font-medium text-accent">
-                                        {subRole.assignee}
-                                      </span>
-                                    ) : (
-                                      <span className="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded">
-                                        Open
-                                      </span>
-                                    )}
-                                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
-                                  </div>
-                                </CollapsibleTrigger>
-                                <CollapsibleContent className="mt-2 ml-5 p-3 bg-card border border-border rounded-lg">
-                                  <div className="space-y-3">
-                                    <div>
-                                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
-                                        What This Role Does
-                                      </p>
-                                      <p className="text-sm text-foreground">{subRole.description}</p>
+                            {leader.subRoles.map((subRole: any, subIdx: number) => {
+                              // Check if this is a pool role (has volunteers array) or single role
+                              const isPoolRole = subRole.volunteers && Array.isArray(subRole.volunteers);
+                              const volunteerCount = isPoolRole ? subRole.volunteers.length : 0;
+                              const isFilled = isPoolRole ? volunteerCount > 0 : !!subRole.assignee;
+                              
+                              return (
+                                <Collapsible key={subIdx}>
+                                  <CollapsibleTrigger className="flex items-center justify-between w-full py-2 px-3 rounded bg-muted/50 hover:bg-muted transition-colors text-left">
+                                    <div className="flex items-center gap-3">
+                                      <div className={`w-2 h-2 rounded-full ${isFilled ? 'bg-green-500' : 'bg-orange-500'}`} />
+                                      <span className="text-sm font-medium text-foreground">{subRole.title}</span>
+                                      {isPoolRole && subRole.targetCount && (
+                                        <span className="text-xs text-muted-foreground">
+                                          (need {subRole.targetCount})
+                                        </span>
+                                      )}
                                     </div>
-                                    <div>
-                                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
-                                        Why It Matters
-                                      </p>
-                                      <p className="text-sm text-muted-foreground italic">{subRole.whyItMatters}</p>
+                                    <div className="flex items-center gap-2">
+                                      {isPoolRole ? (
+                                        <span className={`text-xs px-2 py-0.5 rounded ${
+                                          volunteerCount > 0 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'
+                                        }`}>
+                                          {volunteerCount} volunteer{volunteerCount !== 1 ? 's' : ''}
+                                        </span>
+                                      ) : subRole.assignee ? (
+                                        <span className="text-sm font-medium text-accent">
+                                          {subRole.assignee}
+                                        </span>
+                                      ) : (
+                                        <span className="text-xs bg-orange-100 text-orange-800 px-2 py-0.5 rounded">
+                                          Open
+                                        </span>
+                                      )}
+                                      <ChevronDown className="w-4 h-4 text-muted-foreground" />
                                     </div>
-                                    <div className="flex items-center gap-2 pt-2 border-t border-border">
-                                      <Clock className="w-4 h-4 text-muted-foreground" />
-                                      <span className="text-xs text-muted-foreground">{subRole.commitment}</span>
+                                  </CollapsibleTrigger>
+                                  <CollapsibleContent className="mt-2 ml-5 p-3 bg-card border border-border rounded-lg">
+                                    <div className="space-y-3">
+                                      <div>
+                                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                                          What This Role Does
+                                        </p>
+                                        <p className="text-sm text-foreground">{subRole.description}</p>
+                                      </div>
+                                      <div>
+                                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                                          Why It Matters
+                                        </p>
+                                        <p className="text-sm text-muted-foreground italic">{subRole.whyItMatters}</p>
+                                      </div>
+                                      
+                                      {/* Show volunteers list for pool roles */}
+                                      {isPoolRole && volunteerCount > 0 && (
+                                        <div>
+                                          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">
+                                            Volunteers ({volunteerCount})
+                                          </p>
+                                          <div className="space-y-1">
+                                            {subRole.volunteers.map((vol: any, vIdx: number) => (
+                                              <div key={vIdx} className="flex items-center justify-between py-1.5 px-2 bg-muted/50 rounded text-sm">
+                                                {typeof vol === 'string' ? (
+                                                  <span className="text-foreground">{vol}</span>
+                                                ) : (
+                                                  <>
+                                                    <span className="text-foreground">{vol.name}</span>
+                                                    {vol.focus && (
+                                                      <span className="text-xs text-accent">{vol.focus}</span>
+                                                    )}
+                                                  </>
+                                                )}
+                                              </div>
+                                            ))}
+                                          </div>
+                                          {subRole.targetCount && (
+                                            <p className="text-xs text-muted-foreground mt-2">
+                                              Still recruiting: need {subRole.targetCount} total
+                                            </p>
+                                          )}
+                                        </div>
+                                      )}
+                                      
+                                      <div className="flex items-center gap-2 pt-2 border-t border-border">
+                                        <Clock className="w-4 h-4 text-muted-foreground" />
+                                        <span className="text-xs text-muted-foreground">{subRole.commitment}</span>
+                                      </div>
                                     </div>
-                                  </div>
-                                </CollapsibleContent>
-                              </Collapsible>
-                            ))}
+                                  </CollapsibleContent>
+                                </Collapsible>
+                              );
+                            })}
                           </div>
                         </div>
                       </CollapsibleContent>
