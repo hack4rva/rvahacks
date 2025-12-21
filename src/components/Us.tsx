@@ -15,24 +15,17 @@ import willMelton from "@/assets/will-melton.png";
 const coreTeam = [
   { 
     name: "Ford Prior", 
-    role: "Co-Organizer", 
+    role: "Event Director", 
     image: fordPrior, 
     linkedin: "https://www.linkedin.com/in/ford-prior", 
     bio: "Ford will oversee tech infrastructure, platform administration, and competition integrity. He'll recruit leadership for: Platform Admin, Technical Mentor Coordinator, Judge Coordinator, and Help Desk Lead." 
   },
   { 
     name: "Crystal Harvey", 
-    role: "Co-Organizer", 
+    role: "Venue & Operations", 
     image: crystalHarvey, 
     linkedin: undefined, 
     bio: "Crystal will manage venue operations and logistics at the Science Museum. She'll recruit leadership for: Friday Operations Lead, Sunday Operations Lead, Registration Manager, and AV/Catering Coordinator." 
-  },
-  { 
-    name: "Ash Harris", 
-    role: "Onsite Ops", 
-    image: ashHarris, 
-    linkedin: undefined, 
-    bio: "Ash serves in an advisory capacity for onsite operations, providing guidance and expertise as needed." 
   },
   { 
     name: "Michael Kolbe", 
@@ -75,6 +68,7 @@ const advisoryTeam = [
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined, bio: "" },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined, bio: "" },
   { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined, bio: "" },
+  { name: "Ash Harris", role: "Onsite Ops", image: ashHarris, linkedin: undefined, bio: "Ash serves in an advisory capacity for onsite operations, providing guidance and expertise as needed." },
 ];
 
 interface TeamMember {
