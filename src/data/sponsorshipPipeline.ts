@@ -815,9 +815,21 @@ export interface PillarStakeholder {
   nonprofitRep?: string;
 }
 
-// Map pillar IDs to their assigned breakout owners
+// Map pillar IDs to their assigned stakeholders
 const breakoutOwnerAssignments: Record<number, string> = {
-  4: "Gray Crenshaw", // Thriving Economy
+  2: "Gray Crenshaw", // Thriving Neighborhoods (Housing)
+};
+
+const cityHallOwnerAssignments: Record<number, string> = {
+  2: "Michael Kolbe", // Thriving Neighborhoods (Housing)
+};
+
+const corporateRepAssignments: Record<number, string> = {
+  2: "Laura Lafayette (Richmond Association of REALTORS®)", // Thriving Neighborhoods (Housing)
+};
+
+const nonprofitRepAssignments: Record<number, string> = {
+  2: "Whitney Brown (Maggie Walker Community Land Trust)", // Thriving Neighborhoods (Housing)
 };
 
 export const pillarStakeholders: PillarStakeholder[] = pillarRecruitment.map((pillar) => ({
@@ -825,9 +837,9 @@ export const pillarStakeholders: PillarStakeholder[] = pillarRecruitment.map((pi
   name: pillar.name,
   focus: pillar.focus,
   breakoutOwner: breakoutOwnerAssignments[pillar.id],
-  cityHallOwner: undefined,
-  corporateRep: undefined,
-  nonprofitRep: undefined,
+  cityHallOwner: cityHallOwnerAssignments[pillar.id],
+  corporateRep: corporateRepAssignments[pillar.id],
+  nonprofitRep: nonprofitRepAssignments[pillar.id],
 }));
 
 // =============================================================================
