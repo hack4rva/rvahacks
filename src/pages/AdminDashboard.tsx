@@ -15,7 +15,7 @@ import { Plus, Users, ChevronDown, Handshake } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { KanbanBoard, Task, ColumnId } from "@/components/admin";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { pillarRecruitment, warmConnections, crossPillarFoundations, sponsorshipStats, implementationTimeline } from "@/data/sponsorshipPipeline";
+import { pillarRecruitment, warmConnections, crossPillarFoundations, sponsorshipStats, implementationTimeline, pillarStakeholders } from "@/data/sponsorshipPipeline";
 
 // Using Task type from KanbanBoard for documents
 

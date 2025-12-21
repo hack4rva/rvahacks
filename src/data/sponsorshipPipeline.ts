@@ -791,6 +791,30 @@ export const implementationTimeline = {
 };
 
 // =============================================================================
+// PILLAR STAKEHOLDERS (for Admin Dashboard tracking)
+// =============================================================================
+
+export interface PillarStakeholder {
+  id: number;
+  name: string;
+  focus: string;
+  breakoutOwner?: string;
+  cityHallOwner?: string;
+  corporateRep?: string;
+  nonprofitRep?: string;
+}
+
+export const pillarStakeholders: PillarStakeholder[] = pillarRecruitment.map((pillar) => ({
+  id: pillar.id,
+  name: pillar.name,
+  focus: pillar.focus,
+  breakoutOwner: undefined,
+  cityHallOwner: undefined,
+  corporateRep: undefined,
+  nonprofitRep: undefined,
+}));
+
+// =============================================================================
 // SUMMARY STATS
 // =============================================================================
 
