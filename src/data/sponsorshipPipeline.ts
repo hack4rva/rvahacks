@@ -815,11 +815,16 @@ export interface PillarStakeholder {
   nonprofitRep?: string;
 }
 
+// Map pillar IDs to their assigned breakout owners
+const breakoutOwnerAssignments: Record<number, string> = {
+  4: "Gray Crenshaw", // Thriving Economy
+};
+
 export const pillarStakeholders: PillarStakeholder[] = pillarRecruitment.map((pillar) => ({
   id: pillar.id,
   name: pillar.name,
   focus: pillar.focus,
-  breakoutOwner: undefined,
+  breakoutOwner: breakoutOwnerAssignments[pillar.id],
   cityHallOwner: undefined,
   corporateRep: undefined,
   nonprofitRep: undefined,
