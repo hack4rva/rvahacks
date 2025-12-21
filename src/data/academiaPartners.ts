@@ -186,6 +186,17 @@ export const specialtySchools: SpecialtySchool[] = [
     alignment: "Premier partner for hardware and engineering-focused hackathon projects.",
     notes: "Located at L.C. Bird HS - transportation barrier. Dr. Hoover is key gatekeeper.",
     status: 'not-contacted'
+  },
+  {
+    name: "Wilder School",
+    type: "magnet",
+    contact: { name: "Administration", title: "TBD" },
+    compatibility: "high",
+    march27Status: "In Session",
+    alignment: "Public policy and civic engagement focus aligns with civic tech hackathon themes.",
+    notes: "VCU's L. Douglas Wilder School for Government and Public Affairs - strong civic engagement pipeline.",
+    highlight: "HIGHEST PRIORITY - Civic engagement and public policy alignment",
+    status: 'not-contacted'
   }
 ];
 
