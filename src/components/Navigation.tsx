@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Shield, LogOut } from "lucide-react";
+import { Menu, X, Shield, LogOut, Home, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,8 +14,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { useNavigate, Link } from "react-router-dom";
 
 const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Participate", href: "/participate" },
   { label: "Partner", href: "/partners" },
 ];
@@ -73,14 +71,34 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
               </Link>
             ))}
             
-            {/* Primary CTA */}
-            <Button
-              onClick={onCTAClick}
-              className="border-white/30 bg-white/10 hover:bg-white/20 text-white"
-              aria-label="Sign up to stay updated"
-            >
-              Stay Updated
-            </Button>
+            {/* Icon Nav Items + CTA */}
+            <div className="flex items-center space-x-2">
+              <Link
+                to="/"
+                onClick={scrollToTop}
+                className="p-2 transition-smooth focus:outline-2 focus:outline-accent text-white/80 hover:text-white"
+                aria-label="Navigate to Home"
+              >
+                <Home className="w-5 h-5" />
+              </Link>
+              <Link
+                to="/about"
+                onClick={scrollToTop}
+                className="p-2 transition-smooth focus:outline-2 focus:outline-accent text-white/80 hover:text-white"
+                aria-label="Navigate to About"
+              >
+                <HelpCircle className="w-5 h-5" />
+              </Link>
+              
+              {/* Primary CTA */}
+              <Button
+                onClick={onCTAClick}
+                className="border-white/30 bg-white/10 hover:bg-white/20 text-white ml-2"
+                aria-label="Sign up to stay updated"
+              >
+                Stay Updated
+              </Button>
+            </div>
             
             {user ? (
               <DropdownMenu>
@@ -144,6 +162,30 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-border" role="navigation" aria-label="Mobile navigation">
           <div className="container mx-auto px-4 py-4 space-y-4">
+            <Link
+              to="/"
+              className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-smooth font-medium py-2 focus:outline-2 focus:outline-accent"
+              onClick={() => {
+                scrollToTop();
+                setIsMobileMenuOpen(false);
+              }}
+              aria-label="Navigate to Home"
+            >
+              <Home className="w-4 h-4" />
+              Home
+            </Link>
+            <Link
+              to="/about"
+              className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-smooth font-medium py-2 focus:outline-2 focus:outline-accent"
+              onClick={() => {
+                scrollToTop();
+                setIsMobileMenuOpen(false);
+              }}
+              aria-label="Navigate to About"
+            >
+              <HelpCircle className="w-4 h-4" />
+              About
+            </Link>
             {navItems.map((item) => (
               <Link
                 key={item.label}
