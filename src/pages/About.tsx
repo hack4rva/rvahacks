@@ -15,7 +15,6 @@ import {
   MissionTabContent
 } from "@/components/content";
 import { Us } from "@/components/Us";
-import { OrganizationalRoles } from "@/components/OrganizationalRoles";
 import { Award, Heart, Rocket, CheckCircle2, AlertTriangle, ArrowRight, Users } from "lucide-react";
 
 const tabs = [
@@ -136,11 +135,6 @@ const About = () => {
                 {/* Team Content */}
                 <Us />
                 
-                {/* Organizational Roles */}
-                <div className="mt-12">
-                  <OrganizationalRoles />
-                </div>
-
                 {/* Join Us CTA Banner - Bottom */}
                 <div className="mt-12 bg-gradient-to-r from-accent/20 via-primary/10 to-accent/20 rounded-xl p-6 border border-accent/30">
                   <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
