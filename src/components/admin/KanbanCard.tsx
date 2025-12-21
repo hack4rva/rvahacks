@@ -56,31 +56,31 @@ export function KanbanCard({ task, onEdit, onDelete }: KanbanCardProps) {
       ref={setNodeRef}
       style={style}
       className={cn(
-        "p-4 mb-2 cursor-default bg-card border shadow-sm",
+        "p-3 mb-2 cursor-default bg-card border shadow-sm",
         "hover:shadow-md transition-shadow",
         isDragging && "opacity-50 shadow-lg rotate-2"
       )}
     >
-      <div className="flex items-start gap-3">
+      <div className="flex items-start gap-2">
         {/* Drag Handle */}
         <button
           {...attributes}
           {...listeners}
           className="mt-0.5 p-1 -ml-1 cursor-grab active:cursor-grabbing text-muted-foreground hover:text-foreground rounded hover:bg-muted"
         >
-          <GripVertical className="w-5 h-5" />
+          <GripVertical className="w-4 h-4" />
         </button>
 
         <div className="flex-1 min-w-0">
           {/* Title */}
-          <p className="font-medium text-base truncate">{task.title}</p>
+          <p className="font-medium text-sm truncate">{task.title}</p>
 
           {/* Meta row */}
-          <div className="flex items-center gap-2 mt-2 flex-wrap">
+          <div className="flex items-center gap-1.5 mt-1.5 flex-wrap">
             {/* Priority badge */}
             <span
               className={cn(
-                "inline-flex items-center px-2 py-0.5 rounded text-sm font-medium",
+                "inline-flex items-center px-1.5 py-0.5 rounded text-xs font-medium",
                 priorityColors[task.priority]
               )}
             >
@@ -88,15 +88,15 @@ export function KanbanCard({ task, onEdit, onDelete }: KanbanCardProps) {
             </span>
 
             {/* Category */}
-            <span className="text-sm text-muted-foreground capitalize">
+            <span className="text-xs text-muted-foreground capitalize">
               {task.category.replace("-", " ")}
             </span>
           </div>
 
           {/* Assignee and Due Date */}
-          <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2 mt-1.5 text-xs text-muted-foreground">
             {task.assignee && (
-              <span className="truncate max-w-[140px]">{task.assignee}</span>
+              <span className="truncate max-w-[100px]">{task.assignee}</span>
             )}
             {task.due_date && (
               <span
@@ -119,20 +119,20 @@ export function KanbanCard({ task, onEdit, onDelete }: KanbanCardProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="h-7 w-7"
+            className="h-6 w-6"
             onClick={() => onEdit(task)}
             title="Edit"
           >
-            <Edit className="w-4 h-4" />
+            <Edit className="w-3 h-3" />
           </Button>
           <Button
             variant="ghost"
             size="icon"
-            className="h-7 w-7 text-muted-foreground hover:text-destructive"
+            className="h-6 w-6 text-muted-foreground hover:text-destructive"
             onClick={() => onDelete(task.id)}
             title="Delete"
           >
-            <Trash2 className="w-4 h-4" />
+            <Trash2 className="w-3 h-3" />
           </Button>
         </div>
       </div>
