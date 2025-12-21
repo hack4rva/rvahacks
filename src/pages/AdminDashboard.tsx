@@ -407,10 +407,13 @@ const AdminDashboard = () => {
         </div>
 
         <Tabs defaultValue="documents" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-8">
+          <TabsList className="grid w-full grid-cols-6 mb-8">
             <TabsTrigger value="documents">Tasks</TabsTrigger>
-            <TabsTrigger value="team">Team Delegation</TabsTrigger>
-            <TabsTrigger value="signups">Email Signups</TabsTrigger>
+            <TabsTrigger value="team">Team</TabsTrigger>
+            <TabsTrigger value="pillars">Pillars</TabsTrigger>
+            <TabsTrigger value="sponsors">Sponsors</TabsTrigger>
+            <TabsTrigger value="connectors">Connectors</TabsTrigger>
+            <TabsTrigger value="signups">Signups</TabsTrigger>
           </TabsList>
 
           <TabsContent value="documents">
@@ -588,7 +591,7 @@ const AdminDashboard = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Users className="w-5 h-5" />
-                  Team Delegation
+                  Team Structure
                 </CardTitle>
                 <CardDescription>
                   Core leadership and their recruited leadership volunteers
@@ -639,97 +642,6 @@ const AdminDashboard = () => {
                   ))}
                 </div>
 
-                {/* Pillar Stakeholders */}
-                <div className="mt-8">
-                  <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <span className="text-lg">🏛️</span> Pillar Stakeholders (7 Pillars × 4 Roles)
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Each pillar needs: Breakout Owner + City Hall Owner + Corporate Rep + Nonprofit Rep
-                  </p>
-                  
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-sm">
-                      <thead>
-                        <tr className="border-b border-border">
-                          <th className="text-left py-2 px-2 font-semibold">Pillar</th>
-                          <th className="text-left py-2 px-2 font-semibold">Breakout Owner</th>
-                          <th className="text-left py-2 px-2 font-semibold">City Hall Owner</th>
-                          <th className="text-left py-2 px-2 font-semibold">Corporate Rep</th>
-                          <th className="text-left py-2 px-2 font-semibold">Nonprofit Rep</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {pillarStakeholders.map((pillar) => (
-                          <tr key={pillar.id} className="border-b border-border/50">
-                            <td className="py-3 px-2">
-                              <span className="font-medium">{pillar.id}. {pillar.name}</span>
-                              <p className="text-xs text-muted-foreground">{pillar.focus}</p>
-                            </td>
-                            <td className="py-3 px-2">
-                              {pillar.breakoutOwner ? (
-                                <span className="text-sm font-medium text-accent">{pillar.breakoutOwner}</span>
-                              ) : (
-                                <span className="text-xs text-muted-foreground italic">Unassigned</span>
-                              )}
-                            </td>
-                            <td className="py-3 px-2">
-                              {pillar.cityHallOwner ? (
-                                <span className="text-sm font-medium text-accent">{pillar.cityHallOwner}</span>
-                              ) : (
-                                <span className="text-xs text-muted-foreground italic">Unassigned</span>
-                              )}
-                            </td>
-                            <td className="py-3 px-2">
-                              {pillar.corporateRep ? (
-                                <span className="text-sm font-medium text-accent">{pillar.corporateRep}</span>
-                              ) : (
-                                <span className="text-xs text-muted-foreground italic">Unassigned</span>
-                              )}
-                            </td>
-                            <td className="py-3 px-2">
-                              {pillar.nonprofitRep ? (
-                                <span className="text-sm font-medium text-accent">{pillar.nonprofitRep}</span>
-                              ) : (
-                                <span className="text-xs text-muted-foreground italic">Unassigned</span>
-                              )}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-
-                  <div className="mt-4 p-3 bg-muted/30 rounded-lg">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center text-sm">
-                      <div>
-                        <p className="text-lg font-bold text-accent">
-                          {pillarStakeholders.filter(p => p.breakoutOwner).length}/7
-                        </p>
-                        <p className="text-xs text-muted-foreground">Breakout Owners</p>
-                      </div>
-                      <div>
-                        <p className="text-lg font-bold text-accent">
-                          {pillarStakeholders.filter(p => p.cityHallOwner).length}/7
-                        </p>
-                        <p className="text-xs text-muted-foreground">City Hall Owners</p>
-                      </div>
-                      <div>
-                        <p className="text-lg font-bold text-accent">
-                          {pillarStakeholders.filter(p => p.corporateRep).length}/7
-                        </p>
-                        <p className="text-xs text-muted-foreground">Corporate Reps</p>
-                      </div>
-                      <div>
-                        <p className="text-lg font-bold text-accent">
-                          {pillarStakeholders.filter(p => p.nonprofitRep).length}/7
-                        </p>
-                        <p className="text-xs text-muted-foreground">Nonprofit Reps</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Summary Stats */}
                 <div className="mt-8 p-4 bg-muted/30 rounded-lg">
                   <h4 className="font-semibold mb-3">Team Summary</h4>
@@ -758,11 +670,143 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
 
-                {/* Potential Sponsors */}
-                <div className="mt-8">
+          <TabsContent value="pillars">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <span className="text-lg">🏛️</span>
+                  Pillar Stakeholders
+                </CardTitle>
+                <CardDescription>
+                  7 Pillars × 4 Roles — Each pillar needs: Breakout Owner + City Hall Owner + Corporate Rep + Nonprofit Rep
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr className="border-b border-border">
+                        <th className="text-left py-2 px-2 font-semibold">Pillar</th>
+                        <th className="text-left py-2 px-2 font-semibold">Breakout Owner</th>
+                        <th className="text-left py-2 px-2 font-semibold">City Hall Owner</th>
+                        <th className="text-left py-2 px-2 font-semibold">Corporate Rep</th>
+                        <th className="text-left py-2 px-2 font-semibold">Nonprofit Rep</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {pillarStakeholders.map((pillar) => (
+                        <tr key={pillar.id} className="border-b border-border/50">
+                          <td className="py-3 px-2">
+                            <span className="font-medium">{pillar.id}. {pillar.name}</span>
+                            <p className="text-xs text-muted-foreground">{pillar.focus}</p>
+                          </td>
+                          <td className="py-3 px-2">
+                            {pillar.breakoutOwner ? (
+                              <span className="text-sm font-medium text-accent">{pillar.breakoutOwner}</span>
+                            ) : (
+                              <span className="text-xs text-muted-foreground italic">Unassigned</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-2">
+                            {pillar.cityHallOwner ? (
+                              <span className="text-sm font-medium text-accent">{pillar.cityHallOwner}</span>
+                            ) : (
+                              <span className="text-xs text-muted-foreground italic">Unassigned</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-2">
+                            {pillar.corporateRep ? (
+                              <span className="text-sm font-medium text-accent">{pillar.corporateRep}</span>
+                            ) : (
+                              <span className="text-xs text-muted-foreground italic">Unassigned</span>
+                            )}
+                          </td>
+                          <td className="py-3 px-2">
+                            {pillar.nonprofitRep ? (
+                              <span className="text-sm font-medium text-accent">{pillar.nonprofitRep}</span>
+                            ) : (
+                              <span className="text-xs text-muted-foreground italic">Unassigned</span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+                  <h4 className="font-semibold mb-3">Pillar Coverage Summary</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div>
+                      <p className="text-2xl font-bold text-accent">
+                        {pillarStakeholders.filter(p => p.breakoutOwner).length}/7
+                      </p>
+                      <p className="text-xs text-muted-foreground">Breakout Owners</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-accent">
+                        {pillarStakeholders.filter(p => p.cityHallOwner).length}/7
+                      </p>
+                      <p className="text-xs text-muted-foreground">City Hall Owners</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-accent">
+                        {pillarStakeholders.filter(p => p.corporateRep).length}/7
+                      </p>
+                      <p className="text-xs text-muted-foreground">Corporate Reps</p>
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold text-accent">
+                        {pillarStakeholders.filter(p => p.nonprofitRep).length}/7
+                      </p>
+                      <p className="text-xs text-muted-foreground">Nonprofit Reps</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="sponsors">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Handshake className="w-5 h-5" />
+                  Sponsors & Partners
+                </CardTitle>
+                <CardDescription>
+                  Sponsorship pipeline, pillar recruitment, and partnership opportunities
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                {/* Summary Stats */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-foreground">{sponsorshipStats.totalCorporateTargets}</p>
+                    <p className="text-xs text-muted-foreground">Corporate Targets</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-foreground">{sponsorshipStats.totalNonprofitPartners}</p>
+                    <p className="text-xs text-muted-foreground">Nonprofit Partners</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-accent">{sponsorshipStats.anchorTierTargets}</p>
+                    <p className="text-xs text-muted-foreground">Anchor Sponsors ($25k+)</p>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-orange-500">{sponsorshipStats.totalWarmConnections}</p>
+                    <p className="text-xs text-muted-foreground">Warm Connections</p>
+                  </div>
+                </div>
+
+                {/* Active Pipeline */}
+                <div className="mb-8">
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <span className="text-lg">💰</span> Sponsorship Pipeline
+                    <span className="text-lg">💰</span> Active Pipeline
                   </h4>
                   <div className="space-y-4">
                     <div className="border border-border rounded-lg p-4 bg-card">
@@ -837,34 +881,12 @@ const AdminDashboard = () => {
                     </div>
                   </div>
                 </div>
-
-                {/* Pillar Recruitment Tracker - Data from knowledge-base/02-team-governance/assignments.md */}
-                <div className="mt-8">
+                
+                {/* Pillar-by-Pillar Breakdown */}
+                <div className="mb-8">
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <Handshake className="w-5 h-5" /> Pillar Sponsor & Partner Recruitment
+                    <span className="text-lg">🎯</span> Pillar Sponsor & Partner Targets
                   </h4>
-                  
-                  {/* Summary Stats */}
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-foreground">{sponsorshipStats.totalCorporateTargets}</p>
-                      <p className="text-xs text-muted-foreground">Corporate Targets</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-foreground">{sponsorshipStats.totalNonprofitPartners}</p>
-                      <p className="text-xs text-muted-foreground">Nonprofit Partners</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-accent">{sponsorshipStats.anchorTierTargets}</p>
-                      <p className="text-xs text-muted-foreground">Anchor Sponsors ($25k+)</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-orange-500">{sponsorshipStats.totalWarmConnections}</p>
-                      <p className="text-xs text-muted-foreground">Warm Connections</p>
-                    </div>
-                  </div>
-                  
-                  {/* Pillar-by-Pillar Breakdown */}
                   <div className="space-y-4">
                     {pillarRecruitment.map((pillar) => (
                       <Collapsible key={pillar.id} className="border border-border rounded-lg">
@@ -996,7 +1018,7 @@ const AdminDashboard = () => {
                 </div>
                 
                 {/* Implementation Timeline */}
-                <div className="mt-8">
+                <div className="mb-8">
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
                     <span className="text-lg">📅</span> Implementation Timeline
                   </h4>
@@ -1047,7 +1069,7 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* Warm Connections - Key Influencers */}
-                <div className="mt-8">
+                <div className="mb-8">
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
                     <span className="text-lg">🔗</span> Warm Connections (Key Influencers)
                   </h4>
@@ -1075,7 +1097,7 @@ const AdminDashboard = () => {
                 </div>
 
                 {/* Cross-Pillar Foundations */}
-                <div className="mt-8">
+                <div>
                   <h4 className="font-semibold mb-4 flex items-center gap-2">
                     <span className="text-lg">🏛️</span> Cross-Pillar Foundations
                   </h4>
@@ -1108,23 +1130,29 @@ const AdminDashboard = () => {
                     ))}
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
 
-                {/* Connectors */}
-                <div className="mt-8">
-                  <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <Link2 className="w-5 h-5" /> Connectors
-                  </h4>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Key people who bridge networks and can make introductions to sponsors, partners, and community stakeholders.
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                    {connectors.map((connector, idx) => (
-                      <div key={idx} className="border border-border rounded-lg p-4 bg-card hover:bg-muted/30 transition-colors">
-                        <h5 className="font-bold text-foreground">{connector.name}</h5>
-                        <p className="text-xs text-muted-foreground mt-1">{connector.description}</p>
-                      </div>
-                    ))}
-                  </div>
+          <TabsContent value="connectors">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Link2 className="w-5 h-5" />
+                  Connectors
+                </CardTitle>
+                <CardDescription>
+                  Key people who bridge networks and can make introductions to sponsors, partners, and community stakeholders
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                  {connectors.map((connector, idx) => (
+                    <div key={idx} className="border border-border rounded-lg p-4 bg-card hover:bg-muted/30 transition-colors">
+                      <h5 className="font-bold text-foreground">{connector.name}</h5>
+                      <p className="text-xs text-muted-foreground mt-1">{connector.description}</p>
+                    </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
