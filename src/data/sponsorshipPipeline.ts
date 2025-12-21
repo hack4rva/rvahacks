@@ -683,6 +683,17 @@ export const pillarRecruitment: PillarRecruitment[] = [
           { id: 66, label: "Shakia Gullette Warren", url: "https://blackmuseums.org/shakia-gullette-warren/" },
         ],
       },
+      {
+        organization: "Hope Church RVA",
+        role: "Storytelling Partner",
+        contact: "TBD",
+        title: "Church Leadership",
+        alignment: "Community storytelling and personal narratives.",
+        extendedNotes: "Hope Church RVA is a vibrant faith community dedicated to offering experiences, relationships, and places where people can find life and purpose. Their \"Hope Stories\" initiative shares personal narratives to inspire and connect the community, making them a natural fit for the City Stories pillar. Their emphasis on storytelling as a means of building community and fostering connection aligns with the Mayor's vision of using narrative to bridge divides and tell Richmond's full story. A partnership could focus on collaborative storytelling workshops, oral history collection from diverse faith communities, or digital platforms that amplify underrepresented voices in Richmond's civic narrative.",
+        sources: [
+          { id: 71, label: "Hope Church RVA", url: "https://www.hopechurchrva.com/" },
+        ],
+      },
     ],
   },
 ];
@@ -826,5 +837,5 @@ export const sponsorshipStats = {
   anchorTierTargets: pillarRecruitment
     .flatMap((p) => p.corporateTargets)
     .filter((t) => t.tier.includes("50k") || t.tier.includes("Anchor") || t.tier.includes("Title")).length,
-  totalSources: 70,
+  totalSources: 71,
 };
