@@ -10,14 +10,14 @@ This is the single source of truth for all roles. Other role documents in this f
 
 | Category | Total | Filled | Open | Priority |
 |----------|-------|--------|------|----------|
-| **Core Team** | 7 | 6 | 1 | 🔴 Critical |
+| **Core Team** | 8 | 7 | 1 | 🔴 Critical |
 | **Leadership Crew** | 20 | 0 | 20 | 🟡 High |
 | **Pillar Stakeholders** | 21 | 0 | 21 | 🟡 High |
 | **Volunteers** | 150-200 | 0 | 150-200 | 🟢 Later |
 
 ---
 
-# TIER 1: Core Team (7 roles)
+# TIER 1: Core Team (8 roles)
 
 These are the executive leadership roles. Each owns a major functional area and recruits their own sub-team.
 
@@ -28,8 +28,9 @@ These are the executive leadership roles. Each owns a major functional area and 
 | 3 | **City Liaison** | Michael Kolbe | ✅ | SME Recruiter, Data Ambassador, Friday Programming |
 | 4 | **Marketing & Comms** | Sinclair Jenks | ✅ | Social Media Manager, Content Creator |
 | 5 | **Entrepreneurial Ecosystems** | Heather Lyne | ✅ | Art Lounge Lead, Hacker Space Lead, Hustle Corner Lead |
-| 6 | **Sponsorships & Partnerships** | Will Melton | ✅ | Corporate Coordinator, Nonprofit Coordinator |
-| 7 | **Community & Volunteers** | **TBD** | ⬜ OPEN | Volunteer Coordinator, Site Captains, Team Formation |
+| 6 | **Partnerships** | Will Melton | ✅ | Nonprofit Partner Coordinator, Community Outreach Lead |
+| 7 | **Sponsorships** | Mike Huddleston | ✅ | Corporate Sponsor Coordinator, Sponsor Experience Lead |
+| 8 | **Community & Volunteers** | **TBD** | ⬜ OPEN | Volunteer Coordinator, Site Captains, Team Formation |
 
 ### Open Role: Community & Volunteers
 
@@ -163,24 +164,25 @@ These are recruited later (February-March) and work specific shifts during the e
                            Ford Prior
                          Event Director
                                │
-        ┌──────────┬──────────┼──────────┬──────────┬──────────┐
-        │          │          │          │          │          │
-     Crystal    Michael   Sinclair   Heather     Will       TBD
-      Venue      City     Marketing  Ecosystems  Sponsors   Community
-        │          │          │          │          │          │
-        ├─Museum   ├─Friday   ├─Social   ├─Design   ├─Corp     ├─Volunteer
-        ├─Satellite├─SME      │ Media    │ Lounge   │ Partners │ Coord
-        ├─24/7     ├─Data     │          ├─Hacker   ├─Nonprofit├─Site
-        └─Reg      │ Ambass   │          │ Space    │ Partners │ Captains
-                   │          │          ├─Business │          │
-                   │          │          └─Mentor   │          │
-                   │          │                     │          │
-              ┌────┴────┐                           │          │
-              │         │                           │          │
-           7 Pillars    │                           │          │
-           (21 people)  │                           │          │
-                        │                           │          │
-                   ─────┴───────────────────────────┴──────────┘
+        ┌──────────┬──────────┼──────────┬──────────┬──────────┬──────────┐
+        │          │          │          │          │          │          │
+     Crystal    Michael   Sinclair   Heather     Will       Mike       TBD
+      Venue      City     Marketing  Ecosystems  Partner-   Sponsor-   Community
+                                                 ships      ships
+        │          │          │          │          │          │          │
+        ├─Museum   ├─Friday   ├─Social   ├─Design   ├─Nonprofit├─Corp     ├─Volunteer
+        ├─Satellite├─SME      │ Media    │ Lounge   │ Partners │ Sponsors │ Coord
+        ├─24/7     ├─Data     │          ├─Hacker   ├─Community├─Sponsor  ├─Site
+        └─Reg      │ Ambass   │          │ Space    │ Outreach │ Exp Lead │ Captains
+                   │          │          ├─Business │          │          │
+                   │          │          └─Mentor   │          │          │
+                   │          │                     │          │          │
+              ┌────┴────┐                           │          │          │
+              │         │                           │          │          │
+           7 Pillars    │                           │          │          │
+           (21 people)  │                           │          │          │
+                        │                           │          │          │
+                   ─────┴───────────────────────────┴──────────┴──────────┘
                               Ford also owns:
                               • Platform Admin
                               • Judge Coordinator
@@ -227,4 +229,7 @@ These are recruited later (February-March) and work specific shifts during the e
 | Dec 2024 | Ford Prior: Co-Organizer → Event Director |
 | Dec 2024 | Crystal Harvey: Co-Organizer → Venue & Operations |
 | Dec 2024 | Ash Harris moved to Advisory Team |
+| Dec 2024 | Split Sponsorships & Partnerships into two separate roles |
+| Dec 2024 | Will Melton: Sponsorships & Partnerships → Partnerships (ecosystem focus) |
+| Dec 2024 | Mike Huddleston: Added as Sponsorships (corporate sales focus) |
 
