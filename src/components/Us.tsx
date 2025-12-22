@@ -70,12 +70,18 @@ const coreTeam = [
     linkedin: undefined, 
     bio: "This person will own volunteer recruitment, training, and participant experience. They'll recruit leadership for: Volunteer Coordinator, Site Captain Coordinator, and Team Formation Lead." 
   },
+  { 
+    name: "Christian Markow", 
+    role: "Innovation & Challenge Design", 
+    image: christianMarkow, 
+    linkedin: undefined, 
+    bio: "Christian will lead pillar-specific problem definition, solution framing, and innovation methodology. He'll work with city pillars to translate complex civic challenges into actionable hackathon problems." 
+  },
 ];
 
 const advisoryTeam = [
   { name: "Danny Avula", role: "Strategy", image: dannyAvula, linkedin: undefined, bio: "" },
   { name: "Ankit Mathur", role: "Vision", image: ankitMathur, linkedin: undefined, bio: "" },
-  { name: "Christian Markow", role: "Group Innovation", image: christianMarkow, linkedin: undefined, bio: "" },
   { name: "Ash Harris", role: "Onsite Ops", image: ashHarris, linkedin: undefined, bio: "Ash serves in an advisory capacity for onsite operations, providing guidance and expertise as needed." },
 ];
 
