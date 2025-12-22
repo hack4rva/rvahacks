@@ -99,6 +99,10 @@ const AdminDashboard = () => {
       description: "Technology and innovation community",
     },
     {
+      name: "Judy Crenshaw",
+      description: "Community and neighborhood connections",
+    },
+    {
       name: "Debbie Irwin",
       description: "Economic development and business community",
     },
