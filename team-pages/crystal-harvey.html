@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crystal Harvey - Venue & Operations | RVA Hacks 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #faf8f5;
+            --bg-secondary: #f0ebe3;
+            --accent: #c9a66b;
+            --accent-dark: #a88b4a;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #7a7a7a;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-primary);
+            font-family: 'Outfit', sans-serif;
+            color: var(--text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Elegant pattern background */
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a66b' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Decorative circles */
+        .deco-circle {
+            position: fixed;
+            border: 1px solid rgba(201, 166, 107, 0.2);
+            border-radius: 50%;
+            animation: expand 15s ease-in-out infinite;
+        }
+
+        .deco-circle-1 {
+            width: 800px;
+            height: 800px;
+            top: -400px;
+            left: -400px;
+        }
+
+        .deco-circle-2 {
+            width: 600px;
+            height: 600px;
+            bottom: -300px;
+            right: -300px;
+            animation-delay: -5s;
+        }
+
+        .deco-circle-3 {
+            width: 400px;
+            height: 400px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-delay: -10s;
+        }
+
+        @keyframes expand {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.1); opacity: 0.6; }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            gap: 100px;
+            max-width: 1400px;
+        }
+
+        .photo-section {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 380px;
+            height: 480px;
+        }
+
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 2px solid var(--accent);
+            z-index: -1;
+        }
+
+        .photo-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 60px;
+            height: 60px;
+            border-top: 3px solid var(--accent);
+            border-left: 3px solid var(--accent);
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(20%);
+            transition: filter 0.5s ease;
+        }
+
+        .photo:hover {
+            filter: grayscale(0%);
+        }
+
+        .content-section {
+            animation: fadeUp 1s ease-out;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .event-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-dark);
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--accent);
+            animation: fadeUp 1s ease-out 0.1s both;
+        }
+
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(64px, 8vw, 108px);
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            animation: fadeUp 1s ease-out 0.2s both;
+        }
+
+        .role {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(24px, 3vw, 36px);
+            color: var(--accent-dark);
+            margin-bottom: 48px;
+            font-style: italic;
+            animation: fadeUp 1s ease-out 0.3s both;
+        }
+
+        .bio {
+            font-size: clamp(18px, 1.6vw, 21px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 560px;
+            animation: fadeUp 1s ease-out 0.4s both;
+        }
+
+        .bio strong {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .responsibilities {
+            margin-top: 48px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            animation: fadeUp 1s ease-out 0.5s both;
+        }
+
+        .tag {
+            background: transparent;
+            border: 1px solid var(--accent);
+            padding: 12px 24px;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 40px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            animation: fadeUp 1s ease-out 0.6s both;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .event-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-muted);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .hashtag {
+            color: var(--accent-dark);
+            font-weight: 500;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="deco-circle deco-circle-1"></div>
+    <div class="deco-circle deco-circle-2"></div>
+    <div class="deco-circle deco-circle-3"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="photo-section">
+                <div class="photo-wrapper">
+                    <img src="../src/assets/crystal-harvey.png" alt="Crystal Harvey" class="photo">
+                </div>
+            </div>
+            <div class="content-section">
+                <div class="event-badge">RVA Hacks 2025 • Core Team</div>
+                <h1 class="name">Crystal<br>Harvey</h1>
+                <p class="role">Venue & Operations</p>
+                <p class="bio">
+                    Managing <strong>venue operations and logistics</strong> at the Science Museum of Virginia, ensuring a seamless hackathon experience from registration to final demos.
+                </p>
+                <div class="responsibilities">
+                    <span class="tag">Friday Ops Lead</span>
+                    <span class="tag">Sunday Ops Lead</span>
+                    <span class="tag">Registration</span>
+                    <span class="tag">AV/Catering</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="event-info">
+            <span class="event-name">RVA Hacks</span>
+            <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
+        </div>
+        <span class="hashtag">#HackForRVA</span>
+    </div>
+</body>
+</html>
+
