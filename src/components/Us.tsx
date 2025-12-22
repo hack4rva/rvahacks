@@ -50,10 +50,17 @@ const coreTeam = [
   },
   { 
     name: "Will Melton", 
-    role: "Sponsorships & Partnerships", 
+    role: "Partnerships", 
     image: willMelton, 
     linkedin: undefined, 
-    bio: "Will will manage corporate sponsor recruitment and nonprofit partnerships. He'll recruit leadership for: Corporate Sponsor Coordinator and Nonprofit Partner Coordinator." 
+    bio: "Will will cultivate ecosystem partnerships with nonprofits, community organizations, and civic groups. He'll recruit leadership for: Nonprofit Partner Coordinator and Community Outreach Lead." 
+  },
+  { 
+    name: "TBD", 
+    role: "Sponsorships", 
+    image: undefined, 
+    linkedin: undefined, 
+    bio: "This person will drive corporate sponsor acquisition and manage sponsor relationships. They'll recruit leadership for: Corporate Sponsor Coordinator and Sponsor Experience Lead." 
   },
   { 
     name: "TBD", 
