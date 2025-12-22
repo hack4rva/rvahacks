@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Markow - Innovation & Challenge Design | RVA Hacks 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0f0f23;
+            --bg-secondary: #1a1a2e;
+            --accent: #00d4aa;
+            --accent-secondary: #00b4d8;
+            --accent-tertiary: #7c3aed;
+            --text-primary: #e0e0e0;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-primary);
+            font-family: 'Manrope', sans-serif;
+            color: var(--text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Circuit board pattern */
+        .circuit-bg {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Data flow lines */
+        .data-line {
+            position: fixed;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            animation: dataFlow 3s ease-in-out infinite;
+        }
+
+        .data-line-1 { left: 20%; height: 200px; top: 10%; animation-delay: 0s; }
+        .data-line-2 { left: 40%; height: 150px; top: 30%; animation-delay: 0.5s; }
+        .data-line-3 { right: 30%; height: 180px; top: 15%; animation-delay: 1s; }
+        .data-line-4 { right: 15%; height: 120px; top: 50%; animation-delay: 1.5s; }
+
+        @keyframes dataFlow {
+            0%, 100% { opacity: 0; transform: translateY(-50px); }
+            50% { opacity: 0.6; transform: translateY(50px); }
+        }
+
+        /* Innovation nodes */
+        .node {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            animation: nodePulse 2s ease-in-out infinite;
+        }
+
+        .node::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .node-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .node-2 { top: 60%; left: 25%; animation-delay: 0.3s; }
+        .node-3 { top: 35%; right: 20%; animation-delay: 0.6s; }
+        .node-4 { bottom: 25%; right: 30%; animation-delay: 0.9s; }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        /* Gradient orb */
+        .innovation-orb {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            right: -200px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, rgba(124, 58, 237, 0.05) 50%, transparent 70%);
+            animation: orbFloat 10s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-55%) scale(1.05); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 60px 80px;
+            gap: 60px;
+        }
+
+        .content-section {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+            font-size: 12px;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: slideIn 1s ease-out 0.1s both;
+        }
+
+        .event-badge::before {
+            content: '>';
+            color: var(--accent);
+        }
+
+        .role-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 14px;
+            color: var(--accent-secondary);
+            margin-bottom: 16px;
+            animation: slideIn 1s ease-out 0.2s both;
+        }
+
+        .role-tag::before {
+            content: '// ';
+            color: var(--text-muted);
+        }
+
+        .name {
+            font-size: clamp(52px, 6vw, 80px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: slideIn 1s ease-out 0.3s both;
+        }
+
+        .name span {
+            display: block;
+        }
+
+        .name .first {
+            color: var(--text-primary);
+        }
+
+        .name .last {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .role {
+            font-family: 'Space Mono', monospace;
+            font-size: clamp(18px, 2vw, 24px);
+            color: var(--accent);
+            margin-bottom: 40px;
+            padding: 16px 24px;
+            background: rgba(0, 212, 170, 0.05);
+            border-left: 3px solid var(--accent);
+            animation: slideIn 1s ease-out 0.4s both;
+        }
+
+        .bio {
+            font-size: clamp(16px, 1.4vw, 19px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 520px;
+            animation: slideIn 1s ease-out 0.5s both;
+        }
+
+        .bio strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .focus-areas {
+            margin-top: 40px;
+            animation: slideIn 1s ease-out 0.6s both;
+        }
+
+        .focus-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .focus-item {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(0, 212, 170, 0.15);
+            padding: 16px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .focus-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.1);
+        }
+
+        .focus-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .focus-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .photo-section {
+            display: flex;
+            justify-content: center;
+            animation: slideIn 1s ease-out 0.4s both;
+        }
+
+        .photo-container {
+            position: relative;
+            width: 380px;
+            height: 460px;
+        }
+
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+            z-index: -1;
+        }
+
+        .photo-container::after {
+            content: 'INNOVATION';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            font-family: 'Space Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--accent);
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(15, 15, 35, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+
+        .overlay-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--accent);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 40px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            animation: slideIn 1s ease-out 0.7s both;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .event-name {
+            font-family: 'Space Mono', monospace;
+            font-size: 16px;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .hashtag {
+            font-family: 'Space Mono', monospace;
+            color: var(--accent);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="circuit-bg"></div>
+    <div class="data-line data-line-1"></div>
+    <div class="data-line data-line-2"></div>
+    <div class="data-line data-line-3"></div>
+    <div class="data-line data-line-4"></div>
+    <div class="node node-1"></div>
+    <div class="node node-2"></div>
+    <div class="node node-3"></div>
+    <div class="node node-4"></div>
+    <div class="innovation-orb"></div>
+
+    <div class="container">
+        <div class="content-section">
+            <div class="event-badge">RVA_Hacks_2025.core_team</div>
+            <p class="role-tag">Challenge Design Lead</p>
+            <h1 class="name">
+                <span class="first">Christian</span>
+                <span class="last">Markow</span>
+            </h1>
+            <p class="role">Innovation & Challenge Design</p>
+            <p class="bio">
+                Leading <strong>pillar-specific problem definition</strong>, solution framing, and innovation methodology. Translating complex civic challenges into actionable hackathon problems.
+            </p>
+            <div class="focus-areas">
+                <p class="focus-label">Core Focus Areas</p>
+                <div class="focus-grid">
+                    <div class="focus-item">
+                        <div class="focus-icon">🎯</div>
+                        <div class="focus-text">Problem Definition</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">💡</div>
+                        <div class="focus-text">Solution Framing</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">🚀</div>
+                        <div class="focus-text">Innovation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="photo-section">
+            <div class="photo-container">
+                <img src="../src/assets/christian-markow.png" alt="Christian Markow" class="photo">
+                <div class="photo-overlay">
+                    <span class="overlay-text">&lt;/civic_innovation&gt;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="event-info">
+            <span class="event-name">RVA_Hacks</span>
+            <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
+        </div>
+        <span class="hashtag">#HackForRVA</span>
+    </div>
+</body>
+</html>
+

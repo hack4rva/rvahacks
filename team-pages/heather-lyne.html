@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heather Lyne - Entrepreneurial Ecosystems | RVA Hacks 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400;6..12,500;6..12,600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #1a1f2e;
+            --bg-secondary: #252b3b;
+            --accent: #a78bfa;
+            --accent-light: #c4b5fd;
+            --accent-pink: #f0abfc;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-primary);
+            font-family: 'Nunito Sans', sans-serif;
+            color: var(--text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Gradient mesh background */
+        .gradient-mesh {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(at 20% 80%, rgba(167, 139, 250, 0.15) 0px, transparent 50%),
+                radial-gradient(at 80% 20%, rgba(240, 171, 252, 0.15) 0px, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(196, 181, 253, 0.08) 0px, transparent 50%);
+        }
+
+        /* Floating bubbles */
+        .bubble {
+            position: fixed;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(240, 171, 252, 0.2));
+            animation: rise 12s ease-in-out infinite;
+        }
+
+        .bubble-1 { width: 300px; height: 300px; left: -100px; bottom: -150px; animation-delay: 0s; }
+        .bubble-2 { width: 200px; height: 200px; right: 10%; top: 20%; animation-delay: -3s; }
+        .bubble-3 { width: 150px; height: 150px; left: 30%; top: -50px; animation-delay: -6s; }
+        .bubble-4 { width: 100px; height: 100px; right: 25%; bottom: 30%; animation-delay: -9s; }
+
+        @keyframes rise {
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-40px) scale(1.1); opacity: 0.8; }
+        }
+
+        /* Constellation dots */
+        .constellation {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            background: var(--accent-light);
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            align-items: center;
+            padding: 60px 80px;
+            gap: 80px;
+        }
+
+        .content-section {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(167, 139, 250, 0.15);
+            border: 1px solid rgba(167, 139, 250, 0.3);
+            padding: 12px 24px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-light);
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out 0.1s both;
+        }
+
+        .event-badge::before {
+            content: '✦';
+            font-size: 10px;
+        }
+
+        .name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(60px, 8vw, 100px);
+            font-weight: 400;
+            line-height: 1.05;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .name span {
+            display: block;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-light), var(--accent-pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .role {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(24px, 3vw, 36px);
+            color: var(--accent);
+            margin-bottom: 40px;
+            font-style: italic;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent-pink), transparent);
+            margin-bottom: 32px;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .bio {
+            font-size: clamp(17px, 1.5vw, 20px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 520px;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .bio strong {
+            color: var(--accent-light);
+            font-weight: 500;
+        }
+
+        .responsibilities {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .tag {
+            background: rgba(167, 139, 250, 0.1);
+            border: 1px solid rgba(167, 139, 250, 0.25);
+            padding: 12px 22px;
+            border-radius: 100px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(167, 139, 250, 0.2);
+            border-color: var(--accent);
+            color: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .photo-section {
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 400px;
+            height: 500px;
+        }
+
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-pink), var(--accent));
+            border-radius: 200px 200px 40px 40px;
+            z-index: -1;
+            opacity: 0.7;
+            animation: borderRotate 8s linear infinite;
+        }
+
+        @keyframes borderRotate {
+            from { filter: hue-rotate(0deg); }
+            to { filter: hue-rotate(360deg); }
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 200px 200px 40px 40px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 40px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            animation: fadeIn 1s ease-out 0.7s both;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .event-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .hashtag {
+            color: var(--accent);
+            font-weight: 500;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-mesh"></div>
+    <div class="bubble bubble-1"></div>
+    <div class="bubble bubble-2"></div>
+    <div class="bubble bubble-3"></div>
+    <div class="bubble bubble-4"></div>
+    
+    <!-- Constellation -->
+    <div class="constellation" style="top: 15%; left: 25%; animation-delay: 0s;"></div>
+    <div class="constellation" style="top: 30%; left: 15%; animation-delay: 0.5s;"></div>
+    <div class="constellation" style="top: 45%; right: 35%; animation-delay: 1s;"></div>
+    <div class="constellation" style="top: 70%; left: 40%; animation-delay: 1.5s;"></div>
+    <div class="constellation" style="top: 25%; right: 45%; animation-delay: 2s;"></div>
+
+    <div class="container">
+        <div class="content-section">
+            <div class="event-badge">RVA Hacks 2025 Core Team</div>
+            <h1 class="name"><span>Heather Lyne</span></h1>
+            <p class="role">Entrepreneurial Ecosystems</p>
+            <div class="divider"></div>
+            <p class="bio">
+                Coordinating <strong>mentorship programs</strong> and entrepreneurial support to nurture innovation and help hackathon ideas become reality.
+            </p>
+            <div class="responsibilities">
+                <span class="tag">Art Lounge Lead</span>
+                <span class="tag">Hustle Corner Lead</span>
+                <span class="tag">Mentor Coordinator</span>
+            </div>
+        </div>
+        <div class="photo-section">
+            <div class="photo-wrapper">
+                <img src="../src/assets/heather-lyne-blue.png" alt="Heather Lyne" class="photo">
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="event-info">
+            <span class="event-name">RVA Hacks</span>
+            <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
+        </div>
+        <span class="hashtag">#HackForRVA</span>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike Huddleston - Sponsorships | RVA Hacks 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Crimson+Pro:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d0d0d;
+            --bg-secondary: #1a1a1a;
+            --accent: #ffd700;
+            --accent-dark: #b8860b;
+            --text-primary: #ffffff;
+            --text-secondary: #a3a3a3;
+            --text-muted: #666666;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-primary);
+            font-family: 'Archivo', sans-serif;
+            color: var(--text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Luxury grid background */
+        .luxury-grid {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(90deg, rgba(255, 215, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(255, 215, 0, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+        }
+
+        /* Gold accent line */
+        .gold-line {
+            position: fixed;
+            height: 100%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            left: 50%;
+            opacity: 0.3;
+        }
+
+        /* Corner accents */
+        .corner {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            border: 2px solid var(--accent);
+            opacity: 0.2;
+        }
+
+        .corner-tl { top: 40px; left: 40px; border-right: none; border-bottom: none; }
+        .corner-tr { top: 40px; right: 40px; border-left: none; border-bottom: none; }
+        .corner-bl { bottom: 40px; left: 40px; border-right: none; border-top: none; }
+        .corner-br { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 80px;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-section {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out 0.1s both;
+        }
+
+        .event-badge::before,
+        .event-badge::after {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .name {
+            font-size: clamp(56px, 7vw, 96px);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .name span {
+            display: block;
+        }
+
+        .name .first {
+            color: var(--text-primary);
+        }
+
+        .name .last {
+            color: transparent;
+            -webkit-text-stroke: 2px var(--accent);
+        }
+
+        .role {
+            font-family: 'Crimson Pro', serif;
+            font-size: clamp(24px, 3vw, 36px);
+            color: var(--accent);
+            margin-bottom: 48px;
+            font-style: italic;
+            font-weight: 400;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .bio {
+            font-size: clamp(16px, 1.4vw, 19px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 480px;
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .bio strong {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .responsibilities {
+            margin-top: 48px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .tag {
+            background: transparent;
+            border: 1px solid var(--accent);
+            padding: 14px 28px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--accent);
+            color: var(--bg-primary);
+        }
+
+        .photo-section {
+            display: flex;
+            justify-content: center;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .photo-wrapper {
+            position: relative;
+            width: 380px;
+            height: 480px;
+        }
+
+        .photo-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid var(--accent);
+            z-index: -1;
+        }
+
+        .photo-wrapper::after {
+            content: 'SPONSORSHIPS';
+            position: absolute;
+            bottom: -40px;
+            right: -20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--accent);
+            writing-mode: vertical-rl;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(50%);
+            transition: filter 0.5s ease;
+        }
+
+        .photo:hover {
+            filter: grayscale(0%) contrast(1.1);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 60px;
+            left: 80px;
+            right: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .event-name {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-muted);
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .hashtag {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="luxury-grid"></div>
+    <div class="gold-line"></div>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="content-section">
+                <div class="event-badge">RVA Hacks 2025</div>
+                <h1 class="name">
+                    <span class="first">Mike</span>
+                    <span class="last">Huddleston</span>
+                </h1>
+                <p class="role">Sponsorships</p>
+                <p class="bio">
+                    Driving <strong>corporate sponsor acquisition</strong> and managing sponsor relationships to fuel Richmond's civic innovation ecosystem.
+                </p>
+                <div class="responsibilities">
+                    <span class="tag">Corporate Sponsor Coordinator</span>
+                    <span class="tag">Sponsor Experience Lead</span>
+                </div>
+            </div>
+            <div class="photo-section">
+                <div class="photo-wrapper">
+                    <img src="../src/assets/mike-huddleston.png" alt="Mike Huddleston" class="photo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="event-info">
+            <span class="event-name">RVA Hacks</span>
+            <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
+        </div>
+        <span class="hashtag">#HACKFORRVA</span>
+    </div>
+</body>
+</html>
+
