@@ -18,6 +18,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import richmondSeal from "@/assets/richmond-seal.png";
 import scienceMuseumLogo from "@/assets/science-museum-virginia.png";
+import aiReadyRvaLogo from "@/assets/ai-ready-rva-logo.png";
 import { 
   PillarEcosystemAccordion, 
   RoleCategoryAccordion,
@@ -43,9 +44,9 @@ const institutionalPartners = [
     logo: scienceMuseumLogo,
   },
   {
-    name: "Fiscal Sponsor",
-    subtitle: "Financial oversight | Legal structure | Grant administration",
-    logo: undefined,
+    name: "AI Ready RVA",
+    subtitle: "Fiscal Sponsor | Financial oversight | Legal structure | Grant administration",
+    logo: aiReadyRvaLogo,
   },
 ];
 
