@@ -11,6 +11,7 @@ import christianMarkow from "@/assets/christian-markow.png";
 import heatherLyne from "@/assets/heather-lyne-blue.png";
 import ashHarris from "@/assets/ash-harris-blue.png";
 import willMelton from "@/assets/will-melton.png";
+import mikeHuddleston from "@/assets/mike-huddleston.png";
 
 const coreTeam = [
   { 
@@ -56,11 +57,11 @@ const coreTeam = [
     bio: "Will will cultivate ecosystem partnerships with nonprofits, community organizations, and civic groups. He'll recruit leadership for: Nonprofit Partner Coordinator and Community Outreach Lead." 
   },
   { 
-    name: "TBD", 
+    name: "Mike Huddleston", 
     role: "Sponsorships", 
-    image: undefined, 
+    image: mikeHuddleston, 
     linkedin: undefined, 
-    bio: "This person will drive corporate sponsor acquisition and manage sponsor relationships. They'll recruit leadership for: Corporate Sponsor Coordinator and Sponsor Experience Lead." 
+    bio: "Mike will drive corporate sponsor acquisition and manage sponsor relationships. He'll recruit leadership for: Corporate Sponsor Coordinator and Sponsor Experience Lead." 
   },
   { 
     name: "TBD", 
