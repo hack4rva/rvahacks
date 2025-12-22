@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City of Richmond | RVA Hacks 2025 Partner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #002b5c;
+            --bg-secondary: #003d7a;
+            --accent: #c8a961;
+            --accent-light: #d4ba7a;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c5d6;
+            --text-muted: #8a9cb3;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, #001a38 100%);
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--text-primary);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Government pattern */
+        .gov-pattern {
+            position: fixed;
+            inset: 0;
+            background: 
+                linear-gradient(90deg, rgba(200, 169, 97, 0.02) 1px, transparent 1px),
+                linear-gradient(rgba(200, 169, 97, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Stars decoration */
+        .stars {
+            position: fixed;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 5;
+        }
+
+        .star {
+            color: var(--accent);
+            font-size: 24px;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        .star:nth-child(2) { animation-delay: 0.3s; }
+        .star:nth-child(3) { animation-delay: 0.6s; }
+        .star:nth-child(4) { animation-delay: 0.9s; }
+        .star:nth-child(5) { animation-delay: 1.2s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* Decorative lines */
+        .deco-line {
+            position: fixed;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            height: 1px;
+            width: 100%;
+        }
+
+        .deco-line-1 { top: 100px; opacity: 0.3; }
+        .deco-line-2 { bottom: 100px; opacity: 0.3; }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .card {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1300px;
+        }
+
+        .logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .logo-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            border: 1px solid var(--accent);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+
+        .logo {
+            width: 280px;
+            height: 280px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+        }
+
+        .established {
+            margin-top: 24px;
+            font-size: 13px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .content-section {
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .partner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(200, 169, 97, 0.1);
+            border: 1px solid rgba(200, 169, 97, 0.3);
+            padding: 12px 24px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        .partner-type {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 400;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        .name {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(42px, 5vw, 64px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .tagline {
+            font-family: 'Merriweather', serif;
+            font-size: clamp(20px, 2.5vw, 28px);
+            color: var(--accent);
+            margin-bottom: 40px;
+            font-style: italic;
+            animation: fadeIn 1s ease-out 0.5s both;
+        }
+
+        .divider {
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin-bottom: 32px;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .description {
+            font-size: clamp(17px, 1.5vw, 20px);
+            line-height: 1.8;
+            color: var(--text-secondary);
+            max-width: 540px;
+            animation: fadeIn 1s ease-out 0.7s both;
+        }
+
+        .contributions {
+            margin-top: 40px;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .contributions-label {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .contribution-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contribution {
+            background: rgba(200, 169, 97, 0.1);
+            border: 1px solid rgba(200, 169, 97, 0.25);
+            padding: 12px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .contribution:hover {
+            background: rgba(200, 169, 97, 0.2);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 40px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            animation: fadeIn 1s ease-out 0.9s both;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .event-name {
+            font-family: 'Merriweather', serif;
+            font-size: 20px;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .hashtag {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="gov-pattern"></div>
+    <div class="stars">
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+    </div>
+    <div class="deco-line deco-line-1"></div>
+    <div class="deco-line deco-line-2"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo-section">
+                <div class="logo-container">
+                    <img src="../src/assets/richmond-seal.png" alt="City of Richmond Seal" class="logo">
+                </div>
+                <span class="established">Strategic Partner</span>
+            </div>
+            <div class="content-section">
+                <div class="partner-badge">RVA Hacks 2025 Partner</div>
+                <p class="partner-type">Government Partner</p>
+                <h1 class="name">City of Richmond<br>Mayor's Office</h1>
+                <p class="tagline">Building a Thriving Richmond Together</p>
+                <div class="divider"></div>
+                <p class="description">
+                    Providing strategic priorities aligned with the Mayor's Action Plan, implementation pathways for winning solutions, and city department champions to support civic innovation.
+                </p>
+                <div class="contributions">
+                    <p class="contributions-label">Partnership Contributions</p>
+                    <div class="contribution-grid">
+                        <span class="contribution">Strategic Priorities</span>
+                        <span class="contribution">Implementation Pathway</span>
+                        <span class="contribution">City Department Champions</span>
+                        <span class="contribution">Mayor's Action Plan Alignment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="event-info">
+            <span class="event-name">RVA Hacks</span>
+            <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
+        </div>
+        <span class="hashtag">#HackForRVA</span>
+    </div>
+</body>
+</html>
+
