@@ -1,0 +1,52 @@
+HACK FOR RVA - RVA CIVIC HACKATHON SUMMARY
+============================================
+
+Hack for RVA is a 48-hour civic technology hackathon taking place 
+March 27–29, 2026 at the Science Museum of Virginia in Richmond.
+
+THE BIG PICTURE
+---------------
+This isn't just another hackathon—it's designed for real civic impact. 
+Winning solutions will be adopted by City of Richmond departments, 
+with legal pathways pre-cleared for open source licensing.
+
+KEY DETAILS
+-----------
+• Duration: 48 hours
+• Prize Pool: $15,000+
+• Tracks: 7
+• When: March 27–29, 2026
+• Where: Science Museum of Virginia
+
+THE 7 TRACKS (Aligned with Mayor Avula's Action Plan)
+------------------------------------------------------
+1. Thriving City Hall – Government efficiency, IT modernization, open data
+2. Thriving Neighborhoods – Housing, affordability, eviction prevention
+3. Thriving Families – K-12 education, youth programs, family support
+4. Thriving Economy – Workforce development, small business, economic mobility
+5. Inclusive Communities – Health equity, civil rights, social services access
+6. Thriving Environment – Climate action, sustainability, environmental justice
+7. City Stories – Historical truth-telling, cultural preservation, racial reconciliation
+
+WHAT MAKES IT DIFFERENT
+-----------------------
+• Real Implementation – Each challenge has a City department champion ready to adopt solutions
+• Open Source by Design – Legal pathways pre-cleared so the City can actually use winning solutions
+• 6-Month Support – Winners get City staff mentorship plus micro-grants ($1K–$5K) for piloting
+• Built for Everyone – Welcomes designers, data analysts, policy experts, and community organizers—not just coders
+• 10-Year Vision – Intended to become an annual Richmond tradition
+
+STAKEHOLDER ECOSYSTEM
+---------------------
+Each track is supported by a Track Team consisting of:
+• City Partner (government official/appointee)
+• Corporate Partner (business sponsor providing bounty)
+• Community Partner (nonprofit with domain expertise)
+
+It's essentially a bridge between Richmond's tech talent and the mayor's 
+civic priorities, designed to produce real, deployable solutions rather 
+than just demos.
+
+---
+Learn more at: hackforrva.com
+
