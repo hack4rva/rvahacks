@@ -41,13 +41,13 @@ export const Countdown = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-center gap-3 sm:gap-6">
           <span className="text-base text-foreground font-semibold hidden sm:inline">Starts in</span>
-          <div className="flex items-center gap-2 sm:gap-3 font-mono">
+          <div className="flex items-center gap-1 sm:gap-2 md:gap-3 font-mono">
             <TimeBlock value={timeLeft.days} label="d" />
-            <span className="text-2xl text-muted-foreground font-light">:</span>
+            <span className="text-xl sm:text-2xl text-muted-foreground font-light">:</span>
             <TimeBlock value={timeLeft.hours} label="h" />
-            <span className="text-2xl text-muted-foreground font-light">:</span>
+            <span className="text-xl sm:text-2xl text-muted-foreground font-light">:</span>
             <TimeBlock value={timeLeft.minutes} label="m" />
-            <span className="text-2xl text-muted-foreground font-light">:</span>
+            <span className="text-xl sm:text-2xl text-muted-foreground font-light">:</span>
             <TimeBlock value={timeLeft.seconds} label="s" />
           </div>
         </div>
@@ -57,10 +57,10 @@ export const Countdown = () => {
 };
 
 const TimeBlock = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex items-baseline gap-1">
-    <span className="text-3xl sm:text-4xl md:text-5xl font-bold text-accent">
+  <div className="flex items-baseline gap-0.5 sm:gap-1">
+    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent">
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-sm text-muted-foreground font-medium">{label}</span>
+    <span className="text-xs sm:text-sm text-muted-foreground font-medium">{label}</span>
   </div>
 );

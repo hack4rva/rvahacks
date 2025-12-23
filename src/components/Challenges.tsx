@@ -44,10 +44,10 @@ export const Challenges = () => {
           </div>
 
           {/* Single track display */}
-          <div className="bg-card border border-accent rounded-xl p-8 shadow-glow animate-fade-in">
-            <div className="flex items-center gap-4 mb-6">
-              <Briefcase className="w-12 h-12 text-accent" />
-              <h3 className="text-3xl font-bold text-foreground">
+          <div className="bg-card border border-accent rounded-xl p-4 sm:p-6 md:p-8 shadow-glow animate-fade-in">
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-6">
+              <Briefcase className="w-10 h-10 sm:w-12 sm:h-12 text-accent" />
+              <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
                 {track.title}
               </h3>
             </div>

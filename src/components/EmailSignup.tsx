@@ -128,7 +128,7 @@ export const EmailSignup = ({ open, onOpenChange }: EmailSignupProps) => {
 
   return (
     <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-lg bg-card border-border shadow-elegant">
+      <DialogContent className="w-[calc(100%-2rem)] max-w-lg mx-4 sm:mx-auto bg-card border-border shadow-elegant">
         {!isSuccess ? (
           <>
             <DialogHeader>

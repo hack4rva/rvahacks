@@ -136,7 +136,7 @@ const Partners = () => {
         <nav className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-md border-b border-border">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-5xl mx-auto py-3">
-              <TabsList className="grid w-full grid-cols-4 h-auto gap-2 bg-transparent p-0">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto gap-2 bg-transparent p-0">
                 {tabs.map((tab) => (
                   <TabsTrigger
                     key={tab.id}
@@ -258,14 +258,14 @@ const Partners = () => {
                         return (
                           <div
                             key={opp.id}
-                            className={`bg-card p-4 rounded-lg border ${colorMap[opp.color]} transition-colors flex items-start gap-3`}
+                            className={`bg-card p-3 sm:p-4 rounded-lg border ${colorMap[opp.color]} transition-colors flex items-start gap-2 sm:gap-3`}
                           >
-                            <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${iconColorMap[opp.color]}`}>
+                            <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 ${iconColorMap[opp.color]}`}>
                               {opp.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-start justify-between gap-2">
-                                <div>
+                              <div className="flex flex-wrap items-start justify-between gap-1 sm:gap-2">
+                                <div className="min-w-0">
                                   <p className="font-semibold text-foreground text-sm">{opp.title}</p>
                                   {opp.amount && <p className="text-xs text-muted-foreground">{opp.amount}</p>}
                                 </div>
@@ -305,14 +305,14 @@ const Partners = () => {
                         return (
                           <div
                             key={opp.id}
-                            className={`bg-card p-4 rounded-lg border ${colorMap[opp.color]} transition-colors flex items-start gap-3`}
+                            className={`bg-card p-3 sm:p-4 rounded-lg border ${colorMap[opp.color]} transition-colors flex items-start gap-2 sm:gap-3`}
                           >
-                            <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${iconColorMap[opp.color]}`}>
+                            <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 ${iconColorMap[opp.color]}`}>
                               {opp.icon}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-start justify-between gap-2">
-                                <div>
+                              <div className="flex flex-wrap items-start justify-between gap-1 sm:gap-2">
+                                <div className="min-w-0">
                                   <p className="font-semibold text-foreground text-sm">{opp.title}</p>
                                   {opp.amount && <p className="text-xs text-muted-foreground">{opp.amount}</p>}
                                 </div>
@@ -341,13 +341,13 @@ const Partners = () => {
                       {sponsorshipOpportunities.filter(o => o.category === "inkind").map((opp) => (
                         <div
                           key={opp.id}
-                          className="bg-card p-4 rounded-lg border border-accent/30 hover:border-accent/60 transition-colors flex items-start gap-3"
+                          className="bg-card p-3 sm:p-4 rounded-lg border border-accent/30 hover:border-accent/60 transition-colors flex items-start gap-2 sm:gap-3"
                         >
-                          <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-accent bg-accent/10">
+                          <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center shrink-0 text-accent bg-accent/10">
                             {opp.icon}
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="flex items-start justify-between gap-2">
+                            <div className="flex flex-wrap items-start justify-between gap-1 sm:gap-2">
                               <p className="font-semibold text-foreground text-sm">{opp.title}</p>
                               <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30 text-xs shrink-0">
                                 Available

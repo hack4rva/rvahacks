@@ -13,7 +13,7 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
+    <div className="min-h-screen flex flex-col">
       <Navigation onCTAClick={handleCTAClick} />
       <Hero />
       <Countdown />

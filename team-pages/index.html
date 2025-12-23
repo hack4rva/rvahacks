@@ -121,6 +121,58 @@
             font-size: 14px;
             line-height: 1.6;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 24px 16px;
+            }
+
+            .header {
+                margin-bottom: 32px;
+            }
+
+            .title {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .grid {
+                gap: 16px;
+            }
+
+            .card {
+                padding: 20px;
+                gap: 16px;
+            }
+
+            .photo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .info h2 {
+                font-size: 16px;
+            }
+
+            .info p {
+                font-size: 12px;
+            }
+
+            .instructions {
+                margin-top: 40px;
+                padding: 24px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>

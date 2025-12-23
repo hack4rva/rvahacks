@@ -338,6 +338,93 @@
             color: var(--accent);
             font-size: 12px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                overflow: auto;
+            }
+
+            .data-line,
+            .node,
+            .orb {
+                display: none;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                padding: 24px 20px 100px;
+                gap: 32px;
+                min-height: auto;
+            }
+
+            .content-section {
+                order: 2;
+                text-align: center;
+            }
+
+            .photo-section {
+                order: 1;
+            }
+
+            .photo-container {
+                width: 200px;
+                height: 250px;
+                margin: 0 auto;
+            }
+
+            .photo-container::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .name {
+                font-size: clamp(32px, 8vw, 42px);
+            }
+
+            .bio {
+                max-width: 100%;
+            }
+
+            .focus-grid {
+                justify-content: center;
+            }
+
+            .footer {
+                position: relative;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                flex-direction: column;
+                gap: 8px;
+                padding: 20px;
+                text-align: center;
+            }
+
+            .event-info {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 16px 16px 80px;
+            }
+
+            .photo-container {
+                width: 160px;
+                height: 200px;
+            }
+
+            .focus-item {
+                padding: 6px 10px;
+            }
+
+            .focus-text {
+                font-size: 9px;
+            }
+        }
     </style>
 </head>
 <body>
