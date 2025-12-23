@@ -33,30 +33,30 @@ export const Hero = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 mb-4 text-white">
             <div className="text-center">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold">48h</div>
-              <div className="text-xs text-white/70 uppercase">Hackathon</div>
+              <div className="text-xs text-white/80 uppercase tracking-wide">Hackathon</div>
             </div>
             <div className="w-px h-8 bg-white/30 hidden sm:block" />
             <div className="text-center">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold">$15K+</div>
-              <div className="text-xs text-white/70 uppercase">Prizes</div>
+              <div className="text-xs text-white/80 uppercase tracking-wide">Prizes</div>
             </div>
             <div className="w-px h-8 bg-white/30 hidden sm:block" />
             <div className="text-center">
               <div className="text-xl sm:text-2xl md:text-3xl font-bold">7</div>
-              <div className="text-xs text-white/70 uppercase">Tracks</div>
+              <div className="text-xs text-white/80 uppercase tracking-wide">Tracks</div>
             </div>
           </div>
 
           {/* Event Details - responsive */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-5 text-white/90 text-sm">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-5 text-white text-sm">
             <span className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4 text-accent" />
-              {eventDates.fullRange}
+              <span className="break-words">{eventDates.fullRange}</span>
             </span>
-            <span className="text-white/40 hidden sm:inline">•</span>
+            <span className="text-white/50 hidden sm:inline">•</span>
             <span className="flex items-center gap-1.5">
               <MapPin className="w-4 h-4 text-accent" />
-              {venues.primary.shortName}
+              <span className="break-words">{venues.primary.shortName}</span>
             </span>
           </div>
 

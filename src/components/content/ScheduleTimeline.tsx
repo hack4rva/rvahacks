@@ -50,9 +50,9 @@ export const ScheduleTimeline = ({ className = "", showCallout = true }: Schedul
                 </div>
 
                 {/* Location */}
-                <div className="flex items-center gap-1.5 text-sm text-muted-foreground mb-4">
-                  <MapPin className="w-4 h-4" />
-                  <span className="font-medium">{event.location}</span>
+                <div className="flex items-start gap-1.5 text-sm text-muted-foreground mb-4 min-w-0">
+                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
+                  <span className="font-medium break-words">{event.location}</span>
                 </div>
 
                 {/* Icon */}

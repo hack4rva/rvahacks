@@ -22,12 +22,12 @@ export const LogisticsContent = () => {
 
       {/* Event Dates - Compact Hero */}
       <div className="bg-accent/5 border-2 border-accent rounded-xl p-4">
-        <div className="flex items-center gap-3 mb-3">
-          <Calendar className="w-6 h-6 text-accent" />
-          <h2 className="text-2xl font-bold text-foreground">{eventDates.fullRange}</h2>
-          <Badge className="bg-accent">Fri–Sun</Badge>
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3">
+          <Calendar className="w-6 h-6 text-accent flex-shrink-0" />
+          <h2 className="text-xl sm:text-2xl font-bold text-foreground break-words min-w-0">{eventDates.fullRange}</h2>
+          <Badge className="bg-accent flex-shrink-0">Fri–Sun</Badge>
         </div>
-        <div className="grid grid-cols-3 gap-3 text-sm">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3 text-sm">
           <div className="bg-background rounded-lg p-3 text-center">
             <p className="font-semibold text-foreground">{eventDates.friday.shortLabel}</p>
             <p className="text-xs text-muted-foreground">Kickoff @ Science Museum</p>

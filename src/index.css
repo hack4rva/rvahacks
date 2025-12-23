@@ -152,6 +152,12 @@ All colors MUST be HSL.
   a, button {
     @apply transition-smooth;
   }
+  
+  /* Global text overflow prevention */
+  p, span, li, h1, h2, h3, h4, h5, h6, td, th, label, a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
 }
 
 @layer utilities {
@@ -173,5 +179,21 @@ All colors MUST be HSL.
   
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+  
+  /* Text overflow utilities */
+  .break-words {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  
+  .break-all {
+    word-break: break-all;
+  }
+  
+  /* Flex item text overflow fix */
+  .min-w-0 {
+    min-width: 0;
   }
 }

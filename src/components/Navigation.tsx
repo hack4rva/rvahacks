@@ -138,7 +138,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
             ) : (
               <button
                 onClick={() => navigate("/login")}
-                className="p-1.5 transition-colors text-white/40 hover:text-white/70"
+                className="p-1.5 transition-colors text-white/60 hover:text-white/90"
                 aria-label="Admin login"
               >
                 <Shield className="w-4 h-4" />
@@ -248,7 +248,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
                   navigate("/login");
                   setIsMobileMenuOpen(false);
                 }}
-                className="flex items-center gap-2 text-foreground/40 hover:text-foreground/70 transition-colors py-2"
+                className="flex items-center gap-2 text-foreground/60 hover:text-foreground/90 transition-colors py-2"
                 aria-label="Admin login"
               >
                 <Shield className="w-4 h-4" />
