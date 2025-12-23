@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Users, ChevronDown } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import fordPrior from "@/assets/ford-prior.png";
+import fordPrior from "@/assets/ford-prior-new.jpg";
 import michaelKolbe from "@/assets/michael-kolbe.png";
 import dannyAvula from "@/assets/danny-avula.png";
 import crystalHarvey from "@/assets/crystal-harvey.png";
