@@ -77,8 +77,8 @@ export const milestones: Milestone[] = [
   {
     level: 3,
     phase: 'ecosystem',
-    name: 'Pillar Teams',
-    description: '21 stakeholders across 7 pillars (3 each: Nonprofit Rep, City Hall Owner, Breakout Coordinator)',
+    name: 'Track Teams',
+    description: '21 stakeholders across 7 Tracks (3 each: Community Partner Rep, City Partner, Breakout Coordinator)',
     targetCount: '21 people',
     status: 'not-started',
     progress: '0 of 21',
@@ -88,8 +88,8 @@ export const milestones: Milestone[] = [
   {
     level: 4,
     phase: 'ecosystem',
-    name: 'Corporate Pillars',
-    description: 'Corporate sponsor rep added to each pillar (completes the "foursome")',
+    name: 'Corporate Partners',
+    description: 'Corporate Partner rep added to each Track (completes the "foursome")',
     targetCount: '7 people',
     status: 'not-started',
     progress: '0 of 7',
@@ -121,7 +121,7 @@ export const milestones: Milestone[] = [
     targetDate: 'Early March 2026',
     parallelWith: [3],
     components: [
-      { name: 'Problem Statements', target: '7 pillars', status: 'not-started' },
+      { name: 'Problem Statements', target: '7 Tracks', status: 'not-started' },
       { name: 'Research Briefs', target: 'Context docs', status: 'not-started' },
       { name: 'Data Packages', target: 'Curated datasets', status: 'not-started' },
       { name: 'Grading Rubrics', target: 'Evaluation criteria', status: 'not-started' },
@@ -166,7 +166,7 @@ export const milestones: Milestone[] = [
       { name: "Mayor's Choice", target: '$5,000', status: 'not-started', notes: 'Title Sponsor' },
       { name: "People's Choice", target: '$2,500', status: 'not-started', notes: 'Title Sponsor' },
       { name: "Judges' Choice", target: '$2,500', status: 'not-started', notes: 'Title Sponsor' },
-      { name: '7 Pillar Awards', target: '$7,000 ($1K each)', status: 'not-started', notes: 'Pillar Sponsors' },
+      { name: '7 Track Awards', target: '$7,000 ($1K each)', status: 'not-started', notes: 'Track Sponsors' },
     ],
   },
   {

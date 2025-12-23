@@ -8,7 +8,7 @@ import {
   DashboardOverview,
   PlanTab,
   TeamTab,
-  PillarsTab,
+  TracksTab,
   SponsorsTab,
   AcademiaTab,
   ConnectorsTab,
@@ -30,7 +30,7 @@ const sectionTitles: Record<AdminSection, string> = {
   overview: 'Command Center',
   plan: 'Communication Plan',
   team: 'Team Structure',
-  pillars: 'Pillar Stakeholders',
+  tracks: 'Track Stakeholders',
   sponsors: 'Sponsors & Partners',
   academia: 'K-12 & Higher Ed Partners',
   connectors: 'Network Connectors',
@@ -153,8 +153,8 @@ const AdminDashboard = () => {
         return <PlanTab />;
       case 'team':
         return <TeamTab />;
-      case 'pillars':
-        return <PillarsTab />;
+      case 'tracks':
+        return <TracksTab />;
       case 'sponsors':
         return <SponsorsTab />;
       case 'academia':

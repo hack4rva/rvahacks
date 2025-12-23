@@ -112,8 +112,8 @@ const roleCategories: RoleCategory[] = [
       {
         title: "Subject Matter Expert Recruiter",
         responsibilities: [
-          "Recruits speakers for 7 pillar breakout tracks aligned with Mayor's Action Plan",
-          "Coordinates City Liaisons, Nonprofit Partners, and Corporate Sponsors per pillar",
+          "Recruits speakers for 7 Track breakout sessions aligned with Mayor's Action Plan",
+          "Coordinates City Partners, Community Partners, and Corporate Partners per Track",
           "Secures commitments and manages speaker logistics",
           "Ensures speakers understand cross-sector convening format"
         ]
@@ -121,7 +121,7 @@ const roleCategories: RoleCategory[] = [
       {
         title: "Data Ambassador Coordinator",
         responsibilities: [
-          "Recruits 1 Data Ambassador who serves all 7 pillars",
+          "Recruits 1 Data Ambassador who serves all 7 Tracks",
           "This is distinct from Friday speakers—available throughout hacking period",
           "Ensures they understand their role: explaining data meaning, preventing wrong problem-solving",
           "Coordinates with City Data Liaison for access protocols"
@@ -275,11 +275,11 @@ const roleCategories: RoleCategory[] = [
         ]
       },
       {
-        title: "Nonprofit Partnership Coordinator",
+        title: "Community Partnership Coordinator",
         responsibilities: [
-          "Recruits 7 Nonprofit Partners (one per pillar)",
-          "Coordinates nonprofit envoys as Friday speakers and Sunday judges",
-          "Manages nonprofit project adoption model for winning solutions",
+          "Recruits 7 Community Partners (one per Track)",
+          "Coordinates Community Partner envoys as Friday speakers and Sunday judges",
+          "Manages community partner project adoption model for winning solutions",
           "Creates cross-sector convening moments with City and Corporate partners"
         ]
       },

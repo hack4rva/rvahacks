@@ -1,28 +1,28 @@
 import { AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { 
-  pillars, 
+  tracks, 
   dataAmbassador, 
   getStatusStyle, 
-  getPillarColorClasses, 
+  getTrackColorClasses, 
   getEcosystemProgress,
-} from "@/data/pillarEcosystem";
+} from "@/data/trackEcosystem";
 import { Building2, Heart, Briefcase, Database, Check, Clock, AlertCircle } from "lucide-react";
 
-export const PillarEcosystemAccordion = () => {
+export const TrackEcosystemAccordion = () => {
   const progress = getEcosystemProgress();
   const dataAmbassadorStatus = getStatusStyle(dataAmbassador.status);
 
   return (
-    <AccordionItem value="pillars" className="border border-border rounded-xl bg-card overflow-hidden">
+    <AccordionItem value="tracks" className="border border-border rounded-xl bg-card overflow-hidden">
       <AccordionTrigger className="px-4 sm:px-6 py-4 hover:no-underline hover:bg-muted/50">
         <div className="flex items-center gap-3 sm:gap-4 w-full">
           <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center shrink-0">
             <Building2 className="w-5 h-5 text-yellow-600" />
           </div>
           <div className="flex-1 text-left min-w-0">
-            <h3 className="font-semibold text-foreground text-sm sm:text-base">Pillar Ecosystem</h3>
-            <p className="text-xs sm:text-sm text-muted-foreground">7 pillars × 3 stakeholders each + Data Ambassador</p>
+            <h3 className="font-semibold text-foreground text-sm sm:text-base">Track Teams</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground">7 Tracks × 3 partners each + Data Ambassador</p>
           </div>
           <Badge variant="outline" className="shrink-0 text-xs">
             {progress.confirmed}/{progress.total} confirmed
@@ -31,7 +31,7 @@ export const PillarEcosystemAccordion = () => {
       </AccordionTrigger>
       <AccordionContent className="px-4 sm:px-6 pb-4">
         <p className="text-sm text-muted-foreground mb-4">
-          Each pillar has a City Liaison, Nonprofit Partner, and Corporate Sponsor who present together at Friday kickoff. Nonprofit envoys serve as pillar judges on Sunday.
+          Each Track has a City Partner, Community Partner, and Corporate Partner who present together at Friday kickoff. Community Partner envoys serve as Track judges on Sunday.
         </p>
 
         {/* Data Ambassador */}
@@ -39,7 +39,7 @@ export const PillarEcosystemAccordion = () => {
           <div className="flex items-center gap-2">
             <Database className="w-4 h-4 text-cyan-500" />
             <span className="text-sm font-medium text-foreground">Data Ambassador</span>
-            <span className="text-xs text-muted-foreground hidden sm:inline">(serves all pillars)</span>
+            <span className="text-xs text-muted-foreground hidden sm:inline">(serves all Tracks)</span>
           </div>
           <Badge 
             variant="outline" 
@@ -49,24 +49,24 @@ export const PillarEcosystemAccordion = () => {
           </Badge>
         </div>
 
-        {/* Pillar Grid */}
+        {/* Track Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {pillars.map((pillar) => {
-            const colorClasses = getPillarColorClasses(pillar.color);
+          {tracks.map((track) => {
+            const colorClasses = getTrackColorClasses(track.color);
             const confirmedCount = [
-              pillar.cityLiaison,
-              pillar.nonprofitPartner,
-              pillar.corporateSponsor
+              track.cityPartner,
+              track.communityPartner,
+              track.corporatePartner
             ].filter(s => s.status === 'confirmed' || s.status === 'complete').length;
 
             return (
               <div 
-                key={pillar.id} 
+                key={track.id} 
                 className={`p-3 rounded-lg border ${colorClasses.border} ${colorClasses.bg}`}
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <pillar.icon className={`w-4 h-4 ${colorClasses.icon}`} />
-                  <span className="font-medium text-foreground text-sm truncate">{pillar.shortTitle}</span>
+                  <track.icon className={`w-4 h-4 ${colorClasses.icon}`} />
+                  <span className="font-medium text-foreground text-sm truncate">{track.shortTitle}</span>
                   <Badge variant="outline" className="text-xs ml-auto shrink-0">
                     {confirmedCount}/3
                   </Badge>
@@ -74,18 +74,18 @@ export const PillarEcosystemAccordion = () => {
                 <div className="space-y-1">
                   <StakeholderMiniRow 
                     label="City" 
-                    status={pillar.cityLiaison.status} 
-                    name={pillar.cityLiaison.name}
+                    status={track.cityPartner.status} 
+                    name={track.cityPartner.name}
                   />
                   <StakeholderMiniRow 
-                    label="Nonprofit" 
-                    status={pillar.nonprofitPartner.status}
-                    name={pillar.nonprofitPartner.name}
+                    label="Community" 
+                    status={track.communityPartner.status}
+                    name={track.communityPartner.name}
                   />
                   <StakeholderMiniRow 
                     label="Corporate" 
-                    status={pillar.corporateSponsor.status}
-                    name={pillar.corporateSponsor.name}
+                    status={track.corporatePartner.status}
+                    name={track.corporatePartner.name}
                   />
                 </div>
               </div>
@@ -109,6 +109,9 @@ export const PillarEcosystemAccordion = () => {
     </AccordionItem>
   );
 };
+
+// Backward compatibility alias
+export const PillarEcosystemAccordion = TrackEcosystemAccordion;
 
 const StakeholderMiniRow = ({ 
   label, 

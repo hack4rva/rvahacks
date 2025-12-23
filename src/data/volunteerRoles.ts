@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 export type RoleCategory = 
-  | 'pillar-stakeholder' 
+  | 'track-stakeholder' 
   | 'cross-cutting' 
   | 'pre-event' 
   | 'friday' 
@@ -337,15 +337,15 @@ export const fridayRoles: RoleCard[] = [
     color: 'blue'
   },
   {
-    id: 'pillar-room-captain',
-    title: 'Pillar Room Captain',
+    id: 'track-room-captain',
+    title: 'Track Room Captain',
     category: 'friday',
-    description: 'Manage pillar breakout sessions. Greet stakeholders, introduce speakers, facilitate panel, manage Q&A.',
+    description: 'Manage Track breakout sessions. Greet stakeholders, introduce speakers, facilitate panel, manage Q&A.',
     commitment: 'Per session (60-90 min each)',
     quantity: '14-21',
     youOwn: [
       'Arrive 15 min early to prep room',
-      'Greet City Liaison, Nonprofit envoy, Corporate rep',
+      'Greet City Partner, Community Partner envoy, Corporate Partner rep',
       'Introduce all three speakers',
       'Facilitate panel flow and Q&A',
       'Give time warnings (10-min, 5-min, 1-min)',
@@ -365,7 +365,7 @@ export const fridayRoles: RoleCard[] = [
     ],
     successCriteria: 'Session on time; all stakeholder voices heard; recording captured everything.',
     skillsRequired: ['Public speaking comfort', 'Time management', 'Assertiveness'],
-    skillsPreferred: ['Facilitation experience', 'Domain knowledge in session topic'],
+    skillsPreferred: ['Facilitation experience', 'Domain knowledge in Track topic'],
     reportsTo: 'Friday Programming Lead',
     location: 'science-museum',
     trainingRequired: true,
@@ -442,12 +442,12 @@ export const fridayRoles: RoleCard[] = [
     id: 'photographer-friday',
     title: 'Photographer',
     category: 'friday',
-    description: 'Capture candid moments, pillar sessions, team formation, and speaker portraits throughout the day.',
+    description: 'Capture candid moments, Track sessions, team formation, and speaker portraits throughout the day.',
     commitment: 'Full day (9:00 AM - 6:00 PM)',
     quantity: '2',
     youOwn: [
       'Capture candids throughout day',
-      'Photograph pillar sessions',
+      'Photograph Track sessions',
       'Document team formation',
       'Get speaker portraits and group shots',
       'Upload photos for social media use'
@@ -461,7 +461,7 @@ export const fridayRoles: RoleCard[] = [
       'When to move around room',
       'Which moments to prioritize'
     ],
-    successCriteria: 'At least 10 usable photos per pillar session; photos uploaded within 4 hours.',
+    successCriteria: 'At least 10 usable photos per Track session; photos uploaded within 4 hours.',
     skillsRequired: ['Photography skills', 'Work unobtrusively', 'Photo organization'],
     skillsPreferred: ['Event photography experience', 'Photo editing skills', 'Own professional camera'],
     reportsTo: 'Social Media Manager',
@@ -507,11 +507,11 @@ export const fridayRoles: RoleCard[] = [
     id: 'vip-speaker-host',
     title: 'VIP/Speaker Host',
     category: 'friday',
-    description: 'VIP handler for pillar stakeholders. Greet, escort, ensure comfort, keep on schedule.',
+    description: 'VIP handler for Track Team stakeholders. Greet, escort, ensure comfort, keep on schedule.',
     commitment: 'Full day (8:30 AM - 5:00 PM)',
     quantity: '2-3',
     youOwn: [
-      'Greet pillar stakeholders upon arrival',
+      'Greet Track Team stakeholders upon arrival',
       'Escort VIPs to green room',
       'Ensure speakers have refreshments',
       'Confirm AV needs with Room Captain',
@@ -983,7 +983,7 @@ export const supportRoles: RoleCard[] = [
     id: 'subject-matter-expert',
     title: 'Subject Matter Expert',
     category: 'support',
-    description: 'Provide domain knowledge for specific pillars. Explain real-world context and constraints.',
+    description: 'Provide domain knowledge for specific Tracks. Explain real-world context and constraints.',
     commitment: 'On-call via Discord',
     quantity: '8-12',
     youOwn: [
@@ -1039,7 +1039,7 @@ export const getRolesByCategory = (category: RoleCategory): RoleCard[] => {
 
 export const getCategoryLabel = (category: RoleCategory): string => {
   const labels: Record<RoleCategory, string> = {
-    'pillar-stakeholder': 'Pillar Stakeholders',
+    'track-stakeholder': 'Track Stakeholders',
     'cross-cutting': 'Cross-Cutting',
     'pre-event': 'Pre-Event',
     'friday': 'Friday',
@@ -1053,7 +1053,7 @@ export const getCategoryLabel = (category: RoleCategory): string => {
 
 export const getCategoryColor = (category: RoleCategory): string => {
   const colors: Record<RoleCategory, string> = {
-    'pillar-stakeholder': 'yellow',
+    'track-stakeholder': 'yellow',
     'cross-cutting': 'cyan',
     'pre-event': 'purple',
     'friday': 'blue',

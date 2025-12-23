@@ -3,10 +3,10 @@ import { awardTiers, prizeTimeline, prizePoolTotal, type PrizeAward } from "@/da
 import { Card, CardContent } from "@/components/ui/card";
 import { Trophy, Award, Star, ChevronRight } from "lucide-react";
 
-// Pillar badge colors mapping
-const getPillarStyle = (award: PrizeAward) => {
-  const pillarMatch = award.title.match(/Pillar (\d)/);
-  const pillarNum = pillarMatch ? pillarMatch[1] : null;
+// Track badge colors mapping
+const getTrackStyle = (award: PrizeAward) => {
+  const trackMatch = award.title.match(/Track (\d)/);
+  const trackNum = trackMatch ? trackMatch[1] : null;
   
   const colorMap: Record<string, { bg: string; border: string; text: string; hex: string }> = {
     'blue': { bg: 'bg-blue-500/20', border: 'border-blue-500/50', text: 'text-blue-600 dark:text-blue-400', hex: '#3b82f6' },
@@ -19,18 +19,18 @@ const getPillarStyle = (award: PrizeAward) => {
   };
   
   const colorKey = Object.keys(colorMap).find(key => award.color?.includes(key)) || 'blue';
-  return { ...colorMap[colorKey], pillarNum };
+  return { ...colorMap[colorKey], trackNum };
 };
 
-interface PillarBadgeProps {
+interface TrackBadgeProps {
   award: PrizeAward;
   isSelected: boolean;
   onClick: () => void;
 }
 
-const PillarBadge = ({ award, isSelected, onClick }: PillarBadgeProps) => {
-  const style = getPillarStyle(award);
-  const shortTitle = award.title.replace(/Pillar \d: /, '');
+const TrackBadge = ({ award, isSelected, onClick }: TrackBadgeProps) => {
+  const style = getTrackStyle(award);
+  const shortTitle = award.title.replace(/Track \d: /, '');
   
   return (
     <button
@@ -45,7 +45,7 @@ const PillarBadge = ({ award, isSelected, onClick }: PillarBadgeProps) => {
         className={`w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0 transition-transform duration-300 ${isSelected ? 'scale-110' : 'group-hover:scale-105'}`}
         style={{ backgroundColor: style.hex }}
       >
-        {style.pillarNum}
+        {style.trackNum}
       </div>
       <span className="text-sm font-semibold text-card-foreground whitespace-nowrap">
         {shortTitle}
@@ -68,12 +68,12 @@ interface PrizesGridProps {
 }
 
 export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridProps) => {
-  // Start with first pillar expanded by default
-  const [selectedPillar, setSelectedPillar] = useState<number | null>(0);
+  // Start with first track expanded by default
+  const [selectedTrack, setSelectedTrack] = useState<number | null>(0);
   
   const grandPrize = awardTiers[0];
   const runnerUpPrizes = awardTiers.slice(1, 3);
-  const pillarAwards = awardTiers.slice(3);
+  const trackAwards = awardTiers.slice(3);
   
   return (
     <div className={className}>
@@ -167,66 +167,66 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         </div>
       </div>
 
-      {/* Pillar Awards Section */}
+      {/* Track Awards Section */}
       <div className="mb-6">
         <div className="flex items-center justify-center gap-2 mb-2">
           <div className="h-px w-12 bg-gradient-to-r from-transparent to-muted-foreground/30" />
-          <h3 className="text-lg font-semibold text-foreground text-center">Pillar Bounties</h3>
+          <h3 className="text-lg font-semibold text-foreground text-center">Track Bounties</h3>
           <div className="h-px w-12 bg-gradient-to-l from-transparent to-muted-foreground/30" />
         </div>
         <p className="text-center text-sm text-muted-foreground mb-6">
-          $1,000 each · One award for each of the Mayor's 7 Pillars
+          $1,000 each · One award for each of the Mayor's 7 Tracks
         </p>
       </div>
 
-      {/* Interactive Pillar Badges - Wave Pattern */}
+      {/* Interactive Track Badges - Wave Pattern */}
       <div className="flex flex-wrap justify-center gap-3 mb-6">
-        {pillarAwards.map((award, index) => (
+        {trackAwards.map((award, index) => (
           <div 
             key={index} 
             className="animate-fade-in"
             style={{ animationDelay: `${index * 50}ms` }}
           >
-            <PillarBadge
+            <TrackBadge
               award={award}
-              isSelected={selectedPillar === index}
-              onClick={() => setSelectedPillar(selectedPillar === index ? null : index)}
+              isSelected={selectedTrack === index}
+              onClick={() => setSelectedTrack(selectedTrack === index ? null : index)}
             />
           </div>
         ))}
       </div>
 
       {/* Expanded Detail Panel */}
-      {selectedPillar !== null && (
+      {selectedTrack !== null && (
         <div className="max-w-2xl mx-auto mb-6">
           <div 
             className="p-6 rounded-xl border-2 shadow-lg animate-fade-in"
             style={{ 
-              borderColor: getPillarStyle(pillarAwards[selectedPillar]).hex + '50',
-              backgroundColor: getPillarStyle(pillarAwards[selectedPillar]).hex + '10'
+              borderColor: getTrackStyle(trackAwards[selectedTrack]).hex + '50',
+              backgroundColor: getTrackStyle(trackAwards[selectedTrack]).hex + '10'
             }}
           >
             <div className="flex items-start gap-4">
               <div 
                 className="w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0 shadow-lg"
-                style={{ backgroundColor: getPillarStyle(pillarAwards[selectedPillar]).hex }}
+                style={{ backgroundColor: getTrackStyle(trackAwards[selectedTrack]).hex }}
               >
-                {getPillarStyle(pillarAwards[selectedPillar]).pillarNum}
+                {getTrackStyle(trackAwards[selectedTrack]).trackNum}
               </div>
               <div className="flex-1">
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                   <h3 className="text-xl font-bold text-card-foreground">
-                    {pillarAwards[selectedPillar].title}
+                    {trackAwards[selectedTrack].title}
                   </h3>
                   <span 
                     className="text-xl font-black"
-                    style={{ color: getPillarStyle(pillarAwards[selectedPillar]).hex }}
+                    style={{ color: getTrackStyle(trackAwards[selectedTrack]).hex }}
                   >
-                    {pillarAwards[selectedPillar].amount}
+                    {trackAwards[selectedTrack].amount}
                   </span>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
-                  {pillarAwards[selectedPillar].description}
+                  {trackAwards[selectedTrack].description}
                 </p>
               </div>
             </div>
@@ -237,10 +237,10 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
       {/* Note */}
       <div className="text-center mt-10 space-y-2 max-w-xl mx-auto">
         <p className="text-sm text-muted-foreground">
-          Each pillar category will have a winner recognized at the awards ceremony.
+          Each Track category will have a winner recognized at the awards ceremony.
         </p>
         <p className="text-sm text-muted-foreground italic">
-          Solutions may address multiple pillars—judges will determine the best fit.
+          Solutions may address multiple Tracks—judges will determine the best fit.
         </p>
       </div>
     </div>

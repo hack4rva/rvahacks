@@ -2,14 +2,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { 
-  pillars, 
+  tracks, 
   dataAmbassador, 
   getStatusStyle, 
-  getPillarColorClasses, 
+  getTrackColorClasses, 
   getEcosystemProgress,
-  type Pillar,
+  type Track,
   type Stakeholder
-} from "@/data/pillarEcosystem";
+} from "@/data/trackEcosystem";
 import { Building2, Heart, Briefcase, Database, Users, Check, Clock, AlertCircle } from "lucide-react";
 
 const StakeholderRow = ({ 
@@ -51,12 +51,12 @@ const StakeholderRow = ({
   );
 };
 
-const PillarCard = ({ pillar }: { pillar: Pillar }) => {
-  const colorClasses = getPillarColorClasses(pillar.color);
+const TrackCard = ({ track }: { track: Track }) => {
+  const colorClasses = getTrackColorClasses(track.color);
   const confirmedCount = [
-    pillar.cityLiaison,
-    pillar.nonprofitPartner,
-    pillar.corporateSponsor
+    track.cityPartner,
+    track.communityPartner,
+    track.corporatePartner
   ].filter(s => s.status === 'confirmed' || s.status === 'complete').length;
   
   return (
@@ -65,11 +65,11 @@ const PillarCard = ({ pillar }: { pillar: Pillar }) => {
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-lg ${colorClasses.bg} flex items-center justify-center`}>
-              <pillar.icon className={`w-5 h-5 ${colorClasses.icon}`} />
+              <track.icon className={`w-5 h-5 ${colorClasses.icon}`} />
             </div>
             <div>
-              <CardTitle className="text-base">{pillar.title}</CardTitle>
-              <p className="text-xs text-muted-foreground mt-0.5">{pillar.awardAmount} Award</p>
+              <CardTitle className="text-base">{track.title}</CardTitle>
+              <p className="text-xs text-muted-foreground mt-0.5">{track.awardAmount} Award</p>
             </div>
           </div>
           <Badge variant="outline" className="text-xs shrink-0">
@@ -79,23 +79,23 @@ const PillarCard = ({ pillar }: { pillar: Pillar }) => {
       </CardHeader>
       <CardContent className="pt-0">
         <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
-          {pillar.description}
+          {track.description}
         </p>
         <div className="space-y-0">
           <StakeholderRow 
-            label="City Liaison" 
+            label="City Partner" 
             icon={Building2} 
-            stakeholder={pillar.cityLiaison} 
+            stakeholder={track.cityPartner} 
           />
           <StakeholderRow 
-            label="Nonprofit Partner" 
+            label="Community Partner" 
             icon={Heart} 
-            stakeholder={pillar.nonprofitPartner} 
+            stakeholder={track.communityPartner} 
           />
           <StakeholderRow 
-            label="Corporate Sponsor" 
+            label="Corporate Partner" 
             icon={Briefcase} 
-            stakeholder={pillar.corporateSponsor} 
+            stakeholder={track.corporatePartner} 
           />
         </div>
       </CardContent>
@@ -103,7 +103,7 @@ const PillarCard = ({ pillar }: { pillar: Pillar }) => {
   );
 };
 
-export const PillarEcosystemGrid = () => {
+export const TrackEcosystemGrid = () => {
   const progress = getEcosystemProgress();
   const dataAmbassadorStatus = getStatusStyle(dataAmbassador.status);
   
@@ -112,10 +112,10 @@ export const PillarEcosystemGrid = () => {
       {/* Header with Progress */}
       <div className="text-center mb-8">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
-          Pillar Ecosystem
+          Track Teams
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-          Each pillar brings together City, Nonprofit, and Corporate leaders to present at Friday kickoff and judge solutions.
+          Each Track brings together City, Community, and Corporate partners to present at Friday kickoff and judge solutions.
         </p>
         
         {/* Progress Bar */}
@@ -140,7 +140,7 @@ export const PillarEcosystemGrid = () => {
               </div>
               <div>
                 <p className="font-semibold text-foreground">Data Ambassador</p>
-                <p className="text-xs text-muted-foreground">Cross-cutting role serving all 7 pillars</p>
+                <p className="text-xs text-muted-foreground">Cross-cutting role serving all 7 Tracks</p>
               </div>
             </div>
             <Badge 
@@ -179,10 +179,10 @@ export const PillarEcosystemGrid = () => {
         </div>
       </div>
 
-      {/* Pillar Grid */}
+      {/* Track Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {pillars.map((pillar) => (
-          <PillarCard key={pillar.id} pillar={pillar} />
+        {tracks.map((track) => (
+          <TrackCard key={track.id} track={track} />
         ))}
       </div>
 
@@ -194,7 +194,7 @@ export const PillarEcosystemGrid = () => {
               <Building2 className="w-4 h-4 text-blue-500" />
               <span className="text-2xl font-bold text-foreground">7</span>
             </div>
-            <p className="text-xs text-muted-foreground">City Liaisons</p>
+            <p className="text-xs text-muted-foreground">City Partners</p>
           </CardContent>
         </Card>
         <Card className="border-border">
@@ -203,7 +203,7 @@ export const PillarEcosystemGrid = () => {
               <Heart className="w-4 h-4 text-pink-500" />
               <span className="text-2xl font-bold text-foreground">7</span>
             </div>
-            <p className="text-xs text-muted-foreground">Nonprofit Partners</p>
+            <p className="text-xs text-muted-foreground">Community Partners</p>
           </CardContent>
         </Card>
         <Card className="border-border">
@@ -212,7 +212,7 @@ export const PillarEcosystemGrid = () => {
               <Briefcase className="w-4 h-4 text-emerald-500" />
               <span className="text-2xl font-bold text-foreground">7</span>
             </div>
-            <p className="text-xs text-muted-foreground">Corporate Sponsors</p>
+            <p className="text-xs text-muted-foreground">Corporate Partners</p>
           </CardContent>
         </Card>
         <Card className="border-border">
@@ -228,4 +228,7 @@ export const PillarEcosystemGrid = () => {
     </div>
   );
 };
+
+// Backward compatibility alias
+export const PillarEcosystemGrid = TrackEcosystemGrid;
 

@@ -16,7 +16,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 export type AdminSection = 
   | 'overview' 
   | 'plan' 
-  | 'pillars' 
+  | 'tracks' 
   | 'team' 
   | 'connectors' 
   | 'academia' 
@@ -45,7 +45,7 @@ const navGroups: NavGroup[] = [
     label: "Planning",
     items: [
       { id: 'plan', label: 'Communication Plan', icon: Target },
-      { id: 'pillars', label: 'Pillars', icon: LayoutDashboard },
+      { id: 'tracks', label: 'Tracks', icon: LayoutDashboard },
     ]
   },
   {

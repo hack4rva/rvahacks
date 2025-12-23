@@ -1,6 +1,6 @@
 import { Briefcase } from "lucide-react";
 
-const pillar = {
+const track = {
   icon: Briefcase,
   title: "A Thriving Economy",
   description: "Growing jobs, cutting poverty, building wealth—especially for communities of color. Supporting small businesses, minority-owned enterprises, and creating a downtown where everyone wants to live, work, and play.",
@@ -30,7 +30,7 @@ export const Challenges = () => {
             Building a Thriving Economy
           </h2>
           <p className="text-lg text-muted-foreground text-center mb-4 max-w-3xl mx-auto">
-            This pillar from Mayor Danny Avula's Action Plan focuses on economic growth, poverty reduction, and wealth building for all Richmonders.
+            This Track from Mayor Danny Avula's Action Plan focuses on economic growth, poverty reduction, and wealth building for all Richmonders.
           </p>
           <div className="text-center mb-12">
             <a 
@@ -43,17 +43,17 @@ export const Challenges = () => {
             </a>
           </div>
 
-          {/* Single pillar display */}
+          {/* Single track display */}
           <div className="bg-card border border-accent rounded-xl p-8 shadow-glow animate-fade-in">
             <div className="flex items-center gap-4 mb-6">
               <Briefcase className="w-12 h-12 text-accent" />
               <h3 className="text-3xl font-bold text-foreground">
-                {pillar.title}
+                {track.title}
               </h3>
             </div>
             
             <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
-              {pillar.description}
+              {track.description}
             </p>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -62,7 +62,7 @@ export const Challenges = () => {
                   <span className="text-accent">→</span> Goals
                 </h4>
                 <ul className="space-y-3">
-                  {pillar.goals.map((goal, idx) => (
+                  {track.goals.map((goal, idx) => (
                     <li key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-background/50 border border-border/50 hover:border-accent/50 transition-colors">
                       <span className="text-accent font-bold text-lg">•</span>
                       <span className="text-muted-foreground">{goal}</span>
@@ -76,7 +76,7 @@ export const Challenges = () => {
                   <span className="text-accent">📊</span> Key Metrics
                 </h4>
                 <ul className="space-y-3">
-                  {pillar.metrics.map((metric, idx) => (
+                  {track.metrics.map((metric, idx) => (
                     <li key={idx} className="flex items-start gap-3 p-3 rounded-lg bg-background/50 border border-border/50 hover:border-accent/50 transition-colors">
                       <span className="text-accent font-bold text-lg">•</span>
                       <span className="text-muted-foreground">{metric}</span>

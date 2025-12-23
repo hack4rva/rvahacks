@@ -1,6 +1,6 @@
 export { PlanTab } from './PlanTab';
 export { TeamTab } from './TeamTab';
-export { PillarsTab } from './PillarsTab';
+export { TracksTab } from './TracksTab';
 export { SponsorsTab } from './SponsorsTab';
 export { AcademiaTab } from './AcademiaTab';
 export { ConnectorsTab } from './ConnectorsTab';

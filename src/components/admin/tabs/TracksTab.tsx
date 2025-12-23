@@ -1,16 +1,16 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { pillarStakeholders } from "@/data/sponsorshipPipeline";
+import { trackStakeholders } from "@/data/sponsorshipPipeline";
 
-export const PillarsTab = () => {
+export const TracksTab = () => {
   return (
     <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <span className="text-lg">🏛️</span>
-          Pillar Stakeholders
+          Track Stakeholders
         </CardTitle>
         <CardDescription>
-          7 Pillars × 4 Roles — Each pillar needs: Breakout Owner + City Hall Owner + Corporate Rep + Nonprofit Rep
+          7 Tracks × 4 Roles — Each Track needs: Track Lead + City Partner + Corporate Partner + Community Partner
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -18,44 +18,44 @@ export const PillarsTab = () => {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">
-                <th className="text-left py-2 px-2 font-semibold">Pillar</th>
-                <th className="text-left py-2 px-2 font-semibold">Breakout Owner</th>
-                <th className="text-left py-2 px-2 font-semibold">City Hall Owner</th>
-                <th className="text-left py-2 px-2 font-semibold">Corporate Rep</th>
-                <th className="text-left py-2 px-2 font-semibold">Nonprofit Rep</th>
+                <th className="text-left py-2 px-2 font-semibold">Track</th>
+                <th className="text-left py-2 px-2 font-semibold">Track Lead</th>
+                <th className="text-left py-2 px-2 font-semibold">City Partner</th>
+                <th className="text-left py-2 px-2 font-semibold">Corporate Partner</th>
+                <th className="text-left py-2 px-2 font-semibold">Community Partner</th>
               </tr>
             </thead>
             <tbody>
-              {pillarStakeholders.map((pillar) => (
-                <tr key={pillar.id} className="border-b border-border/50">
+              {trackStakeholders.map((track) => (
+                <tr key={track.id} className="border-b border-border/50">
                   <td className="py-3 px-2">
-                    <span className="font-medium">{pillar.id}. {pillar.name}</span>
-                    <p className="text-xs text-muted-foreground">{pillar.focus}</p>
+                    <span className="font-medium">{track.id}. {track.name}</span>
+                    <p className="text-xs text-muted-foreground">{track.focus}</p>
                   </td>
                   <td className="py-3 px-2">
-                    {pillar.breakoutOwner ? (
-                      <span className="text-sm font-medium text-accent">{pillar.breakoutOwner}</span>
+                    {track.breakoutOwner ? (
+                      <span className="text-sm font-medium text-accent">{track.breakoutOwner}</span>
                     ) : (
                       <span className="text-xs text-muted-foreground italic">Unassigned</span>
                     )}
                   </td>
                   <td className="py-3 px-2">
-                    {pillar.cityHallOwner ? (
-                      <span className="text-sm font-medium text-accent">{pillar.cityHallOwner}</span>
+                    {track.cityPartnerRep ? (
+                      <span className="text-sm font-medium text-accent">{track.cityPartnerRep}</span>
                     ) : (
                       <span className="text-xs text-muted-foreground italic">Unassigned</span>
                     )}
                   </td>
                   <td className="py-3 px-2">
-                    {pillar.corporateRep ? (
-                      <span className="text-sm font-medium text-accent">{pillar.corporateRep}</span>
+                    {track.corporatePartnerRep ? (
+                      <span className="text-sm font-medium text-accent">{track.corporatePartnerRep}</span>
                     ) : (
                       <span className="text-xs text-muted-foreground italic">Unassigned</span>
                     )}
                   </td>
                   <td className="py-3 px-2">
-                    {pillar.nonprofitRep ? (
-                      <span className="text-sm font-medium text-accent">{pillar.nonprofitRep}</span>
+                    {track.communityPartnerRep ? (
+                      <span className="text-sm font-medium text-accent">{track.communityPartnerRep}</span>
                     ) : (
                       <span className="text-xs text-muted-foreground italic">Unassigned</span>
                     )}
@@ -67,31 +67,31 @@ export const PillarsTab = () => {
         </div>
 
         <div className="mt-6 p-4 bg-muted/30 rounded-lg">
-          <h4 className="font-semibold mb-3">Pillar Coverage Summary</h4>
+          <h4 className="font-semibold mb-3">Track Coverage Summary</h4>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             <div>
               <p className="text-2xl font-bold text-accent">
-                {pillarStakeholders.filter(p => p.breakoutOwner).length}/7
+                {trackStakeholders.filter(t => t.breakoutOwner).length}/7
               </p>
-              <p className="text-xs text-muted-foreground">Breakout Owners</p>
+              <p className="text-xs text-muted-foreground">Track Leads</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-accent">
-                {pillarStakeholders.filter(p => p.cityHallOwner).length}/7
+                {trackStakeholders.filter(t => t.cityPartnerRep).length}/7
               </p>
-              <p className="text-xs text-muted-foreground">City Hall Owners</p>
+              <p className="text-xs text-muted-foreground">City Partners</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-accent">
-                {pillarStakeholders.filter(p => p.corporateRep).length}/7
+                {trackStakeholders.filter(t => t.corporatePartnerRep).length}/7
               </p>
-              <p className="text-xs text-muted-foreground">Corporate Reps</p>
+              <p className="text-xs text-muted-foreground">Corporate Partners</p>
             </div>
             <div>
               <p className="text-2xl font-bold text-accent">
-                {pillarStakeholders.filter(p => p.nonprofitRep).length}/7
+                {trackStakeholders.filter(t => t.communityPartnerRep).length}/7
               </p>
-              <p className="text-xs text-muted-foreground">Nonprofit Reps</p>
+              <p className="text-xs text-muted-foreground">Community Partners</p>
             </div>
           </div>
         </div>

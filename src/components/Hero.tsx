@@ -43,7 +43,7 @@ export const Hero = () => {
             <div className="w-px h-8 bg-white/30" />
             <div className="text-center">
               <div className="text-2xl md:text-3xl font-bold">7</div>
-              <div className="text-xs text-white/70 uppercase">Pillars</div>
+              <div className="text-xs text-white/70 uppercase">Tracks</div>
             </div>
           </div>
 

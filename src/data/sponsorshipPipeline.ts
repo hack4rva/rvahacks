@@ -2,12 +2,16 @@
  * Sponsorship Pipeline Data
  * Source: knowledge-base/02-team-governance/assignments.md
  * 
- * Contains corporate sponsor targets and nonprofit partner targets for each
- * of the 7 MAP pillars, plus cross-pillar foundations and warm connections.
+ * Contains Corporate Partner targets and Community Partner targets for each
+ * of the 7 MAP Tracks, plus cross-Track foundations and warm connections.
+ * 
+ * The hackathon is organized around 7 Tracks—aligned with the seven pillars 
+ * from Mayor Avula's Mayoral Action Plan. We refer to them as "Tracks" 
+ * throughout the hackathon to emphasize the focus areas teams can work within.
  * 
  * Enhanced with:
- * - Strategic pitch context per pillar
- * - Extended narrative notes for each sponsor/partner
+ * - Strategic pitch context per Track
+ * - Extended narrative notes for each partner
  * - Inline source citations with hyperlinks
  */
 
@@ -27,7 +31,7 @@ export interface SponsorTarget {
   sources?: Source[];
 }
 
-export interface NonprofitPartner {
+export interface CommunityPartner {
   organization: string;
   role: string;
   contact: string;
@@ -37,19 +41,25 @@ export interface NonprofitPartner {
   sources?: Source[];
 }
 
+// Backward compatibility alias
+export type NonprofitPartner = CommunityPartner;
+
 export interface PitchContext {
   angle: string;
   description: string;
 }
 
-export interface PillarRecruitment {
+export interface TrackRecruitment {
   id: number;
   name: string;
   focus: string;
   pitchContext: PitchContext;
-  corporateTargets: SponsorTarget[];
-  nonprofitPartners: NonprofitPartner[];
+  corporatePartners: SponsorTarget[];
+  communityPartners: CommunityPartner[];
 }
+
+// Backward compatibility alias
+export type PillarRecruitment = TrackRecruitment;
 
 export interface WarmConnection {
   name: string;
@@ -58,7 +68,7 @@ export interface WarmConnection {
   strategy: string;
 }
 
-export interface CrossPillarFoundation {
+export interface CrossTrackFoundation {
   organization: string;
   focus: string;
   contact: string;
@@ -66,11 +76,14 @@ export interface CrossPillarFoundation {
   sources?: Source[];
 }
 
+// Backward compatibility alias
+export type CrossPillarFoundation = CrossTrackFoundation;
+
 // =============================================================================
-// PILLAR RECRUITMENT DATA
+// TRACK RECRUITMENT DATA
 // =============================================================================
 
-export const pillarRecruitment: PillarRecruitment[] = [
+export const trackRecruitment: TrackRecruitment[] = [
   {
     id: 1,
     name: "Thriving City Hall",
@@ -79,7 +92,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "Operational Excellence & Digital Transformation",
       description: "Sponsors for this track will be drawn largely from the GovTech and B2B services sector. These companies have a vested interest in demonstrating how their technologies can modernize legacy systems. The outputs of this track—such as procurement visualization dashboards, FOIA request trackers, or permit status notification tools—directly serve the business community by reducing administrative friction.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "Tyler Technologies",
         tier: "$10k - $25k",
@@ -120,7 +133,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         extendedNotes: "CGI has established a significant footprint in Virginia, viewing its presence not just as a business operation but as a community partnership. Their \"STEM@CGI\" initiative and commitment to preventing \"brain drain\" from smaller communities align with the Mayor's goal of a thriving, efficient government that retains top talent. Will LaBar, Vice President overseeing U.S. onshore delivery centers, has been a vocal advocate for building strong partnerships with educational institutions and government bodies to foster local employment. A sponsorship from CGI could be framed around workforce development—using the hackathon to identify and recruit the next generation of technologists who will build the digital infrastructure of City Hall.",
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "VPAP",
         role: "Data Partner",
@@ -164,7 +177,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "Smart Growth & Equitable Development",
       description: "Sponsors in this category include real estate data firms, construction companies, and engineering firms that benefit from a robust development environment. The Mayor's plan explicitly calls for building more homes for more people, preserving existing affordable housing, and ensuring neighborhoods are safe and amenity-rich. This pillar requires data-driven solutions to navigate zoning complexities, track housing inventory, and support tenant rights.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "CoStar Group",
         tier: "$25k - $50k",
@@ -217,7 +230,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         ],
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "PHA",
         role: "Policy Partner",
@@ -263,7 +276,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "Investing in the Future Workforce & Holistic Family Wellness",
       description: "Sponsors in this space are often large employers concerned with workforce readiness and companies with products or services focused on the family unit. This pillar prioritizes the education, health, and development of children and families. The Mayor's vision includes ensuring all children graduate prepared for success and are connected to career opportunities. This creates a demand for EdTech solutions, resource navigation tools for parents, and systems that address food insecurity and early childhood development.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "CarMax",
         tier: "$25k - $50k",
@@ -311,7 +324,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         ],
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "NextUp RVA",
         role: "Youth Partner",
@@ -356,7 +369,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "Inclusive Growth & Economic Mobility",
       description: "Financial institutions and major corporations with supplier diversity mandates are the primary targets here. This pillar focuses on economic inclusion, supporting small and minority-owned businesses, and creating pathways to wealth building. The Mayor's vision emphasizes an economy that works for everyone, necessitating tools that democratize access to capital, contracts, and business networks.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "Capital One",
         tier: "$50k (Anchor)",
@@ -407,7 +420,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         ],
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "Metropolitan Business League",
         role: "Business Partner",
@@ -451,7 +464,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "DEI Commitment & Social Risk Reduction",
       description: "Sponsors for this pillar are companies with strong internal DEI (Diversity, Equity, and Inclusion) commitments and those in the insurance and banking sectors who view \"risk\" through a social lens. This pillar focuses on protecting the rights of all residents, specifically LGBTQ+ individuals, immigrants, and racial minorities, and addressing health inequities. Solutions here might include legal aid triage apps, multilingual resource navigators, or health equity dashboards.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "Kinsale Capital",
         tier: "$10k - $25k",
@@ -487,7 +500,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         ],
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "VCIC",
         role: "DEI Partner",
@@ -531,7 +544,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "Sustainability Innovation & Resilient Infrastructure",
       description: "Utilities, engineering firms, and companies with heavy industrial footprints looking to green their image are the prime targets. This pillar targets net-zero greenhouse gas emissions, improved public transportation, and the greening of neglected neighborhoods. The City's focus on sustainability creates opportunities for tech solutions in carbon tracking, transit optimization, and environmental monitoring.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "Dominion Energy",
         tier: "$50k (Title)",
@@ -569,7 +582,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         ],
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "James River Association",
         role: "Environmental Partner",
@@ -613,7 +626,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
       angle: "Cultural Innovation & Brand Richmond",
       description: "Sponsors here include media companies, creative agencies, and organizations with a vested interest in the city's brand and tourism appeal. This pillar focuses on making Richmond a national model for honest history telling, leveraging arts and culture to bridge divides. The technology angle here is \"Digital Humanities\"—using AR/VR, digital archives, and interactive storytelling to bring history to life.",
     },
-    corporateTargets: [
+    corporatePartners: [
       {
         organization: "VPM",
         tier: "$15k - $30k",
@@ -649,7 +662,7 @@ export const pillarRecruitment: PillarRecruitment[] = [
         ],
       },
     ],
-    nonprofitPartners: [
+    communityPartners: [
       {
         organization: "The Valentine",
         role: "Content Partner",
@@ -698,11 +711,14 @@ export const pillarRecruitment: PillarRecruitment[] = [
   },
 ];
 
+// Backward compatibility alias
+export const pillarRecruitment = trackRecruitment;
+
 // =============================================================================
-// CROSS-PILLAR FOUNDATIONS
+// CROSS-TRACK FOUNDATIONS
 // =============================================================================
 
-export const crossPillarFoundations: CrossPillarFoundation[] = [
+export const crossTrackFoundations: CrossTrackFoundation[] = [
   {
     organization: "Community Foundation for a greater Richmond",
     focus: "Community vibrancy, economic prosperity, educational success",
@@ -732,6 +748,9 @@ export const crossPillarFoundations: CrossPillarFoundation[] = [
     ],
   },
 ];
+
+// Backward compatibility alias
+export const crossPillarFoundations = crossTrackFoundations;
 
 // =============================================================================
 // WARM CONNECTIONS (Key Influencers)
@@ -802,57 +821,67 @@ export const implementationTimeline = {
 };
 
 // =============================================================================
-// PILLAR STAKEHOLDERS (for Admin Dashboard tracking)
+// TRACK STAKEHOLDERS (for Admin Dashboard tracking)
 // =============================================================================
 
-export interface PillarStakeholder {
+export interface TrackStakeholder {
   id: number;
   name: string;
   focus: string;
   breakoutOwner?: string;
-  cityHallOwner?: string;
-  corporateRep?: string;
-  nonprofitRep?: string;
+  cityPartnerRep?: string;
+  corporatePartnerRep?: string;
+  communityPartnerRep?: string;
 }
 
-// Map pillar IDs to their assigned stakeholders
+// Backward compatibility alias
+export type PillarStakeholder = TrackStakeholder;
+
+// Map Track IDs to their assigned stakeholders
 const breakoutOwnerAssignments: Record<number, string> = {
   2: "Gray Crenshaw", // Thriving Neighborhoods (Housing)
 };
 
-const cityHallOwnerAssignments: Record<number, string> = {
+const cityPartnerRepAssignments: Record<number, string> = {
   2: "Michael Kolbe", // Thriving Neighborhoods (Housing)
 };
 
-const corporateRepAssignments: Record<number, string> = {
+const corporatePartnerRepAssignments: Record<number, string> = {
   2: "Laura Lafayette (Richmond Association of REALTORS®)", // Thriving Neighborhoods (Housing)
 };
 
-const nonprofitRepAssignments: Record<number, string> = {
+const communityPartnerRepAssignments: Record<number, string> = {
   2: "Whitney Brown (Maggie Walker Community Land Trust)", // Thriving Neighborhoods (Housing)
 };
 
-export const pillarStakeholders: PillarStakeholder[] = pillarRecruitment.map((pillar) => ({
-  id: pillar.id,
-  name: pillar.name,
-  focus: pillar.focus,
-  breakoutOwner: breakoutOwnerAssignments[pillar.id],
-  cityHallOwner: cityHallOwnerAssignments[pillar.id],
-  corporateRep: corporateRepAssignments[pillar.id],
-  nonprofitRep: nonprofitRepAssignments[pillar.id],
+export const trackStakeholders: TrackStakeholder[] = trackRecruitment.map((track) => ({
+  id: track.id,
+  name: track.name,
+  focus: track.focus,
+  breakoutOwner: breakoutOwnerAssignments[track.id],
+  cityPartnerRep: cityPartnerRepAssignments[track.id],
+  corporatePartnerRep: corporatePartnerRepAssignments[track.id],
+  communityPartnerRep: communityPartnerRepAssignments[track.id],
 }));
+
+// Backward compatibility alias
+export const pillarStakeholders = trackStakeholders;
 
 // =============================================================================
 // SUMMARY STATS
 // =============================================================================
 
 export const sponsorshipStats = {
-  totalCorporateTargets: pillarRecruitment.reduce((acc, p) => acc + p.corporateTargets.length, 0),
-  totalNonprofitPartners: pillarRecruitment.reduce((acc, p) => acc + p.nonprofitPartners.length, 0),
+  totalCorporatePartners: trackRecruitment.reduce((acc, t) => acc + t.corporatePartners.length, 0),
+  totalCommunityPartners: trackRecruitment.reduce((acc, t) => acc + t.communityPartners.length, 0),
   totalWarmConnections: warmConnections.length,
-  totalCrossPillarFoundations: crossPillarFoundations.length,
-  anchorTierTargets: pillarRecruitment
-    .flatMap((p) => p.corporateTargets)
-    .filter((t) => t.tier.includes("50k") || t.tier.includes("Anchor") || t.tier.includes("Title")).length,
+  totalCrossTrackFoundations: crossTrackFoundations.length,
+  anchorTierTargets: trackRecruitment
+    .flatMap((t) => t.corporatePartners)
+    .filter((p) => p.tier.includes("50k") || p.tier.includes("Anchor") || p.tier.includes("Title")).length,
   totalSources: 71,
+  // Backward compatibility
+  get totalCorporateTargets() { return this.totalCorporatePartners; },
+  get totalNonprofitPartners() { return this.totalCommunityPartners; },
+  get totalCrossPillarFoundations() { return this.totalCrossTrackFoundations; },
 };

@@ -33,7 +33,7 @@ const coreTeam = [
     role: "City Liaison", 
     image: michaelKolbe, 
     linkedin: undefined, 
-    bio: "Michael will coordinate government stakeholders, pillar content, and subject matter experts. He'll recruit leadership for: Pillar Room Captain Coordinator, SME Recruiter, and VIP/Speaker Host Lead." 
+    bio: "Michael will coordinate government stakeholders, Track content, and subject matter experts. He'll recruit leadership for: Track Room Captain Coordinator, SME Recruiter, and VIP/Speaker Host Lead." 
   },
   { 
     name: "Sinclair Jenks", 
@@ -54,7 +54,7 @@ const coreTeam = [
     role: "Partnerships", 
     image: willMelton, 
     linkedin: undefined, 
-    bio: "Will will cultivate ecosystem partnerships with nonprofits, community organizations, and civic groups. He'll recruit leadership for: Nonprofit Partner Coordinator and Community Outreach Lead." 
+    bio: "Will will cultivate ecosystem partnerships with community organizations and civic groups. He'll recruit leadership for: Community Partner Coordinator and Community Outreach Lead." 
   },
   { 
     name: "Mike Huddleston", 
@@ -75,7 +75,7 @@ const coreTeam = [
     role: "Innovation & Challenge Design", 
     image: christianMarkow, 
     linkedin: undefined, 
-    bio: "Christian will lead pillar-specific problem definition, solution framing, and innovation methodology. He'll work with city pillars to translate complex civic challenges into actionable hackathon problems." 
+    bio: "Christian will lead Track-specific problem definition, solution framing, and innovation methodology. He'll work with city Track Teams to translate complex civic challenges into actionable hackathon problems." 
   },
 ];
 

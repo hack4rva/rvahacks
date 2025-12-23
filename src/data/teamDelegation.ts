@@ -51,7 +51,7 @@ export const teamDelegation: CoreLeader[] = [
       { title: "Accessibility Mentor", assignee: "J. Albert Bowden II", description: "Ensure solutions are accessible. Advise teams on WCAG compliance, screen reader support, keyboard navigation.", whyItMatters: "Civic tech must work for everyone. Accessibility isn't optional — it's how we ensure solutions serve all Richmonders.", commitment: "On-call during event" },
       { title: "Judge Coordinator", assignee: "Ankit Mathur", description: "Recruit 15-20 judges, design rubrics with pillar stakeholders, manage Sunday judging rounds, orchestrate finals.", whyItMatters: "Fair, rigorous judging ensures the best solutions win — and get implemented. This role protects the integrity of the competition.", commitment: "3-5 hrs/week Feb-Mar + Sunday" },
       { title: "Judge", assignee: null, volunteers: [
-        { name: "Debbie Irwin", focus: "Thriving Economy" },
+        { name: "Debbie Irwin", focus: "Economy Track" },
         { name: "Alex Otanez", focus: "Product/Innovation" },
       ], targetCount: "15-20", description: "Evaluate solutions based on rubric criteria. Score submissions, provide feedback, participate in deliberations.", whyItMatters: "Domain experts ensure winning solutions actually address real challenges and are technically sound.", commitment: "Sunday judging (4-6 hrs)" },
       { title: "Help Desk Lead", assignee: "David Cariello", description: "Manage general help desk, troubleshoot issues, triage questions to right resources, track common problems.", whyItMatters: "When participants hit friction, help desk is first response. Fast resolution keeps teams productive.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
@@ -79,17 +79,17 @@ export const teamDelegation: CoreLeader[] = [
   {
     name: "Michael Kolbe",
     role: "City Liaison",
-    focus: "Government Stakeholders, Pillars, SMEs",
+    focus: "Government Stakeholders, Tracks, SMEs",
     responsibilities: [
       "City department engagement",
-      "Pillar challenge design",
+      "Track challenge design",
       "Subject matter expert recruitment",
       "Government data access",
     ],
     whyItMatters: "City Liaison bridges the hackathon to city government — ensuring challenges address real city needs and solutions have a path to implementation through city departments.",
     subRoles: [
-      { title: "Challenge Design Facilitator", assignee: "Ryan Shriver", description: "Work with city departments and nonprofits to define specific, solvable problems. Create rubrics showing what good solutions look like.", whyItMatters: "Good challenge design is the difference between 'cool demo' and 'implementable solution'. This role shapes what teams build.", commitment: "8-12 hrs total in Jan-Feb" },
-      { title: "Pillar Coordinator", assignee: null, description: "Recruit and manage the 21 pillar stakeholders (3 per pillar). Ensure each pillar has city, nonprofit, and breakout representation.", whyItMatters: "Pillars are the backbone of the event. Without stakeholders, challenges lack authenticity and solutions lack champions.", commitment: "5-8 hrs/week Jan-Mar" },
+      { title: "Challenge Design Facilitator", assignee: "Ryan Shriver", description: "Work with city departments and community partners to define specific, solvable problems. Create rubrics showing what good solutions look like.", whyItMatters: "Good challenge design is the difference between 'cool demo' and 'implementable solution'. This role shapes what teams build.", commitment: "8-12 hrs total in Jan-Feb" },
+      { title: "Track Coordinator", assignee: null, description: "Recruit and manage the 21 Track Team stakeholders (3 per Track). Ensure each Track has City, Community, and Corporate partner representation.", whyItMatters: "Track Teams are the backbone of the event. Without stakeholders, challenges lack authenticity and solutions lack champions.", commitment: "5-8 hrs/week Jan-Mar" },
       { title: "SME Recruiter", assignee: null, description: "Recruit subject matter experts from city departments and nonprofits. Coordinate their availability for sessions and Discord support.", whyItMatters: "SMEs ground solutions in reality. They tell teams 'we've tried that' or 'that would be amazing' — context code can't provide.", commitment: "3-4 hrs/week Jan-Mar" },
       { title: "VIP/Speaker Host Lead", assignee: null, description: "Greet stakeholders, escort VIPs, ensure speakers are prepared, facilitate introductions, handle VIP needs.", whyItMatters: "City officials and nonprofit leaders need white-glove treatment. Their experience determines whether they champion solutions post-event.", commitment: "Full Friday + some Sunday" },
     ]
@@ -139,17 +139,17 @@ export const teamDelegation: CoreLeader[] = [
   {
     name: "Will Melton",
     role: "Sponsorships & Partnerships",
-    focus: "Corporate Sponsors, Nonprofit Partners",
+    focus: "Corporate Partners, Community Partners",
     responsibilities: [
-      "Corporate sponsor recruitment",
+      "Corporate partner recruitment",
       "Sponsorship package development",
       "Partner relationship management",
       "Sponsorship fulfillment",
     ],
     whyItMatters: "Sponsorships & Partnerships secures the resources that make the event possible — funding, prizes, mentors, and the cross-sector legitimacy that makes solutions adoptable.",
     subRoles: [
-      { title: "Corporate Sponsor Coordinator", assignee: null, description: "Support sponsor outreach, track pipeline, manage sponsor communications, ensure fulfillment of sponsor benefits.", whyItMatters: "Sponsors fund prizes, food, and swag. Good sponsor management means they come back next year.", commitment: "3-5 hrs/week Jan-Mar" },
-      { title: "Nonprofit Partner Coordinator", assignee: null, description: "Build relationships with 7+ nonprofits across pillars. Manage expectations, coordinate participation, ensure authentic community voice.", whyItMatters: "Nonprofits ensure solutions address real needs — not just interesting technical problems. They're the voice of the community.", commitment: "3-5 hrs/week Jan-Mar + event" },
+      { title: "Corporate Partner Coordinator", assignee: null, description: "Support sponsor outreach, track pipeline, manage sponsor communications, ensure fulfillment of sponsor benefits.", whyItMatters: "Corporate Partners fund Track bounties, food, and swag. Good partner management means they come back next year.", commitment: "3-5 hrs/week Jan-Mar" },
+      { title: "Community Partner Coordinator", assignee: null, description: "Build relationships with 7+ community organizations across Tracks. Manage expectations, coordinate participation, ensure authentic community voice.", whyItMatters: "Community Partners ensure solutions address real needs — not just interesting technical problems. They're the voice of the community.", commitment: "3-5 hrs/week Jan-Mar + event" },
     ]
   },
   {

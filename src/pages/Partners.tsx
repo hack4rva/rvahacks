@@ -67,13 +67,13 @@ const sponsorshipOpportunities: SponsorshipOpportunity[] = [
   { id: "grand-prize", title: "Grand Prize", category: "award", amount: "$5,000", description: "Top overall solution", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "yellow" },
   { id: "peoples-choice", title: "People's Choice", category: "award", amount: "$2,500", description: "Community-voted favorite", claimedBy: undefined, icon: <Heart className="w-5 h-5" />, color: "pink" },
   { id: "judges-choice", title: "Judges' Choice", category: "award", amount: "$2,500", description: "Panel-selected excellence", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "violet" },
-  { id: "pillar-1", title: "Pillar 1: Housing", category: "award", amount: "$1,000", description: "Best housing solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
-  { id: "pillar-2", title: "Pillar 2: Safety", category: "award", amount: "$1,000", description: "Best public safety solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
-  { id: "pillar-3", title: "Pillar 3: Youth", category: "award", amount: "$1,000", description: "Best youth-focused solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
-  { id: "pillar-4", title: "Pillar 4: Workforce", category: "award", amount: "$1,000", description: "Best workforce solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
-  { id: "pillar-5", title: "Pillar 5: Blight", category: "award", amount: "$1,000", description: "Best blight remediation", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
-  { id: "pillar-6", title: "Pillar 6: Infrastructure", category: "award", amount: "$1,000", description: "Best infrastructure solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
-  { id: "pillar-7", title: "Pillar 7: One Richmond", category: "award", amount: "$1,000", description: "Best cross-pillar solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-1", title: "Track 1: City Hall", category: "award", amount: "$1,000", description: "Best government efficiency solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-2", title: "Track 2: Neighborhoods", category: "award", amount: "$1,000", description: "Best housing/neighborhood solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-3", title: "Track 3: Families", category: "award", amount: "$1,000", description: "Best education/youth solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-4", title: "Track 4: Economy", category: "award", amount: "$1,000", description: "Best workforce/business solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-5", title: "Track 5: Communities", category: "award", amount: "$1,000", description: "Best inclusion solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-6", title: "Track 6: Environment", category: "award", amount: "$1,000", description: "Best sustainability solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  { id: "track-7", title: "Track 7: City Stories", category: "award", amount: "$1,000", description: "Best historical/cultural solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
   // Events
   { id: "breakfast", title: "Friday Kick-Off Breakfast", category: "event", amount: "TBD", description: "Fuel the start of the hackathon", claimedBy: undefined, icon: <UtensilsCrossed className="w-5 h-5" />, color: "orange" },
   { id: "banquet", title: "Sunday Awards Banquet", category: "event", amount: "TBD", description: "Host the celebratory finale", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "violet" },
@@ -524,7 +524,7 @@ const Partners = () => {
 
                   {/* Accordions */}
                   <Accordion type="multiple" className="space-y-3">
-                    {/* Pillar Ecosystem Accordion */}
+                    {/* Track Teams Accordion */}
                     <PillarEcosystemAccordion />
 
                     {/* Pre-Event Roles */}

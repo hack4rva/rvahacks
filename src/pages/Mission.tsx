@@ -33,13 +33,13 @@ import { pillarData } from "@/data/pillarAnalysis";
 
 const tabs = [
   { id: "overview", label: "Overview", icon: FileText },
-  { id: "pillar-1", label: "Pillar 1", icon: Building2, shortLabel: "City Hall" },
-  { id: "pillar-2", label: "Pillar 2", icon: Shield, shortLabel: "Safety" },
-  { id: "pillar-3", label: "Pillar 3", icon: Briefcase, shortLabel: "Opportunity" },
-  { id: "pillar-4", label: "Pillar 4", icon: TrendingUp, shortLabel: "Economy" },
-  { id: "pillar-5", label: "Pillar 5", icon: Leaf, shortLabel: "Environment" },
-  { id: "pillar-6", label: "Pillar 6", icon: Heart, shortLabel: "Reconciliation" },
-  { id: "pillar-7", label: "Pillar 7", icon: Globe, shortLabel: "Regional" },
+  { id: "track-1", label: "Track 1", icon: Building2, shortLabel: "City Hall" },
+  { id: "track-2", label: "Track 2", icon: Shield, shortLabel: "Neighborhoods" },
+  { id: "track-3", label: "Track 3", icon: Briefcase, shortLabel: "Families" },
+  { id: "track-4", label: "Track 4", icon: TrendingUp, shortLabel: "Economy" },
+  { id: "track-5", label: "Track 5", icon: Leaf, shortLabel: "Communities" },
+  { id: "track-6", label: "Track 6", icon: Heart, shortLabel: "Environment" },
+  { id: "track-7", label: "Track 7", icon: Globe, shortLabel: "Stories" },
   { id: "data-infrastructure", label: "Data & Recommendations", icon: Database },
 ];
 
@@ -123,11 +123,11 @@ const Mission = () => {
             </TabsContent>
             
             {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-              <TabsContent key={num} value={`pillar-${num}`} className="mt-0">
+              <TabsContent key={num} value={`track-${num}`} className="mt-0">
                 <PillarTab 
                   pillarNumber={num} 
                   data={pillarData[num - 1]}
-                  onNavigateToPillar={(pillarId) => handleTabChange(pillarId, false)}
+                  onNavigateToPillar={(trackId) => handleTabChange(trackId, false)}
                 />
               </TabsContent>
             ))}

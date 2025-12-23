@@ -27,13 +27,13 @@ import { pillarData } from "@/data/pillarAnalysis";
 
 const missionTabs = [
   { id: "overview", label: "Overview", icon: FileText },
-  { id: "pillar-1", label: "Pillar 1", icon: Building2 },
-  { id: "pillar-2", label: "Pillar 2", icon: Shield },
-  { id: "pillar-3", label: "Pillar 3", icon: Briefcase },
-  { id: "pillar-4", label: "Pillar 4", icon: TrendingUp },
-  { id: "pillar-5", label: "Pillar 5", icon: Leaf },
-  { id: "pillar-6", label: "Pillar 6", icon: Heart },
-  { id: "pillar-7", label: "Pillar 7", icon: Globe },
+  { id: "track-1", label: "Track 1", icon: Building2 },
+  { id: "track-2", label: "Track 2", icon: Shield },
+  { id: "track-3", label: "Track 3", icon: Briefcase },
+  { id: "track-4", label: "Track 4", icon: TrendingUp },
+  { id: "track-5", label: "Track 5", icon: Leaf },
+  { id: "track-6", label: "Track 6", icon: Heart },
+  { id: "track-7", label: "Track 7", icon: Globe },
   { id: "data", label: "Data", icon: Database },
 ];
 
@@ -78,11 +78,11 @@ export const MissionTabContent = () => {
           </TabsContent>
           
           {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-            <TabsContent key={num} value={`pillar-${num}`} className="mt-0">
+            <TabsContent key={num} value={`track-${num}`} className="mt-0">
               <PillarTab 
                 pillarNumber={num} 
                 data={pillarData[num - 1]}
-                onNavigateToPillar={(pillarId) => handleSubTabChange(pillarId)}
+                onNavigateToPillar={(trackId) => handleSubTabChange(trackId)}
               />
             </TabsContent>
           ))}

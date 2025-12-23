@@ -1,6 +1,15 @@
 /**
- * Single source of truth for the 7-pillar stakeholder ecosystem.
- * Each pillar has: City Liaison + Nonprofit Partner + Corporate Sponsor
+ * Single source of truth for the 7-Track stakeholder ecosystem.
+ * 
+ * The hackathon is organized around 7 Tracks—aligned with the seven pillars 
+ * from Mayor Avula's Mayoral Action Plan. We refer to them as "Tracks" 
+ * throughout the hackathon to emphasize the focus areas teams can work within.
+ * 
+ * Each Track has a Track Team consisting of:
+ * - City Partner (government official/appointee)
+ * - Corporate Partner (business sponsor providing bounty)
+ * - Community Partner (nonprofit organization with domain expertise)
+ * 
  * Source: knowledge-base/02-team-governance/pillar-ecosystem.md
  */
 
@@ -25,7 +34,7 @@ export interface Stakeholder {
   notes?: string;
 }
 
-export interface Pillar {
+export interface Track {
   id: string;
   number: number;
   title: string;
@@ -35,12 +44,15 @@ export interface Pillar {
   icon: LucideIcon;
   color: string;
   awardAmount: string;
-  cityLiaison: Stakeholder;
-  nonprofitPartner: Stakeholder;
-  corporateSponsor: Stakeholder;
+  cityPartner: Stakeholder;
+  communityPartner: Stakeholder;
+  corporatePartner: Stakeholder;
 }
 
-export const pillars: Pillar[] = [
+// Backward compatibility alias
+export type Pillar = Track;
+
+export const tracks: Track[] = [
   {
     id: 'thriving-city-hall',
     number: 1,
@@ -57,9 +69,9 @@ export const pillars: Pillar[] = [
     icon: Building2,
     color: 'blue',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
   {
     id: 'thriving-neighborhoods',
@@ -77,9 +89,9 @@ export const pillars: Pillar[] = [
     icon: Home,
     color: 'red',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
   {
     id: 'thriving-families',
@@ -97,9 +109,9 @@ export const pillars: Pillar[] = [
     icon: Users,
     color: 'purple',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
   {
     id: 'thriving-economy',
@@ -117,9 +129,9 @@ export const pillars: Pillar[] = [
     icon: Briefcase,
     color: 'emerald',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
   {
     id: 'inclusive-communities',
@@ -137,9 +149,9 @@ export const pillars: Pillar[] = [
     icon: Heart,
     color: 'pink',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
   {
     id: 'thriving-environment',
@@ -157,9 +169,9 @@ export const pillars: Pillar[] = [
     icon: Leaf,
     color: 'green',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
   {
     id: 'city-stories',
@@ -177,15 +189,18 @@ export const pillars: Pillar[] = [
     icon: BookOpen,
     color: 'amber',
     awardAmount: '$1,000',
-    cityLiaison: { status: 'not-started' },
-    nonprofitPartner: { status: 'not-started' },
-    corporateSponsor: { status: 'not-started' },
+    cityPartner: { status: 'not-started' },
+    communityPartner: { status: 'not-started' },
+    corporatePartner: { status: 'not-started' },
   },
 ];
 
+// Backward compatibility alias
+export const pillars = tracks;
+
 /**
  * Cross-cutting role: Data Ambassador
- * One person serving all 7 pillars
+ * One person serving all 7 Tracks
  */
 export interface DataAmbassador {
   name?: string;
@@ -216,7 +231,7 @@ export const getStatusStyle = (status: StakeholderStatus): { bg: string; text: s
 };
 
 /**
- * Calculate overall pillar ecosystem completion
+ * Calculate overall Track ecosystem completion
  */
 export const getEcosystemProgress = (): { 
   total: number; 
@@ -224,12 +239,12 @@ export const getEcosystemProgress = (): {
   percentage: number;
 } => {
   let confirmed = 0;
-  const total = pillars.length * 3 + 1; // 7 pillars × 3 stakeholders + 1 Data Ambassador
+  const total = tracks.length * 3 + 1; // 7 Tracks × 3 stakeholders + 1 Data Ambassador
 
-  pillars.forEach(pillar => {
-    if (pillar.cityLiaison.status === 'confirmed' || pillar.cityLiaison.status === 'complete') confirmed++;
-    if (pillar.nonprofitPartner.status === 'confirmed' || pillar.nonprofitPartner.status === 'complete') confirmed++;
-    if (pillar.corporateSponsor.status === 'confirmed' || pillar.corporateSponsor.status === 'complete') confirmed++;
+  tracks.forEach(track => {
+    if (track.cityPartner.status === 'confirmed' || track.cityPartner.status === 'complete') confirmed++;
+    if (track.communityPartner.status === 'confirmed' || track.communityPartner.status === 'complete') confirmed++;
+    if (track.corporatePartner.status === 'confirmed' || track.corporatePartner.status === 'complete') confirmed++;
   });
 
   if (dataAmbassador.status === 'confirmed' || dataAmbassador.status === 'complete') confirmed++;
@@ -242,9 +257,9 @@ export const getEcosystemProgress = (): {
 };
 
 /**
- * Get color classes for pillar
+ * Get color classes for Track
  */
-export const getPillarColorClasses = (color: string): { 
+export const getTrackColorClasses = (color: string): { 
   border: string; 
   bg: string; 
   text: string;
@@ -262,10 +277,13 @@ export const getPillarColorClasses = (color: string): {
   return colorMap[color] || colorMap.blue;
 };
 
+// Backward compatibility alias
+export const getPillarColorClasses = getTrackColorClasses;
+
 /**
- * Potential nonprofit partners by pillar (for recruitment reference)
+ * Potential Community Partners by Track (for recruitment reference)
  */
-export const potentialNonprofitPartners: Record<string, string[]> = {
+export const potentialCommunityPartners: Record<string, string[]> = {
   'thriving-city-hall': [
     'Code for America brigade',
     'Civic tech groups',
@@ -309,10 +327,13 @@ export const potentialNonprofitPartners: Record<string, string[]> = {
   ],
 };
 
+// Backward compatibility alias
+export const potentialNonprofitPartners = potentialCommunityPartners;
+
 /**
- * Potential corporate sponsors by pillar (for recruitment reference)
+ * Potential Corporate Partners by Track (for recruitment reference)
  */
-export const potentialCorporateSponsors: Record<string, string[]> = {
+export const potentialCorporatePartners: Record<string, string[]> = {
   'thriving-city-hall': [
     'CoStar Group',
     'Capital One',
@@ -354,4 +375,7 @@ export const potentialCorporateSponsors: Record<string, string[]> = {
     'Publishing companies'
   ],
 };
+
+// Backward compatibility alias
+export const potentialCorporateSponsors = potentialCorporatePartners;
 
