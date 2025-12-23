@@ -15,13 +15,14 @@
         }
 
         :root {
-            --bg-primary: #0d0d0d;
-            --bg-secondary: #1a1a1a;
-            --accent: #ffd700;
-            --accent-dark: #b8860b;
-            --text-primary: #ffffff;
-            --text-secondary: #a3a3a3;
-            --text-muted: #666666;
+            --bg-primary: #0d0d08;
+            --bg-secondary: #1a1a12;
+            --accent: #eab308;
+            --accent-secondary: #facc15;
+            --accent-tertiary: #fde047;
+            --text-primary: #e0e0e0;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
         }
 
         body {
@@ -33,98 +34,136 @@
             position: relative;
         }
 
-        /* Luxury grid background */
-        .luxury-grid {
+        .grid-bg {
             position: fixed;
             inset: 0;
             background: 
-                linear-gradient(90deg, rgba(255, 215, 0, 0.02) 1px, transparent 1px),
-                linear-gradient(rgba(255, 215, 0, 0.02) 1px, transparent 1px);
-            background-size: 100px 100px;
+                linear-gradient(90deg, rgba(234, 179, 8, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(234, 179, 8, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        /* Gold accent line */
-        .gold-line {
+        .data-line {
             position: fixed;
-            height: 100%;
-            width: 1px;
+            width: 2px;
             background: linear-gradient(to bottom, transparent, var(--accent), transparent);
-            left: 50%;
-            opacity: 0.3;
+            animation: dataFlow 3.6s ease-in-out infinite;
         }
 
-        /* Corner accents */
-        .corner {
+        .data-line-1 { left: 14%; height: 185px; top: 12%; animation-delay: 0.25s; }
+        .data-line-2 { left: 32%; height: 150px; top: 24%; animation-delay: 0.85s; }
+        .data-line-3 { right: 34%; height: 160px; top: 18%; animation-delay: 1.45s; }
+        .data-line-4 { right: 10%; height: 140px; top: 45%; animation-delay: 2.05s; }
+
+        @keyframes dataFlow {
+            0%, 100% { opacity: 0; transform: translateY(-50px); }
+            50% { opacity: 0.6; transform: translateY(50px); }
+        }
+
+        .node {
             position: fixed;
-            width: 100px;
-            height: 100px;
+            width: 12px;
+            height: 12px;
             border: 2px solid var(--accent);
-            opacity: 0.2;
+            border-radius: 50%;
+            animation: nodePulse 2.4s ease-in-out infinite;
         }
 
-        .corner-tl { top: 40px; left: 40px; border-right: none; border-bottom: none; }
-        .corner-tr { top: 40px; right: 40px; border-left: none; border-bottom: none; }
-        .corner-bl { bottom: 40px; left: 40px; border-right: none; border-top: none; }
-        .corner-br { bottom: 40px; right: 40px; border-left: none; border-top: none; }
+        .node::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .node-1 { top: 26%; left: 8%; animation-delay: 0.1s; }
+        .node-2 { top: 50%; left: 30%; animation-delay: 0.5s; }
+        .node-3 { top: 40%; right: 14%; animation-delay: 0.9s; }
+        .node-4 { bottom: 18%; right: 22%; animation-delay: 1.3s; }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .orb {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            right: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.12) 0%, rgba(253, 224, 71, 0.06) 50%, transparent 70%);
+            animation: orbFloat 10.5s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-55%) scale(1.05); }
+        }
 
         .container {
             position: relative;
             z-index: 10;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 40px 50px;
-        }
-
-        .card {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
             align-items: center;
-            width: 100%;
-            max-width: 1000px;
-            margin: 0 auto;
+            padding: 40px 50px;
+            gap: 40px;
         }
 
         .content-section {
-            animation: fadeIn 1s ease-out;
+            animation: slideIn 1s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         .event-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            background: rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(234, 179, 8, 0.3);
+            padding: 8px 14px;
+            border-radius: 4px;
             font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 24px;
-            animation: fadeIn 1s ease-out 0.1s both;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out 0.1s both;
         }
 
-        .event-badge::before,
-        .event-badge::after {
-            content: '';
-            width: 20px;
-            height: 1px;
-            background: var(--accent);
+        .event-badge::before {
+            content: '>';
+            color: var(--accent);
+        }
+
+        .role-tag {
+            font-size: 12px;
+            color: var(--accent-secondary);
+            margin-bottom: 10px;
+            animation: slideIn 1s ease-out 0.2s both;
+        }
+
+        .role-tag::before {
+            content: '// ';
+            color: var(--text-muted);
         }
 
         .name {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(36px, 5vw, 60px);
+            font-size: clamp(36px, 5vw, 56px);
             font-weight: 700;
-            line-height: 1;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            animation: fadeIn 1s ease-out 0.2s both;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            animation: slideIn 1s ease-out 0.3s both;
         }
 
         .name span {
@@ -136,25 +175,28 @@
         }
 
         .name .last {
-            color: transparent;
-            -webkit-text-stroke: 2px var(--accent);
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .role {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(13px, 1.5vw, 16px);
+            font-size: clamp(13px, 1.4vw, 16px);
             color: var(--accent);
-            margin-bottom: 28px;
-            font-weight: 300;
-            animation: fadeIn 1s ease-out 0.3s both;
+            margin-bottom: 24px;
+            padding: 12px 18px;
+            background: rgba(234, 179, 8, 0.05);
+            border-left: 3px solid var(--accent);
+            animation: slideIn 1s ease-out 0.4s both;
         }
 
         .bio {
             font-size: clamp(14px, 1.4vw, 16px);
             line-height: 1.6;
             color: var(--text-secondary);
-            max-width: 400px;
-            animation: fadeIn 1s ease-out 0.4s both;
+            max-width: 440px;
+            animation: slideIn 1s ease-out 0.5s both;
         }
 
         .bio strong {
@@ -162,64 +204,78 @@
             font-weight: 500;
         }
 
-        .responsibilities {
+        .focus-areas {
             margin-top: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            animation: fadeIn 1s ease-out 0.5s both;
+            animation: slideIn 1s ease-out 0.6s both;
         }
 
-        .tag {
-            background: transparent;
-            border: 1px solid var(--accent);
-            padding: 6px 14px;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
+        .focus-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .focus-item {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(234, 179, 8, 0.15);
+            padding: 12px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .tag:hover {
-            background: var(--accent);
-            color: var(--bg-primary);
+        .focus-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(234, 179, 8, 0.1);
+        }
+
+        .focus-icon {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .focus-text {
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .photo-section {
             display: flex;
             justify-content: center;
-            animation: fadeIn 1s ease-out 0.3s both;
+            animation: slideIn 1s ease-out 0.4s both;
         }
 
-        .photo-wrapper {
+        .photo-container {
             position: relative;
             width: 280px;
-            height: 360px;
+            height: 350px;
         }
 
-        .photo-wrapper::before {
+        .photo-container::before {
             content: '';
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: 15px;
-            bottom: 15px;
-            border: 1px solid var(--accent);
+            inset: -3px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
             z-index: -1;
         }
 
-        .photo-wrapper::after {
-            content: 'SPONSORSHIPS';
+        .photo-container::after {
+            content: 'SPONSORS';
             position: absolute;
-            bottom: -40px;
-            right: -20px;
-            font-size: 11px;
-            font-weight: 700;
+            top: -30px;
+            left: 0;
+            font-size: 10px;
             letter-spacing: 4px;
             color: var(--accent);
-            writing-mode: vertical-rl;
         }
 
         .photo {
@@ -227,12 +283,23 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
-            filter: grayscale(50%);
-            transition: filter 0.5s ease;
         }
 
-        .photo:hover {
-            filter: grayscale(0%) contrast(1.1);
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(13, 13, 8, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+
+        .overlay-text {
+            font-size: 11px;
+            color: var(--accent);
         }
 
         .footer {
@@ -244,7 +311,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 10;
-            animation: fadeIn 1s ease-out 0.6s both;
+            animation: slideIn 1s ease-out 0.7s both;
         }
 
         .event-info {
@@ -255,9 +322,7 @@
 
         .event-name {
             font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-weight: 500;
             color: var(--text-primary);
         }
 
@@ -268,40 +333,53 @@
 
         .hashtag {
             color: var(--accent);
-            font-weight: 600;
             font-size: 13px;
-            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
-    <div class="luxury-grid"></div>
-    <div class="gold-line"></div>
-    <div class="corner corner-tl"></div>
-    <div class="corner corner-tr"></div>
-    <div class="corner corner-bl"></div>
-    <div class="corner corner-br"></div>
+    <div class="grid-bg"></div>
+    <div class="data-line data-line-1"></div>
+    <div class="data-line data-line-2"></div>
+    <div class="data-line data-line-3"></div>
+    <div class="data-line data-line-4"></div>
+    <div class="node node-1"></div>
+    <div class="node node-2"></div>
+    <div class="node node-3"></div>
+    <div class="node node-4"></div>
+    <div class="orb"></div>
 
     <div class="container">
-        <div class="card">
-            <div class="content-section">
-                <div class="event-badge">Richmond Civic Hackathon 2025</div>
-                <h1 class="name">
-                    <span class="first">Mike</span>
-                    <span class="last">Huddleston</span>
-                </h1>
-                <p class="role">Sponsorships</p>
-                <p class="bio">
-                    Driving <strong>corporate sponsor acquisition</strong> and managing sponsor relationships.
-                </p>
-                <div class="responsibilities">
-                    <span class="tag">Corporate Sponsor Coordinator</span>
-                    <span class="tag">Sponsor Experience Lead</span>
+        <div class="content-section">
+            <div class="event-badge">Richmond_Civic_Hackathon_2025</div>
+            <p class="role-tag">Sponsorships</p>
+            <h1 class="name">
+                <span class="first">Mike</span>
+                <span class="last">Huddleston</span>
+            </h1>
+            <p class="role">Corporate Sponsor Relations</p>
+            <p class="bio">
+                Driving <strong>corporate sponsor acquisition</strong> and managing sponsor relationships.
+            </p>
+            <div class="focus-areas">
+                <p class="focus-label">Core Focus Areas</p>
+                <div class="focus-grid">
+                    <div class="focus-item">
+                        <div class="focus-icon">🤝</div>
+                        <div class="focus-text">Sponsor Coordinator</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">⭐</div>
+                        <div class="focus-text">Sponsor Experience</div>
+                    </div>
                 </div>
             </div>
-            <div class="photo-section">
-                <div class="photo-wrapper">
-                    <img src="../src/assets/mike-huddleston.png" alt="Mike Huddleston" class="photo">
+        </div>
+        <div class="photo-section">
+            <div class="photo-container">
+                <img src="../src/assets/mike-huddleston.png" alt="Mike Huddleston" class="photo">
+                <div class="photo-overlay">
+                    <span class="overlay-text">&lt;/sponsorships&gt;</span>
                 </div>
             </div>
         </div>
@@ -309,11 +387,10 @@
 
     <div class="footer">
         <div class="event-info">
-            <span class="event-name">Richmond Civic Hackathon</span>
+            <span class="event-name">Richmond_Civic_Hackathon</span>
             <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
         </div>
-        <span class="hashtag">#HACKFORRVA</span>
+        <span class="hashtag">#HackForRVA</span>
     </div>
 </body>
 </html>
-

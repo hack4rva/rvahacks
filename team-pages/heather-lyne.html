@@ -15,14 +15,14 @@
         }
 
         :root {
-            --bg-primary: #1a1f2e;
-            --bg-secondary: #252b3b;
+            --bg-primary: #0f0a14;
+            --bg-secondary: #1a1420;
             --accent: #a78bfa;
-            --accent-light: #c4b5fd;
-            --accent-pink: #f0abfc;
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #64748b;
+            --accent-secondary: #c4b5fd;
+            --accent-tertiary: #f0abfc;
+            --text-primary: #e0e0e0;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
         }
 
         body {
@@ -34,47 +34,77 @@
             position: relative;
         }
 
-        /* Gradient mesh background */
-        .gradient-mesh {
+        .grid-bg {
             position: fixed;
             inset: 0;
             background: 
-                radial-gradient(at 20% 80%, rgba(167, 139, 250, 0.15) 0px, transparent 50%),
-                radial-gradient(at 80% 20%, rgba(240, 171, 252, 0.15) 0px, transparent 50%),
-                radial-gradient(at 50% 50%, rgba(196, 181, 253, 0.08) 0px, transparent 50%);
+                linear-gradient(90deg, rgba(167, 139, 250, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(167, 139, 250, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
         }
 
-        /* Floating bubbles */
-        .bubble {
+        .data-line {
             position: fixed;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            animation: dataFlow 3.5s ease-in-out infinite;
+        }
+
+        .data-line-1 { left: 18%; height: 160px; top: 15%; animation-delay: 0.2s; }
+        .data-line-2 { left: 38%; height: 130px; top: 28%; animation-delay: 0.8s; }
+        .data-line-3 { right: 28%; height: 170px; top: 12%; animation-delay: 1.4s; }
+        .data-line-4 { right: 14%; height: 110px; top: 52%; animation-delay: 2s; }
+
+        @keyframes dataFlow {
+            0%, 100% { opacity: 0; transform: translateY(-50px); }
+            50% { opacity: 0.6; transform: translateY(50px); }
+        }
+
+        .node {
+            position: fixed;
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--accent);
             border-radius: 50%;
-            background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(240, 171, 252, 0.2));
-            animation: rise 12s ease-in-out infinite;
+            animation: nodePulse 2.2s ease-in-out infinite;
         }
 
-        .bubble-1 { width: 300px; height: 300px; left: -100px; bottom: -150px; animation-delay: 0s; }
-        .bubble-2 { width: 200px; height: 200px; right: 10%; top: 20%; animation-delay: -3s; }
-        .bubble-3 { width: 150px; height: 150px; left: 30%; top: -50px; animation-delay: -6s; }
-        .bubble-4 { width: 100px; height: 100px; right: 25%; bottom: 30%; animation-delay: -9s; }
-
-        @keyframes rise {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
-            50% { transform: translateY(-40px) scale(1.1); opacity: 0.8; }
-        }
-
-        /* Constellation dots */
-        .constellation {
-            position: fixed;
+        .node::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 4px;
             height: 4px;
-            background: var(--accent-light);
+            background: var(--accent);
             border-radius: 50%;
-            animation: twinkle 3s ease-in-out infinite;
         }
 
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.5); }
+        .node-1 { top: 22%; left: 14%; animation-delay: 0.1s; }
+        .node-2 { top: 58%; left: 24%; animation-delay: 0.5s; }
+        .node-3 { top: 35%; right: 22%; animation-delay: 0.9s; }
+        .node-4 { bottom: 25%; right: 32%; animation-delay: 1.3s; }
+
+        @keyframes nodePulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .orb {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            right: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, rgba(240, 171, 252, 0.06) 50%, transparent 70%);
+            animation: orbFloat 11s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-55%) scale(1.05); }
         }
 
         .container {
@@ -82,18 +112,18 @@
             z-index: 10;
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1.2fr 1fr;
+            grid-template-columns: 1fr 1fr;
             align-items: center;
             padding: 40px 50px;
-            gap: 50px;
+            gap: 40px;
         }
 
         .content-section {
-            animation: fadeIn 1s ease-out;
+            animation: slideIn 1s ease-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-30px); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-40px); }
             to { opacity: 1; transform: translateX(0); }
         }
 
@@ -101,54 +131,64 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(167, 139, 250, 0.15);
+            background: rgba(167, 139, 250, 0.1);
             border: 1px solid rgba(167, 139, 250, 0.3);
-            padding: 8px 16px;
-            border-radius: 100px;
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--accent-light);
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 10px;
+            color: var(--accent);
             margin-bottom: 20px;
-            animation: fadeIn 1s ease-out 0.1s both;
+            animation: slideIn 1s ease-out 0.1s both;
         }
 
         .event-badge::before {
-            content: '✦';
-            font-size: 10px;
+            content: '>';
+            color: var(--accent);
+        }
+
+        .role-tag {
+            font-size: 12px;
+            color: var(--accent-secondary);
+            margin-bottom: 10px;
+            animation: slideIn 1s ease-out 0.2s both;
+        }
+
+        .role-tag::before {
+            content: '// ';
+            color: var(--text-muted);
         }
 
         .name {
-            font-family: 'IBM Plex Mono', monospace;
             font-size: clamp(36px, 5vw, 56px);
-            font-weight: 600;
-            line-height: 1.05;
-            margin-bottom: 12px;
-            animation: fadeIn 1s ease-out 0.2s both;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            animation: slideIn 1s ease-out 0.3s both;
         }
 
         .name span {
             display: block;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-light), var(--accent-pink));
+        }
+
+        .name .first {
+            color: var(--text-primary);
+        }
+
+        .name .last {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .role {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(13px, 1.5vw, 16px);
+            font-size: clamp(13px, 1.4vw, 16px);
             color: var(--accent);
             margin-bottom: 24px;
-            font-weight: 300;
-            animation: fadeIn 1s ease-out 0.3s both;
-        }
-
-        .divider {
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-pink), transparent);
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-out 0.4s both;
+            padding: 12px 18px;
+            background: rgba(167, 139, 250, 0.05);
+            border-left: 3px solid var(--accent);
+            animation: slideIn 1s ease-out 0.4s both;
         }
 
         .bio {
@@ -156,65 +196,86 @@
             line-height: 1.6;
             color: var(--text-secondary);
             max-width: 440px;
-            animation: fadeIn 1s ease-out 0.5s both;
+            animation: slideIn 1s ease-out 0.5s both;
         }
 
         .bio strong {
-            color: var(--accent-light);
+            color: var(--accent);
             font-weight: 500;
         }
 
-        .responsibilities {
+        .focus-areas {
             margin-top: 24px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            animation: fadeIn 1s ease-out 0.6s both;
+            animation: slideIn 1s ease-out 0.6s both;
         }
 
-        .tag {
-            background: rgba(167, 139, 250, 0.1);
-            border: 1px solid rgba(167, 139, 250, 0.25);
-            padding: 6px 14px;
-            border-radius: 100px;
-            font-size: 11px;
-            color: var(--text-secondary);
+        .focus-label {
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+
+        .focus-item {
+            background: var(--bg-secondary);
+            border: 1px solid rgba(167, 139, 250, 0.15);
+            padding: 12px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .tag:hover {
-            background: rgba(167, 139, 250, 0.2);
+        .focus-item:hover {
             border-color: var(--accent);
-            color: var(--accent-light);
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.1);
+        }
+
+        .focus-icon {
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .focus-text {
+            font-size: 10px;
+            color: var(--text-secondary);
+            font-weight: 500;
         }
 
         .photo-section {
             display: flex;
             justify-content: center;
-            animation: fadeIn 1s ease-out 0.3s both;
+            animation: slideIn 1s ease-out 0.4s both;
         }
 
-        .photo-wrapper {
+        .photo-container {
             position: relative;
             width: 280px;
-            height: 360px;
+            height: 350px;
         }
 
-        .photo-wrapper::before {
+        .photo-container::before {
             content: '';
             position: absolute;
             inset: -3px;
-            background: linear-gradient(135deg, var(--accent), var(--accent-pink), var(--accent));
-            border-radius: 200px 200px 40px 40px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
             z-index: -1;
-            opacity: 0.7;
-            animation: borderRotate 8s linear infinite;
         }
 
-        @keyframes borderRotate {
-            from { filter: hue-rotate(0deg); }
-            to { filter: hue-rotate(360deg); }
+        .photo-container::after {
+            content: 'ECOSYSTEMS';
+            position: absolute;
+            top: -30px;
+            left: 0;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: var(--accent);
         }
 
         .photo {
@@ -222,7 +283,23 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
-            border-radius: 200px 200px 40px 40px;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: linear-gradient(to top, rgba(15, 10, 20, 0.9), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+
+        .overlay-text {
+            font-size: 11px;
+            color: var(--accent);
         }
 
         .footer {
@@ -234,7 +311,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 10;
-            animation: fadeIn 1s ease-out 0.7s both;
+            animation: slideIn 1s ease-out 0.7s both;
         }
 
         .event-info {
@@ -244,7 +321,6 @@
         }
 
         .event-name {
-            font-family: 'IBM Plex Mono', monospace;
             font-size: 13px;
             font-weight: 500;
             color: var(--text-primary);
@@ -257,54 +333,68 @@
 
         .hashtag {
             color: var(--accent);
-            font-weight: 500;
             font-size: 13px;
         }
     </style>
 </head>
 <body>
-    <div class="gradient-mesh"></div>
-    <div class="bubble bubble-1"></div>
-    <div class="bubble bubble-2"></div>
-    <div class="bubble bubble-3"></div>
-    <div class="bubble bubble-4"></div>
-    
-    <!-- Constellation -->
-    <div class="constellation" style="top: 15%; left: 25%; animation-delay: 0s;"></div>
-    <div class="constellation" style="top: 30%; left: 15%; animation-delay: 0.5s;"></div>
-    <div class="constellation" style="top: 45%; right: 35%; animation-delay: 1s;"></div>
-    <div class="constellation" style="top: 70%; left: 40%; animation-delay: 1.5s;"></div>
-    <div class="constellation" style="top: 25%; right: 45%; animation-delay: 2s;"></div>
+    <div class="grid-bg"></div>
+    <div class="data-line data-line-1"></div>
+    <div class="data-line data-line-2"></div>
+    <div class="data-line data-line-3"></div>
+    <div class="data-line data-line-4"></div>
+    <div class="node node-1"></div>
+    <div class="node node-2"></div>
+    <div class="node node-3"></div>
+    <div class="node node-4"></div>
+    <div class="orb"></div>
 
     <div class="container">
         <div class="content-section">
-            <div class="event-badge">Richmond Civic Hackathon 2025</div>
-            <h1 class="name"><span>Heather Lyne</span></h1>
-            <p class="role">Entrepreneurial Ecosystems</p>
-            <div class="divider"></div>
+            <div class="event-badge">Richmond_Civic_Hackathon_2025</div>
+            <p class="role-tag">Entrepreneurial Ecosystems</p>
+            <h1 class="name">
+                <span class="first">Heather</span>
+                <span class="last">Lyne</span>
+            </h1>
+            <p class="role">Mentorship & Innovation Support</p>
             <p class="bio">
                 Coordinating <strong>mentorship programs</strong> and entrepreneurial support to nurture innovation.
             </p>
-            <div class="responsibilities">
-                <span class="tag">Art Lounge Lead</span>
-                <span class="tag">Hustle Corner Lead</span>
-                <span class="tag">Mentor Coordinator</span>
+            <div class="focus-areas">
+                <p class="focus-label">Core Focus Areas</p>
+                <div class="focus-grid">
+                    <div class="focus-item">
+                        <div class="focus-icon">🎨</div>
+                        <div class="focus-text">Art Lounge</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">💼</div>
+                        <div class="focus-text">Hustle Corner</div>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">🧭</div>
+                        <div class="focus-text">Mentors</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="photo-section">
-            <div class="photo-wrapper">
+            <div class="photo-container">
                 <img src="../src/assets/heather-lyne-blue.png" alt="Heather Lyne" class="photo">
+                <div class="photo-overlay">
+                    <span class="overlay-text">&lt;/entrepreneurship&gt;</span>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="footer">
         <div class="event-info">
-            <span class="event-name">Richmond Civic Hackathon</span>
+            <span class="event-name">Richmond_Civic_Hackathon</span>
             <span class="event-date">June 13-15, 2025 • Science Museum of Virginia</span>
         </div>
         <span class="hashtag">#HackForRVA</span>
     </div>
 </body>
 </html>
-
