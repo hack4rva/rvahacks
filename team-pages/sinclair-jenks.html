@@ -15,13 +15,13 @@
         }
 
         :root {
-            --bg-primary: #fffaf0;
-            --bg-dark: #1a1a1a;
-            --accent: #ff6b35;
-            --accent-dark: #e55a2b;
-            --text-primary: #1a1a1a;
-            --text-secondary: #4a4a4a;
-            --text-light: #f5f5f5;
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --accent: #818cf8;
+            --accent-light: #a5b4fc;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
         }
 
         body {
@@ -33,7 +33,7 @@
             position: relative;
         }
 
-        /* Bold diagonal stripes */
+        /* Subtle diagonal stripes */
         .stripes {
             position: fixed;
             inset: 0;
@@ -41,8 +41,8 @@
                 -45deg,
                 transparent,
                 transparent 80px,
-                rgba(255, 107, 53, 0.03) 80px,
-                rgba(255, 107, 53, 0.03) 82px
+                rgba(129, 140, 248, 0.02) 80px,
+                rgba(129, 140, 248, 0.02) 82px
             );
         }
 
@@ -53,7 +53,7 @@
             right: 0;
             width: 40%;
             height: 100%;
-            background: var(--bg-dark);
+            background: var(--bg-secondary);
             clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
         }
 
@@ -63,8 +63,8 @@
             left: 0;
             top: 0;
             bottom: 0;
-            width: 6px;
-            background: var(--accent);
+            width: 4px;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
         }
 
         /* Floating shapes */
@@ -95,7 +95,8 @@
         .shape-3 {
             width: 40px;
             height: 40px;
-            background: var(--text-light);
+            background: var(--accent-light);
+            opacity: 0.6;
             bottom: 150px;
             right: 180px;
             border-radius: 50%;
@@ -151,7 +152,6 @@
             height: 100%;
             object-fit: cover;
             object-position: top;
-            border: 6px solid var(--bg-primary);
         }
 
         .content-section {
@@ -164,16 +164,34 @@
         }
 
         .event-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 8px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(129, 140, 248, 0.1);
+            border: 1px solid rgba(129, 140, 248, 0.3);
+            color: var(--accent);
+            padding: 10px 20px;
+            border-radius: 4px;
             font-size: 12px;
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 32px;
             animation: slideUp 1s ease-out 0.1s both;
+        }
+        
+        .event-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
         }
 
         .role {
@@ -200,7 +218,7 @@
         }
 
         .bio {
-            font-size: clamp(17px, 1.5vw, 20px);
+            font-size: clamp(16px, 1.4vw, 19px);
             line-height: 1.7;
             color: var(--text-secondary);
             max-width: 500px;
@@ -208,8 +226,8 @@
         }
 
         .bio strong {
-            color: var(--text-primary);
-            font-weight: 600;
+            color: var(--accent-light);
+            font-weight: 500;
         }
 
         .responsibilities {
@@ -221,22 +239,20 @@
         }
 
         .tag {
-            background: transparent;
-            border: 2px solid var(--text-primary);
-            padding: 10px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 18px;
+            border-radius: 6px;
             font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--text-primary);
+            font-weight: 400;
+            color: var(--text-secondary);
             transition: all 0.3s ease;
         }
 
         .tag:hover {
-            background: var(--accent);
             border-color: var(--accent);
-            color: white;
-            transform: rotate(-2deg);
+            color: var(--text-primary);
+            transform: translateY(-2px);
         }
 
         .footer {
@@ -277,10 +293,9 @@
 
         .hashtag {
             font-family: 'IBM Plex Mono', monospace;
-            color: var(--text-light);
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: 1px;
+            color: var(--accent);
+            font-size: 15px;
+            font-weight: 500;
         }
     </style>
 </head>
