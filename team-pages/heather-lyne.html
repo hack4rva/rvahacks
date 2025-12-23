@@ -82,10 +82,10 @@
             z-index: 10;
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
+            grid-template-columns: 1.2fr 1fr;
             align-items: center;
-            padding: 60px 80px;
-            gap: 80px;
+            padding: 40px 50px;
+            gap: 50px;
         }
 
         .content-section {
@@ -100,15 +100,15 @@
         .event-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: rgba(167, 139, 250, 0.15);
             border: 1px solid rgba(167, 139, 250, 0.3);
-            padding: 12px 24px;
+            padding: 8px 16px;
             border-radius: 100px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 500;
             color: var(--accent-light);
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             animation: fadeIn 1s ease-out 0.1s both;
         }
 
@@ -119,10 +119,10 @@
 
         .name {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(48px, 6vw, 80px);
+            font-size: clamp(36px, 5vw, 56px);
             font-weight: 600;
             line-height: 1.05;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             animation: fadeIn 1s ease-out 0.2s both;
         }
 
@@ -136,26 +136,26 @@
 
         .role {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(18px, 2.5vw, 28px);
+            font-size: clamp(13px, 1.5vw, 16px);
             color: var(--accent);
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             font-weight: 300;
             animation: fadeIn 1s ease-out 0.3s both;
         }
 
         .divider {
-            width: 120px;
+            width: 80px;
             height: 2px;
             background: linear-gradient(90deg, var(--accent), var(--accent-pink), transparent);
-            margin-bottom: 32px;
+            margin-bottom: 20px;
             animation: fadeIn 1s ease-out 0.4s both;
         }
 
         .bio {
-            font-size: clamp(17px, 1.5vw, 20px);
-            line-height: 1.8;
+            font-size: clamp(14px, 1.4vw, 16px);
+            line-height: 1.6;
             color: var(--text-secondary);
-            max-width: 520px;
+            max-width: 440px;
             animation: fadeIn 1s ease-out 0.5s both;
         }
 
@@ -165,19 +165,19 @@
         }
 
         .responsibilities {
-            margin-top: 40px;
+            margin-top: 24px;
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 8px;
             animation: fadeIn 1s ease-out 0.6s both;
         }
 
         .tag {
             background: rgba(167, 139, 250, 0.1);
             border: 1px solid rgba(167, 139, 250, 0.25);
-            padding: 12px 22px;
+            padding: 6px 14px;
             border-radius: 100px;
-            font-size: 14px;
+            font-size: 11px;
             color: var(--text-secondary);
             transition: all 0.3s ease;
         }
@@ -197,8 +197,8 @@
 
         .photo-wrapper {
             position: relative;
-            width: 400px;
-            height: 500px;
+            width: 280px;
+            height: 360px;
         }
 
         .photo-wrapper::before {
@@ -227,9 +227,9 @@
 
         .footer {
             position: fixed;
-            bottom: 40px;
-            left: 80px;
-            right: 80px;
+            bottom: 24px;
+            left: 50px;
+            right: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -240,25 +240,25 @@
         .event-info {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 16px;
         }
 
         .event-name {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 18px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-primary);
         }
 
         .event-date {
             color: var(--text-muted);
-            font-size: 14px;
+            font-size: 11px;
         }
 
         .hashtag {
             color: var(--accent);
             font-weight: 500;
-            font-size: 15px;
+            font-size: 13px;
         }
     </style>
 </head>

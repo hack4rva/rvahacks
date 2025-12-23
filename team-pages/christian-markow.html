@@ -118,8 +118,8 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding: 60px 80px;
-            gap: 60px;
+            padding: 40px 50px;
+            gap: 40px;
         }
 
         .content-section {
@@ -134,15 +134,15 @@
         .event-badge {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: rgba(0, 212, 170, 0.1);
             border: 1px solid rgba(0, 212, 170, 0.3);
-            padding: 10px 20px;
+            padding: 8px 14px;
             border-radius: 4px;
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 12px;
+            font-size: 10px;
             color: var(--accent);
-            margin-bottom: 32px;
+            margin-bottom: 20px;
             animation: slideIn 1s ease-out 0.1s both;
         }
 
@@ -153,9 +153,9 @@
 
         .role-tag {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
+            font-size: 12px;
             color: var(--accent-secondary);
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             animation: slideIn 1s ease-out 0.2s both;
         }
 
@@ -165,10 +165,10 @@
         }
 
         .name {
-            font-size: clamp(52px, 6vw, 80px);
+            font-size: clamp(36px, 5vw, 56px);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             animation: slideIn 1s ease-out 0.3s both;
         }
 
@@ -189,20 +189,20 @@
 
         .role {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(16px, 1.8vw, 22px);
+            font-size: clamp(13px, 1.4vw, 16px);
             color: var(--accent);
-            margin-bottom: 40px;
-            padding: 16px 24px;
+            margin-bottom: 24px;
+            padding: 12px 18px;
             background: rgba(0, 212, 170, 0.05);
             border-left: 3px solid var(--accent);
             animation: slideIn 1s ease-out 0.4s both;
         }
 
         .bio {
-            font-size: clamp(16px, 1.4vw, 19px);
-            line-height: 1.8;
+            font-size: clamp(14px, 1.4vw, 16px);
+            line-height: 1.6;
             color: var(--text-secondary);
-            max-width: 520px;
+            max-width: 440px;
             animation: slideIn 1s ease-out 0.5s both;
         }
 
@@ -212,29 +212,29 @@
         }
 
         .focus-areas {
-            margin-top: 40px;
+            margin-top: 24px;
             animation: slideIn 1s ease-out 0.6s both;
         }
 
         .focus-label {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
+            font-size: 9px;
             color: var(--text-muted);
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .focus-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 8px;
         }
 
         .focus-item {
             background: var(--bg-secondary);
             border: 1px solid rgba(0, 212, 170, 0.15);
-            padding: 16px;
+            padding: 12px;
             text-align: center;
             transition: all 0.3s ease;
         }
@@ -246,12 +246,12 @@
         }
 
         .focus-icon {
-            font-size: 24px;
-            margin-bottom: 8px;
+            font-size: 18px;
+            margin-bottom: 6px;
         }
 
         .focus-text {
-            font-size: 12px;
+            font-size: 10px;
             color: var(--text-secondary);
             font-weight: 500;
         }
@@ -264,8 +264,8 @@
 
         .photo-container {
             position: relative;
-            width: 380px;
-            height: 460px;
+            width: 280px;
+            height: 350px;
         }
 
         .photo-container::before {
@@ -314,9 +314,9 @@
 
         .footer {
             position: fixed;
-            bottom: 40px;
-            left: 80px;
-            right: 80px;
+            bottom: 24px;
+            left: 50px;
+            right: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -327,25 +327,25 @@
         .event-info {
             display: flex;
             align-items: center;
-            gap: 24px;
+            gap: 16px;
         }
 
         .event-name {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 16px;
+            font-size: 13px;
             font-weight: 500;
             color: var(--text-primary);
         }
 
         .event-date {
             color: var(--text-muted);
-            font-size: 13px;
+            font-size: 11px;
         }
 
         .hashtag {
             font-family: 'IBM Plex Mono', monospace;
             color: var(--accent);
-            font-size: 14px;
+            font-size: 13px;
         }
     </style>
 </head>

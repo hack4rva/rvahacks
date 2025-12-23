@@ -73,16 +73,16 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 80px;
+            padding: 40px 50px;
         }
 
         .card {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 100px;
+            gap: 60px;
             align-items: center;
             width: 100%;
-            max-width: 1400px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -98,13 +98,13 @@
         .event-badge {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            font-size: 11px;
+            gap: 10px;
+            font-size: 10px;
             font-weight: 700;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             animation: fadeIn 1s ease-out 0.1s both;
         }
 
@@ -118,10 +118,10 @@
 
         .name {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(48px, 6vw, 80px);
+            font-size: clamp(36px, 5vw, 60px);
             font-weight: 700;
             line-height: 1;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: -2px;
             animation: fadeIn 1s ease-out 0.2s both;
@@ -142,18 +142,18 @@
 
         .role {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: clamp(18px, 2.5vw, 28px);
+            font-size: clamp(13px, 1.5vw, 16px);
             color: var(--accent);
-            margin-bottom: 48px;
+            margin-bottom: 28px;
             font-weight: 300;
             animation: fadeIn 1s ease-out 0.3s both;
         }
 
         .bio {
-            font-size: clamp(16px, 1.4vw, 19px);
-            line-height: 1.8;
+            font-size: clamp(14px, 1.4vw, 16px);
+            line-height: 1.6;
             color: var(--text-secondary);
-            max-width: 480px;
+            max-width: 400px;
             animation: fadeIn 1s ease-out 0.4s both;
         }
 
@@ -163,20 +163,20 @@
         }
 
         .responsibilities {
-            margin-top: 48px;
+            margin-top: 24px;
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 10px;
             animation: fadeIn 1s ease-out 0.5s both;
         }
 
         .tag {
             background: transparent;
             border: 1px solid var(--accent);
-            padding: 14px 28px;
-            font-size: 12px;
+            padding: 6px 14px;
+            font-size: 10px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--accent);
             transition: all 0.3s ease;
@@ -195,8 +195,8 @@
 
         .photo-wrapper {
             position: relative;
-            width: 380px;
-            height: 480px;
+            width: 280px;
+            height: 360px;
         }
 
         .photo-wrapper::before {
@@ -237,9 +237,9 @@
 
         .footer {
             position: fixed;
-            bottom: 60px;
-            left: 80px;
-            right: 80px;
+            bottom: 24px;
+            left: 50px;
+            right: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -250,28 +250,27 @@
         .event-info {
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 16px;
         }
 
         .event-name {
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text-primary);
         }
 
         .event-date {
             color: var(--text-muted);
-            font-size: 13px;
-            letter-spacing: 1px;
+            font-size: 11px;
         }
 
         .hashtag {
             color: var(--accent);
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 2px;
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 1px;
         }
     </style>
 </head>
