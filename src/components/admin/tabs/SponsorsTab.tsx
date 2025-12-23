@@ -2,9 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Handshake, ChevronDown } from "lucide-react";
 import { 
-  pillarRecruitment, 
+  trackRecruitment, 
   warmConnections, 
-  crossPillarFoundations, 
+  crossTrackFoundations, 
   sponsorshipStats, 
   implementationTimeline 
 } from "@/data/sponsorshipPipeline";
@@ -124,22 +124,22 @@ export const SponsorsTab = () => {
             <span className="text-lg">🎯</span> Pillar Sponsor & Partner Targets
           </h4>
           <div className="space-y-4">
-            {pillarRecruitment.map((pillar) => (
-              <Collapsible key={pillar.id} className="border border-border rounded-lg">
+            {trackRecruitment.map((track) => (
+              <Collapsible key={track.id} className="border border-border rounded-lg">
                 <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors">
                   <div className="flex items-center gap-3">
-                    <span className="text-lg font-bold text-accent">{pillar.id}</span>
+                    <span className="text-lg font-bold text-accent">{track.id}</span>
                     <div className="text-left">
-                      <h5 className="font-semibold text-foreground">{pillar.name}</h5>
-                      <p className="text-xs text-accent font-medium">{pillar.pitchContext.angle}</p>
+                      <h5 className="font-semibold text-foreground">{track.name}</h5>
+                      <p className="text-xs text-accent font-medium">{track.pitchContext.angle}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
-                      {pillar.corporateTargets.length} corps
+                      {track.corporatePartners.length} corps
                     </span>
                     <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                      {pillar.nonprofitPartners.length} nonprofits
+                      {track.communityPartners.length} nonprofits
                     </span>
                     <ChevronDown className="w-4 h-4 text-muted-foreground" />
                   </div>
@@ -148,7 +148,7 @@ export const SponsorsTab = () => {
                   {/* Strategic Context */}
                   <div className="mb-4 p-3 bg-muted/30 rounded-lg border-l-4 border-accent">
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      {pillar.pitchContext.description}
+                      {track.pitchContext.description}
                     </p>
                   </div>
                   
@@ -159,7 +159,7 @@ export const SponsorsTab = () => {
                         <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
                         Corporate Sponsor Targets
                       </h6>
-                      {pillar.corporateTargets.map((target, idx) => (
+                      {track.corporatePartners.map((target, idx) => (
                         <Collapsible key={idx} className="p-3 bg-blue-50/50 dark:bg-blue-950/20 rounded border border-blue-100 dark:border-blue-900">
                           <div className="flex items-start justify-between">
                             <div>
@@ -206,7 +206,7 @@ export const SponsorsTab = () => {
                         <span className="w-2 h-2 bg-green-500 rounded-full"></span>
                         Nonprofit Partner Targets
                       </h6>
-                      {pillar.nonprofitPartners.map((partner, idx) => (
+                      {track.communityPartners.map((partner, idx) => (
                         <Collapsible key={idx} className="p-3 bg-green-50/50 dark:bg-green-950/20 rounded border border-green-100 dark:border-green-900">
                           <div className="flex items-start justify-between">
                             <div>
@@ -341,7 +341,7 @@ export const SponsorsTab = () => {
             These foundations support initiatives across all pillars — ideal for general operating support or "Grand Prize" sponsorships.
           </p>
           <div className="space-y-3">
-            {crossPillarFoundations.map((foundation, idx) => (
+            {crossTrackFoundations.map((foundation, idx) => (
               <div key={idx} className="border border-border rounded-lg p-4 bg-card">
                 <div className="flex items-start justify-between">
                   <div>
