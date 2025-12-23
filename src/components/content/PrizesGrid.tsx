@@ -93,10 +93,10 @@ export const PrizesGrid = ({ className = "", showTimeline = true }: PrizesGridPr
         </div>
       </div>
 
-      {/* Horizontal Timeline */}
+      {/* Horizontal Timeline - Hidden on small mobile, horizontal scroll on medium */}
       {showTimeline && (
-        <div className="mb-12 max-w-4xl mx-auto">
-          <div className="relative flex items-center justify-between">
+        <div className="mb-12 max-w-4xl mx-auto overflow-x-auto">
+          <div className="relative flex items-center justify-between min-w-[500px] px-2">
             {/* Timeline connector line */}
             <div className="absolute left-0 right-0 top-1/2 h-0.5 bg-gradient-to-r from-accent/50 via-accent to-accent/50 -translate-y-1/2 z-0" />
             

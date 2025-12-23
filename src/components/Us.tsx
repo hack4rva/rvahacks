@@ -10,13 +10,13 @@ import sinclairJenks from "@/assets/sinclair-jenks.png";
 import christianMarkow from "@/assets/christian-markow.png";
 import heatherLyne from "@/assets/heather-lyne-blue.png";
 import ashHarris from "@/assets/ash-harris-blue.png";
-import willMelton from "@/assets/will-melton.png";
-import mikeHuddleston from "@/assets/mike-huddleston.png";
+import willMelton from "@/assets/will-melton-blue.png";
+import mikeHuddleston from "@/assets/mike-huddleston-blue.png";
 
 const coreTeam = [
   { 
     name: "Ford Prior", 
-    role: "Event Director", 
+    role: "Tech & Competition", 
     image: fordPrior, 
     linkedin: "https://www.linkedin.com/in/ford-prior", 
     bio: "Ford will oversee tech infrastructure, platform administration, and competition integrity. He'll recruit leadership for: Platform Admin, Hacker Space Lead, Judge Coordinator, and Help Desk Lead." 
