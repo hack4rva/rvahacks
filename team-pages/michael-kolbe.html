@@ -112,10 +112,12 @@
             z-index: 10;
             min-height: 100vh;
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr auto;
             align-items: center;
-            padding: 40px 50px;
-            gap: 40px;
+            padding: 60px 80px;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .content-section {
@@ -133,11 +135,11 @@
             gap: 8px;
             background: rgba(14, 165, 233, 0.1);
             border: 1px solid rgba(14, 165, 233, 0.3);
-            padding: 8px 14px;
+            padding: 6px 12px;
             border-radius: 4px;
             font-size: 10px;
             color: var(--accent);
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             animation: slideIn 1s ease-out 0.1s both;
         }
 
@@ -147,9 +149,9 @@
         }
 
         .role-tag {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--accent-secondary);
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             animation: slideIn 1s ease-out 0.2s both;
         }
 
@@ -159,15 +161,15 @@
         }
 
         .name {
-            font-size: clamp(36px, 5vw, 56px);
+            font-size: clamp(42px, 5vw, 64px);
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 16px;
+            line-height: 1.05;
+            margin-bottom: 12px;
             animation: slideIn 1s ease-out 0.3s both;
         }
 
         .name span {
-            display: block;
+            display: inline;
         }
 
         .name .first {
@@ -182,20 +184,20 @@
         }
 
         .role {
-            font-size: clamp(13px, 1.4vw, 16px);
+            font-size: 13px;
             color: var(--accent);
-            margin-bottom: 24px;
-            padding: 12px 18px;
+            margin-bottom: 16px;
+            padding: 10px 14px;
             background: rgba(14, 165, 233, 0.05);
             border-left: 3px solid var(--accent);
             animation: slideIn 1s ease-out 0.4s both;
         }
 
         .bio {
-            font-size: clamp(14px, 1.4vw, 16px);
-            line-height: 1.6;
+            font-size: 14px;
+            line-height: 1.5;
             color: var(--text-secondary);
-            max-width: 440px;
+            max-width: 400px;
             animation: slideIn 1s ease-out 0.5s both;
         }
 
@@ -205,7 +207,7 @@
         }
 
         .focus-areas {
-            margin-top: 24px;
+            margin-top: 16px;
             animation: slideIn 1s ease-out 0.6s both;
         }
 
@@ -214,32 +216,32 @@
             color: var(--text-muted);
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .focus-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         .focus-item {
             background: var(--bg-secondary);
             border: 1px solid rgba(14, 165, 233, 0.15);
-            padding: 12px;
-            text-align: center;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
             transition: all 0.3s ease;
         }
 
         .focus-item:hover {
             border-color: var(--accent);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1);
+            transform: translateY(-2px);
         }
 
         .focus-icon {
-            font-size: 18px;
-            margin-bottom: 6px;
+            font-size: 14px;
         }
 
         .focus-text {
@@ -256,8 +258,8 @@
 
         .photo-container {
             position: relative;
-            width: 280px;
-            height: 350px;
+            width: 300px;
+            height: 380px;
         }
 
         .photo-container::before {
@@ -271,10 +273,10 @@
         .photo-container::after {
             content: 'GOVERNMENT';
             position: absolute;
-            top: -30px;
+            top: -24px;
             left: 0;
-            font-size: 10px;
-            letter-spacing: 4px;
+            font-size: 9px;
+            letter-spacing: 3px;
             color: var(--accent);
         }
 
@@ -304,9 +306,9 @@
 
         .footer {
             position: fixed;
-            bottom: 24px;
-            left: 50px;
-            right: 50px;
+            bottom: 20px;
+            left: 80px;
+            right: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -317,23 +319,23 @@
         .event-info {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
         .event-name {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 500;
             color: var(--text-primary);
         }
 
         .event-date {
             color: var(--text-muted);
-            font-size: 11px;
+            font-size: 10px;
         }
 
         .hashtag {
             color: var(--accent);
-            font-size: 13px;
+            font-size: 12px;
         }
     </style>
 </head>
@@ -353,29 +355,17 @@
         <div class="content-section">
             <div class="event-badge">Richmond_Civic_Hackathon_2025</div>
             <p class="role-tag">City Liaison</p>
-            <h1 class="name">
-                <span class="first">Michael</span>
-                <span class="last">Kolbe</span>
-            </h1>
+            <h1 class="name"><span class="first">Michael</span> <span class="last">Kolbe</span></h1>
             <p class="role">Government Relations & SMEs</p>
             <p class="bio">
                 Coordinating <strong>government stakeholders</strong> and subject matter experts.
             </p>
             <div class="focus-areas">
-                <p class="focus-label">Core Focus Areas</p>
+                <p class="focus-label">Focus Areas</p>
                 <div class="focus-grid">
-                    <div class="focus-item">
-                        <div class="focus-icon">🏛️</div>
-                        <div class="focus-text">Pillar Rooms</div>
-                    </div>
-                    <div class="focus-item">
-                        <div class="focus-icon">🎓</div>
-                        <div class="focus-text">SME Recruiter</div>
-                    </div>
-                    <div class="focus-item">
-                        <div class="focus-icon">🎤</div>
-                        <div class="focus-text">VIP/Speakers</div>
-                    </div>
+                    <div class="focus-item"><span class="focus-icon">🏛️</span><span class="focus-text">Pillar Rooms</span></div>
+                    <div class="focus-item"><span class="focus-icon">🎓</span><span class="focus-text">SME Recruiter</span></div>
+                    <div class="focus-item"><span class="focus-icon">🎤</span><span class="focus-text">VIP/Speakers</span></div>
                 </div>
             </div>
         </div>
