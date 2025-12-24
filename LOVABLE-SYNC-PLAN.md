@@ -1764,6 +1764,670 @@ CREATE TABLE public.winning_teams (
 
 ---
 
+### Table 11: Contacts (Central CRM)
+
+**Purpose:** Single source of truth for all people across the hackathon ecosystem. Other tables (sponsors, council_members, etc.) can reference this.
+
+**Deadline:** January 6, 2026 (before any outreach begins)
+
+```sql
+CREATE TABLE public.contacts (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Basic info
+  first_name TEXT,
+  last_name TEXT,
+  email TEXT UNIQUE,
+  phone TEXT,
+  
+  -- Organization
+  organization TEXT,
+  title TEXT,
+  organization_type TEXT CHECK (organization_type IN (
+    'city_government', 'state_government', 'federal_government',
+    'corporate', 'nonprofit', 'university', 'k12_school',
+    'media', 'community_org', 'foundation', 'other'
+  )),
+  
+  -- Contact type (can have multiple)
+  contact_types TEXT[], -- ['sponsor_contact', 'council_member', 'media', 'academic', 'nonprofit_leader', 'mentor', 'volunteer', 'speaker']
+  
+  -- Relationship tracking
+  relationship_owner TEXT, -- Core team member responsible
+  relationship_strength TEXT CHECK (relationship_strength IN ('cold', 'warm', 'hot', 'champion')),
+  
+  -- Source
+  how_we_met TEXT, -- 'rvatech', 'council_meeting', 'referral', 'cold_outreach', etc.
+  referred_by UUID REFERENCES public.contacts(id),
+  
+  -- Communication preferences
+  preferred_contact_method TEXT CHECK (preferred_contact_method IN ('email', 'phone', 'linkedin', 'in_person')),
+  do_not_contact BOOLEAN DEFAULT false,
+  
+  -- Social
+  linkedin_url TEXT,
+  twitter_handle TEXT,
+  
+  -- Notes
+  notes TEXT,
+  tags TEXT[], -- Flexible tagging: ['vip', 'decision_maker', 'technical', 'advocate']
+  
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_contacts_email ON public.contacts(email);
+CREATE INDEX idx_contacts_org ON public.contacts(organization);
+CREATE INDEX idx_contacts_types ON public.contacts USING GIN(contact_types);
+CREATE INDEX idx_contacts_tags ON public.contacts USING GIN(tags);
+```
+
+---
+
+### Table 12: Communication Tasks
+
+**Purpose:** Track every action item from the Jan-Mar operational timeline. This is your command center.
+
+**Deadline:** January 6, 2026
+
+```sql
+CREATE TABLE public.communication_tasks (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Task info
+  title TEXT NOT NULL,
+  description TEXT,
+  
+  -- Timeline
+  due_date DATE,
+  due_time TIME, -- Some tasks have specific times (e.g., "4:30 PM: Arrive at City Hall")
+  week_number INT, -- 1-12 (Jan Week 1 through Mar Week 12)
+  month TEXT CHECK (month IN ('january', 'february', 'march', 'april', 'may', 'june')),
+  
+  -- Categorization
+  category TEXT CHECK (category IN (
+    'council_engagement',
+    'media_outreach', 
+    'sponsorship',
+    'registration',
+    'campus_outreach',
+    'community_outreach',
+    'content_creation',
+    'technical',
+    'venue_logistics',
+    'volunteer_recruitment',
+    'mentor_recruitment',
+    'data_preparation',
+    'post_event'
+  )),
+  
+  -- Location (if applicable)
+  location TEXT,
+  event_name TEXT, -- 'RVA.js meetup', 'City Council meeting', etc.
+  
+  -- Assignment
+  assigned_to TEXT,
+  backup_owner TEXT,
+  
+  -- Status
+  status TEXT CHECK (status IN ('not_started', 'in_progress', 'done', 'blocked', 'cancelled', 'deferred')) DEFAULT 'not_started',
+  priority TEXT CHECK (priority IN ('critical', 'high', 'medium', 'low')) DEFAULT 'medium',
+  
+  -- Dependencies
+  depends_on UUID REFERENCES public.communication_tasks(id),
+  blocked_by TEXT,
+  
+  -- Success criteria
+  success_metric TEXT, -- e.g., "Get 3 Squad Leader commits"
+  target_number INT, -- e.g., 3
+  actual_number INT, -- e.g., 5 (exceeded target)
+  
+  -- Completion
+  completed_at TIMESTAMP WITH TIME ZONE,
+  completed_by TEXT,
+  outcome_notes TEXT, -- What actually happened
+  
+  -- Recurrence (for weekly touchpoints)
+  is_recurring BOOLEAN DEFAULT false,
+  recurrence_pattern TEXT, -- 'weekly', 'monthly'
+  parent_task_id UUID REFERENCES public.communication_tasks(id),
+  
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_comm_tasks_due_date ON public.communication_tasks(due_date);
+CREATE INDEX idx_comm_tasks_status ON public.communication_tasks(status);
+CREATE INDEX idx_comm_tasks_category ON public.communication_tasks(category);
+CREATE INDEX idx_comm_tasks_week ON public.communication_tasks(week_number);
+CREATE INDEX idx_comm_tasks_assigned ON public.communication_tasks(assigned_to);
+```
+
+---
+
+### Table 13: Social Content Calendar
+
+**Purpose:** Track all 13+ planned social posts from draft to published, plus performance.
+
+**Deadline:** January 6, 2026
+
+```sql
+CREATE TABLE public.social_content (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Content info
+  post_number INT, -- Post #1, Post #2, etc. from the plan
+  title TEXT NOT NULL, -- e.g., "Partnership Announcement"
+  description TEXT, -- What the post should convey
+  
+  -- Content
+  draft_copy TEXT,
+  final_copy TEXT,
+  hashtags TEXT[],
+  
+  -- Media
+  image_urls TEXT[],
+  video_url TEXT,
+  link_url TEXT,
+  
+  -- Scheduling
+  target_date DATE,
+  target_time TIME,
+  actual_published_at TIMESTAMP WITH TIME ZONE,
+  
+  -- Platforms
+  platforms TEXT[], -- ['linkedin', 'twitter', 'instagram', 'facebook']
+  
+  -- Status
+  status TEXT CHECK (status IN ('idea', 'drafted', 'in_review', 'approved', 'scheduled', 'published', 'cancelled')) DEFAULT 'idea',
+  
+  -- Assignment
+  author TEXT,
+  reviewer TEXT,
+  approved_by TEXT,
+  
+  -- Performance (post-publish)
+  impressions INT,
+  engagements INT,
+  clicks INT,
+  shares INT,
+  comments INT,
+  
+  -- Linking
+  related_task_id UUID REFERENCES public.communication_tasks(id),
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_social_target_date ON public.social_content(target_date);
+CREATE INDEX idx_social_status ON public.social_content(status);
+```
+
+**Planned Posts from Communication Plan:**
+| # | Title | Target Date | Notes |
+|---|-------|-------------|-------|
+| 1 | Partnership Announcement | Jan 6 | AI Ready RVA + Science Museum + City |
+| 2 | City Council Recap | Jan 13 | Photos/video from testimony |
+| 3 | Core Team Photo + Bios | Jan 19 | MLK Day |
+| 4 | Focus Areas Announcement | Jan 28 | 7 tracks + sponsors |
+| 5 | Data Preview | Jan 30 | Screenshots of datasets |
+| 6 | Registration Is Open | Jan 30/31 | With count |
+| 7 | Winners Get Implemented | Feb 3 | Name specific City departments |
+| 8 | Corporate Challenge | Feb 10-12 | Leaderboard via BizSense |
+| 9 | Meet the Track Champions | Feb 21 | 7-day profile series |
+| 10 | The Funding Gap Challenge | Feb 24-25 | Budget numbers |
+| 11 | One Month Out | Mar 5-6 | Countdown + Plan B dataset |
+| 12 | Challenge Problems + Bounties | Mar 10-12 | 7 specific problems |
+| 13 | Daily Countdown Series | Mar 20-26 | 7 posts |
+
+---
+
+### Table 14: Media Contacts & Coverage
+
+**Purpose:** Track media outreach and resulting coverage.
+
+**Deadline:** January 10, 2026 (before media advisory goes out)
+
+```sql
+CREATE TABLE public.media_contacts (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Contact info (links to contacts table)
+  contact_id UUID REFERENCES public.contacts(id),
+  
+  -- Outlet info
+  outlet_name TEXT NOT NULL, -- 'NBC 12', 'RTD', 'RVA Mag', 'BizSense'
+  outlet_type TEXT CHECK (outlet_type IN ('tv', 'newspaper', 'magazine', 'online', 'radio', 'podcast')),
+  beat TEXT, -- 'tech', 'politics', 'business', 'community'
+  
+  -- Contact details (if not in contacts table)
+  reporter_name TEXT,
+  reporter_email TEXT,
+  reporter_phone TEXT,
+  
+  -- Pitch tracking
+  pitch_status TEXT CHECK (pitch_status IN ('not_pitched', 'pitched', 'interested', 'scheduled', 'covered', 'declined', 'no_response')) DEFAULT 'not_pitched',
+  pitch_date DATE,
+  pitch_angle TEXT, -- e.g., "City Council agenda item", "Budget Drop reveal"
+  follow_up_date DATE,
+  
+  -- Coverage
+  coverage_date DATE,
+  coverage_type TEXT, -- 'article', 'segment', 'mention', 'interview'
+  coverage_url TEXT,
+  coverage_headline TEXT,
+  coverage_sentiment TEXT CHECK (coverage_sentiment IN ('positive', 'neutral', 'negative')),
+  
+  -- Value
+  estimated_reach INT, -- Audience size
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_media_outlet ON public.media_contacts(outlet_name);
+CREATE INDEX idx_media_status ON public.media_contacts(pitch_status);
+```
+
+**Target Media Outlets:**
+| Outlet | Type | Priority | Angle |
+|--------|------|----------|-------|
+| NBC 12 | TV | HIGH | Live coverage Mar 27 @ 6:30 PM |
+| RTD | Newspaper | HIGH | Op-ed + event coverage |
+| RVA Mag | Magazine | MEDIUM | Feature story |
+| BizSense | Online | HIGH | Corporate Challenge angle |
+| WTVR | TV | MEDIUM | News segment |
+| WRIC | TV | MEDIUM | News segment |
+
+---
+
+### Table 15: Venues
+
+**Purpose:** Track Science Museum (main) + 15+ satellite locations.
+
+**Deadline:** January 15, 2026
+
+```sql
+CREATE TABLE public.venues (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Venue info
+  name TEXT NOT NULL,
+  venue_type TEXT CHECK (venue_type IN ('main', 'satellite', 'overflow', 'backup')),
+  
+  -- Location
+  address TEXT,
+  neighborhood TEXT, -- 'Downtown', 'Scott''s Addition', 'Church Hill', etc.
+  
+  -- Capacity
+  capacity INT,
+  workstation_count INT, -- Tables/desks available
+  
+  -- Facilities
+  has_wifi BOOLEAN DEFAULT false,
+  wifi_tested BOOLEAN DEFAULT false,
+  wifi_speed_mbps INT,
+  has_av_equipment BOOLEAN DEFAULT false,
+  has_projector BOOLEAN DEFAULT false,
+  has_whiteboard BOOLEAN DEFAULT false,
+  has_power_outlets BOOLEAN DEFAULT false,
+  power_strip_count INT,
+  
+  -- Access
+  access_type TEXT CHECK (access_type IN ('24_hour', 'business_hours', 'limited')),
+  friday_hours TEXT, -- e.g., "6 PM - midnight"
+  saturday_hours TEXT,
+  sunday_hours TEXT,
+  requires_badge BOOLEAN DEFAULT false,
+  
+  -- Contact
+  primary_contact_id UUID REFERENCES public.contacts(id),
+  primary_contact_name TEXT,
+  primary_contact_email TEXT,
+  primary_contact_phone TEXT,
+  
+  -- Status
+  status TEXT CHECK (status IN ('prospect', 'contacted', 'touring', 'negotiating', 'confirmed', 'declined')) DEFAULT 'prospect',
+  confirmed_date DATE,
+  
+  -- Agreement
+  cost DECIMAL, -- If any
+  requires_insurance BOOLEAN DEFAULT false,
+  insurance_submitted BOOLEAN DEFAULT false,
+  contract_signed BOOLEAN DEFAULT false,
+  
+  -- Day-of
+  site_captain TEXT, -- Volunteer assigned
+  site_captain_phone TEXT,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_venues_type ON public.venues(venue_type);
+CREATE INDEX idx_venues_status ON public.venues(status);
+```
+
+**Known Venues from Plan:**
+| Venue | Type | Status |
+|-------|------|--------|
+| Science Museum of Virginia | Main | Confirmed |
+| CoStar HQ | Satellite | Confirmed |
+| Common House - Downtown | Satellite | Prospect |
+| Common House - Scott's Addition | Satellite | Prospect |
+| Startup Virginia / 1717 | Satellite | Prospect |
+| Capital One Café - Downtown | Satellite | Prospect |
+| VCU Library | Satellite | Prospect |
+| University of Richmond | Satellite | Prospect |
+
+---
+
+### Table 16: Volunteers
+
+**Purpose:** Track day-of volunteers (separate from participants/Squad Leaders).
+
+**Deadline:** February 15, 2026
+
+```sql
+CREATE TABLE public.volunteers (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Volunteer info
+  contact_id UUID REFERENCES public.contacts(id),
+  first_name TEXT NOT NULL,
+  last_name TEXT,
+  email TEXT NOT NULL,
+  phone TEXT,
+  
+  -- Availability
+  available_friday BOOLEAN DEFAULT false,
+  friday_shift TEXT, -- 'setup', 'evening', 'overnight'
+  available_saturday BOOLEAN DEFAULT false,
+  saturday_shift TEXT,
+  available_sunday BOOLEAN DEFAULT false,
+  sunday_shift TEXT,
+  
+  -- Role
+  role TEXT CHECK (role IN (
+    'registration', 'wayfinding', 'food_service', 'tech_support',
+    'site_captain', 'photographer', 'social_media', 'runner',
+    'mentor_coordinator', 'judge_coordinator', 'cleanup', 'other'
+  )),
+  
+  -- Assignment
+  assigned_venue_id UUID REFERENCES public.venues(id),
+  assigned_venue_name TEXT,
+  
+  -- Skills
+  skills TEXT[], -- ['photography', 'a/v', 'first_aid', 'bilingual']
+  
+  -- Status
+  status TEXT CHECK (status IN ('applied', 'screened', 'confirmed', 'trained', 'checked_in', 'no_show', 'declined')) DEFAULT 'applied',
+  
+  -- Training
+  orientation_completed BOOLEAN DEFAULT false,
+  orientation_date DATE,
+  
+  -- T-shirt
+  tshirt_size TEXT CHECK (tshirt_size IN ('XS', 'S', 'M', 'L', 'XL', '2XL', '3XL')),
+  
+  -- Source
+  how_recruited TEXT, -- 'handsOn_rva', 'corporate_vto', 'university', 'word_of_mouth'
+  corporate_vto_company TEXT, -- If through corporate volunteer program
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_volunteers_status ON public.volunteers(status);
+CREATE INDEX idx_volunteers_role ON public.volunteers(role);
+CREATE INDEX idx_volunteers_venue ON public.volunteers(assigned_venue_id);
+```
+
+---
+
+### Table 17: Mentors
+
+**Purpose:** Track mentors across the three lounges: Art (UX/UI), Hacker (Code), Hustle (Business).
+
+**Deadline:** February 21, 2026
+
+```sql
+CREATE TABLE public.mentors (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Mentor info
+  contact_id UUID REFERENCES public.contacts(id),
+  first_name TEXT NOT NULL,
+  last_name TEXT,
+  email TEXT NOT NULL,
+  phone TEXT,
+  
+  -- Professional info
+  company TEXT,
+  title TEXT,
+  linkedin_url TEXT,
+  
+  -- Lounge assignment
+  lounge TEXT CHECK (lounge IN (
+    'art_lounge', -- UX/UI, visual design, user research (6-8 mentors)
+    'hacker_space', -- Code, architecture, security (8-12 mentors)
+    'hustle_corner' -- Product, business, pitch (4-6 mentors)
+  )),
+  
+  -- Expertise
+  expertise_areas TEXT[], -- ['ux_design', 'react', 'python', 'data_viz', 'pitch_coaching', 'product_strategy']
+  
+  -- Availability
+  available_friday BOOLEAN DEFAULT false,
+  available_saturday BOOLEAN DEFAULT false,
+  available_sunday BOOLEAN DEFAULT false,
+  shift_preference TEXT, -- 'morning', 'afternoon', 'evening', 'flexible'
+  
+  -- Status
+  status TEXT CHECK (status IN ('prospect', 'invited', 'confirmed', 'declined', 'no_show')) DEFAULT 'prospect',
+  confirmed_date DATE,
+  
+  -- Experience
+  hackathon_mentor_experience BOOLEAN DEFAULT false,
+  previous_hackathons TEXT,
+  
+  -- Day-of
+  checked_in BOOLEAN DEFAULT false,
+  sessions_completed INT DEFAULT 0, -- How many teams they helped
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_mentors_lounge ON public.mentors(lounge);
+CREATE INDEX idx_mentors_status ON public.mentors(status);
+CREATE INDEX idx_mentors_expertise ON public.mentors USING GIN(expertise_areas);
+```
+
+**Mentor Targets:**
+| Lounge | Target Count | Focus |
+|--------|--------------|-------|
+| Art Lounge | 6-8 | UX/UI, visual design, user research |
+| Hacker Space | 8-12 | Code, architecture, security |
+| Hustle Corner | 4-6 | Product, business, pitch coaching |
+
+---
+
+### Table 18: Datasets
+
+**Purpose:** Track which datasets are available for hackers, by track.
+
+**Deadline:** February 17, 2026 (before Budget Scraper dry run)
+
+```sql
+CREATE TABLE public.datasets (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Dataset info
+  name TEXT NOT NULL,
+  description TEXT,
+  
+  -- Track alignment
+  track TEXT CHECK (track IN (
+    'thriving_city_hall',
+    'thriving_neighborhoods', 
+    'thriving_families',
+    'thriving_economy',
+    'inclusive_communities',
+    'thriving_environment',
+    'city_stories',
+    'all_tracks'
+  )),
+  
+  -- Source
+  source_organization TEXT, -- 'City of Richmond', 'RPS', 'Census', etc.
+  source_contact_id UUID REFERENCES public.contacts(id),
+  source_url TEXT,
+  
+  -- Technical details
+  format TEXT CHECK (format IN ('csv', 'json', 'excel', 'pdf', 'api', 'database', 'other')),
+  size_mb DECIMAL,
+  row_count INT,
+  update_frequency TEXT, -- 'real_time', 'daily', 'weekly', 'monthly', 'annual', 'static'
+  last_updated DATE,
+  
+  -- Access
+  access_type TEXT CHECK (access_type IN ('public', 'restricted', 'request_only')),
+  requires_api_key BOOLEAN DEFAULT false,
+  api_documentation_url TEXT,
+  
+  -- Status
+  status TEXT CHECK (status IN ('identified', 'requested', 'received', 'cleaned', 'documented', 'published')) DEFAULT 'identified',
+  
+  -- Quality
+  data_quality TEXT CHECK (data_quality IN ('high', 'medium', 'low', 'unknown')),
+  cleaning_required BOOLEAN DEFAULT false,
+  cleaning_notes TEXT,
+  
+  -- Documentation
+  data_dictionary_url TEXT,
+  readme_url TEXT,
+  github_repo TEXT, -- Where it's published for hackers
+  
+  -- Plan B (if primary fails)
+  is_plan_b BOOLEAN DEFAULT false, -- Backup dataset if Budget Drop fails
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_datasets_track ON public.datasets(track);
+CREATE INDEX idx_datasets_status ON public.datasets(status);
+```
+
+**Key Datasets from Plan:**
+| Dataset | Track | Priority | Status |
+|---------|-------|----------|--------|
+| FY2027 Budget (Budget Drop) | All | CRITICAL | Pending Mar 27 |
+| 311 Request Backlog | City Hall | HIGH | Plan B |
+| RPS Enrollment Trends | Families | HIGH | Plan B |
+| Zoning Map Data | Neighborhoods | HIGH | Needed |
+| Health Equity Data | Families | MEDIUM | Requested |
+
+---
+
+### Table 19: Budget Items
+
+**Purpose:** Track income (sponsorships) and expenses for financial visibility.
+
+**Deadline:** January 15, 2026
+
+```sql
+CREATE TABLE public.budget_items (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Item info
+  description TEXT NOT NULL,
+  
+  -- Type
+  type TEXT CHECK (type IN ('income', 'expense')) NOT NULL,
+  
+  -- Category
+  category TEXT CHECK (category IN (
+    -- Income categories
+    'sponsorship_platinum', 'sponsorship_gold', 'sponsorship_silver', 'sponsorship_in_kind',
+    'grant', 'donation', 'registration_fee', 'other_income',
+    -- Expense categories
+    'venue', 'food_beverage', 'prizes', 'swag', 'marketing', 'av_equipment',
+    'printing', 'software', 'insurance', 'transportation', 'speaker_fees', 'other_expense'
+  )),
+  
+  -- Amounts
+  budgeted_amount DECIMAL,
+  actual_amount DECIMAL,
+  variance DECIMAL GENERATED ALWAYS AS (actual_amount - budgeted_amount) STORED,
+  
+  -- Status
+  status TEXT CHECK (status IN ('planned', 'committed', 'invoiced', 'paid', 'received', 'cancelled')) DEFAULT 'planned',
+  
+  -- Timing
+  expected_date DATE,
+  actual_date DATE,
+  
+  -- Linking
+  sponsor_id UUID REFERENCES public.sponsors(id), -- If income from sponsor
+  vendor_name TEXT, -- If expense to vendor
+  vendor_contact TEXT,
+  
+  -- Documentation
+  invoice_number TEXT,
+  receipt_url TEXT,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_budget_type ON public.budget_items(type);
+CREATE INDEX idx_budget_category ON public.budget_items(category);
+CREATE INDEX idx_budget_status ON public.budget_items(status);
+
+-- Summary view
+CREATE VIEW budget_summary AS
+SELECT 
+  type,
+  category,
+  SUM(budgeted_amount) as total_budgeted,
+  SUM(actual_amount) as total_actual,
+  SUM(actual_amount) - SUM(budgeted_amount) as total_variance
+FROM public.budget_items
+GROUP BY type, category
+ORDER BY type, category;
+```
+
+**Budget Targets:**
+| Category | Budgeted | Notes |
+|----------|----------|-------|
+| Sponsorship (Total) | $15,000+ | 5 sponsors by Mar 20 |
+| Prizes | $17,500 | $2,500 × 7 tracks |
+| Food & Beverage | TBD | 3 days |
+| Swag (T-shirts) | TBD | 200+ participants |
+
+---
+
+### Updated Implementation Priority Tiers
+
+| Priority | Deadline | Tables |
+|----------|----------|--------|
+| **P0 - Immediate** | Jan 6 | `contacts`, `communication_tasks`, `social_content` |
+| **P1 - Critical** | Jan 10 | `registrations` (enhanced), `squad_leaders` |
+| **P2 - High** | Jan 15 | `sponsors`, `venues`, `budget_items` |
+| **P3 - Medium** | Jan 27 | `council_members`, `track_champions`, `weekly_metrics`, `media_contacts` |
+| **P4 - Standard** | Feb 15-21 | `volunteers`, `mentors`, `datasets` |
+| **P5 - Standard** | Mar 1 | `corporate_teams`, `outreach_events`, `tasks` |
+| **P6 - Post-Event** | Apr 1 | `winning_teams` |
+
+---
+
 ### Database Dashboard Requirements
 
 **Registration Dashboard (P1):**
