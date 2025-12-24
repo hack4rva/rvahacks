@@ -1210,6 +1210,605 @@ git commit -m "feat: sync [KB file] to [Page name]"
 
 ---
 
+## Part 11: Database Schema Requirements
+
+This section defines the database tables needed to support the hackathon operations, extracted from the detailed January-March operational timeline.
+
+### Implementation Priority Tiers
+
+| Priority | Deadline | Tables |
+|----------|----------|--------|
+| **P1 - Critical** | Jan 10 | `registrations` (enhanced), `squad_leaders` |
+| **P2 - High** | Jan 15 | `sponsors` |
+| **P3 - Medium** | Jan 27 | `council_members`, `track_champions`, `weekly_metrics` |
+| **P4 - Standard** | March 1 | `corporate_teams`, `outreach_events`, `tasks` |
+| **P5 - Post-Event** | April 1 | `winning_teams` |
+
+---
+
+### Table 1: Registrations (Enhanced)
+
+**Purpose:** Track all hackathon registrations with segmentation for reporting and outreach.
+
+**Deadline:** January 10, 2026 (registration system must be live)
+
+```sql
+CREATE TABLE public.registrations (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  email TEXT NOT NULL UNIQUE,
+  first_name TEXT,
+  last_name TEXT,
+  
+  -- Registration metadata
+  registration_type TEXT CHECK (registration_type IN ('vip', 'public', 'corporate', 'student', 'city_employee')),
+  registration_phase TEXT CHECK (registration_phase IN ('vip', 'public')),
+  registered_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  
+  -- Referral tracking
+  referral_code TEXT UNIQUE, -- Their unique code to share
+  referred_by UUID REFERENCES public.registrations(id),
+  
+  -- Squad system
+  squad_leader_id UUID REFERENCES public.squad_leaders(id),
+  
+  -- Organization info
+  organization TEXT, -- Company/school name
+  organization_type TEXT CHECK (organization_type IN ('corporate', 'university', 'nonprofit', 'government', 'k12', 'other')),
+  
+  -- City employee tracking (target: 40)
+  is_city_employee BOOLEAN DEFAULT false,
+  city_department TEXT,
+  
+  -- Diversity pipeline tracking (target: 30 by end of Feb)
+  diversity_pipeline TEXT CHECK (diversity_pipeline IN ('code2college', 'girlswhocode', 'blacktechrva', 'none')),
+  
+  -- Event logistics
+  dietary_restrictions TEXT,
+  tshirt_size TEXT CHECK (tshirt_size IN ('XS', 'S', 'M', 'L', 'XL', '2XL', '3XL')),
+  track_preferences TEXT[], -- Which of the 7 MAP tracks they're interested in
+  
+  -- Day-of check-in
+  checked_in_at TIMESTAMP WITH TIME ZONE,
+  is_vip BOOLEAN DEFAULT false, -- Golden Ticket holders
+  
+  -- Metadata
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Indexes for common queries
+CREATE INDEX idx_registrations_type ON public.registrations(registration_type);
+CREATE INDEX idx_registrations_org ON public.registrations(organization);
+CREATE INDEX idx_registrations_diversity ON public.registrations(diversity_pipeline);
+CREATE INDEX idx_registrations_city_employee ON public.registrations(is_city_employee);
+```
+
+**Weekly Targets:**
+| Date | Target |
+|------|--------|
+| Jan 17 | 50 registrations |
+| Feb 21 | 150 registrations |
+| Mar 20 | 200+ registrations |
+
+---
+
+### Table 2: Squad Leaders
+
+**Purpose:** Track Squad Leaders who commit to recruiting 5-10 teammates each.
+
+**Deadline:** January 10, 2026
+
+```sql
+CREATE TABLE public.squad_leaders (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  registration_id UUID NOT NULL REFERENCES public.registrations(id),
+  
+  -- Recruitment info
+  recruited_at_event TEXT, -- 'code_and_coffee', 'rvajs', 'pyrva', etc.
+  recruited_date DATE,
+  target_recruits INT DEFAULT 10,
+  
+  -- Deposit tracking ($10 refundable)
+  deposit_paid BOOLEAN DEFAULT false,
+  deposit_paid_date DATE,
+  deposit_refunded BOOLEAN DEFAULT false,
+  deposit_refunded_date DATE,
+  
+  -- Status
+  status TEXT CHECK (status IN ('active', 'inactive', 'completed')) DEFAULT 'active',
+  notes TEXT,
+  
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- Computed view for squad sizes
+CREATE VIEW squad_leader_stats AS
+SELECT 
+  sl.id,
+  sl.registration_id,
+  r.first_name,
+  r.last_name,
+  r.email,
+  sl.target_recruits,
+  COUNT(recruits.id) as actual_recruits,
+  sl.deposit_paid,
+  sl.status
+FROM public.squad_leaders sl
+JOIN public.registrations r ON sl.registration_id = r.id
+LEFT JOIN public.registrations recruits ON recruits.squad_leader_id = sl.id
+GROUP BY sl.id, sl.registration_id, r.first_name, r.last_name, r.email, sl.target_recruits, sl.deposit_paid, sl.status;
+```
+
+**Weekly Targets:**
+| Date | Target |
+|------|--------|
+| Jan 17 | 10 Squad Leaders |
+| Feb 21 | 15 Squad Leaders |
+| Mar 20 | 20 Squad Leaders |
+
+---
+
+### Table 3: Sponsors
+
+**Purpose:** Track sponsorship pipeline from prospect to paid.
+
+**Deadline:** January 15, 2026 (before rvatech C-suite breakfast)
+
+```sql
+CREATE TABLE public.sponsors (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Company info
+  company_name TEXT NOT NULL,
+  industry TEXT,
+  
+  -- Sponsorship details
+  tier TEXT CHECK (tier IN ('platinum', 'gold', 'silver', 'in_kind')),
+  tier_amount DECIMAL, -- $5K, $2.5K, $1K
+  actual_amount DECIMAL,
+  
+  -- Contact info
+  contact_name TEXT,
+  contact_title TEXT,
+  contact_email TEXT,
+  contact_phone TEXT,
+  
+  -- Pipeline tracking
+  status TEXT CHECK (status IN ('prospect', 'contacted', 'pitched', 'negotiating', 'committed', 'paid', 'declined')) DEFAULT 'prospect',
+  first_contact_date DATE,
+  pitched_date DATE,
+  committed_date DATE,
+  paid_date DATE,
+  
+  -- Perks tracking
+  logo_url TEXT,
+  perks_claimed TEXT[], -- 'vip_tickets', 'recruiting_booth', 'logo_placement', 'team_access'
+  vip_tickets_count INT DEFAULT 0,
+  
+  -- Notes
+  notes TEXT,
+  decline_reason TEXT,
+  
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_sponsors_status ON public.sponsors(status);
+CREATE INDEX idx_sponsors_tier ON public.sponsors(tier);
+```
+
+**Tier Definitions:**
+| Tier | Amount | Perks |
+|------|--------|-------|
+| Platinum | $5,000 | Logo everywhere, 2 VIP tickets, 6-month exclusive access to winning teams |
+| Gold | $2,500 | Logo on website, 1 VIP ticket, first look at solutions |
+| Silver | $1,000 | Social media shout-out, recruiting booth |
+
+**Weekly Targets:**
+| Date | Target |
+|------|--------|
+| Jan 17 | 1 sponsor ($5K) |
+| Feb 21 | 3 sponsors ($10K total) |
+| Mar 20 | 5 sponsors ($15K total) |
+
+---
+
+### Table 4: Track Champions
+
+**Purpose:** Track the 7 MAP track champions who will lead challenge areas.
+
+**Deadline:** January 27, 2026
+
+```sql
+CREATE TABLE public.track_champions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Track info (7 MAP pillars)
+  track TEXT NOT NULL CHECK (track IN (
+    'thriving_city_hall',
+    'thriving_neighborhoods', 
+    'thriving_families',
+    'thriving_economy',
+    'inclusive_communities',
+    'thriving_environment',
+    'city_stories'
+  )),
+  
+  -- Champion info
+  champion_name TEXT NOT NULL,
+  champion_email TEXT,
+  champion_phone TEXT,
+  champion_organization TEXT,
+  champion_title TEXT,
+  
+  -- Status
+  status TEXT CHECK (status IN ('prospect', 'invited', 'confirmed', 'declined')) DEFAULT 'prospect',
+  confirmed_date DATE,
+  
+  -- Challenge details
+  challenge_title TEXT, -- e.g., "Build a 311 response time dashboard"
+  challenge_description TEXT,
+  bounty_amount DECIMAL DEFAULT 2500, -- $2,500 per track
+  
+  -- City integration
+  city_department_partner TEXT, -- Which dept will adopt the solution
+  city_contact_name TEXT,
+  city_contact_email TEXT,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+```
+
+**Weekly Targets:**
+| Date | Target |
+|------|--------|
+| Jan 17 | 3 Track Champions confirmed |
+| Feb 21 | 7 Track Champions confirmed |
+| Mar 20 | 7 Track Champions confirmed |
+
+---
+
+### Table 5: Council Members
+
+**Purpose:** Track engagement with all 9 Richmond City Council members.
+
+**Deadline:** January 27, 2026
+
+```sql
+CREATE TABLE public.council_members (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Council member info
+  name TEXT NOT NULL,
+  district TEXT,
+  email TEXT,
+  phone TEXT,
+  
+  -- Core team liaison (weekly touchpoint owner)
+  liaison_name TEXT,
+  liaison_email TEXT,
+  
+  -- Engagement tracking
+  status TEXT CHECK (status IN ('not_contacted', 'contacted', 'pitched', 'verbal_commit', 'confirmed', 'declined')) DEFAULT 'not_contacted',
+  
+  -- Key dates
+  one_pager_delivered DATE, -- Jan 12 target
+  formal_invite_delivered DATE, -- Mar 23 target
+  
+  -- March 27 attendance
+  attending_march_27 BOOLEAN DEFAULT false,
+  vip_parking_assigned BOOLEAN DEFAULT false,
+  seat_reserved BOOLEAN DEFAULT false,
+  
+  -- Touchpoint log
+  last_contact_date DATE,
+  next_touchpoint_date DATE,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+```
+
+**Weekly Targets:**
+| Date | Target |
+|------|--------|
+| Jan 17 | 3 Council members committed |
+| Feb 21 | 5 Council members committed |
+| Mar 20 | 7 Council members committed |
+
+---
+
+### Table 6: Weekly Metrics
+
+**Purpose:** Track weekly progress against targets for dashboard reporting.
+
+**Deadline:** January 27, 2026
+
+```sql
+CREATE TABLE public.weekly_metrics (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  week_ending DATE NOT NULL,
+  week_number INT, -- 1-12 (Jan-Mar)
+  
+  -- Registration metrics
+  total_registrations INT DEFAULT 0,
+  vip_registrations INT DEFAULT 0,
+  public_registrations INT DEFAULT 0,
+  corporate_registrations INT DEFAULT 0,
+  student_registrations INT DEFAULT 0,
+  city_employee_registrations INT DEFAULT 0,
+  diversity_pipeline_registrations INT DEFAULT 0,
+  
+  -- Squad metrics
+  squad_leaders_count INT DEFAULT 0,
+  squad_recruits_count INT DEFAULT 0,
+  
+  -- Sponsorship metrics
+  sponsors_count INT DEFAULT 0,
+  sponsor_revenue DECIMAL DEFAULT 0,
+  
+  -- Engagement metrics
+  track_champions_confirmed INT DEFAULT 0,
+  council_members_committed INT DEFAULT 0,
+  
+  -- Targets for comparison
+  registration_target INT,
+  squad_leader_target INT,
+  sponsor_target INT,
+  sponsor_revenue_target DECIMAL,
+  city_employee_target INT,
+  track_champion_target INT,
+  council_target INT,
+  
+  -- Status
+  on_track BOOLEAN,
+  notes TEXT,
+  
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_weekly_metrics_week ON public.weekly_metrics(week_ending);
+```
+
+---
+
+### Table 7: Corporate Teams
+
+**Purpose:** Track corporate team participation for leaderboard.
+
+**Deadline:** March 1, 2026
+
+```sql
+CREATE TABLE public.corporate_teams (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  company_name TEXT NOT NULL,
+  sponsor_id UUID REFERENCES public.sponsors(id),
+  
+  -- Team lead
+  team_lead_registration_id UUID REFERENCES public.registrations(id),
+  team_lead_name TEXT,
+  team_lead_email TEXT,
+  
+  -- Team tracking (computed from registrations)
+  team_size INT DEFAULT 0,
+  
+  -- Leaderboard
+  rank INT,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+-- View for leaderboard
+CREATE VIEW corporate_team_leaderboard AS
+SELECT 
+  ct.id,
+  ct.company_name,
+  COUNT(r.id) as team_size,
+  RANK() OVER (ORDER BY COUNT(r.id) DESC) as rank
+FROM public.corporate_teams ct
+LEFT JOIN public.registrations r ON r.organization = ct.company_name
+GROUP BY ct.id, ct.company_name
+ORDER BY team_size DESC;
+```
+
+---
+
+### Table 8: Outreach Events
+
+**Purpose:** Track recruitment events and their effectiveness.
+
+**Deadline:** March 1, 2026
+
+```sql
+CREATE TABLE public.outreach_events (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  event_name TEXT NOT NULL,
+  event_type TEXT CHECK (event_type IN ('meetup', 'conference', 'campus', 'civic', 'corporate', 'other')),
+  event_date DATE,
+  location TEXT,
+  
+  -- Results
+  attendees_pitched INT DEFAULT 0,
+  registrations_captured INT DEFAULT 0,
+  squad_leaders_recruited INT DEFAULT 0,
+  emails_collected INT DEFAULT 0,
+  
+  -- Team member who attended
+  attended_by TEXT,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+```
+
+---
+
+### Table 9: Tasks
+
+**Purpose:** Track operational tasks from the Jan-Mar timeline.
+
+**Deadline:** March 1, 2026
+
+```sql
+CREATE TABLE public.tasks (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Task info
+  title TEXT NOT NULL,
+  description TEXT,
+  
+  -- Timeline
+  due_date DATE,
+  week_number INT, -- 1-12
+  
+  -- Categorization
+  category TEXT CHECK (category IN (
+    'council', 'media', 'sponsorship', 'registration', 
+    'outreach', 'logistics', 'content', 'technical', 'venue'
+  )),
+  
+  -- Assignment
+  assigned_to TEXT,
+  
+  -- Status
+  status TEXT CHECK (status IN ('todo', 'in_progress', 'done', 'blocked', 'cancelled')) DEFAULT 'todo',
+  priority TEXT CHECK (priority IN ('critical', 'high', 'medium', 'low')) DEFAULT 'medium',
+  
+  -- Completion
+  completed_at TIMESTAMP WITH TIME ZONE,
+  completed_by TEXT,
+  
+  -- Dependencies
+  blocked_by TEXT,
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+
+CREATE INDEX idx_tasks_due_date ON public.tasks(due_date);
+CREATE INDEX idx_tasks_status ON public.tasks(status);
+CREATE INDEX idx_tasks_category ON public.tasks(category);
+```
+
+---
+
+### Table 10: Winning Teams (Post-Event)
+
+**Purpose:** Track hackathon winners and implementation progress.
+
+**Deadline:** April 1, 2026
+
+```sql
+CREATE TABLE public.winning_teams (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  
+  -- Team info
+  team_name TEXT NOT NULL,
+  track TEXT CHECK (track IN (
+    'thriving_city_hall',
+    'thriving_neighborhoods', 
+    'thriving_families',
+    'thriving_economy',
+    'inclusive_communities',
+    'thriving_environment',
+    'city_stories'
+  )),
+  
+  -- Project info
+  project_name TEXT,
+  project_description TEXT,
+  github_repo TEXT,
+  demo_url TEXT,
+  
+  -- Award
+  prize_amount DECIMAL,
+  prize_category TEXT, -- 'first_place', 'track_winner', 'honorable_mention'
+  
+  -- Team members
+  team_members JSONB, -- [{name, email, role}]
+  team_lead_name TEXT,
+  team_lead_email TEXT,
+  
+  -- City adoption
+  city_department TEXT,
+  city_contact_name TEXT,
+  city_contact_email TEXT,
+  
+  -- Post-hackathon tracking
+  implementation_status TEXT CHECK (implementation_status IN (
+    'pending', 'in_progress', 'pilot', 'adopted', 'stalled', 'abandoned'
+  )) DEFAULT 'pending',
+  
+  -- Micro-grant ($1K-$5K for continued development)
+  microgrant_applied BOOLEAN DEFAULT false,
+  microgrant_applied_date DATE,
+  microgrant_amount DECIMAL,
+  microgrant_status TEXT CHECK (microgrant_status IN ('applied', 'approved', 'denied', 'disbursed')),
+  
+  -- Milestones
+  handoff_meeting_date DATE,
+  demo_at_city_hall_date DATE, -- Target: Week 9-12 post-event
+  
+  notes TEXT,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT now()
+);
+```
+
+---
+
+### Database Dashboard Requirements
+
+**Registration Dashboard (P1):**
+- Total registrations with daily trend
+- Breakdown by type (VIP, public, corporate, student, city employee)
+- Diversity pipeline count (target: 30 by Feb 28)
+- Squad Leader recruitment funnel
+- Referral code performance
+
+**Sponsorship Dashboard (P2):**
+- Pipeline by status (prospect → paid)
+- Revenue by tier
+- Perks utilization
+
+**Engagement Dashboard (P3):**
+- Council member status (9 total, target: 7 committed)
+- Track Champion status (7 total, all confirmed by Feb 21)
+- Weekly metrics vs. targets (with alerts if below target)
+
+**Day-of Dashboard (P4):**
+- Check-in status
+- Live registration count
+- Corporate team leaderboard
+
+---
+
+### Contingency Triggers (Built into Metrics)
+
+```
+IF total_registrations < 50 BY Jan 17:
+  → Double LinkedIn ad spend
+  → Add Facebook ads
+  → Alert: "Registration below target"
+
+IF total_registrations < 150 BY Feb 21:
+  → Email blast to all .edu addresses
+  → Alert: "Activate emergency outreach"
+
+IF sponsors_count < 3 BY Feb 21:
+  → Escalate to board
+  → Reduce scope/budget
+```
+
+---
+
 ## Summary & Next Steps
 
 ### What This Plan Provides
