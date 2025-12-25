@@ -143,7 +143,7 @@ The RVA Hacks knowledge base contains **40-50 files** suitable for website migra
 **Content from KB:**
 - Hero section: lovable-website-prompts.md (Hero prompt)
 - Tagline: "Engineer the City We Want to Live In" (hackathon-one-pager.md)
-- Event dates: March 6-8, 2026 (hackathon-one-pager.md)
+- Event dates: March 27-29, 2026 (hackathon-one-pager.md)
 - Location: CoStar HQ, Richmond, VA (hackathon-one-pager.md)
 - CTA buttons: Register, Learn More, Get Involved (lovable-website-prompts.md)
 
