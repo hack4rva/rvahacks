@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1080">
+    <title>Mike Huddleston - Instagram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d0d08;
+            --accent: #eab308;
+            --accent-secondary: #facc15;
+            --accent-tertiary: #fde047;
+            --text-primary: #f0f0f0;
+            --text-secondary: #9ca3af;
+        }
+
+        html, body {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+        }
+
+        body {
+            background: var(--bg-primary);
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(90deg, rgba(234, 179, 8, 0.04) 1px, transparent 1px),
+                linear-gradient(rgba(234, 179, 8, 0.04) 1px, transparent 1px);
+            background-size: 54px 54px;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 1080px;
+            height: 1080px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 48px 60px 100px;
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(234, 179, 8, 0.15);
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .event-badge::before {
+            content: '>';
+        }
+
+        .photo-container {
+            position: relative;
+            width: 260px;
+            height: 300px;
+            margin-bottom: 24px;
+        }
+
+        .photo-container::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+            z-index: -1;
+        }
+
+        .photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(to top, rgba(13, 13, 8, 0.95), transparent);
+            display: flex;
+            align-items: flex-end;
+            padding: 12px;
+        }
+
+        .overlay-text {
+            font-size: 12px;
+            color: var(--accent);
+        }
+
+        .role-tag {
+            font-size: 13px;
+            color: var(--accent-secondary);
+            margin-bottom: 6px;
+        }
+
+        .role-tag::before {
+            content: '// ';
+            color: var(--text-secondary);
+        }
+
+        .name {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .name .first {
+            color: var(--text-primary);
+        }
+
+        .name .last {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary), var(--accent-tertiary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .role {
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 16px;
+            padding: 8px 14px;
+            background: rgba(234, 179, 8, 0.08);
+            border-left: 3px solid var(--accent);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 32px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .hashtag {
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-orb"></div>
+
+    <div class="container">
+        <div class="event-badge">Core_Team_Intros</div>
+        
+        <div class="photo-container">
+            <img src="../../src/assets/mike-huddleston.png" alt="Mike Huddleston" class="photo">
+            <div class="photo-overlay">
+                <span class="overlay-text">&lt;/sponsorships&gt;</span>
+            </div>
+        </div>
+
+        <p class="role-tag">Sponsorships</p>
+        <h1 class="name"><span class="first">Mike</span> <span class="last">Huddleston</span></h1>
+        <p class="role">Corporate Sponsor Relations</p>
+    </div>
+
+    <div class="footer">
+        <div>
+            <div class="event-name">Richmond_Civic_Hackathon</div>
+            <div class="event-date">June 13-15, 2025 • Science Museum of VA</div>
+        </div>
+        <span class="hashtag">#HackForRVA</span>
+    </div>
+</body>
+</html>
+
