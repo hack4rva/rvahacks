@@ -55,7 +55,7 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
           <Link to="/" className="flex items-center gap-2 font-bold text-lg transition-smooth text-white hover:text-white/80">
-            <img src={hackRvaIcon} alt="Hack for RVA" className="h-8 w-auto" />
+            <img src={hackRvaIcon} alt="Hack for RVA" className="h-8 w-auto brightness-0 invert" />
             <span>Hack for RVA</span>
           </Link>
 
