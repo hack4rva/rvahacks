@@ -65,8 +65,8 @@ export const milestones: Milestone[] = [
     progress: '6 of 7',
     targetDate: 'Mid-February 2026',
     components: [
-      { name: 'Event Director', target: 'Overall vision', status: 'complete', notes: 'Ford Prior' },
-      { name: 'Venue & Operations', target: 'Logistics, catering, AV', status: 'complete', notes: 'Crystal Harvey' },
+      { name: 'Chief Hacker', target: 'Overall vision', status: 'complete', notes: 'Ford Prior' },
+      { name: 'Ops Director', target: 'Logistics, catering, AV', status: 'complete', notes: 'Crystal Harvey' },
       { name: 'City Liaison', target: 'Government stakeholders', status: 'complete', notes: 'Michael Kolbe' },
       { name: 'Marketing & Comms', target: 'Brand, social, press', status: 'complete', notes: 'Sinclair Jenks' },
       { name: 'Entrepreneurial Ecosystems', target: 'Mentorship, coaching', status: 'complete', notes: 'Heather Lyne' },

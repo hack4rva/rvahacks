@@ -16,14 +16,14 @@ import mikeHuddleston from "@/assets/mike-huddleston-blue.png";
 const coreTeam = [
   { 
     name: "Ford Prior", 
-    role: "Tech & Competition", 
+    role: "Chief Hacker", 
     image: fordPrior, 
     linkedin: "https://www.linkedin.com/in/ford-prior", 
     bio: "Ford will oversee tech infrastructure, platform administration, and competition integrity. He'll recruit leadership for: Platform Admin, Hacker Space Lead, Judge Coordinator, and Help Desk Lead." 
   },
   { 
     name: "Crystal Harvey", 
-    role: "Venue & Operations", 
+    role: "Ops Director", 
     image: crystalHarvey, 
     linkedin: undefined, 
     bio: "Crystal will manage venue operations and logistics at the Science Museum. She'll recruit leadership for: Friday Operations Lead, Sunday Operations Lead, Registration Manager, and AV/Catering Coordinator." 

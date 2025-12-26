@@ -779,8 +779,8 @@ export const quickWins: { asset: string; createdFor: string; alsoServes: string 
 
 // Owner responsibility matrix
 export const ownerMatrix: { owner: string; responsibilities: string }[] = [
-  { owner: 'Ford Prior', responsibilities: 'Event Director, Academia Pipeline, Platform decisions, Pitches' },
-  { owner: 'Crystal Harvey', responsibilities: 'Venue & Operations, Satellite locations, Logistics, Catering, AV' },
+  { owner: 'Ford Prior', responsibilities: 'Chief Hacker, Academia Pipeline, Platform decisions, Pitches' },
+  { owner: 'Crystal Harvey', responsibilities: 'Ops Director, Satellite locations, Logistics, Catering, AV' },
   { owner: 'Michael Kolbe', responsibilities: 'City Liaison, Pillar recruitment, Government relationships' },
   { owner: 'Sinclair Jenks', responsibilities: 'Marketing & Comms, Social media, Press, All announcements' },
   { owner: 'Heather Lyne', responsibilities: 'Entrepreneurial Ecosystems, Mentorship, Art Lounge, Hustle Corner' },

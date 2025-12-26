@@ -31,7 +31,7 @@ export interface CoreLeader {
 export const teamDelegation: CoreLeader[] = [
   {
     name: "Ford Prior",
-    role: "Event Director",
+    role: "Chief Hacker",
     focus: "Tech, Platform, Judging",
     responsibilities: [
       "Overall event vision and strategy",
@@ -39,7 +39,7 @@ export const teamDelegation: CoreLeader[] = [
       "Platform and technology decisions",
       "Judging framework and criteria",
     ],
-    whyItMatters: "The Event Director is the single point of accountability for the entire hackathon — ensuring all teams are aligned, decisions get made, and the event delivers on its promise to the Mayor's office.",
+    whyItMatters: "The Chief Hacker is the single point of accountability for the entire hackathon — ensuring all teams are aligned, decisions get made, and the event delivers on its promise to the Mayor's office.",
     subRoles: [
       { title: "Platform Administrator", assignee: "Tom Becker", description: "Manage Devpost, Discord, and GitHub infrastructure. Configure submission workflows, test platforms, run day-of operations.", whyItMatters: "Smooth platform operations prevent submission failures and keep 300 participants connected throughout the weekend.", commitment: "3-5 hrs/week Feb-Mar + weekend" },
       { title: "Hacker Space Lead", assignee: "Michael Ghaffari", description: "Staff and manage the Hacker Space with software engineers, security experts, and technical specialists. Create shift schedules, manage mentor queue, pair teams with the right expertise.", whyItMatters: "The Hacker Space is where code gets written and bugs get squashed. This role ensures every team has access to the technical firepower they need.", commitment: "3-4 hrs/week Feb-Mar + weekend" },
@@ -59,7 +59,7 @@ export const teamDelegation: CoreLeader[] = [
   },
   {
     name: "Crystal Harvey",
-    role: "Venue & Operations", 
+    role: "Ops Director", 
     focus: "Science Museum, Logistics, Day-of",
     responsibilities: [
       "Science Museum relationship and logistics",
@@ -67,7 +67,7 @@ export const teamDelegation: CoreLeader[] = [
       "AV and technical setup",
       "Day-of operations coordination",
     ],
-    whyItMatters: "Venue & Operations owns the physical experience — ensuring 300 participants have a professional, well-run environment where they can focus on building solutions, not logistics.",
+    whyItMatters: "The Ops Director owns the physical experience — ensuring 300 participants have a professional, well-run environment where they can focus on building solutions, not logistics.",
     subRoles: [
       { title: "Friday Operations Lead", assignee: null, description: "Own all Friday logistics: registration flow, kickoff ceremonies, pillar sessions, team formation, evening transition.", whyItMatters: "Friday sets the tone. A smooth kickoff energizes teams; friction kills momentum before hacking begins.", commitment: "Full Friday + planning" },
       { title: "Sunday Operations Lead", assignee: null, description: "Own all Sunday logistics: demo setup, judging logistics, finals production, awards ceremony, cleanup.", whyItMatters: "Sunday is the payoff. Professional execution of finals makes winners feel recognized and sponsors feel valued.", commitment: "Full Sunday + planning" },
