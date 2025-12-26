@@ -837,6 +837,165 @@ export interface TrackStakeholder {
 // Backward compatibility alias
 export type PillarStakeholder = TrackStakeholder;
 
+// =============================================================================
+// PRIORITY OUTREACH CONTACTS (January 2026)
+// =============================================================================
+
+export interface OutreachContact {
+  name: string;
+  organization: string;
+  role?: string;
+  priority: 'primary' | 'secondary';
+  status: 'not-started' | 'contacted' | 'in-conversation' | 'confirmed' | 'declined';
+  notes?: string;
+}
+
+export interface TrackOutreach {
+  trackId: number;
+  trackName: string;
+  focus: string;
+  corporateContacts: OutreachContact[];
+  communityContacts: OutreachContact[];
+}
+
+export const trackOutreach: TrackOutreach[] = [
+  {
+    trackId: 1,
+    trackName: 'Thriving City Hall',
+    focus: 'Operational Excellence & GovTech',
+    corporateContacts: [
+      { name: 'Matt Crane', organization: 'Tyler Technologies', priority: 'primary', status: 'not-started' },
+      { name: 'Tina Chiao', organization: 'Carahsoft', priority: 'primary', status: 'not-started' },
+      { name: 'Will Willis', organization: 'Ippon Technologies', priority: 'secondary', status: 'not-started', notes: 'AI Ready RVA Board Chair' },
+      { name: 'Will LaBar', organization: 'CGI', priority: 'secondary', status: 'not-started' },
+    ],
+    communityContacts: [
+      { name: 'Cat Anthony', organization: 'VPAP', role: 'Executive Director', priority: 'primary', status: 'not-started' },
+      { name: 'Chris Dovi', organization: 'CodeVA', role: 'Executive Director', priority: 'primary', status: 'not-started' },
+    ],
+  },
+  {
+    trackId: 2,
+    trackName: 'Thriving Neighborhoods',
+    focus: 'Housing, Zoning & Development',
+    corporateContacts: [
+      { name: 'Mark Hourigan', organization: 'Hourigan', priority: 'primary', status: 'not-started' },
+      { name: 'Lisa Ruggles', organization: 'CoStar Group', priority: 'primary', status: 'not-started' },
+      { name: 'Duke Dodson', organization: 'Dodson Companies', priority: 'primary', status: 'not-started', notes: 'High-value target, also fits Thriving Families' },
+    ],
+    communityContacts: [
+      { name: 'Laura Lafayette', organization: 'Richmond Association of Realtors', priority: 'primary', status: 'not-started' },
+      { name: 'Dr. Mae Worthey-Thomas', organization: 'Maggie Walker Community Land Trust', role: 'CEO', priority: 'primary', status: 'not-started' },
+    ],
+  },
+  {
+    trackId: 3,
+    trackName: 'Thriving Families',
+    focus: 'Youth, Education & Health',
+    corporateContacts: [
+      { name: 'TBD', organization: 'Genworth', priority: 'primary', status: 'not-started', notes: 'Contact TBD' },
+      { name: 'TBD', organization: 'Estes Express', priority: 'primary', status: 'not-started', notes: 'Contact TBD' },
+      { name: 'TBD', organization: 'Owens & Minor', priority: 'primary', status: 'not-started', notes: 'Contact TBD' },
+      { name: 'Duke Dodson', organization: 'Dodson Companies', priority: 'secondary', status: 'not-started', notes: 'Also possibility here' },
+    ],
+    communityContacts: [
+      { name: 'Traymanesha Lamy', organization: 'NextUp RVA', role: 'President & CEO', priority: 'primary', status: 'not-started', notes: 'Primary Target' },
+      { name: 'Chris Chin', organization: 'Robins Foundation', role: 'President & CEO', priority: 'primary', status: 'not-started', notes: 'Strong expertise partner' },
+      { name: 'Corey Taylor', organization: 'Peter Paul RVA', role: 'Executive Director', priority: 'secondary', status: 'not-started' },
+    ],
+  },
+  {
+    trackId: 4,
+    trackName: 'Thriving Economy',
+    focus: 'Economic Mobility & Business Support',
+    corporateContacts: [
+      { name: 'Matt Briggs', organization: 'Capital One', role: 'VP Product', priority: 'primary', status: 'not-started', notes: 'Sole priority for this pillar' },
+    ],
+    communityContacts: [
+      { name: 'Brian Anderson', organization: 'ChamberRVA', role: 'President & CEO', priority: 'primary', status: 'not-started' },
+      { name: 'Richard Wintsch', organization: 'Startup Virginia', role: 'Executive Director', priority: 'primary', status: 'not-started' },
+      { name: 'Floyd E. Miller II', organization: 'Metropolitan Business League', role: 'President & CEO', priority: 'primary', status: 'not-started' },
+    ],
+  },
+  {
+    trackId: 5,
+    trackName: 'Inclusive Communities',
+    focus: 'DEI, Safety Net & Access',
+    corporateContacts: [
+      { name: 'Diane Shope', organization: 'Kinsale Insurance', priority: 'primary', status: 'not-started' },
+      { name: 'Mary Allen Waller', organization: 'Markel', priority: 'primary', status: 'not-started' },
+      { name: 'Victor Branch', organization: 'Bank of America', priority: 'primary', status: 'not-started' },
+      { name: 'TBD', organization: 'CarMax', priority: 'secondary', status: 'not-started', notes: 'Contact TBD' },
+    ],
+    communityContacts: [
+      { name: 'Jonathan C. Zur', organization: 'VCIC', role: 'President & CEO', priority: 'primary', status: 'not-started' },
+      { name: 'TBD', organization: 'Health Brigade', priority: 'primary', status: 'not-started', notes: 'Action item: Ask Heather for specific contact' },
+    ],
+  },
+  {
+    trackId: 6,
+    trackName: 'Sustainable Environment',
+    focus: 'Green Infrastructure & Net Zero',
+    corporateContacts: [
+      { name: 'Tim Asimos', organization: 'Timmons Group', priority: 'primary', status: 'not-started' },
+      { name: 'Hunter Applewhite', organization: 'Dominion Energy', role: 'President, Foundation', priority: 'primary', status: 'not-started' },
+      { name: 'TBD', organization: 'NewMarket Corporation', priority: 'secondary', status: 'not-started', notes: 'Action item: Ask Dawson for contact' },
+    ],
+    communityContacts: [
+      { name: 'Bill Street', organization: 'James River Association', role: 'President & CEO', priority: 'primary', status: 'not-started', notes: 'Primary Target' },
+    ],
+  },
+  {
+    trackId: 7,
+    trackName: 'City Stories',
+    focus: 'History, Culture & Digital Humanities',
+    corporateContacts: [
+      { name: 'Jayme Swain', organization: 'VPM', role: 'President & CEO', priority: 'primary', status: 'not-started', notes: 'Primary Target' },
+      { name: 'Jaclyn Ruelle', organization: 'The Martin Agency', role: 'SVP, Cultural Impact Lab', priority: 'primary', status: 'not-started' },
+      { name: 'Kenneth Johnson', organization: 'JMI', role: 'CEO & Founder', priority: 'secondary', status: 'not-started' },
+    ],
+    communityContacts: [
+      { name: 'William J. Martin', organization: 'The Valentine', role: 'Director', priority: 'primary', status: 'not-started' },
+      { name: 'Jamie Bosket', organization: 'VMHC', role: 'President & CEO', priority: 'primary', status: 'not-started' },
+      { name: 'Shakia Gullette Warren', organization: 'Black History Museum', role: 'Executive Director', priority: 'primary', status: 'not-started' },
+    ],
+  },
+];
+
+// Cross-cutting resources that need assignment
+export const crossCuttingOutreach: { organization: string; notes: string; status: string }[] = [
+  { organization: 'Community Foundation', notes: 'Needs a home/assignment', status: 'not-started' },
+  { organization: 'Bob & Anna Lou Schaberg Foundation', notes: 'Potential partner', status: 'not-started' },
+];
+
+// Immediate action items from outreach planning
+export const outreachActionItems: { action: string; owner: string; deadline: string; status: string }[] = [
+  { action: 'Secure a slot at an upcoming ChamberRVA meeting', owner: 'Ford', deadline: 'ASAP', status: 'pending' },
+  { action: 'Ask Heather for Health Brigade contact', owner: 'Ford', deadline: 'This week', status: 'pending' },
+  { action: 'Ask Dawson for NewMarket Corporation contact', owner: 'Ford', deadline: 'This week', status: 'pending' },
+  { action: 'Identify Genworth contact', owner: 'Will', deadline: 'This week', status: 'pending' },
+  { action: 'Identify Estes Express contact', owner: 'Will', deadline: 'This week', status: 'pending' },
+  { action: 'Identify Owens & Minor contact', owner: 'Will', deadline: 'This week', status: 'pending' },
+  { action: 'Identify CarMax contact', owner: 'Will', deadline: 'This week', status: 'pending' },
+];
+
+// Outreach stats
+export const outreachStats = {
+  totalCorporateContacts: trackOutreach.reduce((sum, t) => sum + t.corporateContacts.length, 0),
+  totalCommunityContacts: trackOutreach.reduce((sum, t) => sum + t.communityContacts.length, 0),
+  primaryTargets: trackOutreach.reduce((sum, t) => 
+    sum + t.corporateContacts.filter(c => c.priority === 'primary').length + 
+    t.communityContacts.filter(c => c.priority === 'primary').length, 0),
+  contactsWithTBD: trackOutreach.reduce((sum, t) => 
+    sum + t.corporateContacts.filter(c => c.name === 'TBD').length + 
+    t.communityContacts.filter(c => c.name === 'TBD').length, 0),
+  actionItemsCount: outreachActionItems.length,
+};
+
+// =============================================================================
+// STAKEHOLDER ASSIGNMENTS (Legacy - for backward compatibility)
+// =============================================================================
+
 // Map Track IDs to their assigned stakeholders
 const breakoutOwnerAssignments: Record<number, string> = {
   2: "Gray Crenshaw", // Thriving Neighborhoods (Housing)
