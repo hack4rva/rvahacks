@@ -18,6 +18,7 @@ import Pitch from "./pages/Pitch";
 import PitchNext from "./pages/PitchNext";
 import Mission from "./pages/Mission";
 import AIReadyPartnership from "./pages/AIReadyPartnership";
+import Roadmap from "./pages/Roadmap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,6 +45,7 @@ const App = () => (
           <Route path="/mission" element={<Mission />} />
           <Route path="/volunteers" element={<Navigate to="/partners#volunteers" replace />} />
           <Route path="/ai-ready-partnership" element={<AIReadyPartnership />} />
+          <Route path="/roadmap" element={<Roadmap />} />
           
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
