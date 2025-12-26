@@ -1,0 +1,114 @@
+# January Sprint Strategy: Problem Extraction + Solver Recruitment
+## Critical Path Items
+### 1. **Cash Flow (URGENT)**
+You need $500–$1,000 in the bank immediately. This isn’t operating budget—this is credibility capital. Without it, you’re pitching vapor.
+**Options hierarchy:**
+Church route (uncertain, but fastest if viable)
+Angel sponsor (individual, not corporate—faster decision cycle)
+Pre-commit from a corporate partner (slower, but higher ceiling)
+**Key question:** What’s the minimum viable sponsor ask that gets you to $1K? Is this:
+Logo placement at event?
+Named track sponsorship?
+Early adopter positioning (“Founding Sponsor” branding)?
+You need a 30-second pitch that converts on urgency without desperation.
+-----
+### 2. **Framing Discipline: R&D, Not Activism**
+This is essential for City buy-in and corporate sponsors. The language matters:
+**Don’t say:**
+“Civic engagement”
+“Community organizing”
+“Grassroots solutions”
+**Do say:**
+“Applied R&D sprint”
+“Rapid prototyping lab”
+“Innovation pipeline for municipal deployment”
+“48-hour feasibility testing”
+This positions winners as **pilots**, not protests. It signals you understand implementation constraints, procurement pathways, and institutional risk tolerance.
+-----
+## Three-Bucket Outreach Strategy
+### **Government Bucket**
+**Target Council Members:**
+Catherine Jordan (District 2)
+Andrew Bretton (District 1)
+Ellen Robertson (District 6)
+Sarah Abubaker (District 4)
+**The Ask:**
+**Not:** “Support our hackathon”
+**Instead:** “Champion a track aligned with your district priorities”
+Each council member becomes a **Track Team City Partner**. They get:
+Direct access to solutions addressing their constituents’ pain points
+First-look at deployable tools (political capital)
+Association with innovation narrative without needing to fund it
+**Pitch angle by district:**
+**District 1 (Bretton):** Southside investment, economic mobility
+**District 2 (Jordan):** Housing affordability, neighborhood amenities
+**District 4 (Abubaker):** Youth programs, education pipeline
+**District 6 (Robertson):** Infrastructure, sustainability, zoning
+This isn’t scattershot—each council member gets **one track** that aligns with their known policy focus areas from the MAP.
+-----
+### **Education Bucket**
+You didn’t specify universities, but the implicit targets are:
+**VCU** (urban design, social work, public policy, data science)
+**University of Richmond** (Bonner Center, business school)
+**Virginia Union** (HBCU alignment with equity tracks)
+**The Play:**
+Target **professors** running capstone courses or research labs
+Position this as **course credit-eligible** or **research output opportunity**
+Get students to show up with faculty endorsement (credibility + structure)
+**Specific pitch:** “Your Spring 2026 capstone could pilot a solution the City actually adopts—not a shelf project.”
+-----
+### **Tech Bucket**
+**Target Groups for 5-Minute Pitches:**
+RVA JS
+Java User Group
+PyRVA (Python)
+RVA Data Science Group
+**Pitch structure (5 min max):**
+**Hook:** “The City wants to adopt your side project” (30 sec)
+**The Problem:** Show 1–2 real MAP metrics with bad trend lines (60 sec)
+**The Opportunity:** Open source + City mentorship + micro-grants (90 sec)
+**The CTA:** “Sign up at [hackforrva.com](http://hackforrva.com), or talk to me after” (30 sec)
+**Q&A buffer** (90 sec)
+**Key framing:** This isn’t a hackathon where demos die. It’s a **procurement on-ramp**. The legal pathways are pre-cleared. The City champions are named. The 6-month support is real.
+-----
+## Scheduling + Logistics
+### **January 6 Event** (You cut off mid-sentence)
+What’s happening January 6? Assuming this is your first outreach milestone—clarify so I can sequence dependencies.
+-----
+### **Data & AI Summit Booth**
+**Blocker:** Aaron Baker approval for DIY booth.
+**Immediate action:**
+Draft the ask email to Aaron **today**
+Position it as “early validation opportunity” for the summit (you’re bringing hackers who might attend the full event)
+Offer to staff it entirely yourselves (zero lift for Aaron)
+**Booth goal:** Collect emails + distribute cards. This is a **lead gen station**, not a sales pitch. Simple setup:
+Laptop looping a 60-second sizzle reel
+QR code to registration
+Physical cards with elevator pitch on back
+**Budget:** <$100 if you’re scrappy (posterboard + printouts + QR stickers).
+-----
+## Business Cards (ASAP)
+**Minimum viable card:**
+Front: Logo + “Hack for RVA” + “March 27–29, 2026”
+Back: QR code to landing page + one-line pitch (“48-hour civic tech sprint. Real problems. Real adoption.”)
+**Print volume:** 500 cards minimum. You’ll burn through these faster than you think.
+**Vendor:** VistaPrint (cheap, fast) or local print shop if you want to support RVA business.
+**Timeline:** Order by end of this week to have them for January meetups.
+-----
+## What’s Missing
+I need clarity on:
+**January 6 context** – What’s the event/milestone?
+**Sponsor pitch materials** – Do you have a one-pager? Slide deck?
+**Landing page status** – Is [hackforrva.com](http://hackforrva.com) live? What’s the conversion path?
+**Track Team assignments** – Which corporate/community partners are locked for which tracks?
+**Legal pathway documentation** – Can you show potential participants the pre-cleared open source adoption process? This is your differentiation.
+Without these, you’re selling air. With them, you’re selling infrastructure.
+-----
+## Next 72 Hours
+**Do these in order:**
+**Finalize sponsor ask** (draft email/pitch)
+**Order business cards** (lock design, submit print job)
+**Email Aaron Baker** (Data & AI Summit booth)
+**Draft 5-min tech meetup pitch** (script + slides)
+**Reach out to Council members** (personalized ask per district)
+Everything else is noise until these are moving.

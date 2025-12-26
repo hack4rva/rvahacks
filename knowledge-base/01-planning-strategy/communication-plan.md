@@ -27,21 +27,21 @@ Building Richmond's first civic hackathon is a journey through five acts:
 
 ## Milestone Summary
 
-| Level | Phase | Name | Description | Target | Status |
-|-------|-------|------|-------------|--------|--------|
-| **1** | Foundation | Foundation Lock | Date, venue, fiscal sponsor, title sponsor, kickoff meeting | 5 components | 🟡 2 of 5 |
-| **2** | Foundation | Core Team | 7 leadership areas defined and staffed | 7 roles | 🟡 6 of 7 |
-| **3** | Ecosystem | Pillar Teams | 21 stakeholders across 7 pillars (3 each) | 21 people | ⬜ 0 of 21 |
-| **4** | Ecosystem | Corporate Pillars | Corporate sponsor rep added to each pillar | 7 people | ⬜ 0 of 7 |
-| **5** | Ecosystem | Satellite Locations | Distributed hack spaces including 2 all-night venues | ~15 locations | ⬜ 0 of ~15 |
-| **6** | The Work | Challenge Design | 7 crisp problem statements with research + raw data | 7 challenges | ⬜ 0 of 7 |
-| **7** | The Work | Leadership Crew | 23 sub-roles beyond core leadership (t-shirt tier) | 23 roles | ⬜ 0 of 23 |
-| **8** | The Work | Academia Pipeline | K-12 districts + specialty schools + universities confirmed | 10+ partners | ⬜ 0 of 10 |
-| **9** | Resources | Prize Pool Secured | $17K+ in awards funded and committed | $17K+ | ⬜ $0 |
-| **10** | Resources | Volunteer Army | 150-200 volunteers recruited + trained | 150-200 | ⬜ 0 |
-| **11** | Launch | Platform Ready | Devpost + Discord + GitHub configured, tested | 3 platforms | ⬜ 0 of 3 |
-| **12** | Launch | Registration Open | 300+ participants / 30+ teams registered | 300+ / 30+ | ⬜ 0 |
-| **13** | Epilogue | Implementation Handoff | Top winners have 90-day plans + city department matches | 3+ solutions | ⬜ 0 |
+| Level | Phase | Name | Target Date | Description | Status |
+|-------|-------|------|-------------|-------------|--------|
+| **1** | Foundation | Foundation Lock | **Jan 24** | Date, venue, fiscal sponsor, title sponsor, kickoff meeting | 🟡 2 of 5 |
+| **2** | Foundation | Core Team | **Jan 31** | 7 leadership areas defined and staffed | 🟡 6 of 7 |
+| **3** | Ecosystem | Pillar Teams | **Feb 14** | 21 stakeholders across 7 pillars (3 each) | ⬜ 0 of 21 |
+| **4** | Ecosystem | Corporate Pillars | **Feb 21** | Corporate sponsor rep added to each pillar | ⬜ 0 of 7 |
+| **5** | Ecosystem | Satellite Locations | **Feb 21** | Distributed hack spaces including 2 all-night venues | ⬜ 0 of ~15 |
+| **6** | The Work | Challenge Design | **Feb 21** | 7 crisp problem statements with research + raw data | ⬜ 0 of 7 |
+| **7** | The Work | Leadership Crew | **Feb 14** | 23 sub-roles beyond core leadership (t-shirt tier) | ⬜ 0 of 23 |
+| **8** | The Work | Academia Pipeline | **Feb 13** ⚠️ | K-12 districts + specialty schools + universities confirmed | ⬜ 0 of 10 |
+| **9** | Resources | Prize Pool Secured | **Feb 28** | $17K+ in awards funded and committed | ⬜ $0 |
+| **10** | Resources | Volunteer Army | **Feb 28** | 150-200 volunteers recruited + trained | ⬜ 0 |
+| **11** | Launch | Platform Ready | **Mar 7** | Devpost + Discord + GitHub configured, tested | ⬜ 0 of 3 |
+| **12** | Launch | Registration Open | **Mar 7** | 300+ participants / 30+ teams registered | ⬜ 0 |
+| **13** | Epilogue | Implementation Handoff | **Jun 30** | Top winners have 90-day plans + city department matches | ⬜ 0 |
 
 ---
 
@@ -51,25 +51,27 @@ Not all levels are sequential. Some run in parallel:
 
 ```mermaid
 gantt
-    title Hack for RVA Milestone Timeline
-    dateFormat YYYY-MM
+    title Hack for RVA Milestone Timeline (Revised)
+    dateFormat YYYY-MM-DD
     section Foundation
-    Level1_FoundationLock :l1, 2025-12, 2026-01
-    Level2_CoreTeam :l2, 2026-01, 2026-02
+    Level1_FoundationLock :l1, 2026-01-06, 2026-01-24
+    Level2_CoreTeam :l2, 2026-01-13, 2026-01-31
     section Ecosystem
-    Level3_PillarTeams :l3, 2026-01, 2026-03
-    Level4_CorporatePillars :l4, 2026-02, 2026-03
-    Level5_SatelliteLocations :l5, 2026-02, 2026-03
+    Level3_PillarTeams :l3, 2026-01-20, 2026-02-14
+    Level4_CorporatePillars :l4, 2026-02-03, 2026-02-21
+    Level5_SatelliteLocations :l5, 2026-02-03, 2026-02-21
     section TheWork
-    Level6_ChallengeDesign :l6, 2026-01, 2026-03
-    Level7_LeadershipCrew :l7, 2026-02, 2026-03
-    Level8_AcademiaPipeline :l8, 2026-01, 2026-02
+    Level6_ChallengeDesign :l6, 2026-01-20, 2026-02-21
+    Level7_LeadershipCrew :l7, 2026-01-27, 2026-02-14
+    Level8_AcademiaPipeline :crit, l8, 2026-01-13, 2026-02-13
     section Resources
-    Level9_PrizePool :l9, 2026-02, 2026-03
-    Level10_VolunteerArmy :l10, 2026-02, 2026-03
+    Level9_PrizePool :l9, 2026-02-03, 2026-02-28
+    Level10_VolunteerArmy :l10, 2026-02-03, 2026-02-28
     section Launch
-    Level11_PlatformReady :l11, 2026-02, 2026-03
-    Level12_RegistrationOpen :l12, 2026-03, 2026-03
+    Level11_PlatformReady :l11, 2026-02-17, 2026-03-07
+    Level12_RegistrationOpen :l12, 2026-03-07, 2026-03-27
+    section Event
+    HackForRVA :milestone, 2026-03-27, 0d
 ```
 
 **Key Parallel Tracks:**
@@ -1233,21 +1235,37 @@ Level 9 (Prize Pool)    Level 10 (Volunteers)    Level 11 (Platforms)
 
 ### Suggested Target Dates
 
-| Level | Target Completion | Notes |
-|-------|------------------|-------|
-| Level 1 | End of January 2026 | Enables public launch |
-| Level 2 | Mid-February 2026 | Team announcement |
-| Level 3 | End of February 2026 | Pillar teams in place |
-| Level 4 | Mid-March 2026 | 2 weeks before event |
-| Level 5 | Mid-March 2026 | Parallel with Level 4 |
-| Level 6 | Early March 2026 | Challenges published 2 weeks before |
-| Level 7 | End of February 2026 | Leadership ready for final push |
-| Level 8 | Mid-February 2026 | Academia deadlines are earliest |
-| Level 9 | Mid-March 2026 | Prize funds received |
-| Level 10 | Mid-March 2026 | All volunteers trained |
-| Level 11 | Early March 2026 | Platforms tested before registration |
-| Level 12 | Early March 2026 | Registration open 3 weeks before |
-| Level 13 | End of June 2026 | 90-day post-event |
+**Timeline Philosophy:** Complete Acts I-IV (Foundation → Resources) by end of February, leaving March for Act V (Launch) and a 3-week buffer before the event.
+
+| Level | Target Completion | Hard Deadline? | Notes |
+|-------|------------------|----------------|-------|
+| Level 1 | **Jan 24, 2026** | — | Fiscal sponsor + title sponsor locked; enables public launch |
+| Level 2 | **Jan 31, 2026** | — | Core team complete (fill Community & Volunteers role) |
+| Level 3 | **Feb 14, 2026** | — | 21 pillar stakeholders confirmed |
+| Level 4 | **Feb 21, 2026** | — | Corporate reps added to all 7 pillars |
+| Level 5 | **Feb 21, 2026** | — | Satellite locations locked (parallel with Level 4) |
+| Level 6 | **Feb 21, 2026** | — | Challenge design finalized, data packages ready |
+| Level 7 | **Feb 14, 2026** | — | Leadership crew (27 roles) staffed |
+| Level 8 | **Feb 13, 2026** | ⚠️ **HARD** | Bus requests due to HCPS/CCPS; VCU minors reg by Feb 25 |
+| Level 9 | **Feb 28, 2026** | — | Prize pool ($17K+) secured |
+| Level 10 | **Feb 28, 2026** | — | Volunteer recruitment at 75%+ (150+ recruited) |
+| Level 11 | **Mar 7, 2026** | — | Platforms (Devpost/Discord/GitHub) tested and ready |
+| Level 12 | **Mar 7, 2026** | — | Registration opens; 3-week runway to event |
+| Level 13 | **Jun 30, 2026** | — | 90-day post-event implementation handoff |
+
+### Weekly Milestone Calendar
+
+| Week | Dates | Milestones Due |
+|------|-------|----------------|
+| Week 4 | Jan 20-24 | **Level 1** — Foundation Lock |
+| Week 5 | Jan 27-31 | **Level 2** — Core Team complete |
+| Week 7 | Feb 10-14 | **Levels 3, 7, 8** — Pillar Teams, Leadership Crew, Academia Pipeline |
+| Week 8 | Feb 17-21 | **Levels 4, 5, 6** — Corporate Pillars, Satellites, Challenge Design |
+| Week 9 | Feb 24-28 | **Levels 9, 10** — Prize Pool, Volunteers |
+| Week 10 | Mar 2-7 | **Levels 11, 12** — Platforms Ready, Registration Open |
+| Weeks 11-13 | Mar 8-27 | Buffer + final prep |
+| Event | Mar 27-29 | **HACK FOR RVA** |
+| Post-Event | Apr-Jun | **Level 13** — Implementation Handoff |
 
 ---
 

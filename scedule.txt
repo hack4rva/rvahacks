@@ -1,0 +1,355 @@
+# January-March Campaign Calendar: Tactical Breakdown
+
+You’ve got **12 touchpoints** over 11 weeks. This is a volume play, not a precision strike—you’re building ambient awareness + multiple conversion moments. Smart.
+
+-----
+
+## **WEEK 1: January 6–12 (Establish Credibility)**
+
+### **Jan 6 (Mon) – RVA JS Meetup**
+
+**Objective:** First technical validation. Prove this isn’t vaporware.
+
+**Pre-work:**
+
+- Cards printed and in hand
+- 5-min pitch rehearsed (ideally with slide deck on USB backup)
+- QR code tested live
+
+**Tactical notes:**
+
+- Arrive 15 min early, cards visible on a table near entry
+- During networking time, don’t pitch—just hand cards with “We’re up in 5”
+- After your slot, stay for Q&A. This crowd will stress-test your feasibility claims.
+
+**Key message:** “The City has pre-cleared open source adoption pathways. Your side project could ship to production.”
+
+-----
+
+### **Jan 10 (Fri) – UVA + VCU Campus Blitz**
+
+**Objective:** Intercept students before semester commitments solidify.
+
+**Execution:**
+
+- Chalk + posters at high-traffic zones (dining halls, libraries, CS/engineering buildings)
+- Flyers with QR code + “48-hour sprint, real City adoption”
+- Hit both campuses same day if possible (Richmond campuses within 10 min drive)
+
+**Messaging pivot for students:**
+
+- Don’t sell “civic duty”
+- Sell “portfolio piece that shipped to government + potential micro-grant”
+- Frame as **capstone-eligible** or **resume differentiator**
+
+**Compliance check:** Verify postering rules at both schools. VCU is looser; UVA may require RSO sponsorship. If so, partner with a CS/data science student org to co-host.
+
+-----
+
+### **Jan 12 (Sun) – City Council Meeting**
+
+**Objective:** Get official government visibility. This is your **legitimacy anchor**.
+
+**Tactical approach:**
+
+- Attend public comment period (typically first 30 min)
+- Wear Hack for RVA branding if you have it
+- Brief remarks (<3 min): Frame as “R&D sprint to support MAP implementation”
+- Directly name-drop your four council targets (Jordan, Bretton, Robertson, Abubaker) as potential Track Champions
+- Hand cards to council members afterward
+
+**Key framing:** “This isn’t asking for City funds—we’re bringing external resources to accelerate your priorities.”
+
+**Risk mitigation:** If public comment is full, pivot to networking in the lobby after adjournment. Still counts as “showing up.”
+
+-----
+
+## **WEEK 2: January 13–19 (Community Activation)**
+
+### **Jan 13 (Mon) – Beers & Bugs + Community Sticky Note Session**
+
+**Objective:** Generate **crowd-sourced problem statements** while building grassroots energy.
+
+**Format:**
+
+- 7 poster boards (one per MAP pillar)
+- Sticky notes at each station: “What’s broken in Richmond that tech could fix?”
+- Beer + casual = lower barrier to participation
+- Capture photos of filled boards → content for social media + sponsor decks
+
+**Location scouting:**
+
+- Manchester makes sense (Southside investment narrative)
+- Need venue with wall space + permissive toward taping posters
+- Brewery vs. coffee shop: Beer signals “this is fun,” coffee signals “this is work.” Pick based on vibe you want.
+
+**Staffing:** You need 2–3 volunteers to facilitate, photograph, and collect contact info (clipboard + QR code).
+
+**Output:** These sticky notes become **raw problem statements** you refine into challenge briefs. This is literal R&D—you’re extracting signal from lived experience.
+
+-----
+
+### **Jan 15 (Wed) – RVA Tech C-Suite (Nick Serfass)**
+
+**Objective:** Corporate sponsor pipeline + executive credibility.
+
+**The ask to Nick:**
+
+- 5 min at opening or closing of next exec meeting
+- Positioning: “We’re building a talent pipeline for civic tech contracts—here’s how your companies can plug in early”
+
+**Pitch angle for execs:**
+
+- This isn’t CSR theater—it’s **talent scouting + R&D outsourcing**
+- Winning solutions become pilots they can scale commercially
+- Track sponsorships = brand association with Mayor’s MAP (political capital)
+
+**CTA:** “Sponsor a track ($2.5K–$5K), or send a team to compete.”
+
+-----
+
+### **Jan 17 (Sat) – RVA Code & Coffee**
+
+**Objective:** Recruit **squad leaders** (team captains who can rally 3–5 others).
+
+**Why this matters:**
+
+- Lone wolves show up day-of and flounder
+- Pre-formed squads with a captain = higher completion rates
+
+**Tactical execution:**
+
+- Bumper stickers as social proof (“I’m helping organize Hack for RVA”)
+- Laptop demo of challenge briefs (even if rough drafts)
+- Recruit people who’ve **led teams before** (hackathons, work projects, open source maintainers)
+
+**The pitch:** “We need 10 squad leaders. You recruit your team, we’ll pair you with a City champion.”
+
+-----
+
+## **WEEK 5: February 3–12 (Corporate + Security Track Push)**
+
+### **Feb 3 (Mon) – RVA JS Meetup (Return Visit)**
+
+Brief update: “Here’s what we’ve learned since January. Tracks are locked, City partners confirmed.”
+
+**New CTA:** “Register your team by Feb 15 for early challenge brief access.”
+
+-----
+
+### **Feb 6 (Thurs) – ??? Event (Context Missing)**
+
+You said “show up with Hack for RVA T-shirts, recruit corporate teams.” Where is this? A conference? Meetup? Clarify so I can refine tactics.
+
+**Assumption:** Some kind of tech/business networking event.
+
+**Strategy:**
+
+- Branded shirts = walking billboards
+- Target competitive mid-career professionals (they have disposable income for registration fees if you add those later, plus they want portfolio differentiation)
+- Pitch: “Your company talks about innovation. Prove it. Field a team.”
+
+-----
+
+### **Feb 12 (Wed) – CyberVA @ Convention Center**
+
+**Objective:** Recruit security professionals for **Thriving City Hall** track (IT modernization, cybersecurity challenges).
+
+**Table setup:**
+
+- Laptop looping: “Richmond’s legacy systems need modern security architecture—help us build it”
+- Challenge brief preview (even if draft): Specific problems like “City database encryption standards” or “phishing-resistant authentication for 4,500 employees”
+- Swag: Stickers, cards, maybe challenge coins if budget allows
+
+**Messaging for security pros:**
+
+- Frame as **real-world pentesting + architecture design sprint**
+- Emphasize: “This isn’t a CTF. It’s infrastructure R&D with City CISO involvement.”
+
+**Risk:** Security folks are skeptical of “hackathon solutions” for security problems. Counter this by showing you understand the difference between a demo and a deployable system. Mention the 6-month pilot support explicitly.
+
+-----
+
+## **WEEK 10: March 9–20 (Final Push + Urgency Creation)**
+
+### **Mar 9 (Sun) – City Council Hearing (Return Visit)**
+
+**Objective:** Momentum signal. Show this thing is real and growing.
+
+**New messaging:**
+
+- “XX teams registered, $XX in prize pool confirmed, Y City departments committed”
+- Announce Track Champions publicly if they’ve agreed
+- Create FOMO: “Registration closes March 25”
+
+-----
+
+### **Mar 16 (Sun) – Post-Spring Break Campus Blitz**
+
+Students are back, schedules are set, but spring break energy = openness to disruption.
+
+**Execution:** Same as Jan 10, but now you have **proof**:
+
+- Show photos from Beers & Bugs sticky note session
+- Show logos of corporate sponsors (if any)
+- Show names of City partners
+
+**New CTA:** “Register by March 20 for team placement guarantee.”
+
+-----
+
+### **Mar 20 (Thurs) – Museum District Town Hall**
+
+**Objective:** Last major public touchpoint. Convert lurkers.
+
+**Why this venue matters:**
+
+- Museum District = educated, civically engaged, higher income
+- These are people who care about Richmond’s trajectory but may not be coders
+- Opportunity to recruit **non-technical roles**: UX, policy analysts, designers, project managers
+
+**Pitch adjustment:**
+
+- “You don’t need to code. We need systems thinkers, researchers, and people who understand government.”
+- Show the **Track Teams** structure: “Every team gets a City champion, corporate sponsor, and community partner.”
+
+**Urgency lever:** “Registration closes in 7 days. After that, day-of registration only (if space allows).”
+
+-----
+
+## **Floating Priorities (No Fixed Date Yet)**
+
+### **Op-Ed with Michael Colby**
+
+**Timing:** Publish **2–3 weeks before the event** (early March).
+
+**Angle:**
+
+- “Why Richmond Needs a Civic Hackathon Now”
+- Tie to MAP metrics with bad trend lines (cite specific goals from document)
+- Frame as **applied R&D**, not activism
+- Mention budget drop timing: “While the City debates budget priorities, we’re prototyping solutions.”
+
+**Strategic value:**
+
+- Legitimacy from Colby’s name
+- Media pickup potential (RTD, RVA Mag, local TV)
+- Content you can reshare endlessly
+
+**Colby’s incentive:** He gets to be the thought leader on “innovation in local government.” Easy yes.
+
+**Logistics:** Draft it yourself, send to Colby for edits/co-authorship, then shop to RTD opinion desk or publish on Medium + distribute.
+
+-----
+
+### **Budget Drop Leverage (Day of Hackathon)**
+
+You mentioned this but didn’t elaborate. Clarify:
+
+- Is the City budget announcement literally March 27–29?
+- If so, how do you want to tie the hackathon to it?
+
+**Possible angles:**
+
+- “While leaders debate budgets, hackers are building solutions”
+- “Budget constraints meet innovation: How a $15K hackathon could save the City millions”
+- Live-tweet budget announcements + hackathon progress in parallel (contrast scarcity vs. abundance mindset)
+
+**Risk:** This could feel opportunistic if not framed carefully. Michael Colby’s co-authorship on the op-ed helps neutralize that.
+
+-----
+
+## **What You’re Missing**
+
+### **1. Email Drip Campaign**
+
+You’re doing 12 in-person events but no mention of email follow-up. You need:
+
+- **Week 1 (post-Jan 6):** “Thanks for hearing us at RVA JS—here’s the full pitch”
+- **Week 4 (late Jan):** “City partners confirmed, tracks finalized”
+- **Week 8 (late Feb):** “Early bird registration closing soon”
+- **Week 10 (mid-Mar):** “Final call—register by March 20”
+
+Collect emails at every touchpoint. QR code should lead to landing page with email capture.
+
+-----
+
+### **2. Social Proof Timeline**
+
+When can you announce:
+
+- First corporate sponsor?
+- First City partner?
+- First Track Champion?
+
+Each of these is a **mini-launch moment**. Stagger them across January–February to maintain momentum between events.
+
+-----
+
+### **3. Challenge Brief Previews**
+
+By mid-February, you need **draft challenge briefs** for at least 3 tracks. These are your conversion tools:
+
+- Shows participants this is real
+- Gives them something concrete to prep for
+- Signals you’ve done the hard work of problem extraction
+
+Use the sticky notes from Beers & Bugs as raw material.
+
+-----
+
+## **Revised Messaging Discipline**
+
+You said: “Don’t need to be like civic duty… focus on technical challenges.”
+
+**Correct. Here’s the reframe:**
+
+### **DON’T SAY:**
+
+- “Help your community”
+- “Give back”
+- “Civic engagement”
+
+### **DO SAY:**
+
+- “Solve real infrastructure problems”
+- “Ship to production with City adoption”
+- “R&D sprint with $15K+ in prizes + 6-month pilot support”
+- “Build something that scales beyond a demo”
+
+### **For different audiences:**
+
+**Developers:**
+“The City wants to adopt your side project. Open source, pre-cleared legal pathways, mentorship from City IT.”
+
+**Students:**
+“Portfolio piece that shipped to government. Resume differentiator. Potential micro-grant for pilot.”
+
+**Corporate teams:**
+“Talent pipeline for civic tech contracts. R&D outsourcing. Brand association with Mayor’s MAP.”
+
+**Security pros:**
+“Real-world infrastructure hardening. Not a CTF. City CISO involvement.”
+
+**Non-technical:**
+“Systems thinking + policy analysis. We need researchers, designers, and people who understand government.”
+
+-----
+
+## **Next 48 Hours**
+
+1. **Order business cards** (VistaPrint, 500 min, design locked by EOD)
+1. **Email Nick Serfass** (lock Jan 15 slot for RVA Tech C-Suite)
+1. **Draft 5-min RVA JS pitch** (slides + script, rehearse 3x)
+1. **Scout Beers & Bugs venue** (confirm wall space + taping policy)
+1. **Email Michael Colby** (float op-ed idea, propose co-authorship)
+
+Everything else sequences from these.
+
+**What’s the status on:**
+
+- Landing page (is [hackforrva.com](http://hackforrva.com) live)?
+- First sponsor (who are you pitching for the $500–$1K)?
+- Track Team assignments (which corporate/community partners are locked)?
+
+Give me those three answers and I’ll refine the next layer.​​​​​​​​​​​​​​​​
