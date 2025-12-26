@@ -12,16 +12,16 @@
     
     @page { 
       size: letter; 
-      margin: 0.4in; 
+      margin: 0.35in; 
     }
     
     body {
       font-family: 'Inter', -apple-system, sans-serif;
-      font-size: 9px;
-      line-height: 1.35;
+      font-size: 8.5px;
+      line-height: 1.3;
       color: #1a1a1a;
       background: #fff;
-      padding: 0.4in;
+      padding: 0.35in;
       max-width: 8.5in;
       margin: 0 auto;
     }
@@ -31,20 +31,20 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 12px;
-      padding-bottom: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 2px solid #1a1a1a;
     }
     
     .header-left h1 {
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 800;
       letter-spacing: -0.5px;
       margin-bottom: 2px;
     }
     
     .header-left .subtitle {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 500;
       color: #666;
     }
@@ -54,61 +54,86 @@
     }
     
     .event-date {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: #dc2626;
     }
     
     .campaign-span {
-      font-size: 8px;
+      font-size: 7.5px;
       color: #666;
       margin-top: 2px;
     }
 
-    /* Critical Path */
-    .critical-path {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
+    /* Announcement Track */
+    .announcement-track {
+      background: linear-gradient(90deg, #eef2ff 0%, #faf5ff 50%, #fdf2f8 100%);
+      border: 1px solid #c7d2fe;
       border-radius: 4px;
-      padding: 8px 10px;
-      margin-bottom: 12px;
+      padding: 6px 8px;
+      margin-bottom: 10px;
     }
     
-    .critical-path h2 {
-      font-size: 9px;
+    .announcement-track h2 {
+      font-size: 8px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #dc2626;
-      margin-bottom: 6px;
+      color: #4f46e5;
+      margin-bottom: 5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
     
-    .critical-path-flow {
+    .announcement-track h2::before {
+      content: "📣";
+      font-size: 10px;
+    }
+    
+    .announcement-flow {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 4px;
-      font-size: 8px;
+      gap: 3px;
+      font-size: 7px;
     }
     
-    .cp-item {
+    .ann-item {
       background: #fff;
-      border: 1px solid #fca5a5;
+      border: 1px solid #a5b4fc;
       border-radius: 3px;
-      padding: 3px 6px;
+      padding: 2px 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 52px;
     }
     
-    .cp-arrow {
-      color: #dc2626;
+    .ann-date {
       font-weight: 700;
+      color: #4f46e5;
+      font-size: 6.5px;
+    }
+    
+    .ann-label {
+      font-size: 6.5px;
+      color: #1a1a1a;
+      text-align: center;
+    }
+    
+    .ann-arrow {
+      color: #818cf8;
+      font-weight: 700;
+      font-size: 10px;
     }
 
     /* Three Column Layout */
     .months-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 12px;
+      gap: 8px;
+      margin-bottom: 10px;
     }
     
     .month-column {
@@ -118,9 +143,9 @@
     }
     
     .month-header {
-      padding: 6px 8px;
+      padding: 5px 6px;
       font-weight: 700;
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -130,11 +155,11 @@
     .month-mar .month-header { background: #dcfce7; color: #166534; }
     
     .month-content {
-      padding: 8px;
+      padding: 6px;
     }
     
     .week-block {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     
     .week-block:last-child {
@@ -142,52 +167,60 @@
     }
     
     .week-header {
-      font-size: 8px;
+      font-size: 7px;
       font-weight: 700;
       color: #666;
       text-transform: uppercase;
       letter-spacing: 0.3px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       display: flex;
       justify-content: space-between;
     }
     
     .week-theme {
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 600;
       color: #1a1a1a;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     
     .event-list {
-      font-size: 8px;
+      font-size: 7px;
       color: #444;
     }
     
     .event-item {
       display: flex;
-      gap: 4px;
-      margin-bottom: 2px;
+      gap: 3px;
+      margin-bottom: 1px;
     }
     
     .event-date-inline {
       font-weight: 600;
       color: #666;
-      min-width: 32px;
+      min-width: 28px;
     }
     
     .milestone {
       background: #fef3c7;
       border-radius: 2px;
-      padding: 2px 4px;
+      padding: 1px 3px;
       font-weight: 600;
       color: #92400e;
+    }
+    
+    .announcement {
+      background: #eef2ff;
+      border-radius: 2px;
+      padding: 1px 3px;
+      font-weight: 600;
+      color: #4f46e5;
     }
     
     .hard-deadline {
       background: #fee2e2;
       border-radius: 2px;
-      padding: 2px 4px;
+      padding: 1px 3px;
       font-weight: 600;
       color: #dc2626;
     }
@@ -195,29 +228,29 @@
     /* Bottom Stats & Deadlines */
     .bottom-section {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 8px;
     }
     
     .stats-box, .deadlines-box {
       border: 1px solid #e5e5e5;
       border-radius: 4px;
-      padding: 8px;
+      padding: 6px;
     }
     
     .box-title {
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       color: #1a1a1a;
     }
     
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
+      gap: 4px;
     }
     
     .stat-item {
@@ -225,41 +258,41 @@
     }
     
     .stat-value {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 800;
       color: #1a1a1a;
     }
     
     .stat-label {
-      font-size: 7px;
+      font-size: 6px;
       color: #666;
       text-transform: uppercase;
     }
     
     .deadline-list {
-      font-size: 8px;
+      font-size: 7px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 3px 12px;
+      gap: 2px 10px;
     }
     
     .deadline-item {
       display: flex;
-      gap: 4px;
+      gap: 3px;
     }
     
     .deadline-date {
       font-weight: 700;
       color: #dc2626;
-      min-width: 38px;
+      min-width: 34px;
     }
 
     /* Team */
     .team-row {
-      margin-top: 10px;
-      padding-top: 8px;
+      margin-top: 8px;
+      padding-top: 6px;
       border-top: 1px solid #e5e5e5;
-      font-size: 7px;
+      font-size: 6.5px;
       color: #666;
     }
     
@@ -278,7 +311,7 @@
   <div class="header">
     <div class="header-left">
       <h1>Hack for RVA</h1>
-      <div class="subtitle">12-Week Campaign: January 6 → March 29, 2026</div>
+      <div class="subtitle">12-Week Campaign: January 6 → March 29, 2026 (Accelerated Timeline)</div>
     </div>
     <div class="header-right">
       <div class="event-date">EVENT: March 27–29</div>
@@ -286,25 +319,54 @@
     </div>
   </div>
 
-  <!-- Critical Path -->
-  <div class="critical-path">
-    <h2>Critical Path</h2>
-    <div class="critical-path-flow">
-      <span class="cp-item"><strong>Jan 6:</strong> First Pitch</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item"><strong>Jan 24:</strong> Foundation Lock</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item"><strong>Jan 31:</strong> Core Team</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item"><strong>Feb 13:</strong> Academia ⚠️</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item"><strong>Feb 21:</strong> Challenges</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item"><strong>Feb 28:</strong> $17K Prize</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item"><strong>Mar 7:</strong> Registration Open</span>
-      <span class="cp-arrow">→</span>
-      <span class="cp-item" style="background:#dcfce7;border-color:#86efac;"><strong>Mar 27–29:</strong> 🎉 EVENT</span>
+  <!-- Announcement Track (LinkedIn + Instagram) -->
+  <div class="announcement-track">
+    <h2>Social Media Announcement Cadence (LinkedIn + Instagram)</h2>
+    <div class="announcement-flow">
+      <div class="ann-item">
+        <span class="ann-date">Jan 10</span>
+        <span class="ann-label">Foundation +<br/>Reg Opens</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Jan 17</span>
+        <span class="ann-label">Core Team<br/>Spotlight</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Jan 30</span>
+        <span class="ann-label">Academia<br/>Partners</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Jan 31</span>
+        <span class="ann-label">Pillars +<br/>Leadership</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Feb 7</span>
+        <span class="ann-label">Challenges +<br/>Satellites</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Feb 14</span>
+        <span class="ann-label">$17K Prize<br/>Pool</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Feb 21</span>
+        <span class="ann-label">Platforms<br/>Ready</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item">
+        <span class="ann-date">Mar 7-14</span>
+        <span class="ann-label">Op-Ed +<br/>Final Push</span>
+      </div>
+      <span class="ann-arrow">→</span>
+      <div class="ann-item" style="background:#dcfce7;border-color:#86efac;">
+        <span class="ann-date" style="color:#166534;">Mar 27</span>
+        <span class="ann-label">🎉 EVENT</span>
+      </div>
     </div>
   </div>
 
@@ -312,14 +374,16 @@
   <div class="months-grid">
     <!-- JANUARY -->
     <div class="month-column month-jan">
-      <div class="month-header">January — Credibility & Foundation</div>
+      <div class="month-header">January — Launch & Build Foundation</div>
       <div class="month-content">
         
         <div class="week-block">
           <div class="week-header"><span>Week 1: Jan 6–12</span><span>80 days</span></div>
-          <div class="week-theme">Establish Credibility</div>
+          <div class="week-theme">🚀 Launch Week</div>
           <div class="event-list">
             <div class="event-item"><span class="event-date-inline">Mon 6</span>RVA JS Meetup — First pitch</div>
+            <div class="event-item"><span class="event-date-inline">Fri 10</span><span class="milestone">LEVEL 1: Foundation Lock</span></div>
+            <div class="event-item"><span class="event-date-inline">Fri 10</span><span class="announcement">📣 LEVEL 12: Registration Opens</span></div>
             <div class="event-item"><span class="event-date-inline">Fri 10</span>VCU + UVA Campus Blitz</div>
             <div class="event-item"><span class="event-date-inline">Sun 12</span>City Council — Public comment</div>
           </div>
@@ -327,29 +391,35 @@
 
         <div class="week-block">
           <div class="week-header"><span>Week 2: Jan 13–19</span><span>73 days</span></div>
-          <div class="week-theme">Community Activation</div>
+          <div class="week-theme">Core Team + Community Activation</div>
           <div class="event-list">
             <div class="event-item"><span class="event-date-inline">Mon 13</span>Beers & Bugs — Problem extraction</div>
             <div class="event-item"><span class="event-date-inline">Wed 15</span>RVA Tech C-Suite (Nick Serfass)</div>
+            <div class="event-item"><span class="event-date-inline">Sat 17</span><span class="milestone">LEVEL 2: Core Team Complete</span></div>
+            <div class="event-item"><span class="event-date-inline">Sat 17</span><span class="announcement">📣 Team Spotlight Post</span></div>
             <div class="event-item"><span class="event-date-inline">Sat 17</span>RVA Code & Coffee — Squad leaders</div>
           </div>
         </div>
 
         <div class="week-block">
           <div class="week-header"><span>Week 3: Jan 20–26</span><span>66 days</span></div>
-          <div class="week-theme">Foundation Lock Sprint</div>
+          <div class="week-theme">Pillar Recruitment Sprint</div>
           <div class="event-list">
-            <div class="event-item"><span class="event-date-inline">Fri 24</span><span class="milestone">LEVEL 1: Foundation Lock</span></div>
-            <div class="event-item" style="padding-left: 36px;">AI Ready RVA + CoStar + Science Museum confirmed</div>
+            <div class="event-item" style="padding-left: 0;">Parallel: Nonprofit partner outreach (7 pillars)</div>
+            <div class="event-item" style="padding-left: 0;">Parallel: Leadership sub-role recruitment</div>
+            <div class="event-item" style="padding-left: 0;">Parallel: Challenge brief drafting</div>
           </div>
         </div>
 
         <div class="week-block">
           <div class="week-header"><span>Week 4: Jan 27–Feb 2</span><span>59 days</span></div>
-          <div class="week-theme">Team Formation</div>
+          <div class="week-theme">Triple Milestone Week ⚠️</div>
           <div class="event-list">
-            <div class="event-item"><span class="event-date-inline">Fri 31</span><span class="milestone">LEVEL 2: Core Team Complete</span></div>
-            <div class="event-item" style="padding-left: 36px;">7 leads confirmed, team photos, drip #1</div>
+            <div class="event-item"><span class="event-date-inline">Thu 30</span><span class="hard-deadline">HARD: K-12 Bus Requests</span></div>
+            <div class="event-item"><span class="event-date-inline">Thu 30</span><span class="milestone">LEVEL 8: Academia Pipeline</span></div>
+            <div class="event-item"><span class="event-date-inline">Thu 30</span><span class="announcement">📣 Academia Partners Post</span></div>
+            <div class="event-item"><span class="event-date-inline">Fri 31</span><span class="milestone">LEVELS 3+7: Pillars + Leadership</span></div>
+            <div class="event-item"><span class="event-date-inline">Fri 31</span><span class="announcement">📣 Pillar Teams Announcement</span></div>
           </div>
         </div>
 
@@ -358,44 +428,49 @@
 
     <!-- FEBRUARY -->
     <div class="month-column month-feb">
-      <div class="month-header">February — Build the Ecosystem</div>
+      <div class="month-header">February — Complete the Ecosystem</div>
       <div class="month-content">
         
         <div class="week-block">
           <div class="week-header"><span>Week 5: Feb 3–9</span><span>52 days</span></div>
-          <div class="week-theme">Corporate & Security Push</div>
+          <div class="week-theme">Challenges + Satellites Launch</div>
           <div class="event-list">
             <div class="event-item"><span class="event-date-inline">Mon 3</span>RVA JS Return Visit — Progress update</div>
-            <div class="event-item"><span class="event-date-inline">Thu 6</span>Corporate Networking (TBD)</div>
+            <div class="event-item"><span class="event-date-inline">Thu 6</span>Corporate Networking Event</div>
+            <div class="event-item"><span class="event-date-inline">Sat 7</span><span class="milestone">LEVELS 4+5+6: Corp/Satellites/Challenges</span></div>
+            <div class="event-item"><span class="event-date-inline">Sat 7</span><span class="announcement">📣 "Hack Anywhere" + Challenge Reveal</span></div>
+            <div class="event-item" style="padding-left: 28px;">15 venues, 7 challenge briefs published</div>
           </div>
         </div>
 
         <div class="week-block">
           <div class="week-header"><span>Week 6: Feb 10–16</span><span>45 days</span></div>
-          <div class="week-theme">Triple Milestone Week ⚠️</div>
+          <div class="week-theme">Resources Secured</div>
           <div class="event-list">
             <div class="event-item"><span class="event-date-inline">Wed 12</span>CyberVA — Security pros</div>
-            <div class="event-item"><span class="event-date-inline">Thu 13</span><span class="hard-deadline">HARD: K-12 Bus Requests</span></div>
-            <div class="event-item"><span class="event-date-inline">Fri 14</span><span class="milestone">LEVEL 3+7: Pillars + Leadership</span></div>
-            <div class="event-item" style="padding-left: 36px;">21 pillar stakeholders, 27 leadership roles</div>
+            <div class="event-item"><span class="event-date-inline">Sat 14</span><span class="milestone">LEVELS 9+10: $17K + 150 Volunteers</span></div>
+            <div class="event-item"><span class="event-date-inline">Sat 14</span><span class="announcement">📣 "$17K Prize Pool" Post</span></div>
+            <div class="event-item"><span class="event-date-inline">Sat 14</span><span class="announcement">📣 Volunteer Appreciation Post</span></div>
           </div>
         </div>
 
         <div class="week-block">
           <div class="week-header"><span>Week 7: Feb 17–23</span><span>38 days</span></div>
-          <div class="week-theme">Ecosystem Complete</div>
+          <div class="week-theme">Platforms Ready</div>
           <div class="event-list">
-            <div class="event-item"><span class="event-date-inline">Fri 21</span><span class="milestone">LEVELS 4+5+6: Sponsors + Satellites + Challenges</span></div>
-            <div class="event-item" style="padding-left: 36px;">7 pillar sponsors, 15 venues, 7 challenge briefs</div>
+            <div class="event-item"><span class="event-date-inline">Sat 21</span><span class="milestone">LEVEL 11: Platforms Ready</span></div>
+            <div class="event-item"><span class="event-date-inline">Sat 21</span><span class="announcement">📣 "Platforms Ready" + Reg Reminder</span></div>
+            <div class="event-item" style="padding-left: 28px;">Devpost/Discord/GitHub configured</div>
           </div>
         </div>
 
         <div class="week-block">
           <div class="week-header"><span>Week 8: Feb 24–Mar 2</span><span>31 days</span></div>
-          <div class="week-theme">Resources Secured</div>
+          <div class="week-theme">Final Prep + Buffer</div>
           <div class="event-list">
-            <div class="event-item"><span class="event-date-inline">Sat 28</span><span class="milestone">LEVELS 9+10: $17K Prize + 150 Volunteers</span></div>
-            <div class="event-item"><span class="event-date-inline">Mar 1</span><span class="hard-deadline">HARD: Insurance + Challenges Final</span></div>
+            <div class="event-item"><span class="event-date-inline">Mar 1</span><span class="hard-deadline">HARD: Insurance Bound ($1M/$2M)</span></div>
+            <div class="event-item" style="padding-left: 0;">Volunteer training sessions begin</div>
+            <div class="event-item" style="padding-left: 0;">Michael Kolbe op-ed drafted</div>
           </div>
         </div>
 
@@ -404,16 +479,16 @@
 
     <!-- MARCH -->
     <div class="month-column month-mar">
-      <div class="month-header">March — Launch & Execute</div>
+      <div class="month-header">March — Final Push & Execute</div>
       <div class="month-content">
         
         <div class="week-block">
           <div class="week-header"><span>Week 9: Mar 3–9</span><span>24 days</span></div>
-          <div class="week-theme">Launch Week</div>
+          <div class="week-theme">Media Push</div>
           <div class="event-list">
-            <div class="event-item"><span class="event-date-inline">Sat 7</span><span class="milestone">REGISTRATION OPENS</span></div>
-            <div class="event-item"><span class="event-date-inline">7–14</span>Op-ed publishes (RTD/Richmond Mag)</div>
+            <div class="event-item"><span class="event-date-inline">7–14</span><span class="announcement">📣 Op-Ed Publishes (RTD/Richmond Mag)</span></div>
             <div class="event-item"><span class="event-date-inline">Sun 9</span>City Council — Return visit</div>
+            <div class="event-item" style="padding-left: 0;">Press outreach (local TV, RVA Mag)</div>
           </div>
         </div>
 
@@ -421,8 +496,9 @@
           <div class="week-header"><span>Week 10: Mar 10–16</span><span>17 days</span></div>
           <div class="week-theme">Registration Push</div>
           <div class="event-list">
-            <div class="event-item"><span class="event-date-inline">Sun 15</span><span class="hard-deadline">HARD: Permission Slips</span></div>
+            <div class="event-item"><span class="event-date-inline">Sun 15</span><span class="hard-deadline">HARD: Permission Slips Due</span></div>
             <div class="event-item"><span class="event-date-inline">Sun 16</span>Post-Spring Break Campus Blitz</div>
+            <div class="event-item" style="padding-left: 0;">Daily social media push</div>
           </div>
         </div>
 
@@ -432,12 +508,13 @@
           <div class="event-list">
             <div class="event-item"><span class="event-date-inline">Thu 20</span>Museum District Town Hall</div>
             <div class="event-item"><span class="event-date-inline">Fri 20</span><span class="hard-deadline">HARD: Background Checks</span></div>
+            <div class="event-item"><span class="event-date-inline">Fri 20</span><span class="announcement">📣 "1 Week Until Hack for RVA"</span></div>
           </div>
         </div>
 
-        <div class="week-block" style="background:#dcfce7;border-radius:4px;padding:6px;margin:-4px;">
+        <div class="week-block" style="background:#dcfce7;border-radius:4px;padding:5px;margin:-3px;">
           <div class="week-header"><span>Week 12: Mar 24–29</span><span style="color:#166534;font-weight:700;">EVENT!</span></div>
-          <div class="week-theme" style="font-size:10px;color:#166534;">🎉 HACK FOR RVA</div>
+          <div class="week-theme" style="font-size:9px;color:#166534;">🎉 HACK FOR RVA</div>
           <div class="event-list">
             <div class="event-item"><span class="event-date-inline">Fri 27</span><strong>Day 1:</strong> Kickoff @ Science Museum</div>
             <div class="event-item"><span class="event-date-inline">Sat 28</span><strong>Day 2:</strong> Hacking @ 15+ locations</div>
@@ -476,11 +553,11 @@
     <div class="deadlines-box">
       <div class="box-title">Hard Deadlines (Cannot Miss)</div>
       <div class="deadline-list">
-        <div class="deadline-item"><span class="deadline-date">Feb 13</span>K-12 bus requests due</div>
-        <div class="deadline-item"><span class="deadline-date">Feb 25</span>VCU Protection of Minors</div>
-        <div class="deadline-item"><span class="deadline-date">Feb 28</span>$17K prize pool secured</div>
+        <div class="deadline-item"><span class="deadline-date">Jan 10</span>Registration system live</div>
+        <div class="deadline-item"><span class="deadline-date">Jan 30</span>K-12 bus requests due</div>
+        <div class="deadline-item"><span class="deadline-date">Feb 11</span>VCU Protection of Minors</div>
+        <div class="deadline-item"><span class="deadline-date">Feb 14</span>$17K prize pool secured</div>
         <div class="deadline-item"><span class="deadline-date">Mar 1</span>Insurance bound ($1M/$2M)</div>
-        <div class="deadline-item"><span class="deadline-date">Mar 7</span>Registration system live</div>
         <div class="deadline-item"><span class="deadline-date">Mar 15</span>Permission slips collected</div>
         <div class="deadline-item"><span class="deadline-date">Mar 20</span>Chaperone background checks</div>
         <div class="deadline-item"><span class="deadline-date">Mar 25</span>Registration closes</div>
@@ -495,4 +572,3 @@
 
 </body>
 </html>
-
