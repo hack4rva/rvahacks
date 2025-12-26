@@ -58,12 +58,12 @@ export const PlanTab = () => {
                   phase.id === 'launch' ? 'bg-red-50 dark:bg-red-950/30 border-b-2 border-red-500' :
                   'bg-gray-50 dark:bg-gray-950/30 border-b-2 border-gray-500'
                 }`}>
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="text-lg font-bold text-foreground">{phase.name}</h3>
-                      <p className="text-sm text-muted-foreground italic">{phase.theme}</p>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div className="min-w-0">
+                      <h3 className="text-base sm:text-lg font-bold text-foreground">{phase.name}</h3>
+                      <p className="text-xs sm:text-sm text-muted-foreground italic">{phase.theme}</p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="text-xs bg-muted px-2 py-1 rounded">
                         Levels {phase.levels}
                       </span>
@@ -87,48 +87,47 @@ export const PlanTab = () => {
                 <div className="divide-y divide-border">
                   {phaseMilestones.map((milestone) => (
                     <Collapsible key={milestone.level}>
-                      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors text-left">
-                        <div className="flex items-center gap-4">
-                          <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg ${
+                      <CollapsibleTrigger className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full p-3 sm:p-4 hover:bg-muted/50 transition-colors text-left gap-3">
+                        <div className="flex items-center gap-3 min-w-0">
+                          <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold text-sm sm:text-lg flex-shrink-0 ${
                             milestone.status === 'complete' ? 'bg-green-500 text-white' :
                             milestone.status === 'in-progress' ? 'bg-yellow-500 text-white' :
                             'bg-muted text-muted-foreground'
                           }`}>
                             {milestone.level}
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-foreground">{milestone.name}</h4>
-                            <p className="text-sm text-muted-foreground">{milestone.description}</p>
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-semibold text-foreground text-sm sm:text-base">{milestone.name}</h4>
+                            <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">{milestone.description}</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 sm:gap-4 flex-wrap ml-11 sm:ml-0">
                           {milestone.parallelWith && (
-                            <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded">
+                            <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded hidden sm:inline">
                               ⇄ Level {milestone.parallelWith.join(', ')}
                             </span>
                           )}
-                          <div className="text-right">
-                            <p className={`text-sm font-bold ${
+                          <div className="text-left sm:text-right">
+                            <p className={`text-xs sm:text-sm font-bold ${
                               milestone.status === 'complete' ? 'text-green-600' :
                               milestone.status === 'in-progress' ? 'text-yellow-600' :
                               'text-muted-foreground'
                             }`}>
                               {milestone.progress}
                             </p>
-                            <p className="text-xs text-muted-foreground">{milestone.targetCount}</p>
                           </div>
-                          <span className={`text-xs px-2 py-1 rounded ${
+                          <span className={`text-xs px-2 py-1 rounded whitespace-nowrap ${
                             milestone.status === 'complete' ? 'bg-green-100 text-green-800' :
                             milestone.status === 'in-progress' ? 'bg-yellow-100 text-yellow-800' :
                             'bg-gray-100 text-gray-800'
                           }`}>
                             {milestone.status.replace('-', ' ')}
                           </span>
-                          <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                          <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                         </div>
                       </CollapsibleTrigger>
-                      <CollapsibleContent className="px-4 pb-4">
-                        <div className="ml-14 space-y-4">
+                      <CollapsibleContent className="px-3 sm:px-4 pb-4">
+                        <div className="ml-0 sm:ml-14 space-y-4">
                           {/* Target Date */}
                           {milestone.targetDate && (
                             <div className="flex items-center gap-2 text-sm">
@@ -185,9 +184,9 @@ export const PlanTab = () => {
                           {milestone.announcementTemplate && (
                             <div className="mt-4 p-3 bg-accent/10 rounded-lg border border-accent/20">
                               <p className="text-xs font-semibold text-accent uppercase tracking-wide mb-2">
-                                Announcement Template
+                                Announcement
                               </p>
-                              <p className="text-sm text-foreground italic">
+                              <p className="text-xs sm:text-sm text-foreground italic break-words">
                                 "{milestone.announcementTemplate}"
                               </p>
                             </div>
