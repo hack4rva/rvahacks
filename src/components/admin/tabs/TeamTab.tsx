@@ -1,7 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Users, ChevronDown, Clock } from "lucide-react";
+import { Users, ChevronDown, Clock, Linkedin, Instagram, ExternalLink } from "lucide-react";
 import { teamDelegation, getTeamStats, type SubRole } from "@/data/teamDelegation";
+import { Button } from "@/components/ui/button";
 
 export const TeamTab = () => {
   const stats = getTeamStats();
@@ -18,6 +19,38 @@ export const TeamTab = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
+        {/* Marketing Assets */}
+        <div className="mb-6 p-4 bg-gradient-to-r from-accent/10 to-accent/5 border border-accent/20 rounded-lg">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <h4 className="font-semibold text-foreground mb-1">Team Profile Assets</h4>
+              <p className="text-sm text-muted-foreground">Ready-to-share graphics for LinkedIn and Instagram</p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2"
+                onClick={() => window.open('/team-pages/index.html', '_blank')}
+              >
+                <Linkedin className="w-4 h-4" />
+                LinkedIn Bios
+                <ExternalLink className="w-3 h-3" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2"
+                onClick={() => window.open('/team-pages/instagram/index.html', '_blank')}
+              >
+                <Instagram className="w-4 h-4" />
+                Instagram Squares
+                <ExternalLink className="w-3 h-3" />
+              </Button>
+            </div>
+          </div>
+        </div>
+
         <div className="space-y-6">
           {teamDelegation.map((leader, idx) => (
             <Collapsible key={idx} className="border border-border rounded-lg bg-card">
