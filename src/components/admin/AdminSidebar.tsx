@@ -10,9 +10,13 @@ import {
   Mail,
   ChevronDown,
   AlertTriangle,
-  CalendarDays
+  CalendarDays,
+  Menu,
+  X
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 export type AdminSection = 
   | 'overview' 
@@ -68,11 +72,12 @@ const navGroups: NavGroup[] = [
   }
 ];
 
-export const AdminSidebar = ({ 
+const SidebarContent = ({ 
   activeSection, 
   onNavigate, 
-  actionItemCount = 0 
-}: AdminSidebarProps) => {
+  actionItemCount = 0,
+  onClose
+}: AdminSidebarProps & { onClose?: () => void }) => {
   const [expandedGroups, setExpandedGroups] = useState<string[]>(['Planning', 'People', 'Resources']);
 
   const toggleGroup = (label: string) => {
@@ -83,11 +88,16 @@ export const AdminSidebar = ({
     );
   };
 
+  const handleNavigate = (section: AdminSection) => {
+    onNavigate(section);
+    onClose?.();
+  };
+
   return (
-    <aside className="w-64 border-r border-border bg-card min-h-screen p-4 flex flex-col">
+    <div className="flex flex-col h-full p-4">
       {/* Overview Button */}
       <button
-        onClick={() => onNavigate('overview')}
+        onClick={() => handleNavigate('overview')}
         className={cn(
           "flex items-center gap-3 w-full px-3 py-2.5 rounded-lg text-left mb-4 transition-colors",
           activeSection === 'overview' 
@@ -102,7 +112,7 @@ export const AdminSidebar = ({
       {/* Action Items Button (if any) */}
       {actionItemCount > 0 && (
         <button
-          onClick={() => onNavigate('plan')} // Navigate to plan for action items
+          onClick={() => handleNavigate('plan')}
           className="flex items-center justify-between w-full px-3 py-2.5 rounded-lg text-left mb-4 bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800 hover:bg-red-100 dark:hover:bg-red-950/50 transition-colors"
         >
           <div className="flex items-center gap-3">
@@ -116,7 +126,7 @@ export const AdminSidebar = ({
       )}
 
       {/* Navigation Groups */}
-      <nav className="flex-1 space-y-2">
+      <nav className="flex-1 space-y-2 overflow-y-auto">
         {navGroups.map((group) => (
           <Collapsible 
             key={group.label}
@@ -136,7 +146,7 @@ export const AdminSidebar = ({
                 return (
                   <button
                     key={item.id}
-                    onClick={() => onNavigate(item.id)}
+                    onClick={() => handleNavigate(item.id)}
                     className={cn(
                       "flex items-center gap-3 w-full px-3 py-2 rounded-lg text-left text-sm transition-colors",
                       activeSection === item.id 
@@ -160,7 +170,52 @@ export const AdminSidebar = ({
           Admin Dashboard v1.0
         </p>
       </div>
+    </div>
+  );
+};
+
+// Desktop sidebar (hidden on mobile)
+export const AdminSidebar = ({ 
+  activeSection, 
+  onNavigate, 
+  actionItemCount = 0 
+}: AdminSidebarProps) => {
+  return (
+    <aside className="hidden md:block w-64 border-r border-border bg-card min-h-screen flex-shrink-0">
+      <SidebarContent 
+        activeSection={activeSection}
+        onNavigate={onNavigate}
+        actionItemCount={actionItemCount}
+      />
     </aside>
+  );
+};
+
+// Mobile sidebar trigger and sheet
+export const MobileAdminSidebar = ({ 
+  activeSection, 
+  onNavigate, 
+  actionItemCount = 0 
+}: AdminSidebarProps) => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger asChild>
+        <Button variant="ghost" size="icon" className="md:hidden">
+          <Menu className="h-5 w-5" />
+          <span className="sr-only">Toggle menu</span>
+        </Button>
+      </SheetTrigger>
+      <SheetContent side="left" className="w-72 p-0">
+        <SidebarContent 
+          activeSection={activeSection}
+          onNavigate={onNavigate}
+          actionItemCount={actionItemCount}
+          onClose={() => setOpen(false)}
+        />
+      </SheetContent>
+    </Sheet>
   );
 };
 

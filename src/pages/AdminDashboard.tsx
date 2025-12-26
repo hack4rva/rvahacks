@@ -4,7 +4,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
 import { 
-  AdminSidebar, 
+  AdminSidebar,
+  MobileAdminSidebar,
   DashboardOverview,
   PlanTab,
   ScheduleTab,
@@ -186,7 +187,7 @@ const AdminDashboard = () => {
                     
                     return (
     <div className="min-h-screen bg-background flex">
-      {/* Sidebar */}
+      {/* Desktop Sidebar */}
       <AdminSidebar 
         activeSection={activeSection} 
         onNavigate={setActiveSection}
@@ -194,30 +195,38 @@ const AdminDashboard = () => {
       />
 
       {/* Main Content */}
-      <main className="flex-1 p-8 overflow-auto">
+      <main className="flex-1 p-4 md:p-8 overflow-auto w-full">
         {/* Header */}
-        <header className="flex justify-between items-center mb-8">
-                                  <div>
-            <h1 className="text-3xl font-bold text-foreground">
-              {sectionTitles[activeSection]}
-            </h1>
-            {activeSection !== 'overview' && (
-              <button 
-                onClick={() => setActiveSection('overview')}
-                className="text-sm text-muted-foreground hover:text-accent mt-1"
-              >
-                ← Back to overview
-              </button>
-                                                )}
-                                              </div>
-                  <div className="flex items-center gap-2">
-            <Button onClick={() => navigate("/")} variant="outline">
+        <header className="flex justify-between items-center mb-6 md:mb-8 gap-3">
+          <div className="flex items-center gap-3">
+            {/* Mobile menu trigger */}
+            <MobileAdminSidebar
+              activeSection={activeSection}
+              onNavigate={setActiveSection}
+              actionItemCount={getActionItemCount()}
+            />
+            <div>
+              <h1 className="text-xl md:text-3xl font-bold text-foreground">
+                {sectionTitles[activeSection]}
+              </h1>
+              {activeSection !== 'overview' && (
+                <button 
+                  onClick={() => setActiveSection('overview')}
+                  className="text-xs md:text-sm text-muted-foreground hover:text-accent mt-1"
+                >
+                  ← Back to overview
+                </button>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <Button onClick={() => navigate("/")} variant="outline" size="sm" className="hidden sm:flex">
               Home
             </Button>
-            <Button onClick={handleLogout} variant="outline">
+            <Button onClick={handleLogout} variant="outline" size="sm">
               Logout
             </Button>
-                      </div>
+          </div>
         </header>
 
         {/* Content */}

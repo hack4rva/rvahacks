@@ -62,17 +62,17 @@ export const DashboardOverview = ({ onNavigate, signupCount = 0 }: DashboardOver
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 md:space-y-8">
       {/* Header */}
       <div>
-        <h2 className="text-2xl font-bold text-foreground">Command Center</h2>
-        <p className="text-muted-foreground mt-1">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground">Command Center</h2>
+        <p className="text-sm md:text-base text-muted-foreground mt-1">
           Quick overview of all workstreams — click any card to dive deeper
         </p>
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4">
         <MetricCard
           title="Team"
           value={`${teamStats.filledSubRoles}/${teamStats.totalSubRoles}`}
@@ -130,7 +130,7 @@ export const DashboardOverview = ({ onNavigate, signupCount = 0 }: DashboardOver
       )}
 
       {/* Quick Status Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
         {/* Team Progress */}
         <div className="border border-border rounded-lg p-4 bg-card">
           <h3 className="font-semibold text-foreground mb-3 flex items-center gap-2">
