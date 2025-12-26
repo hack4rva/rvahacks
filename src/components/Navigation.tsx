@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Shield, LogOut, Home, HelpCircle } from "lucide-react";
-import hackRvaIcon from "@/assets/hack-rva-icon.png";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -54,9 +53,8 @@ export const Navigation = ({ onCTAClick }: NavigationProps) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo/Brand */}
-          <Link to="/" className="flex items-center gap-2 font-bold text-lg transition-smooth text-white hover:text-white/80">
-            <img src={hackRvaIcon} alt="Hack for RVA" className="h-8 w-auto" />
-            <span>Hack for RVA</span>
+          <Link to="/" className="font-bold text-lg transition-smooth text-white hover:text-white/80">
+            Hack for RVA
           </Link>
 
           {/* Desktop Navigation */}
