@@ -7,6 +7,7 @@ import {
   AdminSidebar, 
   DashboardOverview,
   PlanTab,
+  ScheduleTab,
   TeamTab,
   TracksTab,
   SponsorsTab,
@@ -29,6 +30,7 @@ interface Signup {
 const sectionTitles: Record<AdminSection, string> = {
   overview: 'Command Center',
   plan: 'Communication Plan',
+  schedule: 'Master Schedule',
   team: 'Team Structure',
   tracks: 'Track Stakeholders',
   sponsors: 'Sponsors & Partners',
@@ -151,6 +153,8 @@ const AdminDashboard = () => {
         return <DashboardOverview onNavigate={setActiveSection} signupCount={signups.length} />;
       case 'plan':
         return <PlanTab />;
+      case 'schedule':
+        return <ScheduleTab />;
       case 'team':
         return <TeamTab />;
       case 'tracks':

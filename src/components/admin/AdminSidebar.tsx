@@ -9,13 +9,15 @@ import {
   Link2, 
   Mail,
   ChevronDown,
-  AlertTriangle
+  AlertTriangle,
+  CalendarDays
 } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 export type AdminSection = 
   | 'overview' 
   | 'plan' 
+  | 'schedule'
   | 'tracks' 
   | 'team' 
   | 'connectors' 
@@ -45,6 +47,7 @@ const navGroups: NavGroup[] = [
     label: "Planning",
     items: [
       { id: 'plan', label: 'Communication Plan', icon: Target },
+      { id: 'schedule', label: 'Master Schedule', icon: CalendarDays },
       { id: 'tracks', label: 'Tracks', icon: LayoutDashboard },
     ]
   },
