@@ -21,7 +21,7 @@ export const Hero = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Icon */}
-          <img src={hackRvaIcon} alt="" className="h-24 w-auto mx-auto mb-4" />
+          <img src={hackRvaIcon} alt="" className="h-36 w-auto mx-auto mb-1" />
 
           {/* Main Headline */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-3 leading-tight">
