@@ -88,15 +88,15 @@ export const AcademiaTab = () => {
           <div className="space-y-4">
             {k12Districts.map((district) => (
               <Collapsible key={district.abbreviation} className="border border-border rounded-lg">
-                <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors">
-                  <div className="flex items-center gap-3">
-                    <span className="text-lg font-bold text-accent">{district.abbreviation}</span>
-                    <div className="text-left">
-                      <h5 className="font-semibold text-foreground">{district.name}</h5>
-                      <p className="text-xs text-muted-foreground">{district.cteLeader.name} • {district.cteLeader.title}</p>
+                <CollapsibleTrigger className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full p-3 sm:p-4 hover:bg-muted/50 transition-colors gap-2">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="text-base sm:text-lg font-bold text-accent flex-shrink-0">{district.abbreviation}</span>
+                    <div className="text-left min-w-0">
+                      <h5 className="font-semibold text-foreground text-sm sm:text-base">{district.name}</h5>
+                      <p className="text-xs text-muted-foreground truncate">{district.cteLeader.name} • {district.cteLeader.title}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4 ml-10 sm:ml-0">
                     <span className={`text-xs px-2 py-1 rounded ${
                       district.status === 'confirmed' ? 'bg-green-100 text-green-800' :
                       district.status === 'contacted' ? 'bg-blue-100 text-blue-800' :
@@ -105,7 +105,7 @@ export const AcademiaTab = () => {
                     }`}>
                       {district.status.replace('-', ' ')}
                     </span>
-                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="px-4 pb-4">
@@ -170,7 +170,41 @@ export const AcademiaTab = () => {
             <span className="text-lg">🎯</span>
             Specialty Schools (Highest Priority)
           </h4>
-          <div className="overflow-x-auto">
+          
+          {/* Mobile Card View */}
+          <div className="block sm:hidden space-y-3">
+            {specialtySchools.map((school) => (
+              <div key={school.name} className="border border-border rounded-lg p-3 bg-card">
+                <div className="flex items-start justify-between mb-2">
+                  <span className="font-medium text-sm">{school.name}</span>
+                  <span className={`text-xs px-2 py-1 rounded ${
+                    school.status === 'confirmed' ? 'bg-green-100 text-green-800' :
+                    school.status === 'contacted' ? 'bg-blue-100 text-blue-800' :
+                    'bg-gray-100 text-gray-800'
+                  }`}>
+                    {school.status.replace('-', ' ')}
+                  </span>
+                </div>
+                {school.highlight && (
+                  <p className="text-xs text-green-600 font-medium mb-1">{school.highlight}</p>
+                )}
+                <p className="text-xs text-muted-foreground mb-2">{school.alignment}</p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-xs bg-muted px-2 py-1 rounded capitalize">{school.type.replace('-', ' ')}</span>
+                  <span className={`text-xs px-2 py-1 rounded font-medium ${
+                    school.compatibility === 'high' ? 'bg-green-100 text-green-800' :
+                    school.compatibility === 'medium' ? 'bg-yellow-100 text-yellow-800' :
+                    'bg-gray-100 text-gray-800'
+                  }`}>
+                    {school.compatibility}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
+          <div className="hidden sm:block overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">

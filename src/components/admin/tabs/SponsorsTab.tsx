@@ -139,16 +139,16 @@ export const SponsorsTab = () => {
               </h5>
               <div className="space-y-2">
                 {outreachActionItems.map((item, idx) => (
-                  <div key={idx} className="flex items-center justify-between text-sm">
-                    <div className="flex items-center gap-2">
+                  <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between text-sm gap-2">
+                    <div className="flex items-start gap-2 min-w-0">
                       <input 
                         type="checkbox" 
-                        className="rounded border-amber-300"
+                        className="rounded border-amber-300 mt-0.5 flex-shrink-0"
                         disabled
                       />
-                      <span className="text-amber-900 dark:text-amber-100">{item.action}</span>
+                      <span className="text-amber-900 dark:text-amber-100 break-words">{item.action}</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 ml-6 sm:ml-0 flex-shrink-0">
                       <Badge variant="outline" className="text-xs">{item.owner}</Badge>
                       <span className="text-xs text-amber-600 dark:text-amber-400">{item.deadline}</span>
                     </div>
@@ -182,24 +182,24 @@ export const SponsorsTab = () => {
           <div className="space-y-4">
             {trackOutreach.map((track) => (
               <Collapsible key={track.trackId} className="border border-border rounded-lg">
-                <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors">
+                <CollapsibleTrigger className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full p-3 sm:p-4 hover:bg-muted/50 transition-colors gap-2">
                   <div className="flex items-center gap-3">
-                    <span className="text-lg font-bold text-accent">{track.trackId}</span>
-                    <div className="text-left">
-                      <h5 className="font-semibold text-foreground">{track.trackName}</h5>
+                    <span className="text-base sm:text-lg font-bold text-accent">{track.trackId}</span>
+                    <div className="text-left min-w-0">
+                      <h5 className="font-semibold text-foreground text-sm sm:text-base">{track.trackName}</h5>
                       <p className="text-xs text-muted-foreground">{track.focus}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="flex items-center gap-1">
+                  <div className="flex items-center gap-2 ml-8 sm:ml-0">
+                    <Badge variant="secondary" className="flex items-center gap-1 text-xs">
                       <Building2 className="w-3 h-3" />
                       {track.corporateContacts.length}
                     </Badge>
-                    <Badge variant="secondary" className="flex items-center gap-1">
+                    <Badge variant="secondary" className="flex items-center gap-1 text-xs">
                       <Users className="w-3 h-3" />
                       {track.communityContacts.length}
                     </Badge>
-                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                    <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                   </div>
                 </CollapsibleTrigger>
                 <CollapsibleContent className="px-4 pb-4">

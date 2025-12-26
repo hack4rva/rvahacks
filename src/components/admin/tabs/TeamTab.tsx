@@ -21,28 +21,28 @@ export const TeamTab = () => {
         <div className="space-y-6">
           {teamDelegation.map((leader, idx) => (
             <Collapsible key={idx} className="border border-border rounded-lg bg-card">
-              <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors text-left">
-                <div className="flex items-center gap-4">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg ${
+              <CollapsibleTrigger className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full p-3 sm:p-4 hover:bg-muted/50 transition-colors text-left gap-3">
+                <div className="flex items-center gap-3">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center font-bold text-base sm:text-lg flex-shrink-0 ${
                     leader.name === 'TBD' ? 'bg-orange-500 text-white' : 'bg-accent text-accent-foreground'
                   }`}>
                     {leader.name === 'TBD' ? '?' : leader.name.split(' ').map(n => n[0]).join('')}
                   </div>
-                  <div>
-                    <h3 className={`text-lg font-bold ${leader.name === 'TBD' ? 'text-orange-500 italic' : 'text-foreground'}`}>
+                  <div className="min-w-0">
+                    <h3 className={`text-base sm:text-lg font-bold ${leader.name === 'TBD' ? 'text-orange-500 italic' : 'text-foreground'}`}>
                       {leader.name}
                     </h3>
-                    <p className="text-sm font-medium text-accent">{leader.role}</p>
+                    <p className="text-xs sm:text-sm font-medium text-accent">{leader.role}</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="text-right">
+                <div className="flex items-center gap-3 ml-13 sm:ml-0">
+                  <div className="text-left sm:text-right">
                     <p className="text-sm font-bold text-foreground">
                       {leader.subRoles.filter(r => r.assignee || (r.volunteers && r.volunteers.length > 0)).length}/{leader.subRoles.length}
                     </p>
                     <p className="text-xs text-muted-foreground">roles filled</p>
                   </div>
-                  <ChevronDown className="w-5 h-5 text-muted-foreground" />
+                  <ChevronDown className="w-5 h-5 text-muted-foreground flex-shrink-0" />
                 </div>
               </CollapsibleTrigger>
               <CollapsibleContent className="border-t border-border">
@@ -87,17 +87,17 @@ export const TeamTab = () => {
                       
                       return (
                         <Collapsible key={subIdx}>
-                          <CollapsibleTrigger className="flex items-center justify-between w-full py-2 px-3 rounded bg-muted/50 hover:bg-muted transition-colors text-left">
-                            <div className="flex items-center gap-3">
-                              <div className={`w-2 h-2 rounded-full ${isFilled ? 'bg-green-500' : 'bg-orange-500'}`} />
-                              <span className="text-sm font-medium text-foreground">{subRole.title}</span>
+                          <CollapsibleTrigger className="flex flex-col xs:flex-row xs:items-center justify-between w-full py-2 px-3 rounded bg-muted/50 hover:bg-muted transition-colors text-left gap-2">
+                            <div className="flex items-center gap-3 min-w-0">
+                              <div className={`w-2 h-2 rounded-full flex-shrink-0 ${isFilled ? 'bg-green-500' : 'bg-orange-500'}`} />
+                              <span className="text-sm font-medium text-foreground break-words">{subRole.title}</span>
                               {isPoolRole && subRole.targetCount && (
-                                <span className="text-xs text-muted-foreground">
+                                <span className="text-xs text-muted-foreground whitespace-nowrap">
                                   (need {subRole.targetCount})
                                 </span>
                               )}
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex items-center gap-2 flex-wrap ml-5 xs:ml-0">
                               {isPoolRole ? (
                                 <span className={`text-xs px-2 py-0.5 rounded ${
                                   volunteerCount > 0 ? 'bg-green-100 text-green-800' : 'bg-orange-100 text-orange-800'
@@ -113,10 +113,10 @@ export const TeamTab = () => {
                                   Open
                                 </span>
                               )}
-                              <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                              <ChevronDown className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                             </div>
                           </CollapsibleTrigger>
-                          <CollapsibleContent className="mt-2 ml-5 p-3 bg-card border border-border rounded-lg">
+                          <CollapsibleContent className="mt-2 ml-0 sm:ml-5 p-3 bg-card border border-border rounded-lg">
                             <div className="space-y-3">
                               <div>
                                 <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">

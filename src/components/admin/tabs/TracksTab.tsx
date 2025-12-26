@@ -14,7 +14,44 @@ export const TracksTab = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="overflow-x-auto">
+        {/* Mobile Card View */}
+        <div className="block sm:hidden space-y-3">
+          {trackStakeholders.map((track) => (
+            <div key={track.id} className="border border-border rounded-lg p-3 bg-card">
+              <div className="font-medium text-foreground mb-1">{track.id}. {track.name}</div>
+              <p className="text-xs text-muted-foreground mb-3">{track.focus}</p>
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div>
+                  <span className="text-muted-foreground">Lead:</span>
+                  <p className={track.breakoutOwner ? 'text-accent font-medium' : 'text-muted-foreground italic'}>
+                    {track.breakoutOwner || 'Unassigned'}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">City:</span>
+                  <p className={track.cityPartnerRep ? 'text-accent font-medium' : 'text-muted-foreground italic'}>
+                    {track.cityPartnerRep || 'Unassigned'}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">Corporate:</span>
+                  <p className={track.corporatePartnerRep ? 'text-accent font-medium' : 'text-muted-foreground italic'}>
+                    {track.corporatePartnerRep || 'Unassigned'}
+                  </p>
+                </div>
+                <div>
+                  <span className="text-muted-foreground">Community:</span>
+                  <p className={track.communityPartnerRep ? 'text-accent font-medium' : 'text-muted-foreground italic'}>
+                    {track.communityPartnerRep || 'Unassigned'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Table View */}
+        <div className="hidden sm:block overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border">
