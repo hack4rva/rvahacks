@@ -15,11 +15,11 @@ export const ConnectorsTab = () => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
           {connectors.map((connector, idx) => (
-            <div key={idx} className="border border-border rounded-lg p-4 bg-card hover:bg-muted/30 transition-colors">
-              <h5 className="font-bold text-foreground">{connector.name}</h5>
-              <p className="text-xs text-muted-foreground mt-1">{connector.description}</p>
+            <div key={idx} className="border border-border rounded-lg p-3 sm:p-4 bg-card hover:bg-muted/30 transition-colors">
+              <h5 className="font-bold text-foreground text-sm sm:text-base">{connector.name}</h5>
+              <p className="text-xs text-muted-foreground mt-1 break-words">{connector.description}</p>
             </div>
           ))}
         </div>

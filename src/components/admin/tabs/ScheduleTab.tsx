@@ -67,26 +67,26 @@ const TaskBadge = ({ type }: { type: TaskType }) => {
 };
 
 const TaskItem = ({ task }: { task: Task }) => (
-  <div className={`flex items-start gap-3 p-3 rounded-lg border ${
+  <div className={`flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3 p-3 rounded-lg border ${
     task.priority === 'critical' ? 'border-red-300 bg-red-50 dark:bg-red-950/20' : 'border-border bg-card'
   }`}>
-    <div className={`w-3 h-3 rounded-full mt-1.5 flex-shrink-0 ${statusColors[task.status]}`} />
+    <div className={`w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${statusColors[task.status]}`} />
     <div className="flex-1 min-w-0">
-      <div className="flex items-start justify-between gap-2">
-        <div>
-          <p className="font-medium text-foreground">{task.title}</p>
+      <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+        <div className="min-w-0">
+          <p className="font-medium text-foreground text-sm">{task.title}</p>
           {task.notes && (
-            <p className="text-sm text-muted-foreground mt-1">{task.notes}</p>
+            <p className="text-xs text-muted-foreground mt-1 break-words">{task.notes}</p>
           )}
         </div>
-        <div className="flex items-center gap-2 flex-shrink-0">
+        <div className="flex items-center gap-2 flex-wrap">
           <TaskBadge type={task.type} />
           {task.priority === 'critical' && (
             <Badge variant="destructive" className="text-xs">CRITICAL</Badge>
           )}
         </div>
       </div>
-      <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
+      <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground flex-wrap">
         {task.owner && <span>Owner: <strong>{task.owner}</strong></span>}
         {task.date && <span>Date: <strong>{task.date}</strong></span>}
       </div>
@@ -132,25 +132,28 @@ export const ScheduleTab = () => {
       </div>
 
       <Tabs defaultValue="prereqs" className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
-          <TabsTrigger value="prereqs" className="flex items-center gap-1">
-            <AlertTriangle className="w-4 h-4" />
-            Pre-Reqs
+        <TabsList className="grid w-full grid-cols-3 sm:grid-cols-5 h-auto">
+          <TabsTrigger value="prereqs" className="flex items-center gap-1 text-xs sm:text-sm py-2">
+            <AlertTriangle className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden xs:inline">Pre-Reqs</span>
+            <span className="xs:hidden">Reqs</span>
           </TabsTrigger>
-          <TabsTrigger value="calendar" className="flex items-center gap-1">
-            <Calendar className="w-4 h-4" />
-            Calendar
+          <TabsTrigger value="calendar" className="flex items-center gap-1 text-xs sm:text-sm py-2">
+            <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden xs:inline">Calendar</span>
+            <span className="xs:hidden">Cal</span>
           </TabsTrigger>
-          <TabsTrigger value="deadlines" className="flex items-center gap-1">
-            <AlertCircle className="w-4 h-4" />
-            Deadlines
+          <TabsTrigger value="deadlines" className="flex items-center gap-1 text-xs sm:text-sm py-2">
+            <AlertCircle className="w-3 h-3 sm:w-4 sm:h-4" />
+            <span className="hidden xs:inline">Deadlines</span>
+            <span className="xs:hidden">Due</span>
           </TabsTrigger>
-          <TabsTrigger value="quickwins" className="flex items-center gap-1">
-            <Lightbulb className="w-4 h-4" />
-            Quick Wins
+          <TabsTrigger value="quickwins" className="flex items-center gap-1 text-xs sm:text-sm py-2 hidden sm:flex">
+            <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4" />
+            Wins
           </TabsTrigger>
-          <TabsTrigger value="owners" className="flex items-center gap-1">
-            <Users className="w-4 h-4" />
+          <TabsTrigger value="owners" className="flex items-center gap-1 text-xs sm:text-sm py-2 hidden sm:flex">
+            <Users className="w-3 h-3 sm:w-4 sm:h-4" />
             Owners
           </TabsTrigger>
         </TabsList>
@@ -167,15 +170,15 @@ export const ScheduleTab = () => {
             </CardHeader>
             <CardContent className="pt-4 space-y-3">
               {preReqs.critical.map((prereq) => (
-                <div key={prereq.id} className="flex items-center justify-between p-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-950/20">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-3 h-3 rounded-full ${statusColors[prereq.status]}`} />
-                    <div>
-                      <p className="font-medium text-foreground">{prereq.title}</p>
-                      <p className="text-xs text-muted-foreground">{prereq.dependency}</p>
+                <div key={prereq.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-lg border border-red-200 dark:border-red-800 bg-red-50/50 dark:bg-red-950/20 gap-2">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <div className={`w-3 h-3 rounded-full flex-shrink-0 mt-1 ${statusColors[prereq.status]}`} />
+                    <div className="min-w-0">
+                      <p className="font-medium text-foreground text-sm">{prereq.title}</p>
+                      <p className="text-xs text-muted-foreground break-words">{prereq.dependency}</p>
                     </div>
                   </div>
-                  <div className="text-right">
+                  <div className="text-left sm:text-right ml-6 sm:ml-0 flex-shrink-0">
                     <p className="text-sm font-medium text-foreground">{prereq.owner}</p>
                     <p className="text-xs text-muted-foreground">Due: {prereq.dueDate}</p>
                   </div>
@@ -249,13 +252,13 @@ export const ScheduleTab = () => {
                 open={expandedWeeks.includes(week.weekNumber)}
                 onOpenChange={() => toggleWeek(week.weekNumber)}
               >
-                <CollapsibleTrigger className={`flex items-center justify-between w-full p-4 rounded-lg border text-left transition-colors ${
+                <CollapsibleTrigger className={`flex flex-col sm:flex-row sm:items-center sm:justify-between w-full p-3 sm:p-4 rounded-lg border text-left transition-colors gap-3 ${
                   hasCritical ? 'border-red-300 bg-red-50 dark:bg-red-950/20 hover:bg-red-100 dark:hover:bg-red-950/30' :
                   hasMilestones ? 'border-yellow-300 bg-yellow-50 dark:bg-yellow-950/20 hover:bg-yellow-100 dark:hover:bg-yellow-950/30' :
                   'border-border bg-card hover:bg-muted/50'
                 }`}>
-                  <div className="flex items-center gap-4">
-                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center font-bold text-lg ${
+                  <div className="flex items-center gap-3">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center font-bold text-sm sm:text-lg flex-shrink-0 ${
                       week.weekNumber === 12 ? 'bg-accent text-accent-foreground' :
                       hasCritical ? 'bg-red-500 text-white' :
                       hasMilestones ? 'bg-yellow-500 text-white' :
@@ -263,24 +266,24 @@ export const ScheduleTab = () => {
                     }`}>
                       W{week.weekNumber}
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-foreground">
+                    <div className="min-w-0">
+                      <h4 className="font-semibold text-foreground text-sm sm:text-base">
                         {week.startDate} - {week.endDate}
                       </h4>
-                      <p className="text-sm text-muted-foreground">{week.theme}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground">{week.theme}</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <div className="text-right">
-                      <p className="text-sm font-medium text-foreground">{week.daysUntilEvent} days</p>
-                      <p className="text-xs text-muted-foreground">until event</p>
+                  <div className="flex items-center gap-2 sm:gap-4 ml-13 sm:ml-0 flex-wrap">
+                    <div className="text-left sm:text-right">
+                      <p className="text-xs sm:text-sm font-medium text-foreground">{week.daysUntilEvent} days</p>
+                      <p className="text-xs text-muted-foreground hidden sm:block">until event</p>
                     </div>
                     {week.milestonesDue.length > 0 && (
                       <Badge variant="destructive" className="text-xs">
-                        {week.milestonesDue.length} MILESTONE{week.milestonesDue.length > 1 ? 'S' : ''}
+                        {week.milestonesDue.length} MS
                       </Badge>
                     )}
-                    <ChevronDown className={`w-5 h-5 transition-transform ${
+                    <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform flex-shrink-0 ${
                       expandedWeeks.includes(week.weekNumber) ? '' : '-rotate-90'
                     }`} />
                   </div>
