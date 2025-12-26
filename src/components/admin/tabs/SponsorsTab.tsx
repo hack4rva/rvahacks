@@ -1,12 +1,17 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Handshake, ChevronDown } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Handshake, ChevronDown, AlertCircle, Target, Users, Building2 } from "lucide-react";
 import { 
   trackRecruitment, 
   warmConnections, 
   crossTrackFoundations, 
   sponsorshipStats, 
-  implementationTimeline 
+  implementationTimeline,
+  trackOutreach,
+  crossCuttingOutreach,
+  outreachActionItems,
+  outreachStats
 } from "@/data/sponsorshipPipeline";
 
 export const SponsorsTab = () => {
@@ -116,6 +121,216 @@ export const SponsorsTab = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Priority Outreach Section */}
+        <div className="mb-8">
+          <h4 className="font-semibold mb-4 flex items-center gap-2">
+            <Target className="w-5 h-5" />
+            Priority Outreach Contacts (January 2026)
+          </h4>
+
+          {/* Action Items Banner */}
+          {outreachActionItems.filter(item => item.status === 'pending').length > 0 && (
+            <div className="mb-4 p-4 bg-amber-50 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800 rounded-lg">
+              <h5 className="font-semibold text-amber-800 dark:text-amber-200 flex items-center gap-2 mb-3">
+                <AlertCircle className="w-4 h-4" />
+                Immediate Action Items
+              </h5>
+              <div className="space-y-2">
+                {outreachActionItems.map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between text-sm">
+                    <div className="flex items-center gap-2">
+                      <input 
+                        type="checkbox" 
+                        className="rounded border-amber-300"
+                        disabled
+                      />
+                      <span className="text-amber-900 dark:text-amber-100">{item.action}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant="outline" className="text-xs">{item.owner}</Badge>
+                      <span className="text-xs text-amber-600 dark:text-amber-400">{item.deadline}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Outreach Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6 p-4 bg-muted/30 rounded-lg">
+            <div className="text-center">
+              <p className="text-2xl font-bold text-blue-600">{outreachStats.totalCorporateContacts}</p>
+              <p className="text-xs text-muted-foreground">Corporate Contacts</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-green-600">{outreachStats.totalCommunityContacts}</p>
+              <p className="text-xs text-muted-foreground">Community Contacts</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-accent">{outreachStats.primaryTargets}</p>
+              <p className="text-xs text-muted-foreground">Primary Targets</p>
+            </div>
+            <div className="text-center">
+              <p className="text-2xl font-bold text-orange-500">{outreachStats.contactsWithTBD}</p>
+              <p className="text-xs text-muted-foreground">Contacts TBD</p>
+            </div>
+          </div>
+
+          {/* Outreach by Track */}
+          <div className="space-y-4">
+            {trackOutreach.map((track) => (
+              <Collapsible key={track.trackId} className="border border-border rounded-lg">
+                <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-muted/50 transition-colors">
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg font-bold text-accent">{track.trackId}</span>
+                    <div className="text-left">
+                      <h5 className="font-semibold text-foreground">{track.trackName}</h5>
+                      <p className="text-xs text-muted-foreground">{track.focus}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="secondary" className="flex items-center gap-1">
+                      <Building2 className="w-3 h-3" />
+                      {track.corporateContacts.length}
+                    </Badge>
+                    <Badge variant="secondary" className="flex items-center gap-1">
+                      <Users className="w-3 h-3" />
+                      {track.communityContacts.length}
+                    </Badge>
+                    <ChevronDown className="w-4 h-4 text-muted-foreground" />
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="px-4 pb-4">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    {/* Corporate Contacts */}
+                    <div>
+                      <h6 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                        <Building2 className="w-4 h-4 text-blue-500" />
+                        Corporate Sponsors
+                      </h6>
+                      <div className="space-y-2">
+                        {track.corporateContacts.map((contact, idx) => (
+                          <div 
+                            key={idx} 
+                            className={`p-3 rounded-lg border ${
+                              contact.priority === 'primary' 
+                                ? 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-200 dark:border-blue-800' 
+                                : 'bg-muted/30 border-border'
+                            }`}
+                          >
+                            <div className="flex items-start justify-between">
+                              <div>
+                                <p className="font-medium text-sm">{contact.name}</p>
+                                <p className="text-xs text-muted-foreground">{contact.organization}</p>
+                                {contact.role && (
+                                  <p className="text-xs text-muted-foreground">{contact.role}</p>
+                                )}
+                              </div>
+                              <div className="flex flex-col items-end gap-1">
+                                <Badge 
+                                  variant={contact.priority === 'primary' ? 'default' : 'secondary'}
+                                  className="text-xs"
+                                >
+                                  {contact.priority}
+                                </Badge>
+                                <Badge 
+                                  variant="outline" 
+                                  className={`text-xs ${
+                                    contact.status === 'confirmed' ? 'bg-green-100 text-green-800' :
+                                    contact.status === 'in-conversation' ? 'bg-yellow-100 text-yellow-800' :
+                                    contact.status === 'contacted' ? 'bg-blue-100 text-blue-800' :
+                                    'bg-gray-100 text-gray-600'
+                                  }`}
+                                >
+                                  {contact.status.replace('-', ' ')}
+                                </Badge>
+                              </div>
+                            </div>
+                            {contact.notes && (
+                              <p className="text-xs text-muted-foreground mt-2 italic">
+                                Note: {contact.notes}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Community Contacts */}
+                    <div>
+                      <h6 className="text-sm font-semibold mb-3 flex items-center gap-2">
+                        <Users className="w-4 h-4 text-green-500" />
+                        Nonprofit Partners
+                      </h6>
+                      <div className="space-y-2">
+                        {track.communityContacts.map((contact, idx) => (
+                          <div 
+                            key={idx} 
+                            className={`p-3 rounded-lg border ${
+                              contact.priority === 'primary' 
+                                ? 'bg-green-50/50 dark:bg-green-950/20 border-green-200 dark:border-green-800' 
+                                : 'bg-muted/30 border-border'
+                            }`}
+                          >
+                            <div className="flex items-start justify-between">
+                              <div>
+                                <p className="font-medium text-sm">{contact.name}</p>
+                                <p className="text-xs text-muted-foreground">{contact.organization}</p>
+                                {contact.role && (
+                                  <p className="text-xs text-muted-foreground">{contact.role}</p>
+                                )}
+                              </div>
+                              <div className="flex flex-col items-end gap-1">
+                                <Badge 
+                                  variant={contact.priority === 'primary' ? 'default' : 'secondary'}
+                                  className="text-xs"
+                                >
+                                  {contact.priority}
+                                </Badge>
+                                <Badge 
+                                  variant="outline" 
+                                  className={`text-xs ${
+                                    contact.status === 'confirmed' ? 'bg-green-100 text-green-800' :
+                                    contact.status === 'in-conversation' ? 'bg-yellow-100 text-yellow-800' :
+                                    contact.status === 'contacted' ? 'bg-blue-100 text-blue-800' :
+                                    'bg-gray-100 text-gray-600'
+                                  }`}
+                                >
+                                  {contact.status.replace('-', ' ')}
+                                </Badge>
+                              </div>
+                            </div>
+                            {contact.notes && (
+                              <p className="text-xs text-muted-foreground mt-2 italic">
+                                Note: {contact.notes}
+                              </p>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            ))}
+          </div>
+
+          {/* Cross-Cutting Resources */}
+          {crossCuttingOutreach.length > 0 && (
+            <div className="mt-6">
+              <h5 className="font-semibold mb-3 text-sm">Cross-Cutting Resources (Need Assignment)</h5>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {crossCuttingOutreach.map((item, idx) => (
+                  <div key={idx} className="p-3 bg-purple-50/50 dark:bg-purple-950/20 rounded-lg border border-purple-200 dark:border-purple-800">
+                    <p className="font-medium text-sm">{item.organization}</p>
+                    <p className="text-xs text-muted-foreground">{item.notes}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
         
         {/* Pillar-by-Pillar Breakdown */}
