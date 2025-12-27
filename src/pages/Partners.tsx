@@ -496,13 +496,58 @@ const Partners = () => {
                     </div>
                   </div>
 
+                  {/* Ways to Get Involved */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-3">Ways to Get Involved</h3>
+                    <div className="bg-card rounded-xl border border-border p-5">
+                      <p className="text-sm text-muted-foreground mb-4">
+                        Offer your best designers, technologists, and business folks as mentors to serve shifts during Friday and Saturday hacking. 
+                        All lounges are <strong className="text-foreground">hybrid</strong> (in-person + virtual).
+                      </p>
+                      <div className="grid sm:grid-cols-3 gap-4 mb-4">
+                        <div className="bg-pink-500/5 border border-pink-500/20 rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Palette className="w-5 h-5 text-pink-500" />
+                            <h4 className="font-semibold text-foreground">Artist Lounge</h4>
+                          </div>
+                          <p className="text-xs text-muted-foreground">Design & UX mentors helping teams with user experience, visual design, and prototyping.</p>
+                        </div>
+                        <div className="bg-amber-500/5 border border-amber-500/20 rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Briefcase className="w-5 h-5 text-amber-500" />
+                            <h4 className="font-semibold text-foreground">Hustle Corner</h4>
+                          </div>
+                          <p className="text-xs text-muted-foreground">Business mentors guiding teams on pitch strategy, sustainability, and go-to-market.</p>
+                        </div>
+                        <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <Code className="w-5 h-5 text-blue-500" />
+                            <h4 className="font-semibold text-foreground">Hacker Space</h4>
+                          </div>
+                          <p className="text-xs text-muted-foreground">Technical mentors helping with architecture, APIs, data, and implementation.</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap gap-3 text-xs">
+                        <div className="bg-muted/50 rounded px-3 py-1.5">
+                          <span className="font-medium text-foreground">Friday:</span> 12PM – 5PM
+                        </div>
+                        <div className="bg-muted/50 rounded px-3 py-1.5">
+                          <span className="font-medium text-foreground">Saturday:</span> 9AM – 5PM
+                        </div>
+                        <div className="bg-muted/50 rounded px-3 py-1.5">
+                          <span className="font-medium text-foreground">Format:</span> Hybrid (in-person + virtual)
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                   {/* CTA */}
                   <div className="bg-muted/30 rounded-lg p-5 text-center">
                     <p className="text-sm text-muted-foreground mb-3">
-                      Interested in sponsoring? Reach out to discuss opportunities and custom packages.
+                      Interested in sponsoring or sending mentors? Reach out to discuss opportunities.
                     </p>
                     <Button onClick={handleCTAClick} className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold">
-                      Become a Sponsor
+                      Get Involved
                     </Button>
                   </div>
                 </div>
