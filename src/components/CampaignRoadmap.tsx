@@ -37,7 +37,9 @@ const phases: Phase[] = [
     announcements: [
       { date: "Jan 10", content: '"Hack for RVA is official"' },
       { date: "Jan 10", content: '"Registration is open"' },
-      { date: "Jan 10", content: "Founding partner logos" },
+      { date: "Jan 10", content: "AI Ready RVA (fiscal sponsor)" },
+      { date: "Jan 10", content: "City of Richmond partnership" },
+      { date: "Jan 10", content: "Science Museum of Virginia (venue)" },
     ],
   },
   {
