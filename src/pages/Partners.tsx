@@ -106,6 +106,65 @@ const sponsorshipPackages: SponsorshipPackage[] = [
       "Named in press releases as founding sponsor",
     ],
   },
+  {
+    id: "peoples-choice-sponsor",
+    title: "People's Choice Award",
+    amount: "$2,500",
+    tagline: "The [Your Company] People's Choice Award — voted by the community",
+    benefits: [
+      "Named award: 'The [Company] People's Choice Award'",
+      "Present the award on stage at Sunday finals",
+      "Logo featured on voting materials & ballot",
+      "Judging seat for final presentations",
+      "Logo on website, signage & event materials",
+      "Social media recognition as award sponsor",
+      "Direct engagement with winning team",
+    ],
+  },
+  {
+    id: "judges-choice-sponsor",
+    title: "Judges' Choice Award",
+    amount: "$2,500",
+    tagline: "The [Your Company] Judges' Choice Award — excellence recognized by experts",
+    benefits: [
+      "Named award: 'The [Company] Judges' Choice Award'",
+      "Present the award on stage at Sunday finals",
+      "VIP seat on the judging panel",
+      "Logo featured on all judging materials",
+      "Logo on website, signage & event materials",
+      "Social media recognition as award sponsor",
+      "Direct engagement with winning team",
+    ],
+  },
+  {
+    id: "saturday-lunch-sponsor",
+    title: "Saturday Lunch Sponsor",
+    amount: "$3,000",
+    tagline: "Fueling innovation — Lunch powered by [Your Company]",
+    benefits: [
+      "Brand presence during peak hacking hours",
+      "Signage at all lunch stations citywide",
+      "Speaking opportunity during lunch (2-3 min)",
+      "Logo on website & event materials",
+      "Social media posts featuring your sponsorship",
+      "Recruitment table access on Saturday",
+      "Photo opportunities with 300+ participants",
+    ],
+  },
+  {
+    id: "coffee-sponsor",
+    title: "Coffee & Energy Sponsor",
+    amount: "$2,500",
+    tagline: "Keeping RVA caffeinated — Coffee by [Your Company]",
+    benefits: [
+      "Brand on all coffee stations all weekend",
+      "Custom branded cups or signage",
+      "Logo on website & event materials",
+      "Social media recognition",
+      "Constant visibility throughout event",
+      "Perfect for food/beverage brands",
+    ],
+  },
 ];
 
 const sponsorshipOpportunities: SponsorshipOpportunity[] = [
@@ -120,11 +179,27 @@ const sponsorshipOpportunities: SponsorshipOpportunity[] = [
   { id: "track-5", title: "Track 5: Communities", category: "award", amount: "$1,000", description: "Best inclusion solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
   { id: "track-6", title: "Track 6: Environment", category: "award", amount: "$1,000", description: "Best sustainability solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
   { id: "track-7", title: "Track 7: City Stories", category: "award", amount: "$1,000", description: "Best historical/cultural solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
+  // Special Awards
+  { id: "first-timer", title: "Best First-Time Hacker", category: "award", amount: "$1,000", description: "Outstanding newcomer team", claimedBy: undefined, icon: <Sparkles className="w-5 h-5" />, color: "pink" },
+  { id: "best-ai", title: "Best Use of AI", category: "award", amount: "$1,000", description: "Most innovative AI/ML implementation", claimedBy: undefined, icon: <Code className="w-5 h-5" />, color: "violet" },
+  { id: "accessibility", title: "Best Accessibility", category: "award", amount: "$1,000", description: "Most inclusive & accessible solution", claimedBy: undefined, icon: <Heart className="w-5 h-5" />, color: "pink" },
+  { id: "open-source", title: "Best Open Source", category: "award", amount: "$1,000", description: "Outstanding open-source contribution", claimedBy: undefined, icon: <Code className="w-5 h-5" />, color: "violet" },
+  { id: "student-team", title: "Best Student Team", category: "award", amount: "$1,000", description: "Top team of students or youth", claimedBy: undefined, icon: <Users className="w-5 h-5" />, color: "blue" },
   // Events
-  { id: "banquet", title: "Sunday Awards Banquet", category: "event", amount: "TBD", description: "Host the celebratory finale", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "violet" },
-  { id: "swag", title: "Swag Bags", category: "event", amount: "TBD", description: "Branded items for all participants", claimedBy: undefined, icon: <Gift className="w-5 h-5" />, color: "pink" },
+  { id: "banquet", title: "Sunday Awards Brunch", category: "event", amount: "$3,500", description: "Host the celebratory finale meal", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "violet" },
+  { id: "saturday-lunch", title: "Saturday Lunch", category: "event", amount: "$3,000", description: "Feed 300+ hackers during peak hours", claimedBy: undefined, icon: <UtensilsCrossed className="w-5 h-5" />, color: "orange" },
+  { id: "late-night", title: "Late Night Fuel", category: "event", amount: "$1,500", description: "Snacks & energy for Saturday evening hackers", claimedBy: undefined, icon: <Sparkles className="w-5 h-5" />, color: "pink" },
+  { id: "coffee", title: "Coffee & Energy Station", category: "event", amount: "$2,500", description: "Keep hackers caffeinated all weekend", claimedBy: undefined, icon: <Heart className="w-5 h-5" />, color: "orange" },
+  { id: "wellness", title: "Wellness Lounge", category: "event", amount: "$1,500", description: "Quiet rest area with healthy snacks", claimedBy: undefined, icon: <HandHeart className="w-5 h-5" />, color: "pink" },
+  { id: "swag", title: "Swag Bags", category: "event", amount: "$2,000", description: "Branded items for all 300+ participants", claimedBy: undefined, icon: <Gift className="w-5 h-5" />, color: "pink" },
+  { id: "tshirts", title: "T-Shirt Sponsor", category: "event", amount: "$2,500", description: "Logo on shirts for all participants", claimedBy: undefined, icon: <Users className="w-5 h-5" />, color: "violet" },
+  { id: "photo-video", title: "Photo & Video", category: "event", amount: "$2,000", description: "Professional documentation of the event", claimedBy: undefined, icon: <Sparkles className="w-5 h-5" />, color: "violet" },
   // In-kind
   { id: "venue", title: "Satellite Venue", category: "inkind", description: "Provide hacking space on Saturday", claimedBy: undefined, icon: <MapPin className="w-5 h-5" />, color: "accent" },
+  { id: "cloud-credits", title: "Cloud Credits", category: "inkind", description: "AWS, Azure, or GCP credits for teams", claimedBy: undefined, icon: <Code className="w-5 h-5" />, color: "accent" },
+  { id: "api-access", title: "API / Data Access", category: "inkind", description: "Provide APIs or datasets for teams to build with", claimedBy: undefined, icon: <Code className="w-5 h-5" />, color: "accent" },
+  { id: "dev-tools", title: "Dev Tools & Software", category: "inkind", description: "Licenses, tools, or services for participants", claimedBy: undefined, icon: <Code className="w-5 h-5" />, color: "accent" },
+  { id: "transportation", title: "Transportation", category: "inkind", description: "Shuttles, parking, or rideshare credits", claimedBy: undefined, icon: <MapPin className="w-5 h-5" />, color: "accent" },
 ];
 
 const tabs = [
