@@ -13,7 +13,8 @@ import {
   Code, Palette, Briefcase, Landmark, 
   Heart, HandHeart, Award, Clock, Search, Trophy,
   UtensilsCrossed, Gift, MapPin, Users, Check, 
-  Sparkles, Calendar, ArrowRight, Building2, ClipboardCheck
+  Sparkles, Calendar, ArrowRight, Building2, ClipboardCheck,
+  Star, Mic, BadgeCheck
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import richmondSeal from "@/assets/richmond-seal.png";
@@ -62,6 +63,51 @@ type SponsorshipOpportunity = {
   color: string;
 };
 
+// Featured sponsorship packages
+type SponsorshipPackage = {
+  id: string;
+  title: string;
+  amount: string;
+  tagline: string;
+  benefits: string[];
+  featured?: boolean;
+  claimedBy?: string;
+};
+
+const sponsorshipPackages: SponsorshipPackage[] = [
+  {
+    id: "title-sponsor",
+    title: "Title Sponsor",
+    amount: "$10,000",
+    tagline: "Hack for RVA, Presented by [Your Company]",
+    featured: true,
+    benefits: [
+      "Naming rights on all materials, signage, website & press",
+      "Speaking slot at Opening Ceremony (300+ attendees)",
+      "VIP judging panel seat for final presentations",
+      "Dedicated recruitment table all weekend",
+      "Logo on website, t-shirts, badges & all printed materials",
+      "Named as Title Sponsor in all press releases",
+      "Featured sponsor across all social media channels",
+    ],
+  },
+  {
+    id: "kickoff-sponsor",
+    title: "Kick-Off Sponsor",
+    amount: "$5,000",
+    tagline: "Friday Kick-Off Breakfast & Working Sessions, Sponsored by [Your Company]",
+    benefits: [
+      "Speaking slot Friday morning (3-5 min, 300+ attendees)",
+      "VIP judging role for final presentations",
+      "Branded breakfast experience with signage & table tents",
+      "Logo on website, event signage & printed materials",
+      "Recruitment access to 300+ tech professionals",
+      "Featured social media posts as Kick-Off Sponsor",
+      "Named in press releases as founding sponsor",
+    ],
+  },
+];
+
 const sponsorshipOpportunities: SponsorshipOpportunity[] = [
   // Awards
   { id: "grand-prize", title: "Grand Prize", category: "award", amount: "$5,000", description: "Top overall solution", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "yellow" },
@@ -75,7 +121,6 @@ const sponsorshipOpportunities: SponsorshipOpportunity[] = [
   { id: "track-6", title: "Track 6: Environment", category: "award", amount: "$1,000", description: "Best sustainability solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
   { id: "track-7", title: "Track 7: City Stories", category: "award", amount: "$1,000", description: "Best historical/cultural solution", claimedBy: undefined, icon: <Award className="w-5 h-5" />, color: "blue" },
   // Events
-  { id: "breakfast", title: "Friday Kick-Off Breakfast", category: "event", amount: "TBD", description: "Fuel the start of the hackathon", claimedBy: undefined, icon: <UtensilsCrossed className="w-5 h-5" />, color: "orange" },
   { id: "banquet", title: "Sunday Awards Banquet", category: "event", amount: "TBD", description: "Host the celebratory finale", claimedBy: undefined, icon: <Trophy className="w-5 h-5" />, color: "violet" },
   { id: "swag", title: "Swag Bags", category: "event", amount: "TBD", description: "Branded items for all participants", claimedBy: undefined, icon: <Gift className="w-5 h-5" />, color: "pink" },
   // In-kind
@@ -220,6 +265,67 @@ const Partners = () => {
                     <p className="text-base text-muted-foreground max-w-2xl mx-auto">
                       Sponsor an award or event. Set your own criteria, judge submissions, and put your name on solutions that matter.
                     </p>
+                  </div>
+
+                  {/* Featured Sponsorship Packages */}
+                  <div className="mb-8">
+                    <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-4 flex items-center gap-2">
+                      <Star className="w-4 h-4 text-accent" />
+                      Featured Sponsorship Packages
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      {sponsorshipPackages.map((pkg) => (
+                        <div
+                          key={pkg.id}
+                          className={`relative bg-card rounded-xl border-2 p-5 transition-all hover:shadow-lg ${
+                            pkg.featured 
+                              ? "border-accent shadow-accent/20" 
+                              : "border-border hover:border-accent/50"
+                          }`}
+                        >
+                          {pkg.featured && (
+                            <div className="absolute -top-3 left-4">
+                              <Badge className="bg-accent text-accent-foreground">
+                                <Star className="w-3 h-3 mr-1" /> Premier
+                              </Badge>
+                            </div>
+                          )}
+                          <div className="flex items-start justify-between mb-3">
+                            <div>
+                              <h4 className="text-lg font-bold text-foreground">{pkg.title}</h4>
+                              <p className="text-2xl font-bold text-accent">{pkg.amount}</p>
+                            </div>
+                            {pkg.claimedBy ? (
+                              <Badge variant="outline" className="bg-emerald-500/10 text-emerald-600 border-emerald-500/30">
+                                <Check className="w-3 h-3 mr-1" /> Claimed
+                              </Badge>
+                            ) : (
+                              <Badge variant="outline" className="bg-amber-500/10 text-amber-600 border-amber-500/30">
+                                Available
+                              </Badge>
+                            )}
+                          </div>
+                          <p className="text-sm text-muted-foreground italic mb-4">"{pkg.tagline}"</p>
+                          <ul className="space-y-2">
+                            {pkg.benefits.map((benefit, idx) => (
+                              <li key={idx} className="flex items-start gap-2 text-sm">
+                                <BadgeCheck className="w-4 h-4 text-accent shrink-0 mt-0.5" />
+                                <span className="text-muted-foreground">{benefit}</span>
+                              </li>
+                            ))}
+                          </ul>
+                          {!pkg.claimedBy && (
+                            <Button 
+                              onClick={handleCTAClick} 
+                              className="w-full mt-4 bg-accent hover:bg-accent/90 text-accent-foreground"
+                            >
+                              <Mic className="w-4 h-4 mr-2" />
+                              Inquire About This Package
+                            </Button>
+                          )}
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
                   {/* Legend */}
