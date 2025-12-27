@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1080">
+    <title>Science Museum of Virginia - Instagram</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a1628;
+            --accent: #00c8ff;
+            --accent-secondary: #ff6b35;
+            --accent-purple: #8b5cf6;
+            --text-primary: #ffffff;
+            --text-secondary: #a0b4c8;
+        }
+
+        html, body {
+            width: 1080px;
+            height: 1080px;
+            overflow: hidden;
+        }
+
+        body {
+            background: var(--bg-primary);
+            font-family: 'IBM Plex Mono', monospace;
+            color: var(--text-primary);
+            position: relative;
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(90deg, rgba(0, 200, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 200, 255, 0.03) 1px, transparent 1px);
+            background-size: 54px 54px;
+        }
+
+        .cosmos {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(0, 200, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
+        }
+
+        .star-field {
+            position: absolute;
+            inset: 0;
+        }
+
+        .star-point {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(0, 200, 255, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 1080px;
+            height: 1080px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 48px 60px 100px;
+        }
+
+        .event-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 200, 255, 0.15);
+            border: 1px solid rgba(0, 200, 255, 0.4);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--accent);
+            margin-bottom: 24px;
+            letter-spacing: 1px;
+        }
+
+        .event-badge::before {
+            content: '>';
+        }
+
+        .logo-container {
+            position: relative;
+            width: 320px;
+            height: 180px;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 200, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 200, 255, 0.2);
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-purple), var(--accent-secondary));
+            z-index: -1;
+            border-radius: 18px;
+            opacity: 0.4;
+            filter: blur(12px);
+        }
+
+        .logo {
+            width: 260px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .partner-type {
+            font-size: 13px;
+            color: var(--accent-secondary);
+            margin-bottom: 6px;
+        }
+
+        .partner-type::before {
+            content: '// ';
+            color: var(--text-secondary);
+        }
+
+        .name {
+            font-size: 52px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .name .science {
+            color: var(--accent);
+        }
+
+        .name .museum {
+            color: var(--text-primary);
+        }
+
+        .name-sub {
+            font-size: 22px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            font-weight: 400;
+        }
+
+        .role {
+            font-size: 14px;
+            color: var(--accent-secondary);
+            margin-bottom: 20px;
+            padding: 8px 14px;
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 3px solid var(--accent-secondary);
+        }
+
+        .tagline {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            text-align: center;
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        .focus-grid {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 700px;
+        }
+
+        .focus-item {
+            background: rgba(0, 200, 255, 0.1);
+            border: 1px solid rgba(0, 200, 255, 0.25);
+            padding: 10px 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .focus-icon {
+            font-size: 16px;
+        }
+
+        .focus-text {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 32px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .event-date {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        .hashtag {
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="cosmos"></div>
+    <div class="star-field">
+        <div class="star-point" style="top: 10%; left: 15%;"></div>
+        <div class="star-point" style="top: 25%; left: 80%;"></div>
+        <div class="star-point" style="top: 45%; left: 10%;"></div>
+        <div class="star-point" style="top: 60%; left: 85%;"></div>
+        <div class="star-point" style="top: 80%; left: 25%;"></div>
+        <div class="star-point" style="top: 15%; left: 55%;"></div>
+        <div class="star-point" style="top: 70%; left: 70%;"></div>
+        <div class="star-point" style="top: 35%; left: 40%;"></div>
+    </div>
+    <div class="glow-orb"></div>
+
+    <div class="container">
+        <div class="event-badge">Partner_Announcement</div>
+        
+        <div class="logo-container">
+            <img src="../../src/assets/science-museum-virginia.png" alt="Science Museum of Virginia" class="logo">
+        </div>
+
+        <p class="partner-type">Venue Partner</p>
+        <h1 class="name"><span class="science">Science</span> <span class="museum">Museum</span></h1>
+        <p class="name-sub">of Virginia</p>
+        <p class="role">📍 Venue Sponsor • Where Innovation Happens</p>
+
+        <p class="tagline">The hub of creativity and innovation in Virginia for generations — a de facto hacker space for K12 and beyond. We're hosting everything here.</p>
+
+        <div class="focus-grid">
+            <span class="focus-item"><span class="focus-icon">🏛️</span><span class="focus-text">Sunday Finals Venue</span></span>
+            <span class="focus-item"><span class="focus-icon">🏆</span><span class="focus-text">Awards Ceremony</span></span>
+            <span class="focus-item"><span class="focus-icon">🎤</span><span class="focus-text">Demo Presentations</span></span>
+            <span class="focus-item"><span class="focus-icon">✨</span><span class="focus-text">Inspiring Environment</span></span>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div>
+            <div class="event-name">Richmond_Civic_Hackathon</div>
+            <div class="event-date">June 13-15, 2025 • Science Museum of VA</div>
+        </div>
+        <span class="hashtag">#HackForRVA</span>
+    </div>
+</body>
+</html>
+
